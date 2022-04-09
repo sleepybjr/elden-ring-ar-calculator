@@ -95,7 +95,7 @@ export default class WeaponTable extends Component {
                 } else if (level > 60) {
                     physCalc = 75 + (15 * (level - 60) / 20);
                 } else if (level > 18) {
-                    physCalc = 25 + (50 * (1 - (1 - ((level - 18) / 42) ** 1.2)));
+                    physCalc = 25 + (50 * (1 - ((1 - ((level - 18) / 42)) ** 1.2)));
                 } else {
                     physCalc = 25 * (((level - 1) / 17) ** 1.2);
                 }
@@ -105,7 +105,7 @@ export default class WeaponTable extends Component {
                 } else if (level > 60) {
                     physCalc = 75 + (15 * (level - 60) / 20);
                 } else if (level > 20) {
-                    physCalc = 35 + (40 * (1 - (1 - ((level - 20) / 40) ** 1.2)));
+                    physCalc = 35 + (40 * (1 - ((1 - ((level - 20) / 40)) ** 1.2)));
                 } else {
                     physCalc = 35 * (((level - 1) / 19) ** 1.2);
                 }
@@ -115,7 +115,7 @@ export default class WeaponTable extends Component {
                 } else if (level > 60) {
                     physCalc = 75 + (15 * (level - 60) / 20);
                 } else if (level > 20) {
-                    physCalc = 35 + (40 * (1 - (1 - ((level - 20) / 40) ** 1.2)));
+                    physCalc = 35 + (40 * (1 - ((1 - ((level - 20) / 40)) ** 1.2)));
                 } else {
                     physCalc = 35 * (((level - 1) / 19) ** 1.2);
                 }
@@ -135,7 +135,7 @@ export default class WeaponTable extends Component {
                 } else if (level > 60) {
                     physCalc = 75 + (15 * (level - 60) / 20);
                 } else if (level > 20) {
-                    physCalc = 35 + (40 * (1 - (1 - ((level - 20) / 40) ** 1.2)));
+                    physCalc = 35 + (40 * (1 - ((1 - ((level - 20) / 40)) ** 1.2)));
                 } else {
                     physCalc = 35 * (((level - 1) / 19) ** 1.2);
                 }
@@ -145,7 +145,7 @@ export default class WeaponTable extends Component {
                 } else if (level > 60) {
                     physCalc = 75 + (15 * (level - 60) / 20);
                 } else if (level > 16) {
-                    physCalc = 25 + (50 * (1 - (1 - ((level - 16) / 44) ** 1.2)));
+                    physCalc = 25 + (50 * (1 - ((1 - ((level - 16) / 44)) ** 1.2)));
                 } else {
                     physCalc = 25 * (((level - 1) / 15) ** 1.2);
                 }
