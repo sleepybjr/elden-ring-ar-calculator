@@ -80,7 +80,7 @@ export default class WeaponTable extends Component {
                 levels.intelligence < val.intreq ||
                 levels.faith < val.faireq ||
                 levels.arcane < val.arcreq) {
-                return 'red';
+                return "#FFBBAE";
             } else {
                 return '';
             }
