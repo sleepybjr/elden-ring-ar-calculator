@@ -8,7 +8,6 @@ export default class WeaponLevels extends Component {
     }
 
     handleChangeSomber = (event) => {
-        console.log(event.target.value + ": " + event.target.min + ": " + event.target.max);
         if (event.target.value.length === event.target.maxLength && event.target.value[0] === '0')
             event.target.value = event.target.value.slice(1, event.target.maxLength);
         if (Number(event.target.value) > event.target.max)
