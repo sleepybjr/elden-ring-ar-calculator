@@ -675,8 +675,12 @@ export default class WeaponTable extends Component {
         if (this.state.sort.direction !== null) {
             sortedData = data.sort((a, b) => {
                 if (['fullweaponname', 'weaponType', 'affinity'].includes(this.state.sort.column)) {
-                    const nameA = a[this.state.sort.column].toUpperCase();
-                    const nameB = b[this.state.sort.column].toUpperCase();
+                    let column = this.state.sort.column;
+                    if ('fullweaponname' === this.state.sort.column) {
+                        column = 'weaponname';
+                    }
+                    const nameA = a[column].toUpperCase();
+                    const nameB = b[column].toUpperCase();
                     if (nameA < nameB) {
                         return -1;
                     }
