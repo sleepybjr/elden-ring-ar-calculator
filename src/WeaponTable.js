@@ -9,6 +9,15 @@ import Attack_Element_Correct_Param from './json/attackelementcorrectparam';
 const merged_weapons = Weapon_Damage.map(x => Object.assign(x, Weapon_Reqs_Data.find(y => y.fullweaponname.toUpperCase() === x.name.toUpperCase())));
 const merged_weapons_scaling = Weapon_Scaling.map(x => Object.assign(x, merged_weapons.find(y => y.fullweaponname.toUpperCase() === x.name.toUpperCase())));
 const merged_weapons_all = Calc_Correct_Id.map(x => Object.assign(x, merged_weapons_scaling.find(y => y.fullweaponname.toUpperCase() === x.name.toUpperCase())));
+const typesOrder = {
+    'S' : 0, 
+    'A' : 1, 
+    'B' : 2, 
+    'C' : 3, 
+    'D' : 4, 
+    'E' : 5, 
+    '-' : 6,
+};
 
 export default class WeaponTable extends Component {
     constructor(props) {
@@ -502,7 +511,7 @@ export default class WeaponTable extends Component {
         };
 
         function getScalingLetter(val, maxUpgrade, weaponLevel, type) {
-            let output = '-';
+            let output = {letter: '-', value: 0};
             let scaleNum = 0;
             if (maxUpgrade === 10) {
                 const scaling = val[type + weaponLevel.somber];
@@ -560,7 +569,7 @@ export default class WeaponTable extends Component {
                 scaleNum = scaling * 100;
             }
 
-            return output + " (" + Math.trunc(scaleNum) + ")";
+            return { letter: output, value: Math.trunc(scaleNum)};
         };
 
         let data = this.prepareData();
@@ -597,17 +606,19 @@ export default class WeaponTable extends Component {
 
                     return 0;
                 } else if (['str_scaling_letter', 'dex_scaling_letter', 'int_scaling_letter', 'fai_scaling_letter', 'arc_scaling_letter'].includes(this.state.sort.column)) {
-                    // TODO: fix this
-                    const nameA = a[this.state.sort.column].toUpperCase();
-                    const nameB = b[this.state.sort.column].toUpperCase();
-                    if (nameA < nameB) {
-                        return -1;
-                    }
-                    if (nameA > nameB) {
-                        return 1;
+                    const A = a[this.state.sort.column];
+                    const B = b[this.state.sort.column];
+
+                    const letterAOrder = typesOrder[A.letter];
+                    const letterBOrder = typesOrder[B.letter];
+
+                    const order = letterAOrder - letterBOrder;
+
+                    if (order !== 0) {
+                        return order;
                     }
 
-                    return 0;
+                    return B.value - A.value;
                 } else {
                     return b[this.state.sort.column] - a[this.state.sort.column];
                 }
@@ -779,11 +790,11 @@ export default class WeaponTable extends Component {
                                     <td>{val.final_holy}</td>
                                     <td>{val.final_total_ar}</td>
                                     <td>{val.final_sorcery_scaling}</td>
-                                    <td>{val.str_scaling_letter}</td>
-                                    <td>{val.dex_scaling_letter}</td>
-                                    <td>{val.int_scaling_letter}</td>
-                                    <td>{val.fai_scaling_letter}</td>
-                                    <td>{val.arc_scaling_letter}</td>
+                                    <td>{val.str_scaling_letter.letter !== '-' ? val.str_scaling_letter.letter + ' (' + val.str_scaling_letter.value + ')' : val.str_scaling_letter.letter}</td>
+                                    <td>{val.dex_scaling_letter.letter !== '-' ? val.dex_scaling_letter.letter + ' (' + val.dex_scaling_letter.value + ')' : val.dex_scaling_letter.letter}</td>
+                                    <td>{val.int_scaling_letter.letter !== '-' ? val.int_scaling_letter.letter + ' (' + val.int_scaling_letter.value + ')' : val.int_scaling_letter.letter}</td>
+                                    <td>{val.fai_scaling_letter.letter !== '-' ? val.fai_scaling_letter.letter + ' (' + val.fai_scaling_letter.value + ')' : val.fai_scaling_letter.letter}</td>
+                                    <td>{val.arc_scaling_letter.letter !== '-' ? val.arc_scaling_letter.letter + ' (' + val.arc_scaling_letter.value + ')' : val.arc_scaling_letter.letter}</td>
                                     <td>{val.strreq}</td>
                                     <td>{val.dexreq}</td>
                                     <td>{val.intreq}</td>
