@@ -33,7 +33,7 @@ export default class Levels extends Component {
     render() {
         return (
             <div>
-                <div className='rowC'>
+            <div className='rowC small-spacing'>
                     <label htmlFor="strength">Strength</label>
                     <input type="number" min="1" max="99" pattern="^\d+$" id="strength" name="strength" value={this.props.levels.strength} onChange={this.handleChangeStr} />
                     <label htmlFor="dexterity">Dexterity</label>
@@ -41,7 +41,7 @@ export default class Levels extends Component {
                     <label htmlFor="intelligence">Intelligence</label>
                     <input type="number" min="1" max="99" pattern="^\d+$" id="intelligence" name="intelligence" value={this.props.levels.intelligence} onChange={this.handleChangeInt} />
                 </div>
-                <div className='rowC'>
+                <div className='rowC small-spacing'>
                     <label htmlFor="faith">Faith</label>
                     <input type="number" min="1" max="99" pattern="^\d+$" id="faith" name="faith" value={this.props.levels.faith} onChange={this.handleChangeFai} />
                     <label htmlFor="arcane">Arcane</label>

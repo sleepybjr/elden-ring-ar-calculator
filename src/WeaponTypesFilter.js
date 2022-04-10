@@ -60,9 +60,9 @@ export default class WeaponTypesFilter extends Component {
         );
 
         return (
-            <div>
-                <label htmlFor="weapontypes">Weapon Types</label>
-                <select name="weapontypes" id="weapontypes" size="16" onChange={this.handleChange} multiple>
+            <div className="middle-spacing">
+                <label htmlFor="weapontypes" className="top-label">Weapon Types</label>
+                <select name="weapontypes" id="weapontypes" size="13" onChange={this.handleChange} multiple>
                     {weaponTypesList}
                 </select>
             </div>

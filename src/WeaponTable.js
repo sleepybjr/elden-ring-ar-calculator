@@ -823,35 +823,35 @@ export default class WeaponTable extends Component {
                                 <button type="button"
                                     className={'strreq' === this.state.sort.column ? this.state.sort.direction === "asc" ? "ascending" : this.state.sort.direction === "desc" ? "descending" : "" : ""}
                                     onClick={this.onSort('strreq')}>
-                                    STR Requirement
+                                    STR Req
                                 </button>
                             </th>
                             <th>
                                 <button type="button"
                                     className={'dexreq' === this.state.sort.column ? this.state.sort.direction === "asc" ? "ascending" : this.state.sort.direction === "desc" ? "descending" : "" : ""}
                                     onClick={this.onSort('dexreq')}>
-                                    DEX Requirement
+                                    DEX Req
                                 </button>
                             </th>
                             <th>
                                 <button type="button"
                                     className={'intreq' === this.state.sort.column ? this.state.sort.direction === "asc" ? "ascending" : this.state.sort.direction === "desc" ? "descending" : "" : ""}
                                     onClick={this.onSort('intreq')}>
-                                    INT Requirement
+                                    INT Req
                                 </button>
                             </th>
                             <th>
                                 <button type="button"
                                     className={'faireq' === this.state.sort.column ? this.state.sort.direction === "asc" ? "ascending" : this.state.sort.direction === "desc" ? "descending" : "" : ""}
                                     onClick={this.onSort('faireq')}>
-                                    FAI Requirement
+                                    FAI Req
                                 </button>
                             </th>
                             <th>
                                 <button type="button"
                                     className={'arcreq' === this.state.sort.column ? this.state.sort.direction === "asc" ? "ascending" : this.state.sort.direction === "desc" ? "descending" : "" : ""}
                                     onClick={this.onSort('arcreq')}>
-                                    ARC Requirement
+                                    ARC Req
                                 </button>
                             </th>
                         </tr>

@@ -40,8 +40,8 @@ export default class AffinityFilter extends Component {
         );
 
         return (
-            <div>
-                <label htmlFor="affinity">Affinity</label>
+            <div className="middle-spacing">
+                <label htmlFor="affinity" className="top-label">Affinity</label>
                 <select name="affinity" id="affinity" size="13" defaultValue={this.props.affinityTypeFilter} onChange={this.handleChange} multiple>
                     {affinityTypesList}
                 </select>

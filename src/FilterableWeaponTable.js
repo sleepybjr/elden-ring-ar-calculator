@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import FilterBar from './FilterBar';
 import WeaponTable from './WeaponTable';
 import Levels from './Levels';
+import WeaponLevels from './WeaponLevels';
 import ReactGA from "react-ga4";
 
 export default class FilterableWeaponTable extends Component {
@@ -22,7 +23,7 @@ export default class FilterableWeaponTable extends Component {
             },
             levels: {
                 'strength': 99,
-                'twohand_strength' : Math.trunc(99*1.5),
+                'twohand_strength': Math.trunc(99 * 1.5),
                 'dexterity': 99,
                 'intelligence': 99,
                 'faith': 99,
@@ -63,7 +64,7 @@ export default class FilterableWeaponTable extends Component {
         let newLevels = { ...this.state.levels };
         if (type === 'strength') {
             newLevels.strength = level;
-            newLevels.twohand_strength = Math.trunc(level*1.5);
+            newLevels.twohand_strength = Math.trunc(level * 1.5);
         } else if (type === 'dexterity') {
             newLevels.dexterity = level;
         } else if (type === 'intelligence') {
@@ -83,18 +84,23 @@ export default class FilterableWeaponTable extends Component {
     render() {
         return (
             <div className="container">
-                <Levels
-                    handleLevelChange={this.handleLevelChange}
-                    handleTwoHandedChange={this.handleTwoHandedChange}
-                    {...this.state}
-                />
+                <div className="spacing">
+                    <div>
+                        <Levels
+                            handleLevelChange={this.handleLevelChange}
+                            handleTwoHandedChange={this.handleTwoHandedChange}
+                            {...this.state}
+                        />
+                        <WeaponLevels handleWeaponLevelChange={this.handleWeaponLevelChange} {...this.state} />
+                    </div>
 
-                <FilterBar
-                    handleWeaponTypeFilterChange={this.handleWeaponTypeFilterChange}
-                    handleAffinityTypeFilterChange={this.handleAffinityTypeFilterChange}
-                    handleWeaponLevelChange={this.handleWeaponLevelChange}
-                    {...this.state}
-                />
+                    <FilterBar
+                        handleWeaponTypeFilterChange={this.handleWeaponTypeFilterChange}
+                        handleAffinityTypeFilterChange={this.handleAffinityTypeFilterChange}
+                        handleWeaponLevelChange={this.handleWeaponLevelChange}
+                        {...this.state}
+                    />
+                </div>
                 <WeaponTable {...this.state} />
             </div>
         )

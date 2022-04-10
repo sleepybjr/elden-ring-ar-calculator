@@ -18,11 +18,9 @@ export default class WeaponLevels extends Component {
     render() {
         return (
             <div>
-                <div className='rowC'>
+                <div className='rowC small-spacing'>
                     <label htmlFor="somberlevel">Somber Level</label>
                     <input type="number" min="0" max="10" pattern="^\d+$" id="somberlevel" name="somberlevel" value={this.props.weaponLevels.somber} onChange={this.handleChangeSomber} />
-                </div>
-                <div className='rowC'>
                     <label htmlFor="smithinglevel">Smithing Level</label>
                     <input type="number" min="0" max="25" pattern="^\d+$" id="smithinglevel" name="smithinglevel" value={this.props.weaponLevels.smithing} onChange={this.handleChangeSmithing} />
                 </div>
