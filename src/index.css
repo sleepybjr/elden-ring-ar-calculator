@@ -40,10 +40,18 @@ thead button:hover {
   cursor: pointer;
 }
 
+thead button.ascending {
+  background-color: #bcd8ff;
+}
+
 thead button.ascending::after {
   content: '↑';
   display: inline-block;
   margin-left: 1em;
+}
+
+thead button.descending {
+  background-color: #bcd8ff;
 }
 
 thead button.descending::after {
