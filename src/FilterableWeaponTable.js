@@ -33,7 +33,6 @@ export default class FilterableWeaponTable extends Component {
                 'mind': 99,
                 'endurance': 99,
                 'total_level': 793,
-                'runes_needed': 0,
             },
             twoHanded: false,
         };
@@ -96,7 +95,7 @@ export default class FilterableWeaponTable extends Component {
             Number(newLevels.vigor) +
             Number(newLevels.mind) +
             Number(newLevels.endurance);
-            
+
         this.setState({ levels: newLevels });
     };
 
