@@ -77,10 +77,10 @@ export default class WeaponTable extends Component {
     render() {
         const totalAR = function (val, maxUpgrade, weaponLevel, levels, twoHanded) {
             return getPhyData(val, maxUpgrade, weaponLevel, levels, twoHanded) +
-                getMagData(val, maxUpgrade, weaponLevel, levels) +
-                getFireData(val, maxUpgrade, weaponLevel, levels) +
-                getLighData(val, maxUpgrade, weaponLevel, levels) +
-                getHolyData(val, maxUpgrade, weaponLevel, levels);
+                getMagData(val, maxUpgrade, weaponLevel, levels, twoHanded) +
+                getFireData(val, maxUpgrade, weaponLevel, levels, twoHanded) +
+                getLighData(val, maxUpgrade, weaponLevel, levels, twoHanded) +
+                getHolyData(val, maxUpgrade, weaponLevel, levels, twoHanded);
         };
 
         const highlightReqRow = function (val, levels, isTwoHanded) {
@@ -227,7 +227,7 @@ export default class WeaponTable extends Component {
 
             let strength = levels.strength;
             if (twoHanded === true) {
-                strength *= 1.5;
+                strength = levels.twohand_strength;
             }
 
             const physCalcStr = isScale.physicalScalingStr === 1 ? getPhyCalcData(val.physical, strength) : 0;
@@ -259,11 +259,20 @@ export default class WeaponTable extends Component {
                 phsyArc = basePhys * (val['arc' + 0] * physCalcArc / 100);
             }
 
+            if ((strength < val.strreq && physCalcStr !== 0)||
+                (levels.dexterity < val.dexreq && physCalcDex !== 0)  ||
+                (levels.intelligence < val.intreq && physCalcInt !== 0) ||
+                (levels.faith < val.faireq && physCalcFai !== 0) ||
+                (levels.arcane < val.arcreq && physCalcArc !== 0)
+                ) {
+                return basePhys - (basePhys * 0.4);
+            }
+
             return basePhys + phsyStr + phsyDex + phsyInt + phsyFai + phsyArc;
 
         };
 
-        function getMagData(val, maxUpgrade, weaponLevel, levels) {
+        function getMagData(val, maxUpgrade, weaponLevel, levels, twoHanded) {
             let basePhys = 0;
             let phsyStr = 0;
             let phsyDex = 0;
@@ -280,7 +289,12 @@ export default class WeaponTable extends Component {
                 }
             }
 
-            const physMagStr = isScale.magicScalingStr === 1 ? getPhyCalcData(val.magic, levels.strength) : 0;
+            let strength = levels.strength;
+            if (twoHanded === true) {
+                strength = levels.twohand_strength;
+            }
+
+            const physMagStr = isScale.magicScalingStr === 1 ? getPhyCalcData(val.magic, strength) : 0;
             const physMagDex = isScale.magicScalingDex === 1 ? getPhyCalcData(val.magic, levels.dexterity) : 0;
             const physMagInt = isScale.magicScalingInt === 1 ? getPhyCalcData(val.magic, levels.intelligence) : 0;
             const physMagFai = isScale.magicScalingFai === 1 ? getPhyCalcData(val.magic, levels.faith) : 0;
@@ -309,11 +323,20 @@ export default class WeaponTable extends Component {
                 phsyArc = basePhys * (val['arc' + 0] * physMagArc / 100);
             }
 
+            if ((strength < val.strreq && physMagStr !== 0)||
+                (levels.dexterity < val.dexreq && physMagDex !== 0)  ||
+                (levels.intelligence < val.intreq && physMagInt !== 0) ||
+                (levels.faith < val.faireq && physMagFai !== 0) ||
+                (levels.arcane < val.arcreq && physMagArc !== 0)
+                ) {
+                return basePhys - (basePhys * 0.4);
+            }
+
             return basePhys + phsyStr + phsyDex + phsyInt + phsyFai + phsyArc;
 
         };
 
-        function getFireData(val, maxUpgrade, weaponLevel, levels) {
+        function getFireData(val, maxUpgrade, weaponLevel, levels, twoHanded) {
             let basePhys = 0;
             let phsyStr = 0;
             let phsyDex = 0;
@@ -330,7 +353,12 @@ export default class WeaponTable extends Component {
                 }
             }
 
-            const physFireStr = isScale.fireScalingStr === 1 ? getPhyCalcData(val.fire, levels.strength) : 0;
+            let strength = levels.strength;
+            if (twoHanded === true) {
+                strength = levels.twohand_strength;
+            }
+
+            const physFireStr = isScale.fireScalingStr === 1 ? getPhyCalcData(val.fire, strength) : 0;
             const physFireDex = isScale.fireScalingDex === 1 ? getPhyCalcData(val.fire, levels.dexterity) : 0;
             const physFireInt = isScale.fireScalingInt === 1 ? getPhyCalcData(val.fire, levels.intelligence) : 0;
             const physFireFai = isScale.fireScalingFai === 1 ? getPhyCalcData(val.fire, levels.faith) : 0;
@@ -359,11 +387,20 @@ export default class WeaponTable extends Component {
                 phsyArc = basePhys * (val['arc' + 0] * physFireArc / 100);
             }
 
+            if ((strength < val.strreq && physFireStr !== 0)||
+                (levels.dexterity < val.dexreq && physFireDex !== 0)  ||
+                (levels.intelligence < val.intreq && physFireInt !== 0) ||
+                (levels.faith < val.faireq && physFireFai !== 0) ||
+                (levels.arcane < val.arcreq && physFireArc !== 0)
+                ) {
+                return basePhys - (basePhys * 0.4);
+            }
+
             return basePhys + phsyStr + phsyDex + phsyInt + phsyFai + phsyArc;
 
         };
 
-        function getLighData(val, maxUpgrade, weaponLevel, levels) {
+        function getLighData(val, maxUpgrade, weaponLevel, levels, twoHanded) {
             let basePhys = 0;
             let phsyStr = 0;
             let phsyDex = 0;
@@ -380,7 +417,12 @@ export default class WeaponTable extends Component {
                 }
             }
 
-            const physFireStr = isScale.lightningScalingStr === 1 ? getPhyCalcData(val.lightning, levels.strength) : 0;
+            let strength = levels.strength;
+            if (twoHanded === true) {
+                strength = levels.twohand_strength;
+            }
+
+            const physFireStr = isScale.lightningScalingStr === 1 ? getPhyCalcData(val.lightning, strength) : 0;
             const physFireDex = isScale.lightningScalingDex === 1 ? getPhyCalcData(val.lightning, levels.dexterity) : 0;
             const physFireInt = isScale.lightningScalingInt === 1 ? getPhyCalcData(val.lightning, levels.intelligence) : 0;
             const physFireFai = isScale.lightningScalingFai === 1 ? getPhyCalcData(val.lightning, levels.faith) : 0;
@@ -409,11 +451,20 @@ export default class WeaponTable extends Component {
                 phsyArc = basePhys * (val['arc' + 0] * physFireArc / 100);
             }
 
+            if ((strength < val.strreq && physFireStr !== 0)||
+                (levels.dexterity < val.dexreq && physFireStr !== 0)  ||
+                (levels.intelligence < val.intreq && physFireStr !== 0) ||
+                (levels.faith < val.faireq && physFireStr !== 0) ||
+                (levels.arcane < val.arcreq && physFireStr !== 0)
+                ) {
+                return basePhys - (basePhys * 0.4);
+            }
+
             return basePhys + phsyStr + phsyDex + phsyInt + phsyFai + phsyArc;
 
         };
 
-        function getHolyData(val, maxUpgrade, weaponLevel, levels) {
+        function getHolyData(val, maxUpgrade, weaponLevel, levels, twoHanded) {
             let basePhys = 0;
             let phsyStr = 0;
             let phsyDex = 0;
@@ -429,8 +480,13 @@ export default class WeaponTable extends Component {
                     break;
                 }
             }
+            
+            let strength = levels.strength;
+            if (twoHanded === true) {
+                strength = levels.twohand_strength;
+            }
 
-            const physFireStr = isScale.holyScalingStr === 1 ? getPhyCalcData(val.holy, levels.strength) : 0;
+            const physFireStr = isScale.holyScalingStr === 1 ? getPhyCalcData(val.holy, strength) : 0;
             const physFireDex = isScale.holyScalingDex === 1 ? getPhyCalcData(val.holy, levels.dexterity) : 0;
             const physFireInt = isScale.holyScalingInt === 1 ? getPhyCalcData(val.holy, levels.intelligence) : 0;
             const physFireFai = isScale.holyScalingFai === 1 ? getPhyCalcData(val.holy, levels.faith) : 0;
@@ -459,11 +515,20 @@ export default class WeaponTable extends Component {
                 phsyArc = basePhys * (val['arc' + 0] * physFireArc / 100);
             }
 
+            if ((strength < val.strreq && physFireStr !== 0)||
+                (levels.dexterity < val.dexreq && physFireDex !== 0)  ||
+                (levels.intelligence < val.intreq && physFireInt !== 0) ||
+                (levels.faith < val.faireq && physFireFai !== 0) ||
+                (levels.arcane < val.arcreq && physFireArc !== 0)
+                ) {
+                return basePhys - (basePhys * 0.4);
+            }
+
             return basePhys + phsyStr + phsyDex + phsyInt + phsyFai + phsyArc;
 
         };
 
-        function getSorceryScaling(val, maxUpgrade, weaponLevel, levels) {
+        function getSorceryScaling(val, maxUpgrade, weaponLevel, levels, twoHanded) {
             let phsyStr = 0;
             let phsyDex = 0;
             let phsyInt = 0;
@@ -484,8 +549,13 @@ export default class WeaponTable extends Component {
                     break;
                 }
             }
+            
+            let strength = levels.strength;
+            if (twoHanded === true) {
+                strength = levels.twohand_strength;
+            }
 
-            const physMagStr = isScale.magicScalingStr === 1 ? getPhyCalcData(val.magic, levels.strength) : 0;
+            const physMagStr = isScale.magicScalingStr === 1 ? getPhyCalcData(val.magic, strength) : 0;
             const physMagDex = isScale.magicScalingDex === 1 ? getPhyCalcData(val.magic, levels.dexterity) : 0;
             const physMagInt = isScale.magicScalingInt === 1 ? getPhyCalcData(val.magic, levels.intelligence) : 0;
             const physMagFai = isScale.magicScalingFai === 1 ? getPhyCalcData(val.magic, levels.faith) : 0;
@@ -581,12 +651,12 @@ export default class WeaponTable extends Component {
         //calc data
         data.forEach((val) => {
             val.final_physical = Math.trunc(getPhyData(val, val.maxUpgrade, this.props.weaponLevels, this.props.levels, this.props.twoHanded));
-            val.final_magic = Math.trunc(getMagData(val, val.maxUpgrade, this.props.weaponLevels, this.props.levels));
-            val.final_fire = Math.trunc(getFireData(val, val.maxUpgrade, this.props.weaponLevels, this.props.levels));
-            val.final_lightning = Math.trunc(getLighData(val, val.maxUpgrade, this.props.weaponLevels, this.props.levels));
-            val.final_holy = Math.trunc(getHolyData(val, val.maxUpgrade, this.props.weaponLevels, this.props.levels));
+            val.final_magic = Math.trunc(getMagData(val, val.maxUpgrade, this.props.weaponLevels, this.props.levels, this.props.twoHande));
+            val.final_fire = Math.trunc(getFireData(val, val.maxUpgrade, this.props.weaponLevels, this.props.levels, this.props.twoHande));
+            val.final_lightning = Math.trunc(getLighData(val, val.maxUpgrade, this.props.weaponLevels, this.props.levels, this.props.twoHande));
+            val.final_holy = Math.trunc(getHolyData(val, val.maxUpgrade, this.props.weaponLevels, this.props.levels, this.props.twoHande));
             val.final_total_ar = Math.trunc(totalAR(val, val.maxUpgrade, this.props.weaponLevels, this.props.levels, this.props.twoHanded));
-            val.final_sorcery_scaling = Math.trunc(getSorceryScaling(val, val.maxUpgrade, this.props.weaponLevels, this.props.levels));
+            val.final_sorcery_scaling = Math.trunc(getSorceryScaling(val, val.maxUpgrade, this.props.weaponLevels, this.props.levels, this.props.twoHande));
 
             val.str_scaling_letter = getScalingLetter(val, val.maxUpgrade, this.props.weaponLevels, "str");
             val.dex_scaling_letter = getScalingLetter(val, val.maxUpgrade, this.props.weaponLevels, "dex");
