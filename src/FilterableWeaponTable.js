@@ -4,6 +4,7 @@ import FilterBar from './FilterBar';
 import WeaponTable from './WeaponTable';
 import Levels from './Levels';
 import WeaponLevels from './WeaponLevels';
+import OtherLevels from './OtherLevels';
 import ReactGA from "react-ga4";
 
 export default class FilterableWeaponTable extends Component {
@@ -28,6 +29,11 @@ export default class FilterableWeaponTable extends Component {
                 'intelligence': 99,
                 'faith': 99,
                 'arcane': 99,
+                'vigor': 99,
+                'mind': 99,
+                'endurance': 99,
+                'total_level': 793,
+                'runes_needed': 0,
             },
             twoHanded: false,
         };
@@ -73,7 +79,24 @@ export default class FilterableWeaponTable extends Component {
             newLevels.faith = level;
         } else if (type === 'arcane') {
             newLevels.arcane = level;
+        } else if (type === 'vigor') {
+            newLevels.vigor = level;
+        } else if (type === 'mind') {
+            newLevels.mind = level;
+        } else if (type === 'endurance') {
+            newLevels.endurance = level;
         }
+
+        newLevels.total_level = 1 +
+            Number(newLevels.strength) +
+            Number(newLevels.dexterity) +
+            Number(newLevels.intelligence) +
+            Number(newLevels.faith) +
+            Number(newLevels.arcane) +
+            Number(newLevels.vigor) +
+            Number(newLevels.mind) +
+            Number(newLevels.endurance);
+            
         this.setState({ levels: newLevels });
     };
 
@@ -100,8 +123,14 @@ export default class FilterableWeaponTable extends Component {
                         handleWeaponLevelChange={this.handleWeaponLevelChange}
                         {...this.state}
                     />
+
+                    <OtherLevels
+                        handleLevelChange={this.handleLevelChange}
+                        {...this.state}
+                    />
                 </div>
                 <WeaponTable {...this.state} />
+
             </div>
         )
     };

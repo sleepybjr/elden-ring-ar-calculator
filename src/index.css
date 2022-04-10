@@ -78,6 +78,10 @@ tbody tr:hover {
   margin-top: 6px;
 }
 
+.extra-spacing {
+  margin-top: 9px;
+}
+
 .middle-spacing {
   margin-left: 10px;
   margin-right: 10px;
