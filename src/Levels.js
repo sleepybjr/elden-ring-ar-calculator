@@ -12,18 +12,38 @@ export default class Levels extends Component {
     }
 
     handleChangeStr = (event) => {
+        if (event.target.value.length === event.target.maxLength && event.target.value[0] === '0')
+            event.target.value = event.target.value.slice(1, event.target.maxLength);
+        if (Number(event.target.value) > event.target.max)
+            event.target.value = Math.trunc(event.target.value / 10);
         this.props.handleLevelChange(event.target.value, 'strength');
     };
     handleChangeDex = (event) => {
+        if (event.target.value.length === event.target.maxLength && event.target.value[0] === '0')
+            event.target.value = event.target.value.slice(1, event.target.maxLength);
+        if (Number(event.target.value) > event.target.max)
+            event.target.value = Math.trunc(event.target.value / 10);
         this.props.handleLevelChange(event.target.value, 'dexterity');
     };
     handleChangeInt = (event) => {
+        if (event.target.value.length === event.target.maxLength && event.target.value[0] === '0')
+            event.target.value = event.target.value.slice(1, event.target.maxLength);
+        if (Number(event.target.value) > event.target.max)
+            event.target.value = Math.trunc(event.target.value / 10);
         this.props.handleLevelChange(event.target.value, 'intelligence');
     };
     handleChangeFai = (event) => {
+        if (event.target.value.length === event.target.maxLength && event.target.value[0] === '0')
+            event.target.value = event.target.value.slice(1, event.target.maxLength);
+        if (Number(event.target.value) > event.target.max)
+            event.target.value = Math.trunc(event.target.value / 10);
         this.props.handleLevelChange(event.target.value, 'faith');
     };
     handleChangeArc = (event) => {
+        if (event.target.value.length === event.target.maxLength && event.target.value[0] === '0')
+            event.target.value = event.target.value.slice(1, event.target.maxLength);
+        if (Number(event.target.value) > event.target.max)
+            event.target.value = Math.trunc(event.target.value / 10);
         this.props.handleLevelChange(event.target.value, 'arcane');
     };
     handleChangeTwoHanded = (event) => {
@@ -35,17 +55,17 @@ export default class Levels extends Component {
             <div>
             <div className='rowC small-spacing'>
                     <label htmlFor="strength">Strength</label>
-                    <input type="number" min="1" max="99" pattern="^\d+$" id="strength" name="strength" value={this.props.levels.strength} onChange={this.handleChangeStr} />
+                    <input type="number" min="8" max="99" maxlength="2" inputmode="numeric" id="strength" name="strength" value={this.props.levels.strength} onChange={this.handleChangeStr} onKeyDown={(evt) => ["e", "E", "+", "-", "."].includes(evt.key) && evt.preventDefault()} />
                     <label htmlFor="dexterity">Dexterity</label>
-                    <input type="number" min="1" max="99" pattern="^\d+$" id="dexterity" name="dexterity" value={this.props.levels.dexterity} onChange={this.handleChangeDex} />
+                    <input type="number" min="9" max="99" maxlength="2" inputmode="numeric" id="dexterity" name="dexterity" value={this.props.levels.dexterity} onChange={this.handleChangeDex} onKeyDown={(evt) => ["e", "E", "+", "-", "."].includes(evt.key) && evt.preventDefault()} />
                     <label htmlFor="intelligence">Intelligence</label>
-                    <input type="number" min="1" max="99" pattern="^\d+$" id="intelligence" name="intelligence" value={this.props.levels.intelligence} onChange={this.handleChangeInt} />
+                    <input type="number" min="7" max="99" maxlength="2" inputmode="numeric" id="intelligence" name="intelligence" value={this.props.levels.intelligence} onChange={this.handleChangeInt} onKeyDown={(evt) => ["e", "E", "+", "-", "."].includes(evt.key) && evt.preventDefault()} />
                 </div>
                 <div className='rowC small-spacing'>
                     <label htmlFor="faith">Faith</label>
-                    <input type="number" min="1" max="99" pattern="^\d+$" id="faith" name="faith" value={this.props.levels.faith} onChange={this.handleChangeFai} />
+                    <input type="number" min="7" max="99" maxlength="2" inputmode="numeric" id="faith" name="faith" value={this.props.levels.faith} onChange={this.handleChangeFai} onKeyDown={(evt) => ["e", "E", "+", "-", "."].includes(evt.key) && evt.preventDefault()} />
                     <label htmlFor="arcane">Arcane</label>
-                    <input type="number" min="1" max="99" pattern="^^\d+$" id="arcane" name="arcane" value={this.props.levels.arcane} onChange={this.handleChangeArc} />
+                    <input type="number" min="7" max="99" maxlength="2" inputmode="numeric" id="arcane" name="arcane" value={this.props.levels.arcane} onChange={this.handleChangeArc} onKeyDown={(evt) => ["e", "E", "+", "-", "."].includes(evt.key) && evt.preventDefault()} />
                     <label htmlFor="twohand">Two-handed</label>
                     <input type="checkbox" id="twohand" name="twohand" defaultChecked={this.props.twoHanded} onChange={this.handleChangeTwoHanded} />
                 </div>
