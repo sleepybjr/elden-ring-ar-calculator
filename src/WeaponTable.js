@@ -83,8 +83,12 @@ export default class WeaponTable extends Component {
                 getHolyData(val, maxUpgrade, weaponLevel, levels);
         };
 
-        const highlightReqRow = function (val, levels) {
-            if (levels.strength < val.strreq ||
+        const highlightReqRow = function (val, levels, isTwoHanded) {
+            let strength = levels.strength;
+            if (isTwoHanded) {
+                strength = levels.twohand_strength;
+            }
+            if (strength < val.strreq ||
                 levels.dexterity < val.dexreq ||
                 levels.intelligence < val.intreq ||
                 levels.faith < val.faireq ||
@@ -779,7 +783,7 @@ export default class WeaponTable extends Component {
                     <tbody>
                         {sortedData.map((val, key) => {
                             return (
-                                <tr style={{ backgroundColor: highlightReqRow(val, this.props.levels) }} key={key}>
+                                <tr style={{ backgroundColor: highlightReqRow(val, this.props.levels, this.props.twoHanded) }} key={key}>
                                     <td>{val.fullweaponname}</td>
                                     <td>{val.weaponType}</td>
                                     <td>{val.affinity}</td>

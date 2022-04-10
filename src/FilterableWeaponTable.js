@@ -22,6 +22,7 @@ export default class FilterableWeaponTable extends Component {
             },
             levels: {
                 'strength': 99,
+                'twohand_strength' : Math.trunc(99*1.5),
                 'dexterity': 99,
                 'intelligence': 99,
                 'faith': 99,
@@ -62,6 +63,7 @@ export default class FilterableWeaponTable extends Component {
         let newLevels = { ...this.state.levels };
         if (type === 'strength') {
             newLevels.strength = level;
+            newLevels.twohand_strength = Math.trunc(level*1.5);
         } else if (type === 'dexterity') {
             newLevels.dexterity = level;
         } else if (type === 'intelligence') {
