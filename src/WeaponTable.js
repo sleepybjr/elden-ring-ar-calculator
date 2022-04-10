@@ -18,6 +18,12 @@ const typesOrder = {
     'E' : 5, 
     '-' : 6,
 };
+const noTwoHandBuff = new Set([
+    "Hookclaws", "Venomous Fang", "Bloodhound Claws", "Raptor Talons",
+    "Caestus", "Spiked Caestus", "Grafted Dragon", "Iron Ball", "Star Fist", "Katar", "Clinging Bone", "Veteran's Prosthesis", "Cipher Pata",
+    "Starscourge Greatsword",
+    "Ornamental Straight Sword",
+]);
 
 export default class WeaponTable extends Component {
     constructor(props) {
@@ -85,7 +91,7 @@ export default class WeaponTable extends Component {
 
         const highlightReqRow = function (val, levels, isTwoHanded) {
             let strength = levels.strength;
-            if (isTwoHanded) {
+            if (isTwoHanded && !noTwoHandBuff.has(val.weaponname)) {
                 strength = levels.twohand_strength;
             }
             if (strength < val.strreq ||
@@ -226,7 +232,7 @@ export default class WeaponTable extends Component {
             }
 
             let strength = levels.strength;
-            if (twoHanded === true) {
+            if (twoHanded === true && !noTwoHandBuff.has(val.weaponname)) {
                 strength = levels.twohand_strength;
             }
 
@@ -290,7 +296,7 @@ export default class WeaponTable extends Component {
             }
 
             let strength = levels.strength;
-            if (twoHanded === true) {
+            if (twoHanded === true && !noTwoHandBuff.has(val.weaponname)) {
                 strength = levels.twohand_strength;
             }
 
@@ -354,7 +360,7 @@ export default class WeaponTable extends Component {
             }
 
             let strength = levels.strength;
-            if (twoHanded === true) {
+            if (twoHanded === true && !noTwoHandBuff.has(val.weaponname)) {
                 strength = levels.twohand_strength;
             }
 
@@ -418,7 +424,7 @@ export default class WeaponTable extends Component {
             }
 
             let strength = levels.strength;
-            if (twoHanded === true) {
+            if (twoHanded === true && !noTwoHandBuff.has(val.weaponname)) {
                 strength = levels.twohand_strength;
             }
 
@@ -482,7 +488,7 @@ export default class WeaponTable extends Component {
             }
             
             let strength = levels.strength;
-            if (twoHanded === true) {
+            if (twoHanded === true && !noTwoHandBuff.has(val.weaponname)) {
                 strength = levels.twohand_strength;
             }
 
@@ -551,7 +557,7 @@ export default class WeaponTable extends Component {
             }
             
             let strength = levels.strength;
-            if (twoHanded === true) {
+            if (twoHanded === true && !noTwoHandBuff.has(val.weaponname)) {
                 strength = levels.twohand_strength;
             }
 
@@ -651,12 +657,12 @@ export default class WeaponTable extends Component {
         //calc data
         data.forEach((val) => {
             val.final_physical = Math.trunc(getPhyData(val, val.maxUpgrade, this.props.weaponLevels, this.props.levels, this.props.twoHanded));
-            val.final_magic = Math.trunc(getMagData(val, val.maxUpgrade, this.props.weaponLevels, this.props.levels, this.props.twoHande));
-            val.final_fire = Math.trunc(getFireData(val, val.maxUpgrade, this.props.weaponLevels, this.props.levels, this.props.twoHande));
-            val.final_lightning = Math.trunc(getLighData(val, val.maxUpgrade, this.props.weaponLevels, this.props.levels, this.props.twoHande));
-            val.final_holy = Math.trunc(getHolyData(val, val.maxUpgrade, this.props.weaponLevels, this.props.levels, this.props.twoHande));
+            val.final_magic = Math.trunc(getMagData(val, val.maxUpgrade, this.props.weaponLevels, this.props.levels, this.props.twoHanded));
+            val.final_fire = Math.trunc(getFireData(val, val.maxUpgrade, this.props.weaponLevels, this.props.levels, this.props.twoHanded));
+            val.final_lightning = Math.trunc(getLighData(val, val.maxUpgrade, this.props.weaponLevels, this.props.levels, this.props.twoHanded));
+            val.final_holy = Math.trunc(getHolyData(val, val.maxUpgrade, this.props.weaponLevels, this.props.levels, this.props.twoHanded));
             val.final_total_ar = Math.trunc(totalAR(val, val.maxUpgrade, this.props.weaponLevels, this.props.levels, this.props.twoHanded));
-            val.final_sorcery_scaling = Math.trunc(getSorceryScaling(val, val.maxUpgrade, this.props.weaponLevels, this.props.levels, this.props.twoHande));
+            val.final_sorcery_scaling = Math.trunc(getSorceryScaling(val, val.maxUpgrade, this.props.weaponLevels, this.props.levels, this.props.twoHanded));
 
             val.str_scaling_letter = getScalingLetter(val, val.maxUpgrade, this.props.weaponLevels, "str");
             val.dex_scaling_letter = getScalingLetter(val, val.maxUpgrade, this.props.weaponLevels, "dex");
