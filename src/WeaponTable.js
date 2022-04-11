@@ -851,7 +851,7 @@ export default class WeaponTable extends Component {
                     if ('fullweaponname' === this.state.sort.column) {
                         column = 'weaponname';
                     }
-
+                    
                     const nameA = a[column] ? a[column].toUpperCase() : 'Ω';
                     const nameB = b[column] ? b[column].toUpperCase() : 'Ω';
                     if (nameA < nameB) {

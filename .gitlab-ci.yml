@@ -20,6 +20,7 @@ pages:
     - rm -rf public
     - cp build/index.html build/404.html
     - mv build public
+    - gzip -k -6 $(find public -type f)
   artifacts:
     paths:
       - public
