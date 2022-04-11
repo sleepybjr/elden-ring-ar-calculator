@@ -5,18 +5,20 @@ import Weapon_Damage from './json/weapon_damage';
 import Weapon_Scaling from './json/weapon_scaling';
 import Calc_Correct_Id from './json/calc_correct_id';
 import Attack_Element_Correct_Param from './json/attackelementcorrectparam';
+import Weapon_Passive from './json/weapon_passive';
 
 const merged_weapons = Weapon_Damage.map(x => Object.assign(x, Weapon_Reqs_Data.find(y => y.fullweaponname.toUpperCase() === x.name.toUpperCase())));
 const merged_weapons_scaling = Weapon_Scaling.map(x => Object.assign(x, merged_weapons.find(y => y.fullweaponname.toUpperCase() === x.name.toUpperCase())));
 const merged_weapons_all = Calc_Correct_Id.map(x => Object.assign(x, merged_weapons_scaling.find(y => y.fullweaponname.toUpperCase() === x.name.toUpperCase())));
+const merged_weapons_all_w_passive = Weapon_Passive.map(x => Object.assign(x, merged_weapons_all.find(y => y.fullweaponname.toUpperCase() === x.name.toUpperCase())));
 const typesOrder = {
-    'S' : 0, 
-    'A' : 1, 
-    'B' : 2, 
-    'C' : 3, 
-    'D' : 4, 
-    'E' : 5, 
-    '-' : 6,
+    'S': 0,
+    'A': 1,
+    'B': 2,
+    'C': 3,
+    'D': 4,
+    'E': 5,
+    '-': 6,
 };
 const noTwoHandBuff = new Set([
     "Hookclaws", "Venomous Fang", "Bloodhound Claws", "Raptor Talons",
@@ -74,7 +76,7 @@ export default class WeaponTable extends Component {
     };
 
     prepareData = () => {
-        const data = merged_weapons_all;
+        const data = merged_weapons_all_w_passive;
         const weaponTypeFilter = this.props.weaponTypeFilter;
         const affinityTypeFilter = this.props.affinityTypeFilter;
         const filteredDataWeapon = weaponTypeFilter.length === 0 ? data : data.filter(this.filterByWeaponTypes(weaponTypeFilter));
@@ -268,12 +270,12 @@ export default class WeaponTable extends Component {
                 phsyArc = basePhys * (val['arc' + 0] * physCalcArc / 100);
             }
 
-            if ((strength < val.strreq && physCalcStr !== 0)||
-                (levels.dexterity < val.dexreq && physCalcDex !== 0)  ||
+            if ((strength < val.strreq && physCalcStr !== 0) ||
+                (levels.dexterity < val.dexreq && physCalcDex !== 0) ||
                 (levels.intelligence < val.intreq && physCalcInt !== 0) ||
                 (levels.faith < val.faireq && physCalcFai !== 0) ||
                 (levels.arcane < val.arcreq && physCalcArc !== 0)
-                ) {
+            ) {
                 return basePhys - (basePhys * 0.4);
             }
 
@@ -332,12 +334,12 @@ export default class WeaponTable extends Component {
                 phsyArc = basePhys * (val['arc' + 0] * physMagArc / 100);
             }
 
-            if ((strength < val.strreq && physMagStr !== 0)||
-                (levels.dexterity < val.dexreq && physMagDex !== 0)  ||
+            if ((strength < val.strreq && physMagStr !== 0) ||
+                (levels.dexterity < val.dexreq && physMagDex !== 0) ||
                 (levels.intelligence < val.intreq && physMagInt !== 0) ||
                 (levels.faith < val.faireq && physMagFai !== 0) ||
                 (levels.arcane < val.arcreq && physMagArc !== 0)
-                ) {
+            ) {
                 return basePhys - (basePhys * 0.4);
             }
 
@@ -396,12 +398,12 @@ export default class WeaponTable extends Component {
                 phsyArc = basePhys * (val['arc' + 0] * physFireArc / 100);
             }
 
-            if ((strength < val.strreq && physFireStr !== 0)||
-                (levels.dexterity < val.dexreq && physFireDex !== 0)  ||
+            if ((strength < val.strreq && physFireStr !== 0) ||
+                (levels.dexterity < val.dexreq && physFireDex !== 0) ||
                 (levels.intelligence < val.intreq && physFireInt !== 0) ||
                 (levels.faith < val.faireq && physFireFai !== 0) ||
                 (levels.arcane < val.arcreq && physFireArc !== 0)
-                ) {
+            ) {
                 return basePhys - (basePhys * 0.4);
             }
 
@@ -460,12 +462,12 @@ export default class WeaponTable extends Component {
                 phsyArc = basePhys * (val['arc' + 0] * physFireArc / 100);
             }
 
-            if ((strength < val.strreq && physFireStr !== 0)||
-                (levels.dexterity < val.dexreq && physFireStr !== 0)  ||
+            if ((strength < val.strreq && physFireStr !== 0) ||
+                (levels.dexterity < val.dexreq && physFireStr !== 0) ||
                 (levels.intelligence < val.intreq && physFireStr !== 0) ||
                 (levels.faith < val.faireq && physFireStr !== 0) ||
                 (levels.arcane < val.arcreq && physFireStr !== 0)
-                ) {
+            ) {
                 return basePhys - (basePhys * 0.4);
             }
 
@@ -489,7 +491,7 @@ export default class WeaponTable extends Component {
                     break;
                 }
             }
-            
+
             let strength = levels.strength;
             if ((twoHanded === true && !noTwoHandBuff.has(val.weaponname)) || autoTwoHandBuff.has(val.weaponType)) {
                 strength = levels.twohand_strength;
@@ -524,12 +526,12 @@ export default class WeaponTable extends Component {
                 phsyArc = basePhys * (val['arc' + 0] * physFireArc / 100);
             }
 
-            if ((strength < val.strreq && physFireStr !== 0)||
-                (levels.dexterity < val.dexreq && physFireDex !== 0)  ||
+            if ((strength < val.strreq && physFireStr !== 0) ||
+                (levels.dexterity < val.dexreq && physFireDex !== 0) ||
                 (levels.intelligence < val.intreq && physFireInt !== 0) ||
                 (levels.faith < val.faireq && physFireFai !== 0) ||
                 (levels.arcane < val.arcreq && physFireArc !== 0)
-                ) {
+            ) {
                 return basePhys - (basePhys * 0.4);
             }
 
@@ -558,7 +560,7 @@ export default class WeaponTable extends Component {
                     break;
                 }
             }
-            
+
             let strength = levels.strength;
             if (twoHanded === true && !noTwoHandBuff.has(val.weaponname)) {
                 strength = levels.twohand_strength;
@@ -594,7 +596,7 @@ export default class WeaponTable extends Component {
         };
 
         function getScalingLetter(val, maxUpgrade, weaponLevel, type) {
-            let output = {letter: '-', value: 0};
+            let output = { letter: '-', value: 0 };
             let scaleNum = 0;
             if (maxUpgrade === 10) {
                 const scaling = val[type + weaponLevel.somber];
@@ -652,7 +654,170 @@ export default class WeaponTable extends Component {
                 scaleNum = scaling * 100;
             }
 
-            return { letter: output, value: Math.trunc(scaleNum)};
+            return { letter: output, value: Math.trunc(scaleNum) };
+        };
+
+        function getPassiveData(val, maxUpgrade, weaponLevel, levels) {
+            let physRotMadSleep = 0;
+            let physFrost = 0;
+            let phsyPoison = 0;
+            let phsyBlood = 0;
+            let arcScaling = 0;
+
+            let passiveArcaneCalcCorrect = 10 * (levels.arcane - 1) / 24;
+            if (levels.arcane > 60) {
+                passiveArcaneCalcCorrect = 90 + (10 * (levels.arcane - 60) / 39);
+            } else if (levels.arcane > 45) {
+                passiveArcaneCalcCorrect = 75 + (15 * (levels.arcane - 45) / 15);
+            } else if (levels.arcane > 25) {
+                passiveArcaneCalcCorrect = 10 + (65 * (levels.arcane - 25) / 20);
+            }
+
+            passiveArcaneCalcCorrect /= 100;
+
+            let type = "scarletRot"; // default rot
+            if (val.type1 === "Madness") {
+                type = "madness";
+            } else if (val.type1 === "Sleep") {
+                type = "sleep";
+            }
+
+            if (maxUpgrade === 10) {
+                physRotMadSleep = val[type + weaponLevel.somber];
+                physFrost = val['frost' + weaponLevel.somber];
+                phsyPoison = val['poison' + weaponLevel.somber];
+                phsyBlood = val['blood' + weaponLevel.somber];
+                arcScaling = val['arc' + weaponLevel.somber]
+            } else if (maxUpgrade === 25) {
+                physRotMadSleep = val[type + weaponLevel.smithing];
+                physFrost = val['frost' + weaponLevel.smithing];
+                phsyPoison = val['poison' + weaponLevel.smithing];
+                phsyBlood = val['blood' + weaponLevel.smithing];
+                arcScaling = val['arc' + weaponLevel.smithing]
+            } else if (maxUpgrade === 0) {
+                physRotMadSleep = val[type + '0'];
+                physFrost = val['frost0'];
+                phsyPoison = val['poison0'];
+                phsyBlood = val['blood0'];
+                arcScaling = val['arc0']
+            }
+
+            if (val.fullweaponname === "Cold Antspur Rapier") {
+                switch (weaponLevel.smithing) {
+                    case 0:
+                        return 50;
+                    case 1:
+                        return 55;
+                    case 2:
+                        return 60;
+                    case 3:
+                        return 65;
+                    case 4:
+                        return 70;
+                    case 5:
+                        return 75;
+                    default:
+                        return 0;
+                }
+            } else if (val.fullweaponname === "Poison Fingerprint Stone Shield" || val.fullweaponname === "Blood Fingerprint Stone Shield") {
+                if (arcScaling > 0) {
+                    return (arcScaling * passiveArcaneCalcCorrect * physRotMadSleep) + physRotMadSleep;
+                } else {
+                    return physRotMadSleep;
+                }
+            } else if (val.fullweaponname === "Occult Fingerprint Stone Shield") {
+                return 0;
+            } else {
+                switch (val.type1) {
+                    case "Scarlet Rot":
+                    case "Madness":
+                    case "Sleep":
+                        return physRotMadSleep;
+                    case "Frost":
+                        return physFrost;
+                    case "Poison":
+                        if (arcScaling > 0) {
+                            return (arcScaling * passiveArcaneCalcCorrect * phsyPoison) + phsyPoison;
+                        }
+                        return phsyPoison;
+                    case "Blood":
+                        if (arcScaling > 0) {
+                            return (arcScaling * passiveArcaneCalcCorrect * phsyBlood) + phsyBlood;
+                        }
+                        return phsyBlood;
+                    default:
+                        return 0;
+                }
+
+            }
+        };
+
+        function getPassiveData2(val, maxUpgrade, weaponLevel, levels) {
+            let physRotMadSleep = 0;
+            let physFrost = 0;
+            let phsyPoison = 0;
+            let phsyBlood = 0;
+            let arcScaling = 0;
+
+            let passiveArcaneCalcCorrect = 10 * (levels.arcane - 1) / 24;
+            if (levels.arcane > 60) {
+                passiveArcaneCalcCorrect = 90 + (10 * (levels.arcane - 60) / 39);
+            } else if (levels.arcane > 45) {
+                passiveArcaneCalcCorrect = 75 + (15 * (levels.arcane - 45) / 15);
+            } else if (levels.arcane > 25) {
+                passiveArcaneCalcCorrect = 10 + (65 * (levels.arcane - 25) / 20);
+            }
+
+            passiveArcaneCalcCorrect /= 100;
+
+            let type = "scarletRot"; // default rot
+            if (val.type2 === "Madness") {
+                type = "madness";
+            } else if (val.type2 === "Sleep") {
+                type = "sleep";
+            }
+
+            if (maxUpgrade === 10) {
+                physRotMadSleep = val[type + weaponLevel.somber];
+                physFrost = val['frost' + weaponLevel.somber];
+                phsyPoison = val['poison' + weaponLevel.somber];
+                phsyBlood = val['blood' + weaponLevel.somber];
+                arcScaling = val['arc' + weaponLevel.somber]
+            } else if (maxUpgrade === 25) {
+                physRotMadSleep = val[type + weaponLevel.smithing];
+                physFrost = val['frost' + weaponLevel.smithing];
+                phsyPoison = val['poison' + weaponLevel.smithing];
+                phsyBlood = val['blood' + weaponLevel.smithing];
+                arcScaling = val['arc' + weaponLevel.smithing]
+            } else if (maxUpgrade === 0) {
+                physRotMadSleep = val[type + '0'];
+                physFrost = val['frost0'];
+                phsyPoison = val['poison0'];
+                phsyBlood = val['blood0'];
+                arcScaling = val['arc0']
+            }
+
+            switch (val.type2) {
+                case "Scarlet Rot":
+                case "Madness":
+                case "Sleep":
+                    return physRotMadSleep;
+                case "Frost":
+                    return physFrost;
+                case "Poison":
+                    if (arcScaling > 0) {
+                        return (arcScaling * passiveArcaneCalcCorrect * phsyPoison) + phsyPoison;
+                    }
+                    return phsyPoison;
+                case "Blood":
+                    if (arcScaling > 0) {
+                        return (arcScaling * passiveArcaneCalcCorrect * phsyBlood) + phsyBlood;
+                    }
+                    return phsyBlood;
+                default:
+                    return 0;
+
+            }
         };
 
         let data = this.prepareData();
@@ -672,18 +837,21 @@ export default class WeaponTable extends Component {
             val.int_scaling_letter = getScalingLetter(val, val.maxUpgrade, this.props.weaponLevels, "int");
             val.fai_scaling_letter = getScalingLetter(val, val.maxUpgrade, this.props.weaponLevels, "fai");
             val.arc_scaling_letter = getScalingLetter(val, val.maxUpgrade, this.props.weaponLevels, "arc");
+
+            val.final_passive1 = Math.trunc(getPassiveData(val, val.maxUpgrade, this.props.weaponLevels, this.props.levels));
+            val.final_passive2 = Math.trunc(getPassiveData2(val, val.maxUpgrade, this.props.weaponLevels, this.props.levels));
         });
 
         let sortedData = data;
         if (this.state.sort.direction !== null) {
             sortedData = data.sort((a, b) => {
-                if (['fullweaponname', 'weaponType', 'affinity'].includes(this.state.sort.column)) {
+                if (['fullweaponname', 'weaponType', 'affinity', 'type1', 'type2'].includes(this.state.sort.column)) {
                     let column = this.state.sort.column;
                     if ('fullweaponname' === this.state.sort.column) {
                         column = 'weaponname';
                     }
-                    const nameA = a[column].toUpperCase();
-                    const nameB = b[column].toUpperCase();
+                    const nameA = a[column] ? a[column].toUpperCase() : 'Ω';
+                    const nameB = b[column] ? b[column].toUpperCase() : 'Ω';
                     if (nameA < nameB) {
                         return -1;
                     }
@@ -793,6 +961,34 @@ export default class WeaponTable extends Component {
                             </th>
                             <th>
                                 <button type="button"
+                                    className={'type1' === this.state.sort.column ? this.state.sort.direction === "asc" ? "ascending" : this.state.sort.direction === "desc" ? "descending" : "" : ""}
+                                    onClick={this.onSort('type1')}>
+                                    Passive 1
+                                </button>
+                            </th>
+                            <th>
+                                <button type="button"
+                                    className={'final_passive1' === this.state.sort.column ? this.state.sort.direction === "asc" ? "ascending" : this.state.sort.direction === "desc" ? "descending" : "" : ""}
+                                    onClick={this.onSort('final_passive1')}>
+                                    Passive 1 Damage
+                                </button>
+                            </th>
+                            <th>
+                                <button type="button"
+                                    className={'type2' === this.state.sort.column ? this.state.sort.direction === "asc" ? "ascending" : this.state.sort.direction === "desc" ? "descending" : "" : ""}
+                                    onClick={this.onSort('type2')}>
+                                    Passive 2
+                                </button>
+                            </th>
+                            <th>
+                                <button type="button"
+                                    className={'final_passive2' === this.state.sort.column ? this.state.sort.direction === "asc" ? "ascending" : this.state.sort.direction === "desc" ? "descending" : "" : ""}
+                                    onClick={this.onSort('final_passive2')}>
+                                    Passive 2 Damage
+                                </button>
+                            </th>
+                            <th>
+                                <button type="button"
                                     className={'str_scaling_letter' === this.state.sort.column ? this.state.sort.direction === "asc" ? "ascending" : this.state.sort.direction === "desc" ? "descending" : "" : ""}
                                     onClick={this.onSort('str_scaling_letter')}>
                                     STR Scaling
@@ -877,6 +1073,10 @@ export default class WeaponTable extends Component {
                                     <td>{val.final_holy}</td>
                                     <td>{val.final_total_ar}</td>
                                     <td>{val.final_sorcery_scaling}</td>
+                                    <td>{val.type1 ? val.type1 : '-'}</td>
+                                    <td>{val.final_passive1 !== 0 ? val.final_passive1 : '-'}</td>
+                                    <td>{val.type2 ? val.type2 : '-'}</td>
+                                    <td>{val.final_passive2 !== 0 ? val.final_passive2 : '-'}</td>
                                     <td>{val.str_scaling_letter.letter !== '-' ? val.str_scaling_letter.letter + ' (' + val.str_scaling_letter.value + ')' : val.str_scaling_letter.letter}</td>
                                     <td>{val.dex_scaling_letter.letter !== '-' ? val.dex_scaling_letter.letter + ' (' + val.dex_scaling_letter.value + ')' : val.dex_scaling_letter.letter}</td>
                                     <td>{val.int_scaling_letter.letter !== '-' ? val.int_scaling_letter.letter + ' (' + val.int_scaling_letter.value + ')' : val.int_scaling_letter.letter}</td>
