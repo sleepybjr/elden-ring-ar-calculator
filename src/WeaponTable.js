@@ -845,11 +845,13 @@ export default class WeaponTable extends Component {
         let sortedData = data;
         if (this.state.sort.direction !== null) {
             sortedData = data.sort((a, b) => {
-                if (['fullweaponname', 'weaponType', 'affinity', 'type1', 'type2'].includes(this.state.sort.column)) {
+                if (new Set(['fullweaponname', 'weaponType', 'affinity', 'type1', 'type2']).has(this.state.sort.column)) {
                     let column = this.state.sort.column;
+
                     if ('fullweaponname' === this.state.sort.column) {
                         column = 'weaponname';
                     }
+
                     const nameA = a[column] ? a[column].toUpperCase() : 'Ω';
                     const nameB = b[column] ? b[column].toUpperCase() : 'Ω';
                     if (nameA < nameB) {
@@ -859,8 +861,13 @@ export default class WeaponTable extends Component {
                         return 1;
                     }
 
+                    if (new Set(['type1', 'type2']).has(this.state.sort.column)) {
+                        const second_sort = this.state.sort.column === 'type1' ? 'final_passive1' : 'final_passive2';
+                        return b[second_sort] - a[second_sort];
+                    }
+
                     return 0;
-                } else if (['str_scaling_letter', 'dex_scaling_letter', 'int_scaling_letter', 'fai_scaling_letter', 'arc_scaling_letter'].includes(this.state.sort.column)) {
+                } else if (new Set(['str_scaling_letter', 'dex_scaling_letter', 'int_scaling_letter', 'fai_scaling_letter', 'arc_scaling_letter']).has(this.state.sort.column)) {
                     const A = a[this.state.sort.column];
                     const B = b[this.state.sort.column];
 
