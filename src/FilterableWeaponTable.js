@@ -32,7 +32,7 @@ export default class FilterableWeaponTable extends Component {
                 'vigor': 99,
                 'mind': 99,
                 'endurance': 99,
-                'total_level': 793,
+                'total_level': 713,
             },
             twoHanded: false,
         };
