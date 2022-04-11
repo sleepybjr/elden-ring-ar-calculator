@@ -1,7 +1,3 @@
-stages: 
-  - build
-  - deploy
-  
 image: node
 
 build:
@@ -28,4 +24,4 @@ pages:
     paths:
       - public
   only:
-    - master
+    - main
