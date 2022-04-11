@@ -12,15 +12,6 @@ build:
     paths:
       - build
 
-test:
-  stage: test
-  cache:
-    paths:
-      - node_modules/
-    policy: pull
-  script:
-    - npm run test
-
 pages:
   stage: deploy
   dependencies: 
