@@ -77,9 +77,25 @@ export default class WeaponTable extends Component {
         const filteredDataAffinity = affinityTypeFilter.length === 0 ? filteredDataWeapon : filteredDataWeapon.filter(this.filterByAffinityTypes(affinityTypeFilter));
         const filteredDataSomber = this.props.somberFilter === true ? filteredDataAffinity : filteredDataAffinity.filter((weapon) => weapon.maxUpgrade !== 10 && weapon.maxUpgrade !== 0);
         const filteredDataSmithing = this.props.smithingFilter === true ? filteredDataSomber : filteredDataSomber.filter((weapon) => weapon.maxUpgrade !== 25);
-        //const filteredDataReqWeapons = this.props.hideNoReqWeapons === true ? filteredDataSmithing : filteredDataSmithing.filter((weapon) => weapon.fitsReq !== "true");
+        const filteredDataReqWeapons = this.props.hideNoReqWeapons === true ? filteredDataSmithing : filteredDataSmithing.filter((weapon) => this.highlightReqRow(weapon, this.props.levels, this.props.twoHanded) === false);
 
-        return filteredDataSmithing;
+        return filteredDataReqWeapons;
+    };
+
+    highlightReqRow(val, levels, isTwoHanded) {
+        let strength = levels.strength;
+        if ((isTwoHanded && !noTwoHandBuff.has(val.weaponname)) || autoTwoHandBuff.has(val.weaponType)) {
+            strength = levels.twohand_strength;
+        }
+        if (strength < val.strreq ||
+            levels.dexterity < val.dexreq ||
+            levels.intelligence < val.intreq ||
+            levels.faith < val.faireq ||
+            levels.arcane < val.arcreq) {
+            return true;
+        } else {
+            return false;
+        }
     };
 
     render() {
@@ -89,22 +105,6 @@ export default class WeaponTable extends Component {
                 getFireData(val, maxUpgrade, weaponLevel, levels, twoHanded) +
                 getLighData(val, maxUpgrade, weaponLevel, levels, twoHanded) +
                 getHolyData(val, maxUpgrade, weaponLevel, levels, twoHanded);
-        };
-
-        const highlightReqRow = function (val, levels, isTwoHanded) {
-            let strength = levels.strength;
-            if ((isTwoHanded && !noTwoHandBuff.has(val.weaponname)) || autoTwoHandBuff.has(val.weaponType)) {
-                strength = levels.twohand_strength;
-            }
-            if (strength < val.strreq ||
-                levels.dexterity < val.dexreq ||
-                levels.intelligence < val.intreq ||
-                levels.faith < val.faireq ||
-                levels.arcane < val.arcreq) {
-                return "#FFBBAE";
-            } else {
-                return '';
-            }
         };
 
         function getPhyCalcData(physScale, level) {
@@ -1066,7 +1066,7 @@ export default class WeaponTable extends Component {
                     <tbody>
                         {sortedData.map((val, key) => {
                             return (
-                                <tr style={{ backgroundColor: highlightReqRow(val, this.props.levels, this.props.twoHanded) }} key={key}>
+                                <tr style={{ backgroundColor: this.highlightReqRow(val, this.props.levels, this.props.twoHanded) ? "#FFBBAE" : "" }} key={key}>
                                     <td>{val.fullweaponname}</td>
                                     <td>{val.weaponType}</td>
                                     <td>{val.affinity}</td>

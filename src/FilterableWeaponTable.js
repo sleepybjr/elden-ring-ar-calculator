@@ -114,8 +114,8 @@ export default class FilterableWeaponTable extends Component {
             this.setState({ somberFilter: isChecked });
         } else if (type === 'smithing-weapons') {
             this.setState({ smithingFilter: isChecked });
-        // } else if (type === 'missing-req-weapons') {
-        //     this.setState({ hideNoReqWeapons: isChecked });
+        } else if (type === 'missing-req-weapons') {
+            this.setState({ hideNoReqWeapons: isChecked });
         }
     };
 
