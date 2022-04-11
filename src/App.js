@@ -9,6 +9,7 @@ function App() {
     return (
         <div className="App">
             <FilterableWeaponTable />
+            <div>Elden Ring Data: v1.03.3</div>
         </div>
     );
 }
