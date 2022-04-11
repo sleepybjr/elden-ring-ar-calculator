@@ -1,16 +1,8 @@
 import React, { Component } from 'react'
 
-import Weapon_Reqs_Data from './json/weapon_reqs';
-import Weapon_Damage from './json/weapon_damage';
-import Weapon_Scaling from './json/weapon_scaling';
-import Calc_Correct_Id from './json/calc_correct_id';
 import Attack_Element_Correct_Param from './json/attackelementcorrectparam';
-import Weapon_Passive from './json/weapon_passive';
+import Table_Data from './json/merged_json_data';
 
-const merged_weapons = Weapon_Damage.map(x => Object.assign(x, Weapon_Reqs_Data.find(y => y.fullweaponname.toUpperCase() === x.name.toUpperCase())));
-const merged_weapons_scaling = Weapon_Scaling.map(x => Object.assign(x, merged_weapons.find(y => y.fullweaponname.toUpperCase() === x.name.toUpperCase())));
-const merged_weapons_all = Calc_Correct_Id.map(x => Object.assign(x, merged_weapons_scaling.find(y => y.fullweaponname.toUpperCase() === x.name.toUpperCase())));
-const merged_weapons_all_w_passive = Weapon_Passive.map(x => Object.assign(x, merged_weapons_all.find(y => y.fullweaponname.toUpperCase() === x.name.toUpperCase())));
 const typesOrder = {
     'S': 0,
     'A': 1,
@@ -76,7 +68,7 @@ export default class WeaponTable extends Component {
     };
 
     prepareData = () => {
-        const data = merged_weapons_all_w_passive;
+        const data = Table_Data;
         const weaponTypeFilter = this.props.weaponTypeFilter;
         const affinityTypeFilter = this.props.affinityTypeFilter;
         const filteredDataWeapon = weaponTypeFilter.length === 0 ? data : data.filter(this.filterByWeaponTypes(weaponTypeFilter));
