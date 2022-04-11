@@ -1,1 +1,1 @@
-https://sleepybjr.github.io/elden-ring-ar-calculator/
+https://riggedjr.gitlab.io/elden-ring-ar-calculator/
