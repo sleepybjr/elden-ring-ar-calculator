@@ -24,6 +24,9 @@ const noTwoHandBuff = new Set([
     "Starscourge Greatsword",
     "Ornamental Straight Sword",
 ]);
+const autoTwoHandBuff = new Set([
+    "Light Bow", "Bow", "Greatbow",
+]);
 
 export default class WeaponTable extends Component {
     constructor(props) {
@@ -91,7 +94,7 @@ export default class WeaponTable extends Component {
 
         const highlightReqRow = function (val, levels, isTwoHanded) {
             let strength = levels.strength;
-            if (isTwoHanded && !noTwoHandBuff.has(val.weaponname)) {
+            if ((isTwoHanded && !noTwoHandBuff.has(val.weaponname)) || autoTwoHandBuff.has(val.weaponType)) {
                 strength = levels.twohand_strength;
             }
             if (strength < val.strreq ||
@@ -232,7 +235,7 @@ export default class WeaponTable extends Component {
             }
 
             let strength = levels.strength;
-            if (twoHanded === true && !noTwoHandBuff.has(val.weaponname)) {
+            if ((twoHanded === true && !noTwoHandBuff.has(val.weaponname)) || autoTwoHandBuff.has(val.weaponType)) {
                 strength = levels.twohand_strength;
             }
 
@@ -296,7 +299,7 @@ export default class WeaponTable extends Component {
             }
 
             let strength = levels.strength;
-            if (twoHanded === true && !noTwoHandBuff.has(val.weaponname)) {
+            if ((twoHanded === true && !noTwoHandBuff.has(val.weaponname)) || autoTwoHandBuff.has(val.weaponType)) {
                 strength = levels.twohand_strength;
             }
 
@@ -360,7 +363,7 @@ export default class WeaponTable extends Component {
             }
 
             let strength = levels.strength;
-            if (twoHanded === true && !noTwoHandBuff.has(val.weaponname)) {
+            if ((twoHanded === true && !noTwoHandBuff.has(val.weaponname)) || autoTwoHandBuff.has(val.weaponType)) {
                 strength = levels.twohand_strength;
             }
 
@@ -424,7 +427,7 @@ export default class WeaponTable extends Component {
             }
 
             let strength = levels.strength;
-            if (twoHanded === true && !noTwoHandBuff.has(val.weaponname)) {
+            if ((twoHanded === true && !noTwoHandBuff.has(val.weaponname)) || autoTwoHandBuff.has(val.weaponType)) {
                 strength = levels.twohand_strength;
             }
 
@@ -488,7 +491,7 @@ export default class WeaponTable extends Component {
             }
             
             let strength = levels.strength;
-            if (twoHanded === true && !noTwoHandBuff.has(val.weaponname)) {
+            if ((twoHanded === true && !noTwoHandBuff.has(val.weaponname)) || autoTwoHandBuff.has(val.weaponType)) {
                 strength = levels.twohand_strength;
             }
 

@@ -94,7 +94,8 @@ export default class FilterableWeaponTable extends Component {
             Number(newLevels.arcane) +
             Number(newLevels.vigor) +
             Number(newLevels.mind) +
-            Number(newLevels.endurance);
+            Number(newLevels.endurance) -
+            80;
 
         this.setState({ levels: newLevels });
     };
