@@ -6,6 +6,7 @@ import Levels from './Levels';
 import WeaponLevels from './WeaponLevels';
 import OtherLevels from './OtherLevels';
 import ReactGA from "react-ga4";
+import ExtraFilters from './ExtraFilters';
 
 export default class FilterableWeaponTable extends Component {
     constructor(props) {
@@ -15,6 +16,7 @@ export default class FilterableWeaponTable extends Component {
         this.handleWeaponLevelChange = this.handleWeaponLevelChange.bind(this);
         this.handleLevelChange = this.handleLevelChange.bind(this);
         this.handleTwoHandedChange = this.handleTwoHandedChange.bind(this);
+        this.handleExtraFilterChange = this.handleExtraFilterChange.bind(this);
         this.state = {
             weaponTypeFilter: [],
             affinityTypeFilter: ["None"],
@@ -35,6 +37,9 @@ export default class FilterableWeaponTable extends Component {
                 'total_level': 713,
             },
             twoHanded: false,
+            somberFilter: true,
+            smithingFilter: true,
+            hideNoReqWeapons: true,
         };
     }
 
@@ -104,6 +109,16 @@ export default class FilterableWeaponTable extends Component {
         this.setState({ twoHanded: isTwoHanded });
     };
 
+    handleExtraFilterChange(isChecked, type) {
+        if (type === 'somber-weapons') {
+            this.setState({ somberFilter: isChecked });
+        } else if (type === 'smithing-weapons') {
+            this.setState({ smithingFilter: isChecked });
+        // } else if (type === 'missing-req-weapons') {
+        //     this.setState({ hideNoReqWeapons: isChecked });
+        }
+    };
+
     render() {
         return (
             <div className="container">
@@ -121,6 +136,11 @@ export default class FilterableWeaponTable extends Component {
                         handleWeaponTypeFilterChange={this.handleWeaponTypeFilterChange}
                         handleAffinityTypeFilterChange={this.handleAffinityTypeFilterChange}
                         handleWeaponLevelChange={this.handleWeaponLevelChange}
+                        {...this.state}
+                    />
+
+                    <ExtraFilters
+                        handleExtraFilterChange={this.handleExtraFilterChange}
                         {...this.state}
                     />
 

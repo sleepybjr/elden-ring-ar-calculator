@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 const affinityTypes = [
-    "None / Somber",
+    "None",
     "Heavy",
     "Keen",
     "Quality",

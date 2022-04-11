@@ -63,7 +63,9 @@ export default class WeaponTable extends Component {
 
     filterByAffinityTypes(affinityTypes) {
         return function (row) {
-            return affinityTypes.includes(row.affinity);
+            if (row.maxUpgrade === 25)
+                return affinityTypes.includes(row.affinity);
+            return true;
         };
     };
 
@@ -73,8 +75,11 @@ export default class WeaponTable extends Component {
         const affinityTypeFilter = this.props.affinityTypeFilter;
         const filteredDataWeapon = weaponTypeFilter.length === 0 ? data : data.filter(this.filterByWeaponTypes(weaponTypeFilter));
         const filteredDataAffinity = affinityTypeFilter.length === 0 ? filteredDataWeapon : filteredDataWeapon.filter(this.filterByAffinityTypes(affinityTypeFilter));
+        const filteredDataSomber = this.props.somberFilter === true ? filteredDataAffinity : filteredDataAffinity.filter((weapon) => weapon.maxUpgrade !== 10 && weapon.maxUpgrade !== 0);
+        const filteredDataSmithing = this.props.smithingFilter === true ? filteredDataSomber : filteredDataSomber.filter((weapon) => weapon.maxUpgrade !== 25);
+        //const filteredDataReqWeapons = this.props.hideNoReqWeapons === true ? filteredDataSmithing : filteredDataSmithing.filter((weapon) => weapon.fitsReq !== "true");
 
-        return filteredDataAffinity;
+        return filteredDataSmithing;
     };
 
     render() {
