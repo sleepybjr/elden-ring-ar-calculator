@@ -39,7 +39,7 @@ export default class FilterableWeaponTable extends Component {
     }
 
     setGA = () => {
-        ReactGA.initialize("G-VKJF4MLFV3");
+        ReactGA.initialize("G-5ZHR8P9RRV");
         ReactGA.send("pageview");
     };
 
