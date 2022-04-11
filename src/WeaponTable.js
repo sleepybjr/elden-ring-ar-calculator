@@ -147,7 +147,7 @@ export default class WeaponTable extends Component {
                 } else if (level > 50) {
                     physCalc = 80 + (15 * (level - 50) / 30);
                 } else if (level > 20) {
-                    physCalc = 40 + (40 * (level - 20) / 19);
+                    physCalc = 40 + (40 * (level - 20) / 30);
                 } else {
                     physCalc = 40 * (level - 1) / 19;
                 }
