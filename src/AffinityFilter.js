@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 const affinityTypes = [
-    "None",
+    "None / Somber",
     "Heavy",
     "Keen",
     "Quality",
@@ -42,7 +42,7 @@ export default class AffinityFilter extends Component {
         return (
             <div className="middle-spacing">
                 <label htmlFor="affinity" className="top-label">Affinity</label>
-                <select name="affinity" id="affinity" size="13" defaultValue={this.props.affinityTypeFilter} onChange={this.handleChange} multiple>
+                <select name="affinity" id="affinity" size="13" title="<ctrl> + click for multiple selection and deselect." defaultValue={this.props.affinityTypeFilter} onChange={this.handleChange} multiple>
                     {affinityTypesList}
                 </select>
             </div>
