@@ -84,7 +84,7 @@ export default class WeaponTable extends Component {
 
     highlightReqRow(val, levels, isTwoHanded) {
         let strength = levels.strength;
-        if ((isTwoHanded && !noTwoHandBuff.has(val.weaponname)) || autoTwoHandBuff.has(val.weaponType)) {
+        if ((isTwoHanded && !noTwoHandBuff.has(val.weaponname))) {
             strength = levels.twohand_strength;
         }
         if (strength < val.strreq ||
