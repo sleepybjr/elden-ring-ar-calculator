@@ -65,6 +65,15 @@ tbody td {
   border-bottom: 1px solid #ccc;
 }
 
+tbody td a {
+  width: 100%;
+  display: block;
+}
+
+tbody td a, a:visited{
+  color: black;
+}
+
 tbody tr:hover {
   background-color: #eee;
 }
