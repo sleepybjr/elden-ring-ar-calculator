@@ -679,20 +679,19 @@ export default class WeaponTable extends Component {
                 type = "sleep";
             }
 
+            physRotMadSleep = val[type + '0'];
+            
             if (maxUpgrade === 10) {
-                physRotMadSleep = val[type + weaponLevel.somber];
                 physFrost = val['frost' + weaponLevel.somber];
                 phsyPoison = val['poison' + weaponLevel.somber];
                 phsyBlood = val['blood' + weaponLevel.somber];
                 arcScaling = val['arc' + weaponLevel.somber]
             } else if (maxUpgrade === 25) {
-                physRotMadSleep = val[type + weaponLevel.smithing];
                 physFrost = val['frost' + weaponLevel.smithing];
                 phsyPoison = val['poison' + weaponLevel.smithing];
                 phsyBlood = val['blood' + weaponLevel.smithing];
                 arcScaling = val['arc' + weaponLevel.smithing]
             } else if (maxUpgrade === 0) {
-                physRotMadSleep = val[type + '0'];
                 physFrost = val['frost0'];
                 phsyPoison = val['poison0'];
                 phsyBlood = val['blood0'];
