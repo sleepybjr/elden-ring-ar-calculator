@@ -42,6 +42,7 @@ export default class WeaponTypesFilter extends Component {
         super(props);
         this.handleChange = this.handleChange.bind(this);
     }
+
     handleChange = (event) => {
         var options = event.target.options;
         var value = [];
@@ -54,17 +55,24 @@ export default class WeaponTypesFilter extends Component {
         this.props.handleWeaponTypeFilterChange(value);
     };
 
+    handleChangeAll = (weaponTypes) => (_) => {
+        this.props.handleWeaponTypeFilterChange(weaponTypes);
+    };
+
     render() {
         const weaponTypesList = weaponTypes.map((type) =>
-            <option key={type}>{type}</option>
+            <option key={type} value={type}>{type}</option>
         );
-
         return (
             <div className="middle-spacing">
                 <label htmlFor="weapontypes" className="top-label">Weapon Types</label>
-                <select name="weapontypes" id="weapontypes" size="13" title="<ctrl> + click for multiple selection and deselect." onChange={this.handleChange} multiple>
+                <select name="weapontypes" id="weapontypes" size="13" title="<ctrl> + click for multiple selection and deselect." value={this.props.weaponTypeFilter} onChange={this.handleChange} multiple>
                     {weaponTypesList}
                 </select>
+                <div>
+                    <button className="all-button-style" onClick={this.handleChangeAll(weaponTypes)}>Select All</button>
+                    <button className="all-button-style" onClick={this.handleChangeAll([])}>Select None</button>
+                </div>
             </div>
         );
     }

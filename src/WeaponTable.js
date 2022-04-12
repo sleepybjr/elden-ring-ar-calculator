@@ -73,8 +73,8 @@ export default class WeaponTable extends Component {
         const data = Table_Data;
         const weaponTypeFilter = this.props.weaponTypeFilter;
         const affinityTypeFilter = this.props.affinityTypeFilter;
-        const filteredDataWeapon = weaponTypeFilter.length === 0 ? data : data.filter(this.filterByWeaponTypes(weaponTypeFilter));
-        const filteredDataAffinity = affinityTypeFilter.length === 0 ? filteredDataWeapon : filteredDataWeapon.filter(this.filterByAffinityTypes(affinityTypeFilter));
+        const filteredDataWeapon = data.filter(this.filterByWeaponTypes(weaponTypeFilter));
+        const filteredDataAffinity = filteredDataWeapon.filter(this.filterByAffinityTypes(affinityTypeFilter));
         const filteredDataSomber = this.props.somberFilter === true ? filteredDataAffinity : filteredDataAffinity.filter((weapon) => weapon.maxUpgrade !== 10 && weapon.maxUpgrade !== 0);
         const filteredDataSmithing = this.props.smithingFilter === true ? filteredDataSomber : filteredDataSomber.filter((weapon) => weapon.maxUpgrade !== 25);
         const filteredDataReqWeapons = this.props.hideNoReqWeapons === true ? filteredDataSmithing : filteredDataSmithing.filter((weapon) => this.highlightReqRow(weapon, this.props.levels, this.props.twoHanded) === false);
@@ -1060,6 +1060,13 @@ export default class WeaponTable extends Component {
                                     ARC Req
                                 </button>
                             </th>
+                            <th>
+                                <button type="button"
+                                    className={'maxUpgrade' === this.state.sort.column ? this.state.sort.direction === "asc" ? "ascending" : this.state.sort.direction === "desc" ? "descending" : "" : ""}
+                                    onClick={this.onSort('maxUpgrade')}>
+                                    Upgrade
+                                </button>
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -1090,6 +1097,7 @@ export default class WeaponTable extends Component {
                                     <td>{val.intreq}</td>
                                     <td>{val.faireq}</td>
                                     <td>{val.arcreq}</td>
+                                    <td>{val.maxUpgrade === 25 ? "Smithing" : "Somber"}</td>
                                 </tr>
                             )
                         })}

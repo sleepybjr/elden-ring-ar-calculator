@@ -8,7 +8,7 @@ export default class FilterBar extends Component {
         return (
             <div>
                 <div className='rowC small-spacing'>
-                    <WeaponTypesFilter handleWeaponTypeFilterChange={this.props.handleWeaponTypeFilterChange} />
+                    <WeaponTypesFilter handleWeaponTypeFilterChange={this.props.handleWeaponTypeFilterChange} {...this.props} />
                     <AffinityFilter handleAffinityTypeFilterChange={this.props.handleAffinityTypeFilterChange} {...this.props} />
                 </div>
             </div>

@@ -12,6 +12,10 @@ label {
   margin-left: 5px;
 }
 
+select {
+	width: 162px;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -113,3 +117,19 @@ tbody tr:hover {
   justify-content: center;
 }
 
+.all-button-style {
+  background: none;
+  border: none;
+  padding: 5px;
+  padding-left: 7px;
+  padding-right: 7px;
+  font-size: 12px;
+  transition-duration: 0.4s;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+}
+.all-button-style:hover {
+  cursor: pointer;
+  background-color: #bcd8ff;
+}

@@ -34,6 +34,10 @@ export default class AffinityFilter extends Component {
         this.props.handleAffinityTypeFilterChange(value);
     };
 
+    handleChangeAll = (affinityTypes) => (_) => {
+        this.props.handleAffinityTypeFilterChange(affinityTypes);
+    };
+
     render() {
         const affinityTypesList = affinityTypes.map((type) =>
             <option key={type}>{type}</option>
@@ -42,9 +46,13 @@ export default class AffinityFilter extends Component {
         return (
             <div className="middle-spacing">
                 <label htmlFor="affinity" className="top-label">Affinity</label>
-                <select name="affinity" id="affinity" size="13" title="<ctrl> + click for multiple selection and deselect." defaultValue={this.props.affinityTypeFilter} onChange={this.handleChange} multiple>
+                <select name="affinity" id="affinity" size="13" title="<ctrl> + click for multiple selection and deselect." value={this.props.affinityTypeFilter} onChange={this.handleChange} multiple>
                     {affinityTypesList}
                 </select>
+                <div>
+                    <button className="all-button-style" onClick={this.handleChangeAll(affinityTypes)}>Select All</button>
+                    <button className="all-button-style" onClick={this.handleChangeAll([])}>Select None</button>
+                </div>
             </div>
         );
     }
