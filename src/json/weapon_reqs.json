@@ -4846,7 +4846,7 @@
     },
     {
         "fullweaponname": "Sacred Relic Sword",
-        "weaponname": "Relic Sword",
+        "weaponname": "Sacred Relic Sword",
         "affinity": "None",
         "maxUpgrade": 10,
         "strreq": 14,
@@ -7635,8 +7635,8 @@
         "weaponType": "Heavy Thrusting Sword"
     },
     {
-        "fullweaponname": "Great Epee",
-        "weaponname": "Great Epee",
+        "fullweaponname": "Great epee",
+        "weaponname": "Great epee",
         "affinity": "None",
         "maxUpgrade": 25,
         "strreq": 15,
@@ -7650,8 +7650,8 @@
         "weaponType": "Heavy Thrusting Sword"
     },
     {
-        "fullweaponname": "Heavy Great Epee",
-        "weaponname": "Great Epee",
+        "fullweaponname": "Heavy Great epee",
+        "weaponname": "Great epee",
         "affinity": "Heavy",
         "maxUpgrade": 25,
         "strreq": 15,
@@ -7665,8 +7665,8 @@
         "weaponType": "Heavy Thrusting Sword"
     },
     {
-        "fullweaponname": "Keen Great Epee",
-        "weaponname": "Great Epee",
+        "fullweaponname": "Keen Great epee",
+        "weaponname": "Great epee",
         "affinity": "Keen",
         "maxUpgrade": 25,
         "strreq": 15,
@@ -7680,8 +7680,8 @@
         "weaponType": "Heavy Thrusting Sword"
     },
     {
-        "fullweaponname": "Quality Great Epee",
-        "weaponname": "Great Epee",
+        "fullweaponname": "Quality Great epee",
+        "weaponname": "Great epee",
         "affinity": "Quality",
         "maxUpgrade": 25,
         "strreq": 15,
@@ -7695,8 +7695,8 @@
         "weaponType": "Heavy Thrusting Sword"
     },
     {
-        "fullweaponname": "Fire Great Epee",
-        "weaponname": "Great Epee",
+        "fullweaponname": "Fire Great epee",
+        "weaponname": "Great epee",
         "affinity": "Fire",
         "maxUpgrade": 25,
         "strreq": 15,
@@ -7710,8 +7710,8 @@
         "weaponType": "Heavy Thrusting Sword"
     },
     {
-        "fullweaponname": "Flame Art Great Epee",
-        "weaponname": "Great Epee",
+        "fullweaponname": "Flame Art Great epee",
+        "weaponname": "Great epee",
         "affinity": "Flame Art",
         "maxUpgrade": 25,
         "strreq": 15,
@@ -7725,8 +7725,8 @@
         "weaponType": "Heavy Thrusting Sword"
     },
     {
-        "fullweaponname": "Lightning Great Epee",
-        "weaponname": "Great Epee",
+        "fullweaponname": "Lightning Great epee",
+        "weaponname": "Great epee",
         "affinity": "Lightning",
         "maxUpgrade": 25,
         "strreq": 15,
@@ -7740,8 +7740,8 @@
         "weaponType": "Heavy Thrusting Sword"
     },
     {
-        "fullweaponname": "Sacred Great Epee",
-        "weaponname": "Great Epee",
+        "fullweaponname": "Sacred Great epee",
+        "weaponname": "Great epee",
         "affinity": "Sacred",
         "maxUpgrade": 25,
         "strreq": 15,
@@ -7755,8 +7755,8 @@
         "weaponType": "Heavy Thrusting Sword"
     },
     {
-        "fullweaponname": "Magic Great Epee",
-        "weaponname": "Great Epee",
+        "fullweaponname": "Magic Great epee",
+        "weaponname": "Great epee",
         "affinity": "Magic",
         "maxUpgrade": 25,
         "strreq": 15,
@@ -7770,8 +7770,8 @@
         "weaponType": "Heavy Thrusting Sword"
     },
     {
-        "fullweaponname": "Cold Great Epee",
-        "weaponname": "Great Epee",
+        "fullweaponname": "Cold Great epee",
+        "weaponname": "Great epee",
         "affinity": "Cold",
         "maxUpgrade": 25,
         "strreq": 15,
@@ -7785,8 +7785,8 @@
         "weaponType": "Heavy Thrusting Sword"
     },
     {
-        "fullweaponname": "Poison Great Epee",
-        "weaponname": "Great Epee",
+        "fullweaponname": "Poison Great epee",
+        "weaponname": "Great epee",
         "affinity": "Poison",
         "maxUpgrade": 25,
         "strreq": 15,
@@ -7800,8 +7800,8 @@
         "weaponType": "Heavy Thrusting Sword"
     },
     {
-        "fullweaponname": "Blood Great Epee",
-        "weaponname": "Great Epee",
+        "fullweaponname": "Blood Great epee",
+        "weaponname": "Great epee",
         "affinity": "Blood",
         "maxUpgrade": 25,
         "strreq": 15,
@@ -7815,8 +7815,8 @@
         "weaponType": "Heavy Thrusting Sword"
     },
     {
-        "fullweaponname": "Occult Great Epee",
-        "weaponname": "Great Epee",
+        "fullweaponname": "Occult Great epee",
+        "weaponname": "Great epee",
         "affinity": "Occult",
         "maxUpgrade": 25,
         "strreq": 15,
@@ -17716,7 +17716,7 @@
     },
     {
         "fullweaponname": "Celebrant's Flame Art Cleaver Blades",
-        "weaponname": "Celebrant's Cleaver Blades",
+        "weaponname": "Celebrant's Cleaver",
         "affinity": "Flame Art",
         "maxUpgrade": 25,
         "strreq": 12,
@@ -21931,7 +21931,7 @@
     },
     {
         "fullweaponname": "Mohgwyn's Sacred Spear",
-        "weaponname": "Mohgwyn's Spear",
+        "weaponname": "Mohgwyn's Sacred Spear",
         "affinity": "None",
         "maxUpgrade": 10,
         "strreq": 24,
@@ -27510,186 +27510,6 @@
         "weaponType": "Colossal Weapon"
     },
     {
-        "fullweaponname": "Heavy Great Club",
-        "weaponname": "Great Club",
-        "affinity": "Heavy",
-        "maxUpgrade": 25,
-        "strreq": 35,
-        "dexreq": 0,
-        "intreq": 0,
-        "faireq": 0,
-        "arcreq": 0,
-        "physicalDamageType": "Strike",
-        "weight": 17,
-        "basePoiseAttack": 7,
-        "weaponType": "Colossal Weapon"
-    },
-    {
-        "fullweaponname": "Keen Great Club",
-        "weaponname": "Great Club",
-        "affinity": "Keen",
-        "maxUpgrade": 25,
-        "strreq": 35,
-        "dexreq": 0,
-        "intreq": 0,
-        "faireq": 0,
-        "arcreq": 0,
-        "physicalDamageType": "Strike",
-        "weight": 17,
-        "basePoiseAttack": 7,
-        "weaponType": "Colossal Weapon"
-    },
-    {
-        "fullweaponname": "Quality Great Club",
-        "weaponname": "Great Club",
-        "affinity": "Quality",
-        "maxUpgrade": 25,
-        "strreq": 35,
-        "dexreq": 0,
-        "intreq": 0,
-        "faireq": 0,
-        "arcreq": 0,
-        "physicalDamageType": "Strike",
-        "weight": 17,
-        "basePoiseAttack": 7,
-        "weaponType": "Colossal Weapon"
-    },
-    {
-        "fullweaponname": "Fire Great Club",
-        "weaponname": "Great Club",
-        "affinity": "Fire",
-        "maxUpgrade": 25,
-        "strreq": 35,
-        "dexreq": 0,
-        "intreq": 0,
-        "faireq": 0,
-        "arcreq": 0,
-        "physicalDamageType": "Strike",
-        "weight": 17,
-        "basePoiseAttack": 7,
-        "weaponType": "Colossal Weapon"
-    },
-    {
-        "fullweaponname": "Flame Art Great Club",
-        "weaponname": "Great Club",
-        "affinity": "Flame Art",
-        "maxUpgrade": 25,
-        "strreq": 35,
-        "dexreq": 0,
-        "intreq": 0,
-        "faireq": 0,
-        "arcreq": 0,
-        "physicalDamageType": "Strike",
-        "weight": 17,
-        "basePoiseAttack": 7,
-        "weaponType": "Colossal Weapon"
-    },
-    {
-        "fullweaponname": "Lightning Great Club",
-        "weaponname": "Great Club",
-        "affinity": "Lightning",
-        "maxUpgrade": 25,
-        "strreq": 35,
-        "dexreq": 0,
-        "intreq": 0,
-        "faireq": 0,
-        "arcreq": 0,
-        "physicalDamageType": "Strike",
-        "weight": 17,
-        "basePoiseAttack": 7,
-        "weaponType": "Colossal Weapon"
-    },
-    {
-        "fullweaponname": "Sacred Great Club",
-        "weaponname": "Great Club",
-        "affinity": "Sacred",
-        "maxUpgrade": 25,
-        "strreq": 35,
-        "dexreq": 0,
-        "intreq": 0,
-        "faireq": 0,
-        "arcreq": 0,
-        "physicalDamageType": "Strike",
-        "weight": 17,
-        "basePoiseAttack": 7,
-        "weaponType": "Colossal Weapon"
-    },
-    {
-        "fullweaponname": "Magic Great Club",
-        "weaponname": "Great Club",
-        "affinity": "Magic",
-        "maxUpgrade": 25,
-        "strreq": 35,
-        "dexreq": 0,
-        "intreq": 0,
-        "faireq": 0,
-        "arcreq": 0,
-        "physicalDamageType": "Strike",
-        "weight": 17,
-        "basePoiseAttack": 7,
-        "weaponType": "Colossal Weapon"
-    },
-    {
-        "fullweaponname": "Cold Great Club",
-        "weaponname": "Great Club",
-        "affinity": "Cold",
-        "maxUpgrade": 25,
-        "strreq": 35,
-        "dexreq": 0,
-        "intreq": 0,
-        "faireq": 0,
-        "arcreq": 0,
-        "physicalDamageType": "Strike",
-        "weight": 17,
-        "basePoiseAttack": 7,
-        "weaponType": "Colossal Weapon"
-    },
-    {
-        "fullweaponname": "Poison Great Club",
-        "weaponname": "Great Club",
-        "affinity": "Poison",
-        "maxUpgrade": 25,
-        "strreq": 35,
-        "dexreq": 0,
-        "intreq": 0,
-        "faireq": 0,
-        "arcreq": 0,
-        "physicalDamageType": "Strike",
-        "weight": 17,
-        "basePoiseAttack": 7,
-        "weaponType": "Colossal Weapon"
-    },
-    {
-        "fullweaponname": "Blood Great Club",
-        "weaponname": "Great Club",
-        "affinity": "Blood",
-        "maxUpgrade": 25,
-        "strreq": 35,
-        "dexreq": 0,
-        "intreq": 0,
-        "faireq": 0,
-        "arcreq": 0,
-        "physicalDamageType": "Strike",
-        "weight": 17,
-        "basePoiseAttack": 7,
-        "weaponType": "Colossal Weapon"
-    },
-    {
-        "fullweaponname": "Occult Great Club",
-        "weaponname": "Great Club",
-        "affinity": "Occult",
-        "maxUpgrade": 25,
-        "strreq": 35,
-        "dexreq": 0,
-        "intreq": 0,
-        "faireq": 0,
-        "arcreq": 0,
-        "physicalDamageType": "Strike",
-        "weight": 17,
-        "basePoiseAttack": 7,
-        "weaponType": "Colossal Weapon"
-    },
-    {
         "fullweaponname": "Envoy's Greathorn",
         "weaponname": "Envoy's Greathorn",
         "affinity": "None",
@@ -29086,7 +28906,7 @@
     },
     {
         "fullweaponname": "Man-serpent's Heavy Shield",
-        "weaponname": "Man-serpent's Shield",
+        "weaponname": "Man-Serpent's Shield",
         "affinity": "Heavy",
         "maxUpgrade": 25,
         "strreq": 8,
@@ -29101,7 +28921,7 @@
     },
     {
         "fullweaponname": "Man-serpent's Keen Shield",
-        "weaponname": "Man-serpent's Shield",
+        "weaponname": "Man-Serpent's Shield",
         "affinity": "Keen",
         "maxUpgrade": 25,
         "strreq": 8,
@@ -29116,7 +28936,7 @@
     },
     {
         "fullweaponname": "Man-serpent's Quality Shield",
-        "weaponname": "Man-serpent's Shield",
+        "weaponname": "Man-Serpent's Shield",
         "affinity": "Quality",
         "maxUpgrade": 25,
         "strreq": 8,
@@ -29131,7 +28951,7 @@
     },
     {
         "fullweaponname": "Man-serpent's Fire Shield",
-        "weaponname": "Man-serpent's Shield",
+        "weaponname": "Man-Serpent's Shield",
         "affinity": "Fire",
         "maxUpgrade": 25,
         "strreq": 8,
@@ -29146,7 +28966,7 @@
     },
     {
         "fullweaponname": "Man-serpent's Flame Art Shield",
-        "weaponname": "Man-serpent's Shield",
+        "weaponname": "Man-Serpent's Shield",
         "affinity": "Flame Art",
         "maxUpgrade": 25,
         "strreq": 8,
@@ -29161,7 +28981,7 @@
     },
     {
         "fullweaponname": "Man-serpent's Lightning Shield",
-        "weaponname": "Man-serpent's Shield",
+        "weaponname": "Man-Serpent's Shield",
         "affinity": "Lightning",
         "maxUpgrade": 25,
         "strreq": 8,
@@ -29176,7 +28996,7 @@
     },
     {
         "fullweaponname": "Man-serpent's Sacred Shield",
-        "weaponname": "Man-serpent's Shield",
+        "weaponname": "Man-Serpent's Shield",
         "affinity": "Sacred",
         "maxUpgrade": 25,
         "strreq": 8,
@@ -29191,7 +29011,7 @@
     },
     {
         "fullweaponname": "Man-serpent's Magic Shield",
-        "weaponname": "Man-serpent's Shield",
+        "weaponname": "Man-Serpent's Shield",
         "affinity": "Magic",
         "maxUpgrade": 25,
         "strreq": 8,
@@ -29206,7 +29026,7 @@
     },
     {
         "fullweaponname": "Man-serpent's Cold Shield",
-        "weaponname": "Man-serpent's Shield",
+        "weaponname": "Man-Serpent's Shield",
         "affinity": "Cold",
         "maxUpgrade": 25,
         "strreq": 8,
@@ -29221,7 +29041,7 @@
     },
     {
         "fullweaponname": "Man-serpent's Poison Shield",
-        "weaponname": "Man-serpent's Shield",
+        "weaponname": "Man-Serpent's Shield",
         "affinity": "Poison",
         "maxUpgrade": 25,
         "strreq": 8,
@@ -29236,7 +29056,7 @@
     },
     {
         "fullweaponname": "Man-serpent's Blood Shield",
-        "weaponname": "Man-serpent's Shield",
+        "weaponname": "Man-Serpent's Shield",
         "affinity": "Blood",
         "maxUpgrade": 25,
         "strreq": 8,
@@ -29251,7 +29071,7 @@
     },
     {
         "fullweaponname": "Man-serpent's Occult Shield",
-        "weaponname": "Man-serpent's Shield",
+        "weaponname": "Man-Serpent's Shield",
         "affinity": "Occult",
         "maxUpgrade": 25,
         "strreq": 8,

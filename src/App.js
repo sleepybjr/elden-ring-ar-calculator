@@ -11,7 +11,8 @@ function App() {
     return (
         <div className="App">
             <FilterableWeaponTable />
-            <div>Elden Ring Data: v1.03.3</div>
+            <div>Elden Ring Data: v1.03.3 | Calculator Version 1.0</div>
+            <div>For feedback, bug reports or suggestions, use <a href="https://forms.gle/krzihsr22n5VPmDNA">Google Forms</a> or <a href="https://github.com/sleepybjr/elden-ring-ar-calculator/issues">GitHub</a>. Thanks!</div>
         </div>
     );
 }
