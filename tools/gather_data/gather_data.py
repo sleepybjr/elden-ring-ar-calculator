@@ -37,6 +37,47 @@ Input_Affinity = {
     1100: "Blood",
     1200: "Occult",
 }
+Weapon_Type = {
+    # MenuValueTableParam- Value: Row Name
+    1: "Dagger",
+    3: "Straight Sword",
+    5: "Greatsword",
+    7: "Colossal Sword",
+    9: "Curved Sword",
+    11: "Curved Greatsword",
+    13: "Katana",
+    14: "Twinblade",
+    15: "Thrusting Sword",
+    16: "Heavy Thrusting Sword",
+    17: "Axe",
+    19: "Greataxe",
+    21: "Hammer",
+    23: "Warhammer",
+    24: "Flail",
+    25: "Spear",
+    28: "Great Spear",
+    29: "Halberd",
+    31: "Reaper",
+    35: "Fist",
+    37: "Claw",
+    39: "Whip",
+    41: "Colossal Weapon",
+    50: "Light Bow",
+    51: "Bow",
+    53: "Greatbow",
+    55: "Crossbow",
+    56: "Ballista",
+    57: "Glintstone Staff",
+    61: "Sacred Seal",
+    65: "Small Shield",
+    67: "Medium Shield",
+    69: "Greatshield",
+    87: "Torch"
+}
+
+def getWeaponType(value):
+    weapontype = int(value)
+    return Weapon_Type[weapontype]
 
 def getAffinity(value):
     affinity = int(value) % 10000
@@ -130,8 +171,6 @@ with open("ReinforceParamWeapon.csv") as fp:
 
 ##############################################
 # weapon_reqs.json
-# missing values for read
-# need to finish write
 ##############################################
 
 def getWeaponReqs():
@@ -153,12 +192,32 @@ def getWeaponReqs():
                 row_dict["intreq"] = int(row['Requirement: ' + Input.INT.value])
                 row_dict["faireq"] = int(row['Requirement: ' + Input.FAI.value])
                 row_dict["arcreq"] = int(row['Requirement: ' + Input.ARC.value])
-                # row_dict["physicalDamageType"] = row[1] # not correct, use WeaponTypes.json?
+
+                if row["Type Display: Normal"] == "True":
+                    if row["Type Display: Thrust"] == "True":
+                        row_dict["physicalDamageType"] = "Standard/Pierce"
+                    else:
+                        row_dict["physicalDamageType"] = "Standard"
+                elif row["Type Display: Strike"] == "True":
+                    if row["Type Display: Thrust"] == "True":
+                        row_dict["physicalDamageType"] = "Strike/Pierce"
+                    else:
+                        row_dict["physicalDamageType"] = "Strike"
+                elif row["Type Display: Slash"] == "True":
+                    if row["Type Display: Thrust"] == "True":
+                        row_dict["physicalDamageType"] = "Slash/Pierce"
+                    else:
+                        row_dict["physicalDamageType"] = "Slash"
+                elif row["Type Display: Thrust"] == "True":
+                    row_dict["physicalDamageType"] = "Pierce"
+                else:
+                    row_dict["physicalDamageType"] = 0
+
                 weight = float(row["Weight"])
                 row_dict["weight"] = int(weight) if weight.is_integer() else weight
                 poise_damage = float(row["Poise Damage"])
                 row_dict["basePoiseAttack"] = int(poise_damage) if poise_damage.is_integer() else poise_damage
-                # row_dict["weaponType"] = row[1] # not correct, maybe just load from previous values? Only issue is new weapons won't be matched until added. use WeaponTypes.json?
+                row_dict["weaponType"] = getWeaponType(row["Weapon Type"])
 
                 weapon_reqs_data.append(row_dict)
     
