@@ -2578,56 +2578,6 @@
         "type1": "Poison"
     },
     {
-        "name": "Heavy Serpentbone Blade",
-        "type1": "Poison"
-    },
-    {
-        "name": "Keen Serpentbone Blade",
-        "type1": "Poison"
-    },
-    {
-        "name": "Quality Serpentbone Blade",
-        "type1": "Poison"
-    },
-    {
-        "name": "Fire Serpentbone Blade",
-        "type1": "Poison"
-    },
-    {
-        "name": "Flame Art Serpentbone Blade",
-        "type1": "Poison"
-    },
-    {
-        "name": "Lightning Serpentbone Blade",
-        "type1": "Poison"
-    },
-    {
-        "name": "Sacred Serpentbone Blade",
-        "type1": "Poison"
-    },
-    {
-        "name": "Magic Serpentbone Blade",
-        "type1": "Poison"
-    },
-    {
-        "name": "Cold Serpentbone Blade",
-        "type1": "Poison",
-        "type2": "Frost"
-    },
-    {
-        "name": "Poison Serpentbone Blade",
-        "type1": "Poison"
-    },
-    {
-        "name": "Blood Serpentbone Blade",
-        "type1": "Poison",
-        "type2": "Blood"
-    },
-    {
-        "name": "Occult Serpentbone Blade",
-        "type1": "Poison"
-    },
-    {
         "name": "Twinblade"
     },
     {
@@ -5108,45 +5058,6 @@
         "name": "Treespear"
     },
     {
-        "name": "Heavy Treespear"
-    },
-    {
-        "name": "Keen Treespear"
-    },
-    {
-        "name": "Quality Treespear"
-    },
-    {
-        "name": "Fire Treespear"
-    },
-    {
-        "name": "Flame Art Treespear"
-    },
-    {
-        "name": "Lightning Treespear"
-    },
-    {
-        "name": "Sacred Treespear"
-    },
-    {
-        "name": "Magic Treespear"
-    },
-    {
-        "name": "Cold Treespear",
-        "type1": "Frost"
-    },
-    {
-        "name": "Poison Treespear",
-        "type1": "Poison"
-    },
-    {
-        "name": "Blood Treespear",
-        "type1": "Blood"
-    },
-    {
-        "name": "Occult Treespear"
-    },
-    {
         "name": "Halberd"
     },
     {
@@ -6420,45 +6331,6 @@
         "name": "Great Club"
     },
     {
-        "name": "Heavy Great Club"
-    },
-    {
-        "name": "Keen Great Club"
-    },
-    {
-        "name": "Quality Great Club"
-    },
-    {
-        "name": "Fire Great Club"
-    },
-    {
-        "name": "Flame Art Great Club"
-    },
-    {
-        "name": "Lightning Great Club"
-    },
-    {
-        "name": "Sacred Great Club"
-    },
-    {
-        "name": "Magic Great Club"
-    },
-    {
-        "name": "Cold Great Club",
-        "type1": "Frost"
-    },
-    {
-        "name": "Poison Great Club",
-        "type1": "Poison"
-    },
-    {
-        "name": "Blood Great Club",
-        "type1": "Blood"
-    },
-    {
-        "name": "Occult Great Club"
-    },
-    {
         "name": "Envoy's Greathorn"
     },
     {
@@ -6605,45 +6477,6 @@
     },
     {
         "name": "Troll's Hammer"
-    },
-    {
-        "name": "Troll's Heavy Hammer"
-    },
-    {
-        "name": "Troll's Keen Hammer"
-    },
-    {
-        "name": "Troll's Quality Hammer"
-    },
-    {
-        "name": "Troll's Fire Hammer"
-    },
-    {
-        "name": "Troll's Flame Art Hammer"
-    },
-    {
-        "name": "Troll's Lightning Hammer"
-    },
-    {
-        "name": "Troll's Sacred Hammer"
-    },
-    {
-        "name": "Troll's Magic Hammer"
-    },
-    {
-        "name": "Troll's Cold Hammer",
-        "type1": "Frost"
-    },
-    {
-        "name": "Troll's Poison Hammer",
-        "type1": "Poison"
-    },
-    {
-        "name": "Troll's Blood Hammer",
-        "type1": "Blood"
-    },
-    {
-        "name": "Troll's Occult Hammer"
     },
     {
         "name": "Rotten Staff",

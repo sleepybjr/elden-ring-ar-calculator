@@ -2,7 +2,7 @@
   "name": "elden-ring-ar-calculator",
   "version": "0.1.0",
   "private": true,
-  "homepage":"elden-ring-ar-calculator",
+  "homepage": "elden-ring-ar-calculator",
   "dependencies": {
     "-": "^0.0.1",
     "@testing-library/jest-dom": "^5.16.4",
@@ -12,7 +12,7 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-ga4": "^1.4.1",
-    "react-scripts": "5.0.0",
+    "react-scripts": "^5.0.0",
     "save-dev": "^0.0.1-security",
     "web-vitals": "^2.1.4"
   },
