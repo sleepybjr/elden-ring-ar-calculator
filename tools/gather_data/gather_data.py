@@ -383,6 +383,26 @@ PassiveTypes = {
     'Hemorrhage': 'Blood',
     }
 
+EffectAttribute = {
+    21: 'Scarlet Rot', 
+    26: 'Madness', 
+    24: 'Sleep', 
+    23: 'Frost', 
+    20: 'Poison', 
+    22: 'Blood',
+    27: 'Blight',
+    254: 'None',
+}
+
+SortOrder = {
+    'Scarlet Rot': 0,
+    'Madness': 1,
+    'Sleep': 2, 
+    'Frost': 3, 
+    'Poison': 4,
+    'Blood': 5,
+}
+
 def getWeaponPassive():
     with open("SpEffectParam.csv") as fp:
         reader = csv.reader(fp, delimiter=";", quotechar='"')
@@ -405,58 +425,106 @@ def getWeaponPassive():
                 
                 types = []
                 rows = []
+                row_nums = []
 
                 # need if statements for type of passive, for example poison is "Inflict Poison +"
                 # -1 means not used
                 if passive1 != '-1':
-                    if passive1 in SpEffectParam:
+                    if passive1 in SpEffectParam: # needed because regulation.bin has a bug with certain weapons
                         row1 = SpEffectParam[passive1]
                         # currently filtering out types by using own data and row name - row name isn't a var and can be changed
-                        rows.append(row1)
                         for type, value in PassiveTypes.items():
                             if type in row1['Row Name']:
+                                rows.append(row1)
+                                row_nums.append(passive1)
                                 types.append(value)
                                 break
 
                 if passive2 != '-1':
-                    row2 = SpEffectParam[passive2]
-                    # currently filtering out types by using own data and row name - row name isn't a var and can be changed
-                    rows.append(row2)
-                    for type, value in PassiveTypes.items():
-                        if type in row2['Row Name']:
-                            types.append(value)
-                            break
+                    if passive2 in SpEffectParam:
+                        row2 = SpEffectParam[passive2]
+                        # currently filtering out types by using own data and row name - row name isn't a var and can be changed
+                        for type, value in PassiveTypes.items():
+                            if type in row2['Row Name']:
+                                rows.append(row2)
+                                row_nums.append(passive2)
+                                types.append(value)
+                                break
 
                 if passive3 != '-1':
-                    row3 = SpEffectParam[passive3]
-                    # currently filtering out types by using own data and row name - row name isn't a var and can be changed
-                    rows.append(row3)
-                    for type, value in PassiveTypes.items():
-                        if type in row3['Row Name']:
-                            types.append(value)
-                            break
+                    if passive3 in SpEffectParam:
+                        row3 = SpEffectParam[passive3]
+                        # currently filtering out types by using own data and row name - row name isn't a var and can be changed
+                        for type, value in PassiveTypes.items(): # this is filtering out the other types of passive which is a bun
+                            if type in row3['Row Name']:
+                                rows.append(row3)
+                                row_nums.append(passive3)
+                                types.append(value)
+                                break
 
-                types.reverse()
-                rows.reverse()
+                # passive type 1 and 2 are sorted in SortOrder
+                if len(types) > 0:
+                    zipped_lists = list(zip(types, rows, row_nums))
+                    sorted_lists = sorted(zipped_lists, key=lambda value: SortOrder[value[0]])
+                    tuples = zip(*sorted_lists)
+                    types, rows, row_nums = [list(tuple) for tuple in tuples]
 
+                # INIT VALUES
+                for idx, type in enumerate(types):
+                    row_dict["type" + str(idx+1)] = ''
+                row_dict["scarletRot0"] = 0
+                row_dict["madness0"] = 0
+                row_dict["sleep0"] = 0
+                for upgrade_level in range(0, 26):
+                    row_dict["frost" + str(upgrade_level)] = 0
+                    row_dict["poison" + str(upgrade_level)] = 0
+                    row_dict["blood" + str(upgrade_level)] = 0
+
+                # UPDATE VALUES VALUES
                 for idx, type in enumerate(types):
                     row_dict["type" + str(idx+1)] = type
+                    row_id = int(row_nums[idx])
+
+                    if row_id in {5010600, 5121300, 5121800, 5140600, 5151200, 5160600}:
+                        # edge case for celebrant's  and others, this id is for the rune gain or health regain
+                        continue
 
                     # currently filtering out types by using own data and row name - row name isn't a var and can be changed, is there a real link in yapped?
                     if type == "Scarlet Rot":
-                        row_dict["scarletRot0"] = rows[idx]["Inflict Scarlet Rot +"]
+                        row_dict["scarletRot0"] = int(SpEffectParam[str(row_id+upgrade_level)]["Inflict Scarlet Rot +"]) if not (6400 <= row_id <= 6805) else int(SpEffectParam[str(row_id)]["Inflict Scarlet Rot +"])
                     elif type == "Madness":
-                        row_dict["madness0"] = rows[idx]["Inflict Madness +"]
+                        row_dict["madness0"] = int(SpEffectParam[str(row_id+upgrade_level)]["Inflict Madness +"]) if not (6400 <= row_id <= 6805) else int(SpEffectParam[str(row_id)]["Inflict Madness +"])
                     elif type == "Sleep":
-                        row_dict["sleep0"] = rows[idx]["Inflict Sleep +"]
+                        row_dict["sleep0"] = int(SpEffectParam[str(row_id+upgrade_level)]["Inflict Sleep +"]) if not (6400 <= row_id <= 6805) else int(SpEffectParam[str(row_id)]["Inflict Sleep +"])
+                    else:
+                        upgrade_level_max = getMaxUpgrade(row)
+                        for upgrade_level in range(0, upgrade_level_max+1):
+                            if not (6400 <= row_id <= 6805) and row_dict['name'] != 'Cold Antspur Rapier': # special passives, don't increase with level
+                                if type == "Frost":
+                                    row_dict["frost" + str(upgrade_level)] = int(SpEffectParam[str(row_id+upgrade_level)]["Inflict Frostbite +"])
 
-                    # upgrade_level_max = getMaxUpgrade(row)
-                    # for upgrade_level in range(0, upgrade_level_max+1):
-                    #     row_dict["frost" + str(upgrade_level)] =  0
+                                elif type == "Poison":
+                                    row_dict["poison" + str(upgrade_level)] = int(SpEffectParam[str(row_id+upgrade_level)]["Inflict Poison +"])
 
-                    #     row_dict["poison" + str(upgrade_level)] = 0
+                                elif type == "Blood":
+                                    row_dict["blood" + str(upgrade_level)] = int(SpEffectParam[str(row_id+upgrade_level)]["Inflict Hemorrhage +"])
+                            else:
+                                if type == "Frost":
+                                    row_dict["frost" + str(upgrade_level)] = int(SpEffectParam[str(row_id)]["Inflict Frostbite +"])
 
-                    #     row_dict["blood" + str(upgrade_level)] =  0
+                                elif type == "Poison":
+                                    row_dict["poison" + str(upgrade_level)] = int(SpEffectParam[str(row_id)]["Inflict Poison +"])
+
+                                elif type == "Blood":
+                                    row_dict["blood" + str(upgrade_level)] = int(SpEffectParam[str(row_id)]["Inflict Hemorrhage +"])
+                    
+                    
+                # # probably delete later, unneeded but used to match current data
+                # if upgrade_level_max != 25:
+                #     for upgrade_level in range(upgrade_level_max+1, 26):
+                #         row_dict["frost" + str(upgrade_level)] = 0
+                #         row_dict["poison" + str(upgrade_level)] = 0
+                #         row_dict["blood" + str(upgrade_level)] = 0
 
                 weapon_passive_data.append(row_dict)
 
