@@ -2,6 +2,7 @@ from collections import OrderedDict
 import csv
 import pprint
 from enum import Enum
+import json
 
 class Output(Enum):
     STR = "Str"
@@ -57,6 +58,9 @@ def getMaxUpgrade(row):
 base_weapon = 1000000 # dagger
 max_weapon = 44010000 # jar cannon
 
+def writeToFile(filename, input):
+    with open('output/' + filename + '.json', "w") as output_file:
+        json.dump(input, output_file, indent=4)
 
 ##############################################
 # AttackElementCorrectParam.json
@@ -138,6 +142,7 @@ def getWeaponReqs():
     weapon_reqs_data = []   
     for key, row in EquipParamWeapon.items():
         if row['Row Name'] != '' and base_weapon <= int(key) <= max_weapon:
+            # EquipParamWeapon.Prevent Affinity Change shows if weapon can use affinity
 
             row_dict = OrderedDict()
             row_dict["fullweaponname"] = row['Row Name']
@@ -153,8 +158,10 @@ def getWeaponReqs():
             row_dict["faireq"] = int(row['Requirement: ' + Input.FAI.value])
             row_dict["arcreq"] = int(row['Requirement: ' + Input.ARC.value])
             # row_dict["physicalDamageType"] = row[1] # not correct, use WeaponTypes.json?
-            row_dict["weight"] = float(row["Weight"])
-            row_dict["basePoiseAttack"] = float(row["Poise Damage"])
+            weight = float(row["Weight"])
+            row_dict["weight"] = int(weight) if weight.is_integer() else weight
+            poise_damage = float(row["Poise Damage"])
+            row_dict["basePoiseAttack"] = int(poise_damage) if poise_damage.is_integer() else poise_damage
             # row_dict["weaponType"] = row[1] # not correct, maybe just load from previous values? Only issue is new weapons won't be matched until added. use WeaponTypes.json?
 
             weapon_reqs_data.append(row_dict)
@@ -173,6 +180,7 @@ def getWeaponDamage():
 
     for key, row in EquipParamWeapon.items():
         if row['Row Name'] != '' and base_weapon <= int(key) <= max_weapon:
+            # EquipParamWeapon.Prevent Affinity Change shows if weapon can use affinity
             row_dict = OrderedDict()
             row_dict["name"] = row['Row Name']
             
@@ -183,25 +191,51 @@ def getWeaponDamage():
                 # (EquipParamWeapon) Damage: Physical * (ReinforceParamWeapon) Damage % Physical --------- NEED UPGRADE LEVEL
                 dmg_phys = float(row['Damage: Physical'])
                 dmg_phys_perc = float(ReinforceParamWeapon[str(int(row["Reinforce Type ID"]) + upgrade_level)]['Damage %: Physical'])
-                row_dict["phys" + str(upgrade_level)] =  dmg_phys * dmg_phys_perc
+                phys_name = "phys" + str(upgrade_level)
+                row_dict[phys_name] =  dmg_phys * dmg_phys_perc
+                if row_dict[phys_name].is_integer():
+                    row_dict[phys_name] = int(row_dict[phys_name])
 
                 dmg_mag = float(row['Damage: Magic'])
                 dmg_mag_perc = float(ReinforceParamWeapon[str(int(row["Reinforce Type ID"]) + upgrade_level)]['Damage %: Magic'])
-                row_dict["mag" + str(upgrade_level)] =  dmg_mag * dmg_mag_perc
+                mag_name = "mag" + str(upgrade_level)
+                row_dict[mag_name] =  dmg_mag * dmg_mag_perc
+                if row_dict[mag_name].is_integer():
+                    row_dict[mag_name] = int(row_dict[mag_name])
 
                 dmg_fire = float(row['Damage: Fire'])
                 dmg_fire_perc = float(ReinforceParamWeapon[str(int(row["Reinforce Type ID"]) + upgrade_level)]['Damage %: Fire'])
-                row_dict["fire" + str(upgrade_level)] =  dmg_fire * dmg_fire_perc
+                fire_name = "fire" + str(upgrade_level)
+                row_dict[fire_name] =  dmg_fire * dmg_fire_perc
+                if row_dict[fire_name].is_integer():
+                    row_dict[fire_name] = int(row_dict[fire_name])
 
                 dmg_ligh = float(row['Damage: Lightning'])
                 dmg_ligh_perc = float(ReinforceParamWeapon[str(int(row["Reinforce Type ID"]) + upgrade_level)]['Damage %: Lightning'])
-                row_dict["ligh" + str(upgrade_level)] =  dmg_ligh * dmg_ligh_perc
+                ligh_name = "ligh" + str(upgrade_level)
+                row_dict[ligh_name] =  dmg_ligh * dmg_ligh_perc
+                if row_dict[ligh_name].is_integer():
+                    row_dict[ligh_name] = int(row_dict[ligh_name])
 
                 dmg_holy = float(row['Damage: Holy'])
                 dmg_holy_perc = float(ReinforceParamWeapon[str(int(row["Reinforce Type ID"]) + upgrade_level)]['Damage %: Holy'])
-                row_dict["holy" + str(upgrade_level)] =  dmg_holy * dmg_holy_perc
+                holy_name = "holy" + str(upgrade_level)
+                row_dict[holy_name] =  dmg_holy * dmg_holy_perc
+                if row_dict[holy_name].is_integer():
+                    row_dict[holy_name] = int(row_dict[holy_name])
 
-                # row_dict["stam0"] = 81
+                # need to calculate this but not needed
+                row_dict["stam" + str(upgrade_level)] = -1
+
+            # probably delete later, unneeded but used to match current data
+            if upgrade_level_max != 25:
+                for upgrade_level in range(upgrade_level_max+1, 26):
+                    row_dict["phys" + str(upgrade_level)] = 0
+                    row_dict["mag" + str(upgrade_level)] = 0
+                    row_dict["fire" + str(upgrade_level)] = 0
+                    row_dict["ligh" + str(upgrade_level)] = 0
+                    row_dict["holy" + str(upgrade_level)] = 0
+                    row_dict["stam" + str(upgrade_level)] = -1
 
             weapon_damage_data.append(row_dict)
     
@@ -219,6 +253,7 @@ def getWeaponScaling():
 
     for key, row in EquipParamWeapon.items():
         if row['Row Name'] != '' and base_weapon <= int(key) <= max_weapon:
+            # EquipParamWeapon.Prevent Affinity Change shows if weapon can use affinity
             row_dict = OrderedDict()
             row_dict["name"] = row['Row Name']
             
@@ -229,23 +264,47 @@ def getWeaponScaling():
                 # (EquipParamWeapon) Correction: STR * (ReinforceParamWeapon) Correction % STR / 100 --------- NEED UPGRADE LEVEL
                 crt_str = float(row['Correction: ' + Input.STR.value])
                 crt_str_perc = float(ReinforceParamWeapon[str(int(row["Reinforce Type ID"]) + upgrade_level)]['Correction %: ' + Input.STR.value])
-                row_dict["str" + str(upgrade_level)] =  crt_str * crt_str_perc / 100
+                str_name = "str" + str(upgrade_level)
+                row_dict[str_name] =  crt_str * crt_str_perc / 100
+                if row_dict[str_name].is_integer():
+                    row_dict[str_name] = int(row_dict[str_name])
 
                 crt_dex = float(row['Correction: ' + Input.DEX.value])
                 crt_dex_perc = float(ReinforceParamWeapon[str(int(row["Reinforce Type ID"]) + upgrade_level)]['Correction %: ' + Input.DEX.value])
-                row_dict["dex" + str(upgrade_level)] =  crt_dex * crt_dex_perc / 100
+                dex_name = "dex" + str(upgrade_level)
+                row_dict[dex_name] =  crt_dex * crt_dex_perc / 100
+                if row_dict[dex_name].is_integer():
+                    row_dict[dex_name] = int(row_dict[dex_name])
 
                 crt_int = float(row['Correction: ' + Input.INT.value])
                 crt_int_perc = float(ReinforceParamWeapon[str(int(row["Reinforce Type ID"]) + upgrade_level)]['Correction %: ' + Input.INT.value])
-                row_dict["int" + str(upgrade_level)] =  crt_int * crt_int_perc / 100
+                int_name = "int" + str(upgrade_level)
+                row_dict[int_name] =  crt_int * crt_int_perc / 100
+                if row_dict[int_name].is_integer():
+                    row_dict[int_name] = int(row_dict[int_name])
 
                 crt_fai = float(row['Correction: ' + Input.FAI.value])
                 crt_fai_perc = float(ReinforceParamWeapon[str(int(row["Reinforce Type ID"]) + upgrade_level)]['Correction %: ' + Input.FAI.value])
-                row_dict["fai" + str(upgrade_level)] =  crt_fai * crt_fai_perc / 100
+                fai_name = "fai" + str(upgrade_level)
+                row_dict[fai_name] =  crt_fai * crt_fai_perc / 100
+                if row_dict[fai_name].is_integer():
+                    row_dict[fai_name] = int(row_dict[fai_name])
 
                 crt_arc = float(row['Correction: ' + Input.ARC.value])
                 crt_arc_perc = float(ReinforceParamWeapon[str(int(row["Reinforce Type ID"]) + upgrade_level)]['Correction %: ' + Input.ARC.value])
-                row_dict["arc" + str(upgrade_level)] =  crt_arc * crt_arc_perc / 100
+                arc_name = "arc" + str(upgrade_level)
+                row_dict[arc_name] =  crt_arc * crt_arc_perc / 100
+                if row_dict[arc_name].is_integer():
+                    row_dict[arc_name] = int(row_dict[arc_name])
+            
+            # probably delete later, unneeded but used to match current data
+            if upgrade_level_max != 25:
+                for upgrade_level in range(upgrade_level_max+1, 26):
+                    row_dict["str" + str(upgrade_level)] = 0
+                    row_dict["dex" + str(upgrade_level)] = 0
+                    row_dict["int" + str(upgrade_level)] = 0
+                    row_dict["fai" + str(upgrade_level)] = 0
+                    row_dict["arc" + str(upgrade_level)] = 0
 
             weapon_scaling_data.append(row_dict)
     
@@ -366,7 +425,14 @@ weapon_reqs_data = getWeaponReqs()
 weapon_damage_data = getWeaponDamage()
 weapon_scaling_data = getWeaponScaling()
 weapon_passive_data = getWeaponPassive()
-calc_correct_id = getCalcCorrectId()
+# calc_correct_id = getCalcCorrectId()
 
-pp = pprint.PrettyPrinter(indent=4)
-pp.pprint(weapon_passive_data)
+writeToFile('attackelementcorrectparam', attack_element_correct_param_data)
+writeToFile('weapon_reqs', weapon_reqs_data)
+writeToFile('weapon_damage', weapon_damage_data)
+writeToFile('weapon_scaling', weapon_scaling_data)
+writeToFile('weapon_passive', weapon_passive_data)
+# writeToFile('calc_correct_id', calc_correct_id)
+
+# pp = pprint.PrettyPrinter(indent=4)
+# pp.pprint(weapon_passive_data)

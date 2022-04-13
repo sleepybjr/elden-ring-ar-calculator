@@ -1,0 +1,9470 @@
+[
+    {
+        "name": "Dagger"
+    },
+    {
+        "name": "Heavy Dagger"
+    },
+    {
+        "name": "Keen Dagger"
+    },
+    {
+        "name": "Quality Dagger"
+    },
+    {
+        "name": "Fire Dagger"
+    },
+    {
+        "name": "Flame Art Dagger"
+    },
+    {
+        "name": "Lightning Dagger"
+    },
+    {
+        "name": "Sacred Dagger"
+    },
+    {
+        "name": "Magic Dagger"
+    },
+    {
+        "name": "Cold Dagger",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Dagger",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Dagger",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Dagger"
+    },
+    {
+        "name": "Black Knife"
+    },
+    {
+        "name": "Parrying Dagger"
+    },
+    {
+        "name": "Heavy Parrying Dagger"
+    },
+    {
+        "name": "Keen Parrying Dagger"
+    },
+    {
+        "name": "Quality Parrying Dagger"
+    },
+    {
+        "name": "Fire Parrying Dagger"
+    },
+    {
+        "name": "Flame Art Parrying Dagger"
+    },
+    {
+        "name": "Lightning Parrying Dagger"
+    },
+    {
+        "name": "Sacred Parrying Dagger"
+    },
+    {
+        "name": "Magic Parrying Dagger"
+    },
+    {
+        "name": "Cold Parrying Dagger",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Parrying Dagger",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Parrying Dagger",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Parrying Dagger"
+    },
+    {
+        "name": "Misericorde"
+    },
+    {
+        "name": "Heavy Misericorde"
+    },
+    {
+        "name": "Keen Misericorde"
+    },
+    {
+        "name": "Quality Misericorde"
+    },
+    {
+        "name": "Fire Misericorde"
+    },
+    {
+        "name": "Flame Art Misericorde"
+    },
+    {
+        "name": "Lightning Misericorde"
+    },
+    {
+        "name": "Sacred Misericorde"
+    },
+    {
+        "name": "Magic Misericorde"
+    },
+    {
+        "name": "Cold Misericorde",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Misericorde",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Misericorde",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Misericorde"
+    },
+    {
+        "name": "Reduvia",
+        "type1": "Blood"
+    },
+    {
+        "name": "Crystal Knife"
+    },
+    {
+        "name": "Celebrant's Sickle"
+    },
+    {
+        "name": "Celebrant's Heavy Sickle"
+    },
+    {
+        "name": "Celebrant's Keen Sickle"
+    },
+    {
+        "name": "Celebrant's Quality Sickle"
+    },
+    {
+        "name": "Celebrant's Fire Sickle"
+    },
+    {
+        "name": "Celebrant's Flame Art Sickle"
+    },
+    {
+        "name": "Celebrant's Lightning Sickle"
+    },
+    {
+        "name": "Celebrant's Sacred Sickle"
+    },
+    {
+        "name": "Celebrant's Magic Sickle"
+    },
+    {
+        "name": "Celebrant's Cold Sickle",
+        "type1": "Frost"
+    },
+    {
+        "name": "Celebrant's Poison Sickle",
+        "type1": "Poison"
+    },
+    {
+        "name": "Celebrant's Blood Sickle",
+        "type1": "Blood"
+    },
+    {
+        "name": "Celebrant's Occult Sickle"
+    },
+    {
+        "name": "Glintstone Kris"
+    },
+    {
+        "name": "Scorpion's Stinger",
+        "type1": "Scarlet Rot",
+        "scarletRot0": "50"
+    },
+    {
+        "name": "Great Knife",
+        "type1": "Blood"
+    },
+    {
+        "name": "Heavy Great Knife",
+        "type1": "Blood"
+    },
+    {
+        "name": "Keen Great Knife",
+        "type1": "Blood"
+    },
+    {
+        "name": "Quality Great Knife",
+        "type1": "Blood"
+    },
+    {
+        "name": "Fire Great Knife",
+        "type1": "Blood"
+    },
+    {
+        "name": "Flame Art Great Knife",
+        "type1": "Blood"
+    },
+    {
+        "name": "Lightning Great Knife",
+        "type1": "Blood"
+    },
+    {
+        "name": "Sacred Great Knife",
+        "type1": "Blood"
+    },
+    {
+        "name": "Magic Great Knife",
+        "type1": "Blood"
+    },
+    {
+        "name": "Cold Great Knife",
+        "type1": "Frost",
+        "type2": "Blood"
+    },
+    {
+        "name": "Poison Great Knife",
+        "type1": "Poison",
+        "type2": "Blood"
+    },
+    {
+        "name": "Blood Great Knife",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Great Knife",
+        "type1": "Blood"
+    },
+    {
+        "name": "Wakizashi",
+        "type1": "Blood"
+    },
+    {
+        "name": "Heavy Wakizashi",
+        "type1": "Blood"
+    },
+    {
+        "name": "Keen Wakizashi",
+        "type1": "Blood"
+    },
+    {
+        "name": "Quality Wakizashi",
+        "type1": "Blood"
+    },
+    {
+        "name": "Fire Wakizashi",
+        "type1": "Blood"
+    },
+    {
+        "name": "Flame Art Wakizashi",
+        "type1": "Blood"
+    },
+    {
+        "name": "Lightning Wakizashi",
+        "type1": "Blood"
+    },
+    {
+        "name": "Sacred Wakizashi",
+        "type1": "Blood"
+    },
+    {
+        "name": "Magic Wakizashi",
+        "type1": "Blood"
+    },
+    {
+        "name": "Cold Wakizashi",
+        "type1": "Frost",
+        "type2": "Blood"
+    },
+    {
+        "name": "Poison Wakizashi",
+        "type1": "Poison",
+        "type2": "Blood"
+    },
+    {
+        "name": "Blood Wakizashi",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Wakizashi",
+        "type1": "Blood"
+    },
+    {
+        "name": "Cinquedea"
+    },
+    {
+        "name": "Ivory Sickle"
+    },
+    {
+        "name": "Bloodstained Dagger",
+        "type1": "Blood"
+    },
+    {
+        "name": "Heavy Bloodstained Dagger",
+        "type1": "Blood"
+    },
+    {
+        "name": "Keen Bloodstained Dagger",
+        "type1": "Blood"
+    },
+    {
+        "name": "Quality Bloodstained Dagger",
+        "type1": "Blood"
+    },
+    {
+        "name": "Fire Bloodstained Dagger",
+        "type1": "Blood"
+    },
+    {
+        "name": "Flame Art Bloodstained Dagger",
+        "type1": "Blood"
+    },
+    {
+        "name": "Lightning Bloodstained Dagger",
+        "type1": "Blood"
+    },
+    {
+        "name": "Sacred Bloodstained Dagger",
+        "type1": "Blood"
+    },
+    {
+        "name": "Magic Bloodstained Dagger",
+        "type1": "Blood"
+    },
+    {
+        "name": "Cold Bloodstained Dagger",
+        "type1": "Frost",
+        "type2": "Blood"
+    },
+    {
+        "name": "Poison Bloodstained Dagger",
+        "type1": "Poison",
+        "type2": "Blood"
+    },
+    {
+        "name": "Blood Bloodstained Dagger",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Bloodstained Dagger",
+        "type1": "Blood"
+    },
+    {
+        "name": "Erdsteel Dagger"
+    },
+    {
+        "name": "Heavy Erdsteel Dagger"
+    },
+    {
+        "name": "Keen Erdsteel Dagger"
+    },
+    {
+        "name": "Quality Erdsteel Dagger"
+    },
+    {
+        "name": "Fire Erdsteel Dagger"
+    },
+    {
+        "name": "Flame Art Erdsteel Dagger"
+    },
+    {
+        "name": "Lightning Erdsteel Dagger"
+    },
+    {
+        "name": "Sacred Erdsteel Dagger"
+    },
+    {
+        "name": "Magic Erdsteel Dagger"
+    },
+    {
+        "name": "Cold Erdsteel Dagger",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Erdsteel Dagger",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Erdsteel Dagger",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Erdsteel Dagger"
+    },
+    {
+        "name": "Blade of Calling"
+    },
+    {
+        "name": "Longsword"
+    },
+    {
+        "name": "Heavy Longsword"
+    },
+    {
+        "name": "Keen Longsword"
+    },
+    {
+        "name": "Quality Longsword"
+    },
+    {
+        "name": "Fire Longsword"
+    },
+    {
+        "name": "Flame Art Longsword"
+    },
+    {
+        "name": "Lightning Longsword"
+    },
+    {
+        "name": "Sacred Longsword"
+    },
+    {
+        "name": "Magic Longsword"
+    },
+    {
+        "name": "Cold Longsword",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Longsword",
+        "type1": "Poison"
+    },
+    {
+        "name": "Bloody Longsword",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Longsword"
+    },
+    {
+        "name": "Short Sword"
+    },
+    {
+        "name": "Heavy Short Sword"
+    },
+    {
+        "name": "Keen Short Sword"
+    },
+    {
+        "name": "Quality Short Sword"
+    },
+    {
+        "name": "Fire Short Sword"
+    },
+    {
+        "name": "Flame Art Short Sword"
+    },
+    {
+        "name": "Lightning Short Sword"
+    },
+    {
+        "name": "Sacred Short Sword"
+    },
+    {
+        "name": "Magic Short Sword"
+    },
+    {
+        "name": "Cold Short Sword",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Short Sword",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Short Sword",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Short Sword"
+    },
+    {
+        "name": "Broadsword"
+    },
+    {
+        "name": "Heavy Broadsword"
+    },
+    {
+        "name": "Keen Broadsword"
+    },
+    {
+        "name": "Quality Broadsword"
+    },
+    {
+        "name": "Fire Broadsword"
+    },
+    {
+        "name": "Flame Art Broadsword"
+    },
+    {
+        "name": "Lightning Broadsword"
+    },
+    {
+        "name": "Sacred Broadsword"
+    },
+    {
+        "name": "Magic Broadsword"
+    },
+    {
+        "name": "Cold Broadsword",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Broadsword",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Broadsword",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Broadsword"
+    },
+    {
+        "name": "Lordsworn's Straight Sword"
+    },
+    {
+        "name": "Lordsworn's Heavy Straight Sword"
+    },
+    {
+        "name": "Lordsworn's Keen Straight Sword"
+    },
+    {
+        "name": "Lordsworn's Quality Straight Sword"
+    },
+    {
+        "name": "Lordsworn's Fire Straight Sword"
+    },
+    {
+        "name": "Lordsworn's Flame Art Straight Sword"
+    },
+    {
+        "name": "Lordsworn's Lightning Straight Sword"
+    },
+    {
+        "name": "Lordsworn's Sacred Straight Sword"
+    },
+    {
+        "name": "Lordsworn's Magic Straight Sword"
+    },
+    {
+        "name": "Lordsworn's Cold Straight Sword",
+        "type1": "Frost"
+    },
+    {
+        "name": "Lordsworn's Poison Straight Sword",
+        "type1": "Poison"
+    },
+    {
+        "name": "Lordsworn's Blood Straight Sword",
+        "type1": "Blood"
+    },
+    {
+        "name": "Lordsworn's Occult Straight Sword"
+    },
+    {
+        "name": "Weathered Straight Sword"
+    },
+    {
+        "name": "Weathered Heavy Straight Sword"
+    },
+    {
+        "name": "Weathered Keen Straight Sword"
+    },
+    {
+        "name": "Weathered Quality Straight Sword"
+    },
+    {
+        "name": "Weathered Fire Straight Sword"
+    },
+    {
+        "name": "Weathered Flame Art Straight Sword"
+    },
+    {
+        "name": "Weathered Lightning Straight Sword"
+    },
+    {
+        "name": "Weathered Sacred Straight Sword"
+    },
+    {
+        "name": "Weathered Magic Straight Sword"
+    },
+    {
+        "name": "Weathered Cold Straight Sword",
+        "type1": "Frost"
+    },
+    {
+        "name": "Weathered Poison Straight Sword",
+        "type1": "Poison"
+    },
+    {
+        "name": "Weathered Blood Straight Sword",
+        "type1": "Blood"
+    },
+    {
+        "name": "Weathered Occult Straight Sword"
+    },
+    {
+        "name": "Ornamental Straight Sword"
+    },
+    {
+        "name": "Golden Epitaph"
+    },
+    {
+        "name": "Nox Flowing Sword"
+    },
+    {
+        "name": "Inseparable Sword"
+    },
+    {
+        "name": "Coded Sword"
+    },
+    {
+        "name": "Sword of Night and Flame"
+    },
+    {
+        "name": "Crystal Sword"
+    },
+    {
+        "name": "Carian Knight's Sword"
+    },
+    {
+        "name": "Sword of St. Trina",
+        "type1": "Sleep",
+        "sleep0": "66"
+    },
+    {
+        "name": "Miquellan Knight's Sword"
+    },
+    {
+        "name": "Cane Sword"
+    },
+    {
+        "name": "Heavy Cane Sword"
+    },
+    {
+        "name": "Keen Cane Sword"
+    },
+    {
+        "name": "Quality Cane Sword"
+    },
+    {
+        "name": "Fire Cane Sword"
+    },
+    {
+        "name": "Flame Art Cane Sword"
+    },
+    {
+        "name": "Lightning Cane Sword"
+    },
+    {
+        "name": "Sacred Cane Sword"
+    },
+    {
+        "name": "Magic Cane Sword"
+    },
+    {
+        "name": "Cold Cane Sword",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Cane Sword",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Cane Sword",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Cane Sword"
+    },
+    {
+        "name": "Regalia of Eochaid"
+    },
+    {
+        "name": "Noble's Slender Sword"
+    },
+    {
+        "name": "Noble's Heavy Slender Sword"
+    },
+    {
+        "name": "Noble's Keen Slender Sword"
+    },
+    {
+        "name": "Noble's Quality Slender Sword"
+    },
+    {
+        "name": "Noble's Fire Slender Sword"
+    },
+    {
+        "name": "Noble's Flame Art Slender Sword"
+    },
+    {
+        "name": "Noble's Lightning Slender Sword"
+    },
+    {
+        "name": "Noble's Sacred Slender Sword"
+    },
+    {
+        "name": "Noble's Magic Slender Sword"
+    },
+    {
+        "name": "Noble's Cold Slender Sword",
+        "type1": "Frost"
+    },
+    {
+        "name": "Noble's Poison Slender Sword",
+        "type1": "Poison"
+    },
+    {
+        "name": "Noble's Blood Slender Sword",
+        "type1": "Blood"
+    },
+    {
+        "name": "Noble's Occult Slender Sword"
+    },
+    {
+        "name": "Warhawk's Talon"
+    },
+    {
+        "name": "Warhawk's Heavy Talon"
+    },
+    {
+        "name": "Warhawk's Keen Talon"
+    },
+    {
+        "name": "Warhawk's Quality Talon"
+    },
+    {
+        "name": "Warhawk's Fire Talon"
+    },
+    {
+        "name": "Warhawk's Flame Art Talon"
+    },
+    {
+        "name": "Warhawk's Lightning Talon"
+    },
+    {
+        "name": "Warhawk's Sacred Talon"
+    },
+    {
+        "name": "Warhawk's Magic Talon"
+    },
+    {
+        "name": "Warhawk's Cold Talon",
+        "type1": "Frost"
+    },
+    {
+        "name": "Warhawk's Poison Talon",
+        "type1": "Poison"
+    },
+    {
+        "name": "Warhawk's Blood Talon",
+        "type1": "Blood"
+    },
+    {
+        "name": "Warhawk's Occult Talon"
+    },
+    {
+        "name": "Lazuli Glintstone Sword"
+    },
+    {
+        "name": "Rotten Crystal Sword",
+        "type1": "Scarlet Rot",
+        "scarletRot0": "50"
+    },
+    {
+        "name": "Bastard Sword"
+    },
+    {
+        "name": "Heavy Bastard Sword"
+    },
+    {
+        "name": "Keen Bastard Sword"
+    },
+    {
+        "name": "Quality Bastard Sword"
+    },
+    {
+        "name": "Fire Bastard Sword"
+    },
+    {
+        "name": "Flame Art Bastard Sword"
+    },
+    {
+        "name": "Lightning Bastard Sword"
+    },
+    {
+        "name": "Sacred Bastard Sword"
+    },
+    {
+        "name": "Magic Bastard Sword"
+    },
+    {
+        "name": "Cold Bastard Sword",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Bastard Sword",
+        "type1": "Poison"
+    },
+    {
+        "name": "Bloody Bastard Sword",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Bastard Sword"
+    },
+    {
+        "name": "Forked Greatsword",
+        "type1": "Blood"
+    },
+    {
+        "name": "Heavy Forked Greatsword",
+        "type1": "Blood"
+    },
+    {
+        "name": "Keen Forked Greatsword",
+        "type1": "Blood"
+    },
+    {
+        "name": "Quality Forked Greatsword",
+        "type1": "Blood"
+    },
+    {
+        "name": "Fire Forked Greatsword",
+        "type1": "Blood"
+    },
+    {
+        "name": "Flame Art Forked Greatsword",
+        "type1": "Blood"
+    },
+    {
+        "name": "Lightning Forked Greatsword",
+        "type1": "Blood"
+    },
+    {
+        "name": "Sacred Forked Greatsword",
+        "type1": "Blood"
+    },
+    {
+        "name": "Magic Forked Greatsword",
+        "type1": "Blood"
+    },
+    {
+        "name": "Cold Forked Greatsword",
+        "type1": "Frost",
+        "type2": "Blood"
+    },
+    {
+        "name": "Poison Forked Greatsword",
+        "type1": "Poison",
+        "type2": "Blood"
+    },
+    {
+        "name": "Blood Forked Greatsword",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Forked Greatsword",
+        "type1": "Blood"
+    },
+    {
+        "name": "Iron Greatsword"
+    },
+    {
+        "name": "Heavy Iron Greatsword"
+    },
+    {
+        "name": "Keen Iron Greatsword"
+    },
+    {
+        "name": "Quality Iron Greatsword"
+    },
+    {
+        "name": "Fire Iron Greatsword"
+    },
+    {
+        "name": "Flame Art Iron Greatsword"
+    },
+    {
+        "name": "Lightning Iron Greatsword"
+    },
+    {
+        "name": "Sacred Iron Greatsword"
+    },
+    {
+        "name": "Magic Iron Greatsword"
+    },
+    {
+        "name": "Cold Iron Greatsword",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Iron Greatsword",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Iron Greatsword",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Iron Greatsword"
+    },
+    {
+        "name": "Lordsworn's Greatsword"
+    },
+    {
+        "name": "Lordsworn's Heavy Greatsword"
+    },
+    {
+        "name": "Lordsworn's Keen Greatsword"
+    },
+    {
+        "name": "Lordsworn's Quality Greatsword"
+    },
+    {
+        "name": "Lordsworn's Fire Greatsword"
+    },
+    {
+        "name": "Lordsworn's Flame Art Greatsword"
+    },
+    {
+        "name": "Lordsworn's Lightning Greatsword"
+    },
+    {
+        "name": "Lordsworn's Sacred Greatsword"
+    },
+    {
+        "name": "Lordsworn's Magic Greatsword"
+    },
+    {
+        "name": "Lordsworn's Cold Greatsword",
+        "type1": "Frost"
+    },
+    {
+        "name": "Lordsworn's Poison Greatsword",
+        "type1": "Poison"
+    },
+    {
+        "name": "Lordsworn's Blood Greatsword",
+        "type1": "Blood"
+    },
+    {
+        "name": "Lordsworn's Occult Greatsword"
+    },
+    {
+        "name": "Knight's Greatsword"
+    },
+    {
+        "name": "Knight's Heavy Greatsword"
+    },
+    {
+        "name": "Knight's Keen Greatsword"
+    },
+    {
+        "name": "Knight's Quality Greatsword"
+    },
+    {
+        "name": "Knight's Fire Greatsword"
+    },
+    {
+        "name": "Knight's Flame Art Greatsword"
+    },
+    {
+        "name": "Knight's Lightning Greatsword"
+    },
+    {
+        "name": "Knight's Sacred Greatsword"
+    },
+    {
+        "name": "Knight's Magic Greatsword"
+    },
+    {
+        "name": "Knight's Cold Greatsword",
+        "type1": "Frost"
+    },
+    {
+        "name": "Knight's Poison Greatsword",
+        "type1": "Poison"
+    },
+    {
+        "name": "Knight's Blood Greatsword",
+        "type1": "Blood"
+    },
+    {
+        "name": "Knight's Occult Greatsword"
+    },
+    {
+        "name": "Flamberge",
+        "type1": "Blood"
+    },
+    {
+        "name": "Heavy Flamberge",
+        "type1": "Blood"
+    },
+    {
+        "name": "Keen Flamberge",
+        "type1": "Blood"
+    },
+    {
+        "name": "Quality Flamberge",
+        "type1": "Blood"
+    },
+    {
+        "name": "Fire Flamberge",
+        "type1": "Blood"
+    },
+    {
+        "name": "Flame Art Flamberge",
+        "type1": "Blood"
+    },
+    {
+        "name": "Lightning Flamberge",
+        "type1": "Blood"
+    },
+    {
+        "name": "Sacred Flamberge",
+        "type1": "Blood"
+    },
+    {
+        "name": "Magic Flamberge",
+        "type1": "Blood"
+    },
+    {
+        "name": "Cold Flamberge",
+        "type1": "Frost",
+        "type2": "Blood"
+    },
+    {
+        "name": "Poison Flamberge",
+        "type1": "Poison",
+        "type2": "Blood"
+    },
+    {
+        "name": "Blood Flamberge",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Flamberge",
+        "type1": "Blood"
+    },
+    {
+        "name": "Ordovis's Greatsword"
+    },
+    {
+        "name": "Alabaster Lord's Sword"
+    },
+    {
+        "name": "Banished Knight's Greatsword"
+    },
+    {
+        "name": "Banished Knight's Heavy Greatsword"
+    },
+    {
+        "name": "Banished Knight's Keen Greatsword"
+    },
+    {
+        "name": "Banished Knight's Quality Greatsword"
+    },
+    {
+        "name": "Banished Knight's Fire Greatsword"
+    },
+    {
+        "name": "Banished Knight's Flame Art Greatsword"
+    },
+    {
+        "name": "Banished Knight's Lightning Greatsword"
+    },
+    {
+        "name": "Banished Knight's Sacred Greatsword"
+    },
+    {
+        "name": "Banished Knight's Magic Greatsword"
+    },
+    {
+        "name": "Banished Knight's Cold Greatsword",
+        "type1": "Frost"
+    },
+    {
+        "name": "Banished Knight's Poison Greatsword",
+        "type1": "Poison"
+    },
+    {
+        "name": "Banished Knight's Blood Greatsword",
+        "type1": "Blood"
+    },
+    {
+        "name": "Banished Knight's Occult Greatsword"
+    },
+    {
+        "name": "Dark Moon Greatsword",
+        "type1": "Frost"
+    },
+    {
+        "name": "Sacred Relic Sword"
+    },
+    {
+        "name": "Helphen's Steeple"
+    },
+    {
+        "name": "Blasphemous Blade"
+    },
+    {
+        "name": "Marais Executioner's Sword"
+    },
+    {
+        "name": "Sword of Milos",
+        "type1": "Blood"
+    },
+    {
+        "name": "Golden Order Greatsword"
+    },
+    {
+        "name": "Claymore"
+    },
+    {
+        "name": "Heavy Claymore"
+    },
+    {
+        "name": "Keen Claymore"
+    },
+    {
+        "name": "Quality Claymore"
+    },
+    {
+        "name": "Fire Claymore"
+    },
+    {
+        "name": "Flame Art Claymore"
+    },
+    {
+        "name": "Lightning Claymore"
+    },
+    {
+        "name": "Sacred Claymore"
+    },
+    {
+        "name": "Magic Claymore"
+    },
+    {
+        "name": "Cold Claymore",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Claymore",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Claymore",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Claymore"
+    },
+    {
+        "name": "Gargoyle's Greatsword"
+    },
+    {
+        "name": "Gargoyle's Heavy Greatsword"
+    },
+    {
+        "name": "Gargoyle's Keen Greatsword"
+    },
+    {
+        "name": "Gargoyle's Quality Greatsword"
+    },
+    {
+        "name": "Gargoyle's Fire Greatsword"
+    },
+    {
+        "name": "Gargoyle's Flame Art Greatsword"
+    },
+    {
+        "name": "Gargoyle's Lightning Greatsword"
+    },
+    {
+        "name": "Gargoyle's Sacred Greatsword"
+    },
+    {
+        "name": "Gargoyle's Magic Greatsword"
+    },
+    {
+        "name": "Gargoyle's Cold Greatsword",
+        "type1": "Frost"
+    },
+    {
+        "name": "Gargoyle's Poison Greatsword",
+        "type1": "Poison"
+    },
+    {
+        "name": "Gargoyle's Blood Greatsword",
+        "type1": "Blood"
+    },
+    {
+        "name": "Gargoyle's Occult Greatsword"
+    },
+    {
+        "name": "Death's Poker",
+        "type1": "Frost"
+    },
+    {
+        "name": "Gargoyle's Blackblade"
+    },
+    {
+        "name": "Greatsword"
+    },
+    {
+        "name": "Heavy Greatsword"
+    },
+    {
+        "name": "Keen Greatsword"
+    },
+    {
+        "name": "Quality Greatsword"
+    },
+    {
+        "name": "Fire Greatsword"
+    },
+    {
+        "name": "Flame Art Greatsword"
+    },
+    {
+        "name": "Lightning Greatsword"
+    },
+    {
+        "name": "Sacred Greatsword"
+    },
+    {
+        "name": "Magic Greatsword"
+    },
+    {
+        "name": "Cold Greatsword",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Greatsword",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Greatsword",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Greatsword"
+    },
+    {
+        "name": "Watchdog's Greatsword"
+    },
+    {
+        "name": "Watchdog's Heavy Greatsword"
+    },
+    {
+        "name": "Watchdog's Keen Greatsword"
+    },
+    {
+        "name": "Watchdog's Quality Greatsword"
+    },
+    {
+        "name": "Watchdog's Fire Greatsword"
+    },
+    {
+        "name": "Watchdog's Flame Art Greatsword"
+    },
+    {
+        "name": "Watchdog's Lightning Greatsword"
+    },
+    {
+        "name": "Watchdog's Sacred Greatsword"
+    },
+    {
+        "name": "Watchdog's Magic Greatsword"
+    },
+    {
+        "name": "Watchdog's Cold Greatsword",
+        "type1": "Frost"
+    },
+    {
+        "name": "Watchdog's Poison Greatsword",
+        "type1": "Poison"
+    },
+    {
+        "name": "Watchdog's Blood Greatsword",
+        "type1": "Blood"
+    },
+    {
+        "name": "Watchdog's Occult Greatsword"
+    },
+    {
+        "name": "Maliketh's Black Blade"
+    },
+    {
+        "name": "Troll's Golden Sword"
+    },
+    {
+        "name": "Troll's Golden Heavy Sword"
+    },
+    {
+        "name": "Troll's Golden Keen Sword"
+    },
+    {
+        "name": "Troll's Golden Quality Sword"
+    },
+    {
+        "name": "Troll's Golden Fire Sword"
+    },
+    {
+        "name": "Troll's Golden Flame Art Sword"
+    },
+    {
+        "name": "Troll's Golden Lightning Sword"
+    },
+    {
+        "name": "Troll's Golden Sacred Sword"
+    },
+    {
+        "name": "Troll's Golden Magic Sword"
+    },
+    {
+        "name": "Troll's Golden Cold Sword",
+        "type1": "Frost"
+    },
+    {
+        "name": "Troll's Golden Poison Sword",
+        "type1": "Poison"
+    },
+    {
+        "name": "Troll's Golden Blood Sword",
+        "type1": "Blood"
+    },
+    {
+        "name": "Troll's Golden Occult Sword"
+    },
+    {
+        "name": "Zweihander"
+    },
+    {
+        "name": "Heavy Zweihander"
+    },
+    {
+        "name": "Keen Zweihander"
+    },
+    {
+        "name": "Quality Zweihander"
+    },
+    {
+        "name": "Fire Zweihander"
+    },
+    {
+        "name": "Flame Art Zweihander"
+    },
+    {
+        "name": "Lightning Zweihander"
+    },
+    {
+        "name": "Sacred Zweihander"
+    },
+    {
+        "name": "Magic Zweihander"
+    },
+    {
+        "name": "Cold Zweihander",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Zweihander",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Zweihander",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Zweihander"
+    },
+    {
+        "name": "Starscourge Greatsword"
+    },
+    {
+        "name": "Royal Greatsword"
+    },
+    {
+        "name": "Godslayer's Greatsword"
+    },
+    {
+        "name": "Ruins Greatsword"
+    },
+    {
+        "name": "Grafted Blade Greatsword"
+    },
+    {
+        "name": "Troll Knight's Sword"
+    },
+    {
+        "name": "Estoc"
+    },
+    {
+        "name": "Heavy Estoc"
+    },
+    {
+        "name": "Keen Estoc"
+    },
+    {
+        "name": "Quality Estoc"
+    },
+    {
+        "name": "Fire Estoc"
+    },
+    {
+        "name": "Flame Art Estoc"
+    },
+    {
+        "name": "Lightning Estoc"
+    },
+    {
+        "name": "Sacred Estoc"
+    },
+    {
+        "name": "Magic Estoc"
+    },
+    {
+        "name": "Cold Estoc",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Estoc",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Estoc",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Estoc"
+    },
+    {
+        "name": "Cleanrot Knight's Sword"
+    },
+    {
+        "name": "Cleanrot Knight's Heavy Sword"
+    },
+    {
+        "name": "Cleanrot Knight's Keen Sword"
+    },
+    {
+        "name": "Cleanrot Knight's Quality Sword"
+    },
+    {
+        "name": "Cleanrot Knight's Fire Sword"
+    },
+    {
+        "name": "Cleanrot Knight's Flame Art Sword"
+    },
+    {
+        "name": "Cleanrot Knight's Lightning Sword"
+    },
+    {
+        "name": "Cleanrot Knight's Sacred Sword"
+    },
+    {
+        "name": "Cleanrot Knight's Magic Sword"
+    },
+    {
+        "name": "Cleanrot Knight's Cold Sword",
+        "type1": "Frost"
+    },
+    {
+        "name": "Cleanrot Knight's Poison Sword",
+        "type1": "Poison"
+    },
+    {
+        "name": "Cleanrot Knight's Blood Sword",
+        "type1": "Blood"
+    },
+    {
+        "name": "Cleanrot Knight's Occult Sword"
+    },
+    {
+        "name": "Rapier"
+    },
+    {
+        "name": "Heavy Rapier"
+    },
+    {
+        "name": "Keen Rapier"
+    },
+    {
+        "name": "Quality Rapier"
+    },
+    {
+        "name": "Fire Rapier"
+    },
+    {
+        "name": "Flame Art Rapier"
+    },
+    {
+        "name": "Lightning Rapier"
+    },
+    {
+        "name": "Sacred Rapier"
+    },
+    {
+        "name": "Magic Rapier"
+    },
+    {
+        "name": "Cold Rapier",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Rapier",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Rapier",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Rapier"
+    },
+    {
+        "name": "Rogier's Rapier"
+    },
+    {
+        "name": "Rogier's Heavy Rapier"
+    },
+    {
+        "name": "Rogier's Keen Rapier"
+    },
+    {
+        "name": "Rogier's Quality Rapier"
+    },
+    {
+        "name": "Rogier's Fire Rapier"
+    },
+    {
+        "name": "Rogier's Flame Art Rapier"
+    },
+    {
+        "name": "Rogier's Lightning Rapier"
+    },
+    {
+        "name": "Rogier's Sacred Rapier"
+    },
+    {
+        "name": "Rogier's Magic Rapier"
+    },
+    {
+        "name": "Rogier's Cold Rapier",
+        "type1": "Frost"
+    },
+    {
+        "name": "Rogier's Poison Rapier",
+        "type1": "Poison"
+    },
+    {
+        "name": "Rogier's Blood Rapier",
+        "type1": "Blood"
+    },
+    {
+        "name": "Rogier's Occult Rapier"
+    },
+    {
+        "name": "Antspur Rapier",
+        "type1": "Scarlet Rot",
+        "scarletRot0": "55"
+    },
+    {
+        "name": "Heavy Antspur Rapier",
+        "type1": "Scarlet Rot",
+        "scarletRot0": "55"
+    },
+    {
+        "name": "Keen Antspur Rapier",
+        "type1": "Scarlet Rot",
+        "scarletRot0": "55"
+    },
+    {
+        "name": "Quality Antspur Rapier",
+        "type1": "Scarlet Rot",
+        "scarletRot0": "55"
+    },
+    {
+        "name": "Fire Antspur Rapier",
+        "type1": "Scarlet Rot",
+        "scarletRot0": "55"
+    },
+    {
+        "name": "Flame Art Antspur Rapier",
+        "type1": "Scarlet Rot",
+        "scarletRot0": "55"
+    },
+    {
+        "name": "Lightning Antspur Rapier",
+        "type1": "Scarlet Rot",
+        "scarletRot0": "55"
+    },
+    {
+        "name": "Sacred Antspur Rapier",
+        "type1": "Scarlet Rot",
+        "scarletRot0": "55"
+    },
+    {
+        "name": "Magic Antspur Rapier",
+        "type1": "Scarlet Rot",
+        "scarletRot0": "55"
+    },
+    {
+        "name": "Cold Antspur Rapier",
+        "type1": "Scarlet Rot",
+        "scarletRot0": "50",
+        "type2": "Frost"
+    },
+    {
+        "name": "Poison Antspur Rapier",
+        "type1": "Poison",
+        "type2": "Scarlet Rot",
+        "scarletRot0": "50"
+    },
+    {
+        "name": "Blood Antspur Rapier",
+        "type1": "Scarlet Rot",
+        "scarletRot0": "50",
+        "type2": "Blood"
+    },
+    {
+        "name": "Occult Antspur Rapier",
+        "type1": "Scarlet Rot",
+        "scarletRot0": "50"
+    },
+    {
+        "name": "Frozen Needle",
+        "type1": "Frost"
+    },
+    {
+        "name": "Noble's Estoc"
+    },
+    {
+        "name": "Noble's Heavy Estoc"
+    },
+    {
+        "name": "Noble's Keen Estoc"
+    },
+    {
+        "name": "Noble's Quality Estoc"
+    },
+    {
+        "name": "Noble's Fire Estoc"
+    },
+    {
+        "name": "Noble's Flame Art Estoc"
+    },
+    {
+        "name": "Noble's Lightning Estoc"
+    },
+    {
+        "name": "Noble's Sacred Estoc"
+    },
+    {
+        "name": "Noble's Magic Estoc"
+    },
+    {
+        "name": "Noble's Cold Estoc",
+        "type1": "Frost"
+    },
+    {
+        "name": "Noble's Poison Estoc",
+        "type1": "Poison"
+    },
+    {
+        "name": "Noble's Blood Estoc",
+        "type1": "Blood"
+    },
+    {
+        "name": "Noble's Occult Estoc"
+    },
+    {
+        "name": "Bloody Helice",
+        "type1": "Blood"
+    },
+    {
+        "name": "Godskin Stitcher"
+    },
+    {
+        "name": "Heavy Godskin Stitcher"
+    },
+    {
+        "name": "Keen Godskin Stitcher"
+    },
+    {
+        "name": "Quality Godskin Stitcher"
+    },
+    {
+        "name": "Fire Godskin Stitcher"
+    },
+    {
+        "name": "Flame Art Godskin Stitcher"
+    },
+    {
+        "name": "Lightning Godskin Stitcher"
+    },
+    {
+        "name": "Sacred Godskin Stitcher"
+    },
+    {
+        "name": "Magic Godskin Stitcher"
+    },
+    {
+        "name": "Cold Godskin Stitcher",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Godskin Stitcher",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Godskin Stitcher",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Godskin Stitcher"
+    },
+    {
+        "name": "Great epee"
+    },
+    {
+        "name": "Heavy Great epee"
+    },
+    {
+        "name": "Keen Great epee"
+    },
+    {
+        "name": "Quality Great epee"
+    },
+    {
+        "name": "Fire Great epee"
+    },
+    {
+        "name": "Flame Art Great epee"
+    },
+    {
+        "name": "Lightning Great epee"
+    },
+    {
+        "name": "Sacred Great epee"
+    },
+    {
+        "name": "Magic Great epee"
+    },
+    {
+        "name": "Cold Great epee",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Great epee",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Great epee",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Great epee"
+    },
+    {
+        "name": "Dragon King's Cragblade"
+    },
+    {
+        "name": "Falchion"
+    },
+    {
+        "name": "Heavy Falchion"
+    },
+    {
+        "name": "Keen Falchion"
+    },
+    {
+        "name": "Quality Falchion"
+    },
+    {
+        "name": "Fire Falchion"
+    },
+    {
+        "name": "Flame Art Falchion"
+    },
+    {
+        "name": "Lightning Falchion"
+    },
+    {
+        "name": "Sacred Falchion"
+    },
+    {
+        "name": "Magic Falchion"
+    },
+    {
+        "name": "Cold Falchion",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Falchion",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Falchion",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Falchion"
+    },
+    {
+        "name": "Beastman's Curved Sword"
+    },
+    {
+        "name": "Beastman's Heavy Curved Sword"
+    },
+    {
+        "name": "Beastman's Keen Curved Sword"
+    },
+    {
+        "name": "Beastman's Quality Curved Sword"
+    },
+    {
+        "name": "Beastman's Fire Curved Sword"
+    },
+    {
+        "name": "Beastman's Flame Art Curved Sword"
+    },
+    {
+        "name": "Beastman's Lightning Curved Sword"
+    },
+    {
+        "name": "Beastman's Sacred Curved Sword"
+    },
+    {
+        "name": "Beastman's Magic Curved Sword"
+    },
+    {
+        "name": "Beastman's Cold Curved Sword",
+        "type1": "Frost"
+    },
+    {
+        "name": "Beastman's Poison Curved Sword",
+        "type1": "Poison"
+    },
+    {
+        "name": "Beastman's Blood Curved Sword",
+        "type1": "Blood"
+    },
+    {
+        "name": "Beastman's Occult Curved Sword"
+    },
+    {
+        "name": "Shotel"
+    },
+    {
+        "name": "Heavy Shotel"
+    },
+    {
+        "name": "Keen Shotel"
+    },
+    {
+        "name": "Quality Shotel"
+    },
+    {
+        "name": "Fire Shotel"
+    },
+    {
+        "name": "Flame Art Shotel"
+    },
+    {
+        "name": "Lightning Shotel"
+    },
+    {
+        "name": "Sacred Shotel"
+    },
+    {
+        "name": "Magic Shotel"
+    },
+    {
+        "name": "Cold Shotel",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Shotel",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Shotel",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Shotel"
+    },
+    {
+        "name": "Shamshir"
+    },
+    {
+        "name": "Heavy Shamshir"
+    },
+    {
+        "name": "Keen Shamshir"
+    },
+    {
+        "name": "Quality Shamshir"
+    },
+    {
+        "name": "Fire Shamshir"
+    },
+    {
+        "name": "Flame Art Shamshir"
+    },
+    {
+        "name": "Lightning Shamshir"
+    },
+    {
+        "name": "Sacred Shamshir"
+    },
+    {
+        "name": "Magic Shamshir"
+    },
+    {
+        "name": "Cold Shamshir",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Shamshir",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Shamshir",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Shamshir"
+    },
+    {
+        "name": "Bandit's Curved Sword"
+    },
+    {
+        "name": "Bandit's Heavy Curved Sword"
+    },
+    {
+        "name": "Bandit's Keen Curved Sword"
+    },
+    {
+        "name": "Bandit's Quality Curved Sword"
+    },
+    {
+        "name": "Bandit's Fire Curved Sword"
+    },
+    {
+        "name": "Bandit's Flame Art Curved Sword"
+    },
+    {
+        "name": "Bandit's Lightning Curved Sword"
+    },
+    {
+        "name": "Bandit's Sacred Curved Sword"
+    },
+    {
+        "name": "Bandit's Magic Curved Sword"
+    },
+    {
+        "name": "Bandit's Cold Curved Sword",
+        "type1": "Frost"
+    },
+    {
+        "name": "Bandit's Poison Curved Sword",
+        "type1": "Poison"
+    },
+    {
+        "name": "Bandit's Blood Curved Sword",
+        "type1": "Blood"
+    },
+    {
+        "name": "Bandit's Occult Curved Sword"
+    },
+    {
+        "name": "Magma Blade"
+    },
+    {
+        "name": "Flowing Curved Sword"
+    },
+    {
+        "name": "Flowing Heavy Curved Sword"
+    },
+    {
+        "name": "Flowing Keen Curved Sword"
+    },
+    {
+        "name": "Flowing Quality Curved Sword"
+    },
+    {
+        "name": "Flowing Fire Curved Sword"
+    },
+    {
+        "name": "Flowing Flame Art Curved Sword"
+    },
+    {
+        "name": "Flowing Lightning Curved Sword"
+    },
+    {
+        "name": "Flowing Sacred Curved Sword"
+    },
+    {
+        "name": "Flowing Magic Curved Sword"
+    },
+    {
+        "name": "Flowing Cold Curved Sword",
+        "type1": "Frost"
+    },
+    {
+        "name": "Flowing Poison Curved Sword",
+        "type1": "Poison"
+    },
+    {
+        "name": "Flowing Blood Curved Sword",
+        "type1": "Blood"
+    },
+    {
+        "name": "Flowing Occult Curved Sword"
+    },
+    {
+        "name": "Wing of Astel"
+    },
+    {
+        "name": "Scavenger's Curved Sword",
+        "type1": "Blood"
+    },
+    {
+        "name": "Scavenger's Heavy Curved Sword",
+        "type1": "Blood"
+    },
+    {
+        "name": "Scavenger's Keen Curved Sword",
+        "type1": "Blood"
+    },
+    {
+        "name": "Scavenger's Quality Curved Sword",
+        "type1": "Blood"
+    },
+    {
+        "name": "Scavenger's Fire Curved Sword",
+        "type1": "Blood"
+    },
+    {
+        "name": "Scavenger's Flame Art Curved Sword",
+        "type1": "Blood"
+    },
+    {
+        "name": "Scavenger's Lightning Curved Sword",
+        "type1": "Blood"
+    },
+    {
+        "name": "Scavenger's Sacred Curved Sword",
+        "type1": "Blood"
+    },
+    {
+        "name": "Scavenger's Magic Curved Sword",
+        "type1": "Blood"
+    },
+    {
+        "name": "Scavenger's Cold Curved Sword",
+        "type1": "Frost",
+        "type2": "Blood"
+    },
+    {
+        "name": "Scavenger's Poison Curved Sword",
+        "type1": "Poison",
+        "type2": "Blood"
+    },
+    {
+        "name": "Scavenger's Blood Curved Sword",
+        "type1": "Blood"
+    },
+    {
+        "name": "Scavenger's Occult Curved Sword",
+        "type1": "Blood"
+    },
+    {
+        "name": "Eclipse Shotel"
+    },
+    {
+        "name": "Serpent-God's Curved Sword"
+    },
+    {
+        "name": "Serpent-God's Heavy Curved Sword"
+    },
+    {
+        "name": "Serpent-God's Keen Curved Sword"
+    },
+    {
+        "name": "Serpent-God's Quality Curved Sword"
+    },
+    {
+        "name": "Serpent-God's Fire Curved Sword"
+    },
+    {
+        "name": "Serpent-God's Flame Art Curved Sword"
+    },
+    {
+        "name": "Serpent-God's Lightning Curved Sword"
+    },
+    {
+        "name": "Serpent-God's Sacred Curved Sword"
+    },
+    {
+        "name": "Serpent-God's Magic Curved Sword"
+    },
+    {
+        "name": "Serpent-God's Cold Curved Sword",
+        "type1": "Frost"
+    },
+    {
+        "name": "Serpent-God's Poison Curved Sword",
+        "type1": "Poison"
+    },
+    {
+        "name": "Serpent-God's Blood Curved Sword",
+        "type1": "Blood"
+    },
+    {
+        "name": "Serpent-God's Occult Curved Sword"
+    },
+    {
+        "name": "Mantis Blade"
+    },
+    {
+        "name": "Heavy Mantis Blade"
+    },
+    {
+        "name": "Keen Mantis Blade"
+    },
+    {
+        "name": "Quality Mantis Blade"
+    },
+    {
+        "name": "Fire Mantis Blade"
+    },
+    {
+        "name": "Flame Art Mantis Blade"
+    },
+    {
+        "name": "Lightning Mantis Blade"
+    },
+    {
+        "name": "Sacred Mantis Blade"
+    },
+    {
+        "name": "Magic Mantis Blade"
+    },
+    {
+        "name": "Cold Mantis Blade",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Mantis Blade",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Mantis Blade",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Mantis Blade"
+    },
+    {
+        "name": "Scimitar"
+    },
+    {
+        "name": "Heavy Scimitar"
+    },
+    {
+        "name": "Keen Scimitar"
+    },
+    {
+        "name": "Quality Scimitar"
+    },
+    {
+        "name": "Fire Scimitar"
+    },
+    {
+        "name": "Flame Art Scimitar"
+    },
+    {
+        "name": "Lightning Scimitar"
+    },
+    {
+        "name": "Sacred Scimitar"
+    },
+    {
+        "name": "Magic Scimitar"
+    },
+    {
+        "name": "Cold Scimitar",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Scimitar",
+        "type1": "Poison"
+    },
+    {
+        "name": "Bloody Scimitar",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Scimitar"
+    },
+    {
+        "name": "Grossmesser"
+    },
+    {
+        "name": "Heavy Grossmesser"
+    },
+    {
+        "name": "Keen Grossmesser"
+    },
+    {
+        "name": "Quality Grossmesser"
+    },
+    {
+        "name": "Fire Grossmesser"
+    },
+    {
+        "name": "Flame Art Grossmesser"
+    },
+    {
+        "name": "Lightning Grossmesser"
+    },
+    {
+        "name": "Sacred Grossmesser"
+    },
+    {
+        "name": "Magic Grossmesser"
+    },
+    {
+        "name": "Cold Grossmesser",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Grossmesser",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Grossmesser",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Grossmesser"
+    },
+    {
+        "name": "Onyx Lord's Greatsword"
+    },
+    {
+        "name": "Dismounter"
+    },
+    {
+        "name": "Heavy Dismounter"
+    },
+    {
+        "name": "Keen Dismounter"
+    },
+    {
+        "name": "Quality Dismounter"
+    },
+    {
+        "name": "Fire Dismounter"
+    },
+    {
+        "name": "Flame Art Dismounter"
+    },
+    {
+        "name": "Lightning Dismounter"
+    },
+    {
+        "name": "Sacred Dismounter"
+    },
+    {
+        "name": "Magic Dismounter"
+    },
+    {
+        "name": "Cold Dismounter",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Dismounter",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Dismounter",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Dismounter"
+    },
+    {
+        "name": "Bloodhound's Fang",
+        "type1": "Blood"
+    },
+    {
+        "name": "Magma Wyrm's Scalesword"
+    },
+    {
+        "name": "Zamor Curved Sword",
+        "type1": "Frost"
+    },
+    {
+        "name": "Omen Cleaver"
+    },
+    {
+        "name": "Heavy Omen Cleaver"
+    },
+    {
+        "name": "Keen Omen Cleaver"
+    },
+    {
+        "name": "Quality Omen Cleaver"
+    },
+    {
+        "name": "Fire Omen Cleaver"
+    },
+    {
+        "name": "Flame Art Omen Cleaver"
+    },
+    {
+        "name": "Lightning Omen Cleaver"
+    },
+    {
+        "name": "Sacred Omen Cleaver"
+    },
+    {
+        "name": "Magic Omen Cleaver"
+    },
+    {
+        "name": "Cold Omen Cleaver",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Omen Cleaver",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Omen Cleaver",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Omen Cleaver"
+    },
+    {
+        "name": "Monk's Flameblade"
+    },
+    {
+        "name": "Monk's Heavy Flameblade"
+    },
+    {
+        "name": "Monk's Keen Flameblade"
+    },
+    {
+        "name": "Monk's Quality Flameblade"
+    },
+    {
+        "name": "Monk's Fire Flameblade"
+    },
+    {
+        "name": "Monk's Flame Art Flameblade"
+    },
+    {
+        "name": "Monk's Lightning Flameblade"
+    },
+    {
+        "name": "Monk's Sacred Flameblade"
+    },
+    {
+        "name": "Monk's Magic Flameblade"
+    },
+    {
+        "name": "Monk's Cold Flameblade",
+        "type1": "Frost"
+    },
+    {
+        "name": "Monk's Poison Flameblade",
+        "type1": "Poison"
+    },
+    {
+        "name": "Monk's Blood Flameblade",
+        "type1": "Blood"
+    },
+    {
+        "name": "Monk's Occult Flameblade"
+    },
+    {
+        "name": "Beastman's Cleaver"
+    },
+    {
+        "name": "Beastman's Heavy Cleaver"
+    },
+    {
+        "name": "Beastman's Keen Cleaver"
+    },
+    {
+        "name": "Beastman's Quality Cleaver"
+    },
+    {
+        "name": "Beastman's Fire Cleaver"
+    },
+    {
+        "name": "Beastman's Flame Art Cleaver"
+    },
+    {
+        "name": "Beastman's Lightning Cleaver"
+    },
+    {
+        "name": "Beastman's Sacred Cleaver"
+    },
+    {
+        "name": "Beastman's Magic Cleaver"
+    },
+    {
+        "name": "Beastman's Cold Cleaver",
+        "type1": "Frost"
+    },
+    {
+        "name": "Beastman's Poison Cleaver",
+        "type1": "Poison"
+    },
+    {
+        "name": "Beastman's Blood Cleaver",
+        "type1": "Blood"
+    },
+    {
+        "name": "Beastman's Occult Cleaver"
+    },
+    {
+        "name": "Morgott's Cursed Sword",
+        "type1": "Blood"
+    },
+    {
+        "name": "Uchigatana",
+        "type1": "Blood"
+    },
+    {
+        "name": "Heavy Uchigatana",
+        "type1": "Blood"
+    },
+    {
+        "name": "Keen Uchigatana",
+        "type1": "Blood"
+    },
+    {
+        "name": "Quality Uchigatana",
+        "type1": "Blood"
+    },
+    {
+        "name": "Fire Uchigatana",
+        "type1": "Blood"
+    },
+    {
+        "name": "Flame Art Uchigatana",
+        "type1": "Blood"
+    },
+    {
+        "name": "Lightning Uchigatana",
+        "type1": "Blood"
+    },
+    {
+        "name": "Sacred Uchigatana",
+        "type1": "Blood"
+    },
+    {
+        "name": "Magic Uchigatana",
+        "type1": "Blood"
+    },
+    {
+        "name": "Cold Uchigatana",
+        "type1": "Frost",
+        "type2": "Blood"
+    },
+    {
+        "name": "Poison Uchigatana",
+        "type1": "Poison",
+        "type2": "Blood"
+    },
+    {
+        "name": "Blood Uchigatana",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Uchigatana",
+        "type1": "Blood"
+    },
+    {
+        "name": "Nagakiba",
+        "type1": "Blood"
+    },
+    {
+        "name": "Heavy Nagakiba",
+        "type1": "Blood"
+    },
+    {
+        "name": "Keen Nagakiba",
+        "type1": "Blood"
+    },
+    {
+        "name": "Quality Nagakiba",
+        "type1": "Blood"
+    },
+    {
+        "name": "Fire Nagakiba",
+        "type1": "Blood"
+    },
+    {
+        "name": "Flame Art Nagakiba",
+        "type1": "Blood"
+    },
+    {
+        "name": "Lightning Nagakiba",
+        "type1": "Blood"
+    },
+    {
+        "name": "Sacred Nagakiba",
+        "type1": "Blood"
+    },
+    {
+        "name": "Magic Nagakiba",
+        "type1": "Blood"
+    },
+    {
+        "name": "Cold Nagakiba",
+        "type1": "Frost",
+        "type2": "Blood"
+    },
+    {
+        "name": "Poison Nagakiba",
+        "type1": "Poison",
+        "type2": "Blood"
+    },
+    {
+        "name": "Blood Nagakiba",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Nagakiba",
+        "type1": "Blood"
+    },
+    {
+        "name": "Hand of Malenia",
+        "type1": "Blood"
+    },
+    {
+        "name": "Meteoric Ore Blade",
+        "type1": "Blood"
+    },
+    {
+        "name": "Rivers of Blood",
+        "type1": "Blood"
+    },
+    {
+        "name": "Moonveil",
+        "type1": "Blood"
+    },
+    {
+        "name": "Dragonscale Blade"
+    },
+    {
+        "name": "Serpentbone Blade",
+        "type1": "Poison"
+    },
+    {
+        "name": "Heavy Serpentbone Blade",
+        "type1": "Poison"
+    },
+    {
+        "name": "Keen Serpentbone Blade",
+        "type1": "Poison"
+    },
+    {
+        "name": "Quality Serpentbone Blade",
+        "type1": "Poison"
+    },
+    {
+        "name": "Fire Serpentbone Blade",
+        "type1": "Poison"
+    },
+    {
+        "name": "Flame Art Serpentbone Blade",
+        "type1": "Poison"
+    },
+    {
+        "name": "Lightning Serpentbone Blade",
+        "type1": "Poison"
+    },
+    {
+        "name": "Sacred Serpentbone Blade",
+        "type1": "Poison"
+    },
+    {
+        "name": "Magic Serpentbone Blade",
+        "type1": "Poison"
+    },
+    {
+        "name": "Cold Serpentbone Blade",
+        "type1": "Poison",
+        "type2": "Frost"
+    },
+    {
+        "name": "Poison Serpentbone Blade",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Serpentbone Blade",
+        "type1": "Poison",
+        "type2": "Blood"
+    },
+    {
+        "name": "Occult Serpentbone Blade",
+        "type1": "Poison"
+    },
+    {
+        "name": "Twinblade"
+    },
+    {
+        "name": "Heavy Twinblade"
+    },
+    {
+        "name": "Keen Twinblade"
+    },
+    {
+        "name": "Quality Twinblade"
+    },
+    {
+        "name": "Fire Twinblade"
+    },
+    {
+        "name": "Flame Art Twinblade"
+    },
+    {
+        "name": "Lightning Twinblade"
+    },
+    {
+        "name": "Sacred Twinblade"
+    },
+    {
+        "name": "Magic Twinblade"
+    },
+    {
+        "name": "Cold Twinblade",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Twinblade",
+        "type1": "Poison"
+    },
+    {
+        "name": "Bloody Twinblade",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Twinblade"
+    },
+    {
+        "name": "Godskin Peeler"
+    },
+    {
+        "name": "Heavy Godskin Peeler"
+    },
+    {
+        "name": "Keen Godskin Peeler"
+    },
+    {
+        "name": "Quality Godskin Peeler"
+    },
+    {
+        "name": "Fire Godskin Peeler"
+    },
+    {
+        "name": "Flame Art Godskin Peeler"
+    },
+    {
+        "name": "Lightning Godskin Peeler"
+    },
+    {
+        "name": "Sacred Godskin Peeler"
+    },
+    {
+        "name": "Magic Godskin Peeler"
+    },
+    {
+        "name": "Cold Godskin Peeler",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Godskin Peeler",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Godskin Peeler",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Godskin Peeler"
+    },
+    {
+        "name": "Twinned Knight Swords"
+    },
+    {
+        "name": "Heavy Twinned Knight Swords"
+    },
+    {
+        "name": "Keen Twinned Knight Swords"
+    },
+    {
+        "name": "Quality Twinned Knight Swords"
+    },
+    {
+        "name": "Fire Twinned Knight Swords"
+    },
+    {
+        "name": "Flame Art Twinned Knight Swords"
+    },
+    {
+        "name": "Lightning Twinned Knight Swords"
+    },
+    {
+        "name": "Sacred Twinned Knight Swords"
+    },
+    {
+        "name": "Magic Twinned Knight Swords"
+    },
+    {
+        "name": "Cold Twinned Knight Swords",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Twinned Knight Swords",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Twinned Knight Swords",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Twinned Knight Swords"
+    },
+    {
+        "name": "Eleonora's Poleblade",
+        "type1": "Blood"
+    },
+    {
+        "name": "Gargoyle's Twinblade"
+    },
+    {
+        "name": "Gargoyle's Heavy Twinblade"
+    },
+    {
+        "name": "Gargoyle's Keen Twinblade"
+    },
+    {
+        "name": "Gargoyle's Quality Twinblade"
+    },
+    {
+        "name": "Gargoyle's Fire Twinblade"
+    },
+    {
+        "name": "Gargoyle's Flame Art Twinblade"
+    },
+    {
+        "name": "Gargoyle's Lightning Twinblade"
+    },
+    {
+        "name": "Gargoyle's Sacred Twinblade"
+    },
+    {
+        "name": "Gargoyle's Magic Twinblade"
+    },
+    {
+        "name": "Gargoyle's Cold Twinblade",
+        "type1": "Frost"
+    },
+    {
+        "name": "Gargoyle's Poison Twinblade",
+        "type1": "Poison"
+    },
+    {
+        "name": "Gargoyle's Blood Twinblade",
+        "type1": "Blood"
+    },
+    {
+        "name": "Gargoyle's Occult Twinblade"
+    },
+    {
+        "name": "Gargoyle's Black Blades"
+    },
+    {
+        "name": "Mace"
+    },
+    {
+        "name": "Heavy Mace"
+    },
+    {
+        "name": "Keen Mace"
+    },
+    {
+        "name": "Quality Mace"
+    },
+    {
+        "name": "Fire Mace"
+    },
+    {
+        "name": "Flame Art Mace"
+    },
+    {
+        "name": "Lightning Mace"
+    },
+    {
+        "name": "Sacred Mace"
+    },
+    {
+        "name": "Magic Mace"
+    },
+    {
+        "name": "Cold Mace",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Mace",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Mace",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Mace"
+    },
+    {
+        "name": "Club"
+    },
+    {
+        "name": "Heavy Club"
+    },
+    {
+        "name": "Keen Club"
+    },
+    {
+        "name": "Quality Club"
+    },
+    {
+        "name": "Fire Club"
+    },
+    {
+        "name": "Flame Art Club"
+    },
+    {
+        "name": "Lightning Club"
+    },
+    {
+        "name": "Sacred Club"
+    },
+    {
+        "name": "Magic Club"
+    },
+    {
+        "name": "Cold Club",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Club",
+        "type1": "Poison"
+    },
+    {
+        "name": "Bloody Club",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Club"
+    },
+    {
+        "name": "Curved Club"
+    },
+    {
+        "name": "Heavy Curved Club"
+    },
+    {
+        "name": "Keen Curved Club"
+    },
+    {
+        "name": "Quality Curved Club"
+    },
+    {
+        "name": "Fire Curved Club"
+    },
+    {
+        "name": "Flame Art Curved Club"
+    },
+    {
+        "name": "Lightning Curved Club"
+    },
+    {
+        "name": "Sacred Curved Club"
+    },
+    {
+        "name": "Magic Curved Club"
+    },
+    {
+        "name": "Cold Curved Club",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Curved Club",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Curved Club",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Curved Club"
+    },
+    {
+        "name": "Warpick"
+    },
+    {
+        "name": "Heavy Warpick"
+    },
+    {
+        "name": "Keen Warpick"
+    },
+    {
+        "name": "Quality Warpick"
+    },
+    {
+        "name": "Fire Warpick"
+    },
+    {
+        "name": "Flame Art Warpick"
+    },
+    {
+        "name": "Lightning Warpick"
+    },
+    {
+        "name": "Sacred Warpick"
+    },
+    {
+        "name": "Magic Warpick"
+    },
+    {
+        "name": "Cold Warpick",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Warpick",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Warpick",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Warpick"
+    },
+    {
+        "name": "Morning Star",
+        "type1": "Blood"
+    },
+    {
+        "name": "Heavy Morning Star",
+        "type1": "Blood"
+    },
+    {
+        "name": "Keen Morning Star",
+        "type1": "Blood"
+    },
+    {
+        "name": "Quality Morning Star",
+        "type1": "Blood"
+    },
+    {
+        "name": "Fire Morning Star",
+        "type1": "Blood"
+    },
+    {
+        "name": "Flame Art Morning Star",
+        "type1": "Blood"
+    },
+    {
+        "name": "Lightning Morning Star",
+        "type1": "Blood"
+    },
+    {
+        "name": "Sacred Morning Star",
+        "type1": "Blood"
+    },
+    {
+        "name": "Magic Morning Star",
+        "type1": "Blood"
+    },
+    {
+        "name": "Cold Morning Star",
+        "type1": "Frost",
+        "type2": "Blood"
+    },
+    {
+        "name": "Poison Morning Star",
+        "type1": "Poison",
+        "type2": "Blood"
+    },
+    {
+        "name": "Blood Morning Star",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Morning Star",
+        "type1": "Blood"
+    },
+    {
+        "name": "Varre's Bouquet",
+        "type1": "Blood"
+    },
+    {
+        "name": "Spiked Club",
+        "type1": "Blood"
+    },
+    {
+        "name": "Heavy Spiked Club",
+        "type1": "Blood"
+    },
+    {
+        "name": "Keen Spiked Club",
+        "type1": "Blood"
+    },
+    {
+        "name": "Quality Spiked Club",
+        "type1": "Blood"
+    },
+    {
+        "name": "Fire Spiked Club",
+        "type1": "Blood"
+    },
+    {
+        "name": "Flame Art Spiked Club",
+        "type1": "Blood"
+    },
+    {
+        "name": "Lightning Spiked Club",
+        "type1": "Blood"
+    },
+    {
+        "name": "Sacred Spiked Club",
+        "type1": "Blood"
+    },
+    {
+        "name": "Magic Spiked Club",
+        "type1": "Blood"
+    },
+    {
+        "name": "Cold Spiked Club",
+        "type1": "Frost",
+        "type2": "Blood"
+    },
+    {
+        "name": "Poison Spiked Club",
+        "type1": "Poison",
+        "type2": "Blood"
+    },
+    {
+        "name": "Blood Spiked Club",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Spiked Club",
+        "type1": "Blood"
+    },
+    {
+        "name": "Hammer"
+    },
+    {
+        "name": "Heavy Hammer"
+    },
+    {
+        "name": "Keen Hammer"
+    },
+    {
+        "name": "Quality Hammer"
+    },
+    {
+        "name": "Fire Hammer"
+    },
+    {
+        "name": "Flame Art Hammer"
+    },
+    {
+        "name": "Lightning Hammer"
+    },
+    {
+        "name": "Sacred Hammer"
+    },
+    {
+        "name": "Magic Hammer"
+    },
+    {
+        "name": "Cold Hammer",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Hammer",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Hammer",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Hammer"
+    },
+    {
+        "name": "Monk's Flamemace"
+    },
+    {
+        "name": "Monk's Heavy Flamemace"
+    },
+    {
+        "name": "Monk's Keen Flamemace"
+    },
+    {
+        "name": "Monk's Quality Flamemace"
+    },
+    {
+        "name": "Monk's Fire Flamemace"
+    },
+    {
+        "name": "Monk's Flame Art Flamemace"
+    },
+    {
+        "name": "Monk's Lightning Flamemace"
+    },
+    {
+        "name": "Monk's Sacred Flamemace"
+    },
+    {
+        "name": "Monk's Magic Flamemace"
+    },
+    {
+        "name": "Monk's Cold Flamemace",
+        "type1": "Frost"
+    },
+    {
+        "name": "Monk's Poison Flamemace",
+        "type1": "Poison"
+    },
+    {
+        "name": "Monk's Blood Flamemace",
+        "type1": "Blood"
+    },
+    {
+        "name": "Monk's Occult Flamemace"
+    },
+    {
+        "name": "Envoy's Horn"
+    },
+    {
+        "name": "Scepter of the All-Knowing"
+    },
+    {
+        "name": "Nox Flowing Hammer"
+    },
+    {
+        "name": "Ringed Finger"
+    },
+    {
+        "name": "Stone Club"
+    },
+    {
+        "name": "Heavy Stone Club"
+    },
+    {
+        "name": "Keen Stone Club"
+    },
+    {
+        "name": "Quality Stone Club"
+    },
+    {
+        "name": "Fire Stone Club"
+    },
+    {
+        "name": "Flame Art Stone Club"
+    },
+    {
+        "name": "Lightning Stone Club"
+    },
+    {
+        "name": "Sacred Stone Club"
+    },
+    {
+        "name": "Magic Stone Club"
+    },
+    {
+        "name": "Cold Stone Club",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Stone Club",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Stone Club",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Stone Club"
+    },
+    {
+        "name": "Marika's Hammer"
+    },
+    {
+        "name": "Large Club"
+    },
+    {
+        "name": "Heavy Large Club"
+    },
+    {
+        "name": "Keen Large Club"
+    },
+    {
+        "name": "Quality Large Club"
+    },
+    {
+        "name": "Fire Large Club"
+    },
+    {
+        "name": "Flame Art Large Club"
+    },
+    {
+        "name": "Lightning Large Club"
+    },
+    {
+        "name": "Sacred Large Club"
+    },
+    {
+        "name": "Magic Large Club"
+    },
+    {
+        "name": "Cold Large Club",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Large Club",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Large Club",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Large Club"
+    },
+    {
+        "name": "Greathorn Hammer"
+    },
+    {
+        "name": "Heavy Greathorn Hammer"
+    },
+    {
+        "name": "Keen Greathorn Hammer"
+    },
+    {
+        "name": "Quality Greathorn Hammer"
+    },
+    {
+        "name": "Fire Greathorn Hammer"
+    },
+    {
+        "name": "Flame Art Greathorn Hammer"
+    },
+    {
+        "name": "Lightning Greathorn Hammer"
+    },
+    {
+        "name": "Sacred Greathorn Hammer"
+    },
+    {
+        "name": "Magic Greathorn Hammer"
+    },
+    {
+        "name": "Cold Greathorn Hammer",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Greathorn Hammer",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Greathorn Hammer",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Greathorn Hammer"
+    },
+    {
+        "name": "Battle Hammer"
+    },
+    {
+        "name": "Heavy Battle Hammer"
+    },
+    {
+        "name": "Keen Battle Hammer"
+    },
+    {
+        "name": "Quality Battle Hammer"
+    },
+    {
+        "name": "Fire Battle Hammer"
+    },
+    {
+        "name": "Flame Art Battle Hammer"
+    },
+    {
+        "name": "Lightning Battle Hammer"
+    },
+    {
+        "name": "Sacred Battle Hammer"
+    },
+    {
+        "name": "Magic Battle Hammer"
+    },
+    {
+        "name": "Cold Battle Hammer",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Battle Hammer",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Battle Hammer",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Battle Hammer"
+    },
+    {
+        "name": "Great Mace"
+    },
+    {
+        "name": "Heavy Great Mace"
+    },
+    {
+        "name": "Keen Great Mace"
+    },
+    {
+        "name": "Quality Great Mace"
+    },
+    {
+        "name": "Fire Great Mace"
+    },
+    {
+        "name": "Flame Art Great Mace"
+    },
+    {
+        "name": "Lightning Great Mace"
+    },
+    {
+        "name": "Sacred Great Mace"
+    },
+    {
+        "name": "Magic Great Mace"
+    },
+    {
+        "name": "Cold Great Mace",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Great Mace",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Great Mace",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Great Mace"
+    },
+    {
+        "name": "Curved Great Club"
+    },
+    {
+        "name": "Heavy Curved Great Club"
+    },
+    {
+        "name": "Keen Curved Great Club"
+    },
+    {
+        "name": "Quality Curved Great Club"
+    },
+    {
+        "name": "Fire Curved Great Club"
+    },
+    {
+        "name": "Flame Art Curved Great Club"
+    },
+    {
+        "name": "Lightning Curved Great Club"
+    },
+    {
+        "name": "Sacred Curved Great Club"
+    },
+    {
+        "name": "Magic Curved Great Club"
+    },
+    {
+        "name": "Cold Curved Great Club",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Curved Great Club",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Curved Great Club",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Curved Great Club"
+    },
+    {
+        "name": "Celebrant's Skull"
+    },
+    {
+        "name": "Celebrant's Heavy Skull"
+    },
+    {
+        "name": "Celebrant's Keen Skull"
+    },
+    {
+        "name": "Celebrant's Quality Skull"
+    },
+    {
+        "name": "Celebrant's Fire Skull"
+    },
+    {
+        "name": "Celebrant's Flame Art Skull"
+    },
+    {
+        "name": "Celebrant's Lightning Skull"
+    },
+    {
+        "name": "Celebrant's Sacred Skull"
+    },
+    {
+        "name": "Celebrant's Magic Skull"
+    },
+    {
+        "name": "Celebrant's Cold Skull",
+        "type1": "Frost"
+    },
+    {
+        "name": "Celebrant's Poison Skull",
+        "type1": "Poison"
+    },
+    {
+        "name": "Celebrant's Blood Skull",
+        "type1": "Blood"
+    },
+    {
+        "name": "Celebrant's Occult Skull"
+    },
+    {
+        "name": "Pickaxe"
+    },
+    {
+        "name": "Heavy Pickaxe"
+    },
+    {
+        "name": "Keen Pickaxe"
+    },
+    {
+        "name": "Quality Pickaxe"
+    },
+    {
+        "name": "Fire Pickaxe"
+    },
+    {
+        "name": "Flame Art Pickaxe"
+    },
+    {
+        "name": "Lightning Pickaxe"
+    },
+    {
+        "name": "Sacred Pickaxe"
+    },
+    {
+        "name": "Magic Pickaxe"
+    },
+    {
+        "name": "Cold Pickaxe",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Pickaxe",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Pickaxe",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Pickaxe"
+    },
+    {
+        "name": "Beastclaw Greathammer"
+    },
+    {
+        "name": "Envoy's Long Horn"
+    },
+    {
+        "name": "Cranial Vessel Candlestand"
+    },
+    {
+        "name": "Great Stars",
+        "type1": "Blood"
+    },
+    {
+        "name": "Heavy Great Stars",
+        "type1": "Blood"
+    },
+    {
+        "name": "Keen Great Stars",
+        "type1": "Blood"
+    },
+    {
+        "name": "Quality Great Stars",
+        "type1": "Blood"
+    },
+    {
+        "name": "Fire Great Stars",
+        "type1": "Blood"
+    },
+    {
+        "name": "Flame Art Great Stars",
+        "type1": "Blood"
+    },
+    {
+        "name": "Lightning Great Stars",
+        "type1": "Blood"
+    },
+    {
+        "name": "Sacred Great Stars",
+        "type1": "Blood"
+    },
+    {
+        "name": "Magic Great Stars",
+        "type1": "Blood"
+    },
+    {
+        "name": "Cold Great Stars",
+        "type1": "Frost",
+        "type2": "Blood"
+    },
+    {
+        "name": "Poison Great Stars",
+        "type1": "Poison",
+        "type2": "Blood"
+    },
+    {
+        "name": "Blood Great Stars",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Great Stars",
+        "type1": "Blood"
+    },
+    {
+        "name": "Brick Hammer"
+    },
+    {
+        "name": "Heavy Brick Hammer"
+    },
+    {
+        "name": "Keen Brick Hammer"
+    },
+    {
+        "name": "Quality Brick Hammer"
+    },
+    {
+        "name": "Fire Brick Hammer"
+    },
+    {
+        "name": "Flame Art Brick Hammer"
+    },
+    {
+        "name": "Lightning Brick Hammer"
+    },
+    {
+        "name": "Sacred Brick Hammer"
+    },
+    {
+        "name": "Magic Brick Hammer"
+    },
+    {
+        "name": "Cold Brick Hammer",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Brick Hammer",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Brick Hammer",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Brick Hammer"
+    },
+    {
+        "name": "Devourer's Scepter"
+    },
+    {
+        "name": "Rotten Battle Hammer",
+        "type1": "Scarlet Rot",
+        "scarletRot0": "65"
+    },
+    {
+        "name": "Heavy Rotten Battle Hammer",
+        "type1": "Scarlet Rot",
+        "scarletRot0": "65"
+    },
+    {
+        "name": "Keen Rotten Battle Hammer",
+        "type1": "Scarlet Rot",
+        "scarletRot0": "65"
+    },
+    {
+        "name": "Quality Rotten Battle Hammer",
+        "type1": "Scarlet Rot",
+        "scarletRot0": "65"
+    },
+    {
+        "name": "Fire Rotten Battle Hammer",
+        "type1": "Scarlet Rot",
+        "scarletRot0": "65"
+    },
+    {
+        "name": "Flame Art Rotten Battle Hammer",
+        "type1": "Scarlet Rot",
+        "scarletRot0": "65"
+    },
+    {
+        "name": "Lightning Rotten Battle Hammer",
+        "type1": "Scarlet Rot",
+        "scarletRot0": "65"
+    },
+    {
+        "name": "Sacred Rotten Battle Hammer",
+        "type1": "Scarlet Rot",
+        "scarletRot0": "65"
+    },
+    {
+        "name": "Magic Rotten Battle Hammer",
+        "type1": "Scarlet Rot",
+        "scarletRot0": "65"
+    },
+    {
+        "name": "Cold Rotten Battle Hammer",
+        "type1": "Frost",
+        "type2": "Scarlet Rot",
+        "scarletRot0": "65"
+    },
+    {
+        "name": "Poison Rotten Battle Hammer",
+        "type1": "Poison",
+        "type2": "Scarlet Rot",
+        "scarletRot0": "65"
+    },
+    {
+        "name": "Blood Rotten Battle Hammer",
+        "type1": "Scarlet Rot",
+        "scarletRot0": "65",
+        "type2": "Blood"
+    },
+    {
+        "name": "Occult Rotten Battle Hammer",
+        "type1": "Scarlet Rot",
+        "scarletRot0": "65"
+    },
+    {
+        "name": "Nightrider Flail",
+        "type1": "Blood"
+    },
+    {
+        "name": "Heavy Nightrider Flail",
+        "type1": "Blood"
+    },
+    {
+        "name": "Keen Nightrider Flail",
+        "type1": "Blood"
+    },
+    {
+        "name": "Quality Nightrider Flail",
+        "type1": "Blood"
+    },
+    {
+        "name": "Fire Nightrider Flail",
+        "type1": "Blood"
+    },
+    {
+        "name": "Flame Art Nightrider Flail",
+        "type1": "Blood"
+    },
+    {
+        "name": "Lightning Nightrider Flail",
+        "type1": "Blood"
+    },
+    {
+        "name": "Sacred Nightrider Flail",
+        "type1": "Blood"
+    },
+    {
+        "name": "Magic Nightrider Flail",
+        "type1": "Blood"
+    },
+    {
+        "name": "Cold Nightrider Flail",
+        "type1": "Frost",
+        "type2": "Blood"
+    },
+    {
+        "name": "Poison Nightrider Flail",
+        "type1": "Poison",
+        "type2": "Blood"
+    },
+    {
+        "name": "Blood Nightrider Flail",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Nightrider Flail",
+        "type1": "Blood"
+    },
+    {
+        "name": "Flail",
+        "type1": "Blood"
+    },
+    {
+        "name": "Heavy Flail",
+        "type1": "Blood"
+    },
+    {
+        "name": "Keen Flail",
+        "type1": "Blood"
+    },
+    {
+        "name": "Quality Flail",
+        "type1": "Blood"
+    },
+    {
+        "name": "Fire Flail",
+        "type1": "Blood"
+    },
+    {
+        "name": "Flame Art Flail",
+        "type1": "Blood"
+    },
+    {
+        "name": "Lightning Flail",
+        "type1": "Blood"
+    },
+    {
+        "name": "Sacred Flail",
+        "type1": "Blood"
+    },
+    {
+        "name": "Magic Flail",
+        "type1": "Blood"
+    },
+    {
+        "name": "Cold Flail",
+        "type1": "Frost",
+        "type2": "Blood"
+    },
+    {
+        "name": "Poison Flail",
+        "type1": "Poison",
+        "type2": "Blood"
+    },
+    {
+        "name": "Blood Flail",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Flail",
+        "type1": "Blood"
+    },
+    {
+        "name": "Family Heads"
+    },
+    {
+        "name": "Bastard's Stars"
+    },
+    {
+        "name": "Chainlink Flail",
+        "type1": "Blood"
+    },
+    {
+        "name": "Heavy Chainlink Flail",
+        "type1": "Blood"
+    },
+    {
+        "name": "Keen Chainlink Flail",
+        "type1": "Blood"
+    },
+    {
+        "name": "Quality Chainlink Flail",
+        "type1": "Blood"
+    },
+    {
+        "name": "Fire Chainlink Flail",
+        "type1": "Blood"
+    },
+    {
+        "name": "Flame Art Chainlink Flail",
+        "type1": "Blood"
+    },
+    {
+        "name": "Lightning Chainlink Flail",
+        "type1": "Blood"
+    },
+    {
+        "name": "Sacred Chainlink Flail",
+        "type1": "Blood"
+    },
+    {
+        "name": "Magic Chainlink Flail",
+        "type1": "Blood"
+    },
+    {
+        "name": "Cold Chainlink Flail",
+        "type1": "Frost",
+        "type2": "Blood"
+    },
+    {
+        "name": "Poison Chainlink Flail",
+        "type1": "Poison",
+        "type2": "Blood"
+    },
+    {
+        "name": "Blood Chainlink Flail",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Chainlink Flail",
+        "type1": "Blood"
+    },
+    {
+        "name": "Battle Axe"
+    },
+    {
+        "name": "Heavy Battle Axe"
+    },
+    {
+        "name": "Keen Battle Axe"
+    },
+    {
+        "name": "Quality Battle Axe"
+    },
+    {
+        "name": "Fire Battle Axe"
+    },
+    {
+        "name": "Flame Art Battle Axe"
+    },
+    {
+        "name": "Lightning Battle Axe"
+    },
+    {
+        "name": "Sacred Battle Axe"
+    },
+    {
+        "name": "Magic Battle Axe"
+    },
+    {
+        "name": "Cold Battle Axe",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Battle Axe",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Battle Axe",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Battle Axe"
+    },
+    {
+        "name": "Forked Hatchet",
+        "type1": "Blood"
+    },
+    {
+        "name": "Heavy Forked Hatchet",
+        "type1": "Blood"
+    },
+    {
+        "name": "Keen Forked Hatchet",
+        "type1": "Blood"
+    },
+    {
+        "name": "Quality Forked Hatchet",
+        "type1": "Blood"
+    },
+    {
+        "name": "Fire Forked Hatchet",
+        "type1": "Blood"
+    },
+    {
+        "name": "Flame Art Forked Hatchet",
+        "type1": "Blood"
+    },
+    {
+        "name": "Lightning Forked Hatchet",
+        "type1": "Blood"
+    },
+    {
+        "name": "Sacred Forked Hatchet",
+        "type1": "Blood"
+    },
+    {
+        "name": "Magic Forked Hatchet",
+        "type1": "Blood"
+    },
+    {
+        "name": "Cold Forked Hatchet",
+        "type1": "Frost",
+        "type2": "Blood"
+    },
+    {
+        "name": "Poison Forked Hatchet",
+        "type1": "Poison",
+        "type2": "Blood"
+    },
+    {
+        "name": "Blood Forked Hatchet",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Forked Hatchet",
+        "type1": "Blood"
+    },
+    {
+        "name": "Hand Axe"
+    },
+    {
+        "name": "Heavy Hand Axe"
+    },
+    {
+        "name": "Keen Hand Axe"
+    },
+    {
+        "name": "Quality Hand Axe"
+    },
+    {
+        "name": "Fire Hand Axe"
+    },
+    {
+        "name": "Flame Art Hand Axe"
+    },
+    {
+        "name": "Lightning Hand Axe"
+    },
+    {
+        "name": "Sacred Hand Axe"
+    },
+    {
+        "name": "Magic Hand Axe"
+    },
+    {
+        "name": "Cold Hand Axe",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Hand Axe",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Hand Axe",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Hand Axe"
+    },
+    {
+        "name": "Jawbone Axe"
+    },
+    {
+        "name": "Heavy Jawbone Axe"
+    },
+    {
+        "name": "Keen Jawbone Axe"
+    },
+    {
+        "name": "Quality Jawbone Axe"
+    },
+    {
+        "name": "Fire Jawbone Axe"
+    },
+    {
+        "name": "Flame Art Jawbone Axe"
+    },
+    {
+        "name": "Lightning Jawbone Axe"
+    },
+    {
+        "name": "Sacred Jawbone Axe"
+    },
+    {
+        "name": "Magic Jawbone Axe"
+    },
+    {
+        "name": "Cold Jawbone Axe",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Jawbone Axe",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Jawbone Axe",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Jawbone Axe"
+    },
+    {
+        "name": "Iron Cleaver"
+    },
+    {
+        "name": "Heavy Iron Cleaver"
+    },
+    {
+        "name": "Keen Iron Cleaver"
+    },
+    {
+        "name": "Quality Iron Cleaver"
+    },
+    {
+        "name": "Fire Iron Cleaver"
+    },
+    {
+        "name": "Flame Art Iron Cleaver"
+    },
+    {
+        "name": "Lightning Iron Cleaver"
+    },
+    {
+        "name": "Sacred Iron Cleaver"
+    },
+    {
+        "name": "Magic Iron Cleaver"
+    },
+    {
+        "name": "Cold Iron Cleaver",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Iron Cleaver",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Iron Cleaver",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Iron Cleaver"
+    },
+    {
+        "name": "Ripple Blade"
+    },
+    {
+        "name": "Celebrant's Cleaver"
+    },
+    {
+        "name": "Celebrant's Heavy Cleaver"
+    },
+    {
+        "name": "Celebrant's Keen Cleaver"
+    },
+    {
+        "name": "Celebrant's Quality Cleaver"
+    },
+    {
+        "name": "Celebrant's Fire Cleaver"
+    },
+    {
+        "name": "Celebrant's Flame Art Cleaver Blades"
+    },
+    {
+        "name": "Celebrant's Lightning Cleaver"
+    },
+    {
+        "name": "Celebrant's Sacred Cleaver"
+    },
+    {
+        "name": "Celebrant's Magic Cleaver"
+    },
+    {
+        "name": "Celebrant's Cold Cleaver",
+        "type1": "Frost"
+    },
+    {
+        "name": "Celebrant's Poison Cleaver",
+        "type1": "Poison"
+    },
+    {
+        "name": "Celebrant's Blood Cleaver",
+        "type1": "Blood"
+    },
+    {
+        "name": "Celebrant's Occult Cleaver"
+    },
+    {
+        "name": "Icerind Hatchet",
+        "type1": "Frost"
+    },
+    {
+        "name": "Highland Axe"
+    },
+    {
+        "name": "Heavy Highland Axe"
+    },
+    {
+        "name": "Keen Highland Axe"
+    },
+    {
+        "name": "Quality Highland Axe"
+    },
+    {
+        "name": "Fire Highland Axe"
+    },
+    {
+        "name": "Flame Art Highland Axe"
+    },
+    {
+        "name": "Lightning Highland Axe"
+    },
+    {
+        "name": "Sacred Highland Axe"
+    },
+    {
+        "name": "Magic Highland Axe"
+    },
+    {
+        "name": "Cold Highland Axe",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Highland Axe",
+        "type1": "Poison"
+    },
+    {
+        "name": "Bloody Highland Axe",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Highland Axe"
+    },
+    {
+        "name": "Sacrificial Axe"
+    },
+    {
+        "name": "Heavy Sacrificial Axe"
+    },
+    {
+        "name": "Keen Sacrificial Axe"
+    },
+    {
+        "name": "Quality Sacrificial Axe"
+    },
+    {
+        "name": "Fire Sacrificial Axe"
+    },
+    {
+        "name": "Flame Art Sacrificial Axe"
+    },
+    {
+        "name": "Lightning Sacrificial Axe"
+    },
+    {
+        "name": "Sacred Sacrificial Axe"
+    },
+    {
+        "name": "Magic Sacrificial Axe"
+    },
+    {
+        "name": "Cold Sacrificial Axe",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Sacrificial Axe",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Sacrificial Axe",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Sacrificial Axe"
+    },
+    {
+        "name": "Rosus' Axe"
+    },
+    {
+        "name": "Stormhawk Axe"
+    },
+    {
+        "name": "Greataxe"
+    },
+    {
+        "name": "Heavy Greataxe"
+    },
+    {
+        "name": "Keen Greataxe"
+    },
+    {
+        "name": "Quality Greataxe"
+    },
+    {
+        "name": "Fire Greataxe"
+    },
+    {
+        "name": "Flame Art Greataxe"
+    },
+    {
+        "name": "Lightning Greataxe"
+    },
+    {
+        "name": "Sacred Greataxe"
+    },
+    {
+        "name": "Magic Greataxe"
+    },
+    {
+        "name": "Cold Greataxe",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Greataxe",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Greataxe",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Greataxe"
+    },
+    {
+        "name": "Warped Axe"
+    },
+    {
+        "name": "Heavy Warped Axe"
+    },
+    {
+        "name": "Keen Warped Axe"
+    },
+    {
+        "name": "Quality Warped Axe"
+    },
+    {
+        "name": "Fire Warped Axe"
+    },
+    {
+        "name": "Flame Art Warped Axe"
+    },
+    {
+        "name": "Lightning Warped Axe"
+    },
+    {
+        "name": "Sacred Warped Axe"
+    },
+    {
+        "name": "Magic Warped Axe"
+    },
+    {
+        "name": "Cold Warped Axe",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Warped Axe",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Warped Axe",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Warped Axe"
+    },
+    {
+        "name": "Great Omenkiller Cleaver",
+        "type1": "Blood"
+    },
+    {
+        "name": "Heavy Great Omenkiller Cleaver",
+        "type1": "Blood"
+    },
+    {
+        "name": "Keen Great Omenkiller Cleaver",
+        "type1": "Blood"
+    },
+    {
+        "name": "Quality Great Omenkiller Cleaver",
+        "type1": "Blood"
+    },
+    {
+        "name": "Fire Great Omenkiller Cleaver",
+        "type1": "Blood"
+    },
+    {
+        "name": "Flame Art Great Omenkiller Cleaver",
+        "type1": "Blood"
+    },
+    {
+        "name": "Lightning Great Omenkiller Cleaver",
+        "type1": "Blood"
+    },
+    {
+        "name": "Sacred Great Omenkiller Cleaver",
+        "type1": "Blood"
+    },
+    {
+        "name": "Magic Great Omenkiller Cleaver",
+        "type1": "Blood"
+    },
+    {
+        "name": "Cold Great Omenkiller Cleaver",
+        "type1": "Frost",
+        "type2": "Blood"
+    },
+    {
+        "name": "Poison Great Omenkiller Cleaver",
+        "type1": "Poison",
+        "type2": "Blood"
+    },
+    {
+        "name": "Blood Great Omenkiller Cleaver",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Great Omenkiller Cleaver",
+        "type1": "Blood"
+    },
+    {
+        "name": "Crescent Moon Axe"
+    },
+    {
+        "name": "Heavy Crescent Moon Axe"
+    },
+    {
+        "name": "Keen Crescent Moon Axe"
+    },
+    {
+        "name": "Quality Crescent Moon Axe"
+    },
+    {
+        "name": "Fire Crescent Moon Axe"
+    },
+    {
+        "name": "Flame Art Crescent Moon Axe"
+    },
+    {
+        "name": "Lightning Crescent Moon Axe"
+    },
+    {
+        "name": "Sacred Crescent Moon Axe"
+    },
+    {
+        "name": "Magic Crescent Moon Axe"
+    },
+    {
+        "name": "Cold Crescent Moon Axe",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Crescent Moon Axe",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Crescent Moon Axe",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Crescent Moon Axe"
+    },
+    {
+        "name": "Axe of Godrick"
+    },
+    {
+        "name": "Longhaft Axe"
+    },
+    {
+        "name": "Heavy Longhaft Axe"
+    },
+    {
+        "name": "Keen Longhaft Axe"
+    },
+    {
+        "name": "Quality Longhaft Axe"
+    },
+    {
+        "name": "Fire Longhaft Axe"
+    },
+    {
+        "name": "Flame Art Longhaft Axe"
+    },
+    {
+        "name": "Lightning Longhaft Axe"
+    },
+    {
+        "name": "Sacred Longhaft Axe"
+    },
+    {
+        "name": "Magic Longhaft Axe"
+    },
+    {
+        "name": "Cold Longhaft Axe",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Longhaft Axe",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Longhaft Axe",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Longhaft Axe"
+    },
+    {
+        "name": "Rusted Anchor"
+    },
+    {
+        "name": "Heavy Rusted Anchor"
+    },
+    {
+        "name": "Keen Rusted Anchor"
+    },
+    {
+        "name": "Quality Rusted Anchor"
+    },
+    {
+        "name": "Fire Rusted Anchor"
+    },
+    {
+        "name": "Flame Art Rusted Anchor"
+    },
+    {
+        "name": "Lightning Rusted Anchor"
+    },
+    {
+        "name": "Sacred Rusted Anchor"
+    },
+    {
+        "name": "Magic Rusted Anchor"
+    },
+    {
+        "name": "Cold Rusted Anchor",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Rusted Anchor",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Rusted Anchor",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Rusted Anchor"
+    },
+    {
+        "name": "Executioner's Greataxe"
+    },
+    {
+        "name": "Executioner's Heavy Greataxe"
+    },
+    {
+        "name": "Executioner's Keen Greataxe"
+    },
+    {
+        "name": "Executioner's Quality Greataxe"
+    },
+    {
+        "name": "Executioner's Fire Greataxe"
+    },
+    {
+        "name": "Executioner's Flame Art Greataxe"
+    },
+    {
+        "name": "Executioner's Lightning Greataxe"
+    },
+    {
+        "name": "Executioner's Sacred Greataxe"
+    },
+    {
+        "name": "Executioner's Magic Greataxe"
+    },
+    {
+        "name": "Executioner's Cold Greataxe",
+        "type1": "Frost"
+    },
+    {
+        "name": "Executioner's Poison Greataxe",
+        "type1": "Poison"
+    },
+    {
+        "name": "Executioner's Blood Greataxe",
+        "type1": "Blood"
+    },
+    {
+        "name": "Executioner's Occult Greataxe"
+    },
+    {
+        "name": "Winged Greathorn"
+    },
+    {
+        "name": "Butchering Knife"
+    },
+    {
+        "name": "Heavy Butchering Knife"
+    },
+    {
+        "name": "Keen Butchering Knife"
+    },
+    {
+        "name": "Quality Butchering Knife"
+    },
+    {
+        "name": "Fire Butchering Knife"
+    },
+    {
+        "name": "Flame Art Butchering Knife"
+    },
+    {
+        "name": "Lightning Butchering Knife"
+    },
+    {
+        "name": "Sacred Butchering Knife"
+    },
+    {
+        "name": "Magic Butchering Knife"
+    },
+    {
+        "name": "Cold Butchering Knife",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Butchering Knife",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Butchering Knife",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Butchering Knife"
+    },
+    {
+        "name": "Gargoyle's Great Axe"
+    },
+    {
+        "name": "Gargoyle's Heavy Great Axe"
+    },
+    {
+        "name": "Gargoyle's Keen Great Axe"
+    },
+    {
+        "name": "Gargoyle's Quality Great Axe"
+    },
+    {
+        "name": "Gargoyle's Fire Great Axe"
+    },
+    {
+        "name": "Gargoyle's Flame Art Great Axe"
+    },
+    {
+        "name": "Gargoyle's Lightning Great Axe"
+    },
+    {
+        "name": "Gargoyle's Sacred Great Axe"
+    },
+    {
+        "name": "Gargoyle's Magic Great Axe"
+    },
+    {
+        "name": "Gargoyle's Cold Great Axe",
+        "type1": "Frost"
+    },
+    {
+        "name": "Gargoyle's Poison Great Axe",
+        "type1": "Poison"
+    },
+    {
+        "name": "Gargoyle's Blood Great Axe",
+        "type1": "Blood"
+    },
+    {
+        "name": "Gargoyle's Occult Great Axe"
+    },
+    {
+        "name": "Gargoyle's Black Axe"
+    },
+    {
+        "name": "Short Spear"
+    },
+    {
+        "name": "Heavy Short Spear"
+    },
+    {
+        "name": "Keen Short Spear"
+    },
+    {
+        "name": "Quality Short Spear"
+    },
+    {
+        "name": "Fire Short Spear"
+    },
+    {
+        "name": "Flame Art Short Spear"
+    },
+    {
+        "name": "Lightning Short Spear"
+    },
+    {
+        "name": "Sacred Short Spear"
+    },
+    {
+        "name": "Magic Short Spear"
+    },
+    {
+        "name": "Cold Short Spear",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Short Spear",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Short Spear",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Short Spear"
+    },
+    {
+        "name": "Spear"
+    },
+    {
+        "name": "Heavy Spear"
+    },
+    {
+        "name": "Keen Spear"
+    },
+    {
+        "name": "Quality Spear"
+    },
+    {
+        "name": "Fire Spear"
+    },
+    {
+        "name": "Flame Art Spear"
+    },
+    {
+        "name": "Lightning Spear"
+    },
+    {
+        "name": "Sacred Spear"
+    },
+    {
+        "name": "Magic Spear"
+    },
+    {
+        "name": "Cold Spear",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Spear",
+        "type1": "Poison"
+    },
+    {
+        "name": "Bloody Spear",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Spear"
+    },
+    {
+        "name": "Crystal Spear"
+    },
+    {
+        "name": "Clayman's Harpoon"
+    },
+    {
+        "name": "Clayman's Heavy Harpoon"
+    },
+    {
+        "name": "Clayman's Keen Harpoon"
+    },
+    {
+        "name": "Clayman's Quality Harpoon"
+    },
+    {
+        "name": "Clayman's Fire Harpoon"
+    },
+    {
+        "name": "Clayman's Flame Art Harpoon"
+    },
+    {
+        "name": "Clayman's Lightning Harpoon"
+    },
+    {
+        "name": "Clayman's Sacred Harpoon"
+    },
+    {
+        "name": "Clayman's Magic Harpoon"
+    },
+    {
+        "name": "Clayman's Cold Harpoon",
+        "type1": "Frost"
+    },
+    {
+        "name": "Clayman's Poison Harpoon",
+        "type1": "Poison"
+    },
+    {
+        "name": "Clayman's Blood Harpoon",
+        "type1": "Blood"
+    },
+    {
+        "name": "Clayman's Occult Harpoon"
+    },
+    {
+        "name": "Cleanrot Spear"
+    },
+    {
+        "name": "Partisan"
+    },
+    {
+        "name": "Heavy Partisan"
+    },
+    {
+        "name": "Keen Partisan"
+    },
+    {
+        "name": "Quality Partisan"
+    },
+    {
+        "name": "Fire Partisan"
+    },
+    {
+        "name": "Flame Art Partisan"
+    },
+    {
+        "name": "Lightning Partisan"
+    },
+    {
+        "name": "Sacred Partisan"
+    },
+    {
+        "name": "Magic Partisan"
+    },
+    {
+        "name": "Cold Partisan",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Partisan",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Partisan",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Partisan"
+    },
+    {
+        "name": "Celebrant's Rib-Rake"
+    },
+    {
+        "name": "Celebrant's Heavy Rib-Rake"
+    },
+    {
+        "name": "Celebrant's Keen Rib-Rake"
+    },
+    {
+        "name": "Celebrant's Quality Rib-Rake"
+    },
+    {
+        "name": "Celebrant's Fire Rib-Rake"
+    },
+    {
+        "name": "Celebrant's Flame Art Rib-Rake"
+    },
+    {
+        "name": "Celebrant's Lightning Rib-Rake"
+    },
+    {
+        "name": "Celebrant's Sacred Rib-Rake"
+    },
+    {
+        "name": "Celebrant's Magic Rib-Rake"
+    },
+    {
+        "name": "Celebrant's Cold Rib-Rake",
+        "type1": "Frost"
+    },
+    {
+        "name": "Celebrant's Poison Rib-Rake",
+        "type1": "Poison"
+    },
+    {
+        "name": "Celebrant's Blood Rib-Rake",
+        "type1": "Blood"
+    },
+    {
+        "name": "Celebrant's Occult Rib-Rake"
+    },
+    {
+        "name": "Pike"
+    },
+    {
+        "name": "Heavy Pike"
+    },
+    {
+        "name": "Keen Pike"
+    },
+    {
+        "name": "Quality Pike"
+    },
+    {
+        "name": "Fire Pike"
+    },
+    {
+        "name": "Flame Art Pike"
+    },
+    {
+        "name": "Lightning Pike"
+    },
+    {
+        "name": "Sacred Pike"
+    },
+    {
+        "name": "Magic Pike"
+    },
+    {
+        "name": "Cold Pike",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Pike",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Pike",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Pike"
+    },
+    {
+        "name": "Torchpole"
+    },
+    {
+        "name": "Bolt of Gransax"
+    },
+    {
+        "name": "Cross-Naginata",
+        "type1": "Blood"
+    },
+    {
+        "name": "Heavy Cross-Naginata",
+        "type1": "Blood"
+    },
+    {
+        "name": "Keen Cross-Naginata",
+        "type1": "Blood"
+    },
+    {
+        "name": "Quality Cross-Naginata",
+        "type1": "Blood"
+    },
+    {
+        "name": "Fire Cross-Naginata",
+        "type1": "Blood"
+    },
+    {
+        "name": "Flame Art Cross-Naginata",
+        "type1": "Blood"
+    },
+    {
+        "name": "Lightning Cross-Naginata",
+        "type1": "Blood"
+    },
+    {
+        "name": "Sacred Cross-Naginata",
+        "type1": "Blood"
+    },
+    {
+        "name": "Magic Cross-Naginata",
+        "type1": "Blood"
+    },
+    {
+        "name": "Cold Cross-Naginata",
+        "type1": "Frost",
+        "type2": "Blood"
+    },
+    {
+        "name": "Poison Cross-Naginata",
+        "type1": "Poison",
+        "type2": "Blood"
+    },
+    {
+        "name": "Blood Cross-Naginata",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Cross-Naginata",
+        "type1": "Blood"
+    },
+    {
+        "name": "Death Ritual Spear"
+    },
+    {
+        "name": "Inquisitor's Girandole",
+        "type1": "Blood"
+    },
+    {
+        "name": "Spiked Spear",
+        "type1": "Blood"
+    },
+    {
+        "name": "Heavy Spiked Spear",
+        "type1": "Blood"
+    },
+    {
+        "name": "Keen Spiked Spear",
+        "type1": "Blood"
+    },
+    {
+        "name": "Quality Spiked Spear",
+        "type1": "Blood"
+    },
+    {
+        "name": "Fire Spiked Spear",
+        "type1": "Blood"
+    },
+    {
+        "name": "Flame Art Spiked Spear",
+        "type1": "Blood"
+    },
+    {
+        "name": "Lightning Spiked Spear",
+        "type1": "Blood"
+    },
+    {
+        "name": "Sacred Spiked Spear",
+        "type1": "Blood"
+    },
+    {
+        "name": "Magic Spiked Spear",
+        "type1": "Blood"
+    },
+    {
+        "name": "Cold Spiked Spear",
+        "type1": "Frost",
+        "type2": "Blood"
+    },
+    {
+        "name": "Poison Spiked Spear",
+        "type1": "Poison",
+        "type2": "Blood"
+    },
+    {
+        "name": "Blood Spiked Spear",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Spiked Spear",
+        "type1": "Blood"
+    },
+    {
+        "name": "Iron Spear"
+    },
+    {
+        "name": "Heavy Iron Spear"
+    },
+    {
+        "name": "Keen Iron Spear"
+    },
+    {
+        "name": "Quality Iron Spear"
+    },
+    {
+        "name": "Fire Iron Spear"
+    },
+    {
+        "name": "Flame Art Iron Spear"
+    },
+    {
+        "name": "Lightning Iron Spear"
+    },
+    {
+        "name": "Sacred Iron Spear"
+    },
+    {
+        "name": "Magic Iron Spear"
+    },
+    {
+        "name": "Cold Iron Spear",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Iron Spear",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Iron Spear",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Iron Spear"
+    },
+    {
+        "name": "Rotten Crystal Spear",
+        "type1": "Scarlet Rot",
+        "scarletRot0": "55"
+    },
+    {
+        "name": "Mohgwyn's Sacred Spear",
+        "type1": "Blood"
+    },
+    {
+        "name": "Siluria's Tree"
+    },
+    {
+        "name": "Serpent-Hunter"
+    },
+    {
+        "name": "Vyke's War Spear",
+        "type1": "Madness",
+        "madness0": "65"
+    },
+    {
+        "name": "Lance"
+    },
+    {
+        "name": "Heavy Lance"
+    },
+    {
+        "name": "Keen Lance"
+    },
+    {
+        "name": "Quality Lance"
+    },
+    {
+        "name": "Fire Lance"
+    },
+    {
+        "name": "Flame Art Lance"
+    },
+    {
+        "name": "Lightning Lance"
+    },
+    {
+        "name": "Sacred Lance"
+    },
+    {
+        "name": "Magic Lance"
+    },
+    {
+        "name": "Cold Lance",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Lance",
+        "type1": "Poison"
+    },
+    {
+        "name": "Bloody Lance",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Lance"
+    },
+    {
+        "name": "Treespear"
+    },
+    {
+        "name": "Heavy Treespear"
+    },
+    {
+        "name": "Keen Treespear"
+    },
+    {
+        "name": "Quality Treespear"
+    },
+    {
+        "name": "Fire Treespear"
+    },
+    {
+        "name": "Flame Art Treespear"
+    },
+    {
+        "name": "Lightning Treespear"
+    },
+    {
+        "name": "Sacred Treespear"
+    },
+    {
+        "name": "Magic Treespear"
+    },
+    {
+        "name": "Cold Treespear",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Treespear",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Treespear",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Treespear"
+    },
+    {
+        "name": "Halberd"
+    },
+    {
+        "name": "Heavy Halberd"
+    },
+    {
+        "name": "Keen Halberd"
+    },
+    {
+        "name": "Quality Halberd"
+    },
+    {
+        "name": "Fire Halberd"
+    },
+    {
+        "name": "Flame Art Halberd"
+    },
+    {
+        "name": "Lightning Halberd"
+    },
+    {
+        "name": "Sacred Halberd"
+    },
+    {
+        "name": "Magic Halberd"
+    },
+    {
+        "name": "Cold Halberd",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Halberd",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Halberd",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Halberd"
+    },
+    {
+        "name": "Pest's Glaive"
+    },
+    {
+        "name": "Pest's Heavy Glaive"
+    },
+    {
+        "name": "Pest's Keen Glaive"
+    },
+    {
+        "name": "Pest's Quality Glaive"
+    },
+    {
+        "name": "Pest's Fire Glaive"
+    },
+    {
+        "name": "Pest's Flame Art Glaive"
+    },
+    {
+        "name": "Pest's Lightning Glaive"
+    },
+    {
+        "name": "Pest's Sacred Glaive"
+    },
+    {
+        "name": "Pest's Magic Glaive"
+    },
+    {
+        "name": "Pest's Cold Glaive",
+        "type1": "Frost"
+    },
+    {
+        "name": "Pest's Poison Glaive",
+        "type1": "Poison"
+    },
+    {
+        "name": "Pest's Blood Glaive",
+        "type1": "Blood"
+    },
+    {
+        "name": "Pest's Occult Glaive"
+    },
+    {
+        "name": "Lucerne"
+    },
+    {
+        "name": "Heavy Lucerne"
+    },
+    {
+        "name": "Keen Lucerne"
+    },
+    {
+        "name": "Quality Lucerne"
+    },
+    {
+        "name": "Fire Lucerne"
+    },
+    {
+        "name": "Flame Art Lucerne"
+    },
+    {
+        "name": "Lightning Lucerne"
+    },
+    {
+        "name": "Sacred Lucerne"
+    },
+    {
+        "name": "Magic Lucerne"
+    },
+    {
+        "name": "Cold Lucerne",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Lucerne",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Lucerne",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Lucerne"
+    },
+    {
+        "name": "Banished Knight's Halberd"
+    },
+    {
+        "name": "Banished Knight's Heavy Halberd"
+    },
+    {
+        "name": "Banished Knight's Keen Halberd"
+    },
+    {
+        "name": "Banished Knight's Quality Halberd"
+    },
+    {
+        "name": "Banished Knight's Fire Halberd"
+    },
+    {
+        "name": "Banished Knight's Flame Art Halberd"
+    },
+    {
+        "name": "Banished Knight's Lightning Halberd"
+    },
+    {
+        "name": "Banished Knight's Sacred Halberd"
+    },
+    {
+        "name": "Banished Knight's Magic Halberd"
+    },
+    {
+        "name": "Banished Knight's Cold Halberd",
+        "type1": "Frost"
+    },
+    {
+        "name": "Banished Knight's Poison Halberd",
+        "type1": "Poison"
+    },
+    {
+        "name": "Banished Knight's Blood Halberd",
+        "type1": "Blood"
+    },
+    {
+        "name": "Banished Knight's Occult Halberd"
+    },
+    {
+        "name": "Commander's Standard"
+    },
+    {
+        "name": "Nightrider Glaive"
+    },
+    {
+        "name": "Heavy Nightrider Glaive"
+    },
+    {
+        "name": "Keen Nightrider Glaive"
+    },
+    {
+        "name": "Quality Nightrider Glaive"
+    },
+    {
+        "name": "Fire Nightrider Glaive"
+    },
+    {
+        "name": "Flame Art Nightrider Glaive"
+    },
+    {
+        "name": "Lightning Nightrider Glaive"
+    },
+    {
+        "name": "Sacred Nightrider Glaive"
+    },
+    {
+        "name": "Magic Nightrider Glaive"
+    },
+    {
+        "name": "Cold Nightrider Glaive",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Nightrider Glaive",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Nightrider Glaive",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Nightrider Glaive"
+    },
+    {
+        "name": "Ripple Crescent Halberd"
+    },
+    {
+        "name": "Vulgar Militia Saw",
+        "type1": "Blood"
+    },
+    {
+        "name": "Heavy Vulgar Militia Saw",
+        "type1": "Blood"
+    },
+    {
+        "name": "Keen Vulgar Militia Saw",
+        "type1": "Blood"
+    },
+    {
+        "name": "Quality Vulgar Militia Saw",
+        "type1": "Blood"
+    },
+    {
+        "name": "Fire Vulgar Militia Saw",
+        "type1": "Blood"
+    },
+    {
+        "name": "Flame Art Vulgar Militia Saw",
+        "type1": "Blood"
+    },
+    {
+        "name": "Lightning Vulgar Militia Saw",
+        "type1": "Blood"
+    },
+    {
+        "name": "Sacred Vulgar Militia Saw",
+        "type1": "Blood"
+    },
+    {
+        "name": "Magic Vulgar Militia Saw",
+        "type1": "Blood"
+    },
+    {
+        "name": "Cold Vulgar Militia Saw",
+        "type1": "Frost",
+        "type2": "Blood"
+    },
+    {
+        "name": "Poison Vulgar Militia Saw",
+        "type1": "Poison",
+        "type2": "Blood"
+    },
+    {
+        "name": "Blood Vulgar Militia Saw",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Vulgar Militia Saw",
+        "type1": "Blood"
+    },
+    {
+        "name": "Golden Halberd"
+    },
+    {
+        "name": "Glaive"
+    },
+    {
+        "name": "Heavy Glaive"
+    },
+    {
+        "name": "Keen Glaive"
+    },
+    {
+        "name": "Quality Glaive"
+    },
+    {
+        "name": "Fire Glaive"
+    },
+    {
+        "name": "Flame Art Glaive"
+    },
+    {
+        "name": "Lightning Glaive"
+    },
+    {
+        "name": "Sacred Glaive"
+    },
+    {
+        "name": "Magic Glaive"
+    },
+    {
+        "name": "Cold Glaive",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Glaive",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Glaive",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Glaive"
+    },
+    {
+        "name": "Loretta's War Sickle"
+    },
+    {
+        "name": "Guardian's Swordspear"
+    },
+    {
+        "name": "Guardian's Heavy Swordspear"
+    },
+    {
+        "name": "Guardian's Keen Swordspear"
+    },
+    {
+        "name": "Guardian's Quality Swordspear"
+    },
+    {
+        "name": "Guardian's Fire Swordspear"
+    },
+    {
+        "name": "Guardian's Flame Art Swordspear"
+    },
+    {
+        "name": "Guardian's Lightning Swordspear"
+    },
+    {
+        "name": "Guardian's Sacred Swordspear"
+    },
+    {
+        "name": "Guardian's Magic Swordspear"
+    },
+    {
+        "name": "Guardian's Cold Swordspear",
+        "type1": "Frost"
+    },
+    {
+        "name": "Guardian's Poison Swordspear",
+        "type1": "Poison"
+    },
+    {
+        "name": "Guardian's Blood Swordspear",
+        "type1": "Blood"
+    },
+    {
+        "name": "Guardian's Occult Swordspear"
+    },
+    {
+        "name": "Vulgar Militia Shotel"
+    },
+    {
+        "name": "Heavy Vulgar Militia Shotel"
+    },
+    {
+        "name": "Keen Vulgar Militia Shotel"
+    },
+    {
+        "name": "Quality Vulgar Militia Shotel"
+    },
+    {
+        "name": "Fire Vulgar Militia Shotel"
+    },
+    {
+        "name": "Flame Art Vulgar Militia Shotel"
+    },
+    {
+        "name": "Lightning Vulgar Militia Shotel"
+    },
+    {
+        "name": "Sacred Vulgar Militia Shotel"
+    },
+    {
+        "name": "Magic Vulgar Militia Shotel"
+    },
+    {
+        "name": "Cold Vulgar Militia Shotel",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Vulgar Militia Shotel",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Vulgar Militia Shotel",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Vulgar Militia Shotel"
+    },
+    {
+        "name": "Dragon Halberd"
+    },
+    {
+        "name": "Gargoyle's Halberd"
+    },
+    {
+        "name": "Gargoyle's Heavy Halberd"
+    },
+    {
+        "name": "Gargoyle's Keen Halberd"
+    },
+    {
+        "name": "Gargoyle's Quality Halberd"
+    },
+    {
+        "name": "Gargoyle's Fire Halberd"
+    },
+    {
+        "name": "Gargoyle's Flame Art Halberd"
+    },
+    {
+        "name": "Gargoyle's Lightning Halberd"
+    },
+    {
+        "name": "Gargoyle's Sacred Halberd"
+    },
+    {
+        "name": "Gargoyle's Magic Halberd"
+    },
+    {
+        "name": "Gargoyle's Cold Halberd",
+        "type1": "Frost"
+    },
+    {
+        "name": "Gargoyle's Poison Halberd",
+        "type1": "Poison"
+    },
+    {
+        "name": "Gargoyle's Blood Halberd",
+        "type1": "Blood"
+    },
+    {
+        "name": "Gargoyle's Occult Halberd"
+    },
+    {
+        "name": "Gargoyle's Black Halberd"
+    },
+    {
+        "name": "Scythe",
+        "type1": "Blood"
+    },
+    {
+        "name": "Heavy Scythe",
+        "type1": "Blood"
+    },
+    {
+        "name": "Keen Scythe",
+        "type1": "Blood"
+    },
+    {
+        "name": "Quality Scythe",
+        "type1": "Blood"
+    },
+    {
+        "name": "Fire Scythe",
+        "type1": "Blood"
+    },
+    {
+        "name": "Flame Art Scythe",
+        "type1": "Blood"
+    },
+    {
+        "name": "Lightning Scythe",
+        "type1": "Blood"
+    },
+    {
+        "name": "Sacred Scythe",
+        "type1": "Blood"
+    },
+    {
+        "name": "Magic Scythe",
+        "type1": "Blood"
+    },
+    {
+        "name": "Cold Scythe",
+        "type1": "Frost",
+        "type2": "Blood"
+    },
+    {
+        "name": "Poison Scythe",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Scythe",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Scythe",
+        "type1": "Blood"
+    },
+    {
+        "name": "Grave Scythe",
+        "type1": "Blood"
+    },
+    {
+        "name": "Heavy Grave Scythe",
+        "type1": "Blood"
+    },
+    {
+        "name": "Keen Grave Scythe",
+        "type1": "Blood"
+    },
+    {
+        "name": "Quality Grave Scythe",
+        "type1": "Blood"
+    },
+    {
+        "name": "Fire Grave Scythe",
+        "type1": "Blood"
+    },
+    {
+        "name": "Flame Art Grave Scythe",
+        "type1": "Blood"
+    },
+    {
+        "name": "Lightning Grave Scythe",
+        "type1": "Blood"
+    },
+    {
+        "name": "Sacred Grave Scythe",
+        "type1": "Blood"
+    },
+    {
+        "name": "Magic Grave Scythe",
+        "type1": "Blood"
+    },
+    {
+        "name": "Cold Grave Scythe",
+        "type1": "Frost",
+        "type2": "Blood"
+    },
+    {
+        "name": "Poison Grave Scythe",
+        "type1": "Poison",
+        "type2": "Blood"
+    },
+    {
+        "name": "Blood Grave Scythe",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Grave Scythe",
+        "type1": "Blood"
+    },
+    {
+        "name": "Halo Scythe",
+        "type1": "Blood"
+    },
+    {
+        "name": "Winged Scythe",
+        "type1": "Blood"
+    },
+    {
+        "name": "Whip"
+    },
+    {
+        "name": "Heavy Whip"
+    },
+    {
+        "name": "Keen Whip"
+    },
+    {
+        "name": "Quality Whip"
+    },
+    {
+        "name": "Fire Whip"
+    },
+    {
+        "name": "Flame Art Whip"
+    },
+    {
+        "name": "Lightning Whip"
+    },
+    {
+        "name": "Sacred Whip"
+    },
+    {
+        "name": "Magic Whip"
+    },
+    {
+        "name": "Cold Whip",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Whip",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Whip",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Whip"
+    },
+    {
+        "name": "Thorned Whip",
+        "type1": "Blood"
+    },
+    {
+        "name": "Heavy Thorned Whip",
+        "type1": "Blood"
+    },
+    {
+        "name": "Keen Thorned Whip",
+        "type1": "Blood"
+    },
+    {
+        "name": "Quality Thorned Whip",
+        "type1": "Blood"
+    },
+    {
+        "name": "Fire Thorned Whip",
+        "type1": "Blood"
+    },
+    {
+        "name": "Flame Art Thorned Whip",
+        "type1": "Blood"
+    },
+    {
+        "name": "Lightning Thorned Whip",
+        "type1": "Blood"
+    },
+    {
+        "name": "Sacred Thorned Whip",
+        "type1": "Blood"
+    },
+    {
+        "name": "Magic Thorned Whip",
+        "type1": "Blood"
+    },
+    {
+        "name": "Cold Thorned Whip",
+        "type1": "Frost",
+        "type2": "Blood"
+    },
+    {
+        "name": "Poison Thorned Whip",
+        "type1": "Poison",
+        "type2": "Blood"
+    },
+    {
+        "name": "Blood Thorned Whip",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Thorned Whip",
+        "type1": "Blood"
+    },
+    {
+        "name": "Magma Whip Candlestick"
+    },
+    {
+        "name": "Hoslow's Petal Whip",
+        "type1": "Blood"
+    },
+    {
+        "name": "Hoslow's Heavy Petal Whip",
+        "type1": "Blood"
+    },
+    {
+        "name": "Hoslow's Keen Petal Whip",
+        "type1": "Blood"
+    },
+    {
+        "name": "Hoslow's Quality Petal Whip",
+        "type1": "Blood"
+    },
+    {
+        "name": "Hoslow's Fire Petal Whip",
+        "type1": "Blood"
+    },
+    {
+        "name": "Hoslow's Flame Art Petal Whip",
+        "type1": "Blood"
+    },
+    {
+        "name": "Hoslow's Lightning Petal Whip",
+        "type1": "Blood"
+    },
+    {
+        "name": "Hoslow's Sacred Petal Whip",
+        "type1": "Blood"
+    },
+    {
+        "name": "Hoslow's Magic Petal Whip",
+        "type1": "Blood"
+    },
+    {
+        "name": "Hoslow's Cold Petal Whip",
+        "type1": "Frost",
+        "type2": "Blood"
+    },
+    {
+        "name": "Hoslow's Poison Petal Whip",
+        "type1": "Poison",
+        "type2": "Blood"
+    },
+    {
+        "name": "Hoslow's Blood Petal Whip",
+        "type1": "Blood"
+    },
+    {
+        "name": "Hoslow's Occult Petal Whip",
+        "type1": "Blood"
+    },
+    {
+        "name": "Giant's Red Braid"
+    },
+    {
+        "name": "Urumi"
+    },
+    {
+        "name": "Heavy Urumi"
+    },
+    {
+        "name": "Keen Urumi"
+    },
+    {
+        "name": "Quality Urumi"
+    },
+    {
+        "name": "Fire Urumi"
+    },
+    {
+        "name": "Flame Art Urumi"
+    },
+    {
+        "name": "Lightning Urumi"
+    },
+    {
+        "name": "Sacred Urumi"
+    },
+    {
+        "name": "Magic Urumi"
+    },
+    {
+        "name": "Cold Urumi",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Urumi",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Urumi",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Urumi"
+    },
+    {
+        "name": "Caestus"
+    },
+    {
+        "name": "Heavy Caestus"
+    },
+    {
+        "name": "Keen Caestus"
+    },
+    {
+        "name": "Quality Caestus"
+    },
+    {
+        "name": "Fire Caestus"
+    },
+    {
+        "name": "Flame Art Caestus"
+    },
+    {
+        "name": "Lightning Caestus"
+    },
+    {
+        "name": "Sacred Caestus"
+    },
+    {
+        "name": "Magic Caestus"
+    },
+    {
+        "name": "Cold Caestus",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Caestus",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Caestus",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Caestus"
+    },
+    {
+        "name": "Spiked Caestus",
+        "type1": "Blood"
+    },
+    {
+        "name": "Heavy Spiked Caestus",
+        "type1": "Blood"
+    },
+    {
+        "name": "Keen Spiked Caestus",
+        "type1": "Blood"
+    },
+    {
+        "name": "Quality Spiked Caestus",
+        "type1": "Blood"
+    },
+    {
+        "name": "Fire Spiked Caestus",
+        "type1": "Blood"
+    },
+    {
+        "name": "Flame Art Spiked Caestus",
+        "type1": "Blood"
+    },
+    {
+        "name": "Lightning Spiked Caestus",
+        "type1": "Blood"
+    },
+    {
+        "name": "Sacred Spiked Caestus",
+        "type1": "Blood"
+    },
+    {
+        "name": "Magic Spiked Caestus",
+        "type1": "Blood"
+    },
+    {
+        "name": "Cold Spiked Caestus",
+        "type1": "Frost",
+        "type2": "Blood"
+    },
+    {
+        "name": "Poison Spiked Caestus",
+        "type1": "Poison",
+        "type2": "Blood"
+    },
+    {
+        "name": "Blood Spiked Caestus",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Spiked Caestus",
+        "type1": "Blood"
+    },
+    {
+        "name": "Grafted Dragon"
+    },
+    {
+        "name": "Iron Ball"
+    },
+    {
+        "name": "Heavy Iron Ball"
+    },
+    {
+        "name": "Keen Iron Ball"
+    },
+    {
+        "name": "Quality Iron Ball"
+    },
+    {
+        "name": "Fire Iron Ball"
+    },
+    {
+        "name": "Flame Art Iron Ball"
+    },
+    {
+        "name": "Lightning Iron Ball"
+    },
+    {
+        "name": "Sacred Iron Ball"
+    },
+    {
+        "name": "Magic Iron Ball"
+    },
+    {
+        "name": "Cold Iron Ball",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Iron Ball",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Iron Ball",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Iron Ball"
+    },
+    {
+        "name": "Star Fist",
+        "type1": "Blood"
+    },
+    {
+        "name": "Heavy Star Fist",
+        "type1": "Blood"
+    },
+    {
+        "name": "Keen Star Fist",
+        "type1": "Blood"
+    },
+    {
+        "name": "Quality Star Fist",
+        "type1": "Blood"
+    },
+    {
+        "name": "Fire Star Fist",
+        "type1": "Blood"
+    },
+    {
+        "name": "Flame Art Star Fist",
+        "type1": "Blood"
+    },
+    {
+        "name": "Lightning Star Fist",
+        "type1": "Blood"
+    },
+    {
+        "name": "Sacred Star Fist",
+        "type1": "Blood"
+    },
+    {
+        "name": "Magic Star Fist",
+        "type1": "Blood"
+    },
+    {
+        "name": "Cold Star Fist",
+        "type1": "Frost",
+        "type2": "Blood"
+    },
+    {
+        "name": "Poison Star Fist",
+        "type1": "Poison",
+        "type2": "Blood"
+    },
+    {
+        "name": "Blood Star Fist",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Star Fist",
+        "type1": "Blood"
+    },
+    {
+        "name": "Katar"
+    },
+    {
+        "name": "Heavy Katar"
+    },
+    {
+        "name": "Keen Katar"
+    },
+    {
+        "name": "Quality Katar"
+    },
+    {
+        "name": "Fire Katar"
+    },
+    {
+        "name": "Flame Art Katar"
+    },
+    {
+        "name": "Lightning Katar"
+    },
+    {
+        "name": "Sacred Katar"
+    },
+    {
+        "name": "Magic Katar"
+    },
+    {
+        "name": "Cold Katar",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Katar",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Katar",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Katar"
+    },
+    {
+        "name": "Clinging Bone"
+    },
+    {
+        "name": "Veteran's Prosthesis"
+    },
+    {
+        "name": "Cipher Pata"
+    },
+    {
+        "name": "Hookclaws",
+        "type1": "Blood"
+    },
+    {
+        "name": "Heavy Hookclaws",
+        "type1": "Blood"
+    },
+    {
+        "name": "Keen Hookclaws",
+        "type1": "Blood"
+    },
+    {
+        "name": "Quality Hookclaws",
+        "type1": "Blood"
+    },
+    {
+        "name": "Fire Hookclaws",
+        "type1": "Blood"
+    },
+    {
+        "name": "Flame Art Hookclaws",
+        "type1": "Blood"
+    },
+    {
+        "name": "Lightning Hookclaws",
+        "type1": "Blood"
+    },
+    {
+        "name": "Sacred Hookclaws",
+        "type1": "Blood"
+    },
+    {
+        "name": "Magic Hookclaws",
+        "type1": "Blood"
+    },
+    {
+        "name": "Cold Hookclaws",
+        "type1": "Frost",
+        "type2": "Blood"
+    },
+    {
+        "name": "Poison Hookclaws",
+        "type1": "Poison",
+        "type2": "Blood"
+    },
+    {
+        "name": "Blood Hookclaws",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Hookclaws",
+        "type1": "Blood"
+    },
+    {
+        "name": "Venomous Fang",
+        "type1": "Poison"
+    },
+    {
+        "name": "Heavy Venomous Fang",
+        "type1": "Poison"
+    },
+    {
+        "name": "Keen Venomous Fang",
+        "type1": "Poison"
+    },
+    {
+        "name": "Quality Venomous Fang",
+        "type1": "Poison"
+    },
+    {
+        "name": "Fire Venomous Fang",
+        "type1": "Poison"
+    },
+    {
+        "name": "Flame Art Venomous Fang",
+        "type1": "Poison"
+    },
+    {
+        "name": "Lightning Venomous Fang",
+        "type1": "Poison"
+    },
+    {
+        "name": "Sacred Venomous Fang",
+        "type1": "Poison"
+    },
+    {
+        "name": "Magic Venomous Fang",
+        "type1": "Poison"
+    },
+    {
+        "name": "Cold Venomous Fang",
+        "type1": "Frost",
+        "type2": "Poison"
+    },
+    {
+        "name": "Poison Venomous Fang",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Venomous Fang",
+        "type1": "Poison",
+        "type2": "Blood"
+    },
+    {
+        "name": "Occult Venomous Fang",
+        "type1": "Poison"
+    },
+    {
+        "name": "Bloodhound Claws",
+        "type1": "Blood"
+    },
+    {
+        "name": "Heavy Bloodhound Claws",
+        "type1": "Blood"
+    },
+    {
+        "name": "Keen Bloodhound Claws",
+        "type1": "Blood"
+    },
+    {
+        "name": "Quality Bloodhound Claws",
+        "type1": "Blood"
+    },
+    {
+        "name": "Fire Bloodhound Claws",
+        "type1": "Blood"
+    },
+    {
+        "name": "Flame Art Bloodhound Claws",
+        "type1": "Blood"
+    },
+    {
+        "name": "Lightning Bloodhound Claws",
+        "type1": "Blood"
+    },
+    {
+        "name": "Sacred Bloodhound Claws",
+        "type1": "Blood"
+    },
+    {
+        "name": "Magic Bloodhound Claws",
+        "type1": "Blood"
+    },
+    {
+        "name": "Cold Bloodhound Claws",
+        "type1": "Frost",
+        "type2": "Blood"
+    },
+    {
+        "name": "Poison Bloodhound Claws",
+        "type1": "Poison",
+        "type2": "Blood"
+    },
+    {
+        "name": "Blood Bloodhound Claws",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Bloodhound Claws",
+        "type1": "Blood"
+    },
+    {
+        "name": "Raptor Talons",
+        "type1": "Blood"
+    },
+    {
+        "name": "Heavy Raptor Talons",
+        "type1": "Blood"
+    },
+    {
+        "name": "Keen Raptor Talons",
+        "type1": "Blood"
+    },
+    {
+        "name": "Quality Raptor Talons",
+        "type1": "Blood"
+    },
+    {
+        "name": "Fire Raptor Talons",
+        "type1": "Blood"
+    },
+    {
+        "name": "Flame Art Raptor Talons",
+        "type1": "Blood"
+    },
+    {
+        "name": "Lightning Raptor Talons",
+        "type1": "Blood"
+    },
+    {
+        "name": "Sacred Raptor Talons",
+        "type1": "Blood"
+    },
+    {
+        "name": "Magic Raptor Talons",
+        "type1": "Blood"
+    },
+    {
+        "name": "Cold Raptor Talons",
+        "type1": "Frost",
+        "type2": "Blood"
+    },
+    {
+        "name": "Poison Raptor Talons",
+        "type1": "Poison",
+        "type2": "Blood"
+    },
+    {
+        "name": "Blood Raptor Talons",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Raptor Talons",
+        "type1": "Blood"
+    },
+    {
+        "name": "Prelate's Inferno Crozier"
+    },
+    {
+        "name": "Prelate's Heavy Inferno Crozier"
+    },
+    {
+        "name": "Prelate's Keen Inferno Crozier"
+    },
+    {
+        "name": "Prelate's Quality Inferno Crozier"
+    },
+    {
+        "name": "Prelate's Fire Inferno Crozier"
+    },
+    {
+        "name": "Prelate's Flame Art Inferno Crozier"
+    },
+    {
+        "name": "Prelate's Lightning Inferno Crozier"
+    },
+    {
+        "name": "Prelate's Sacred Inferno Crozier"
+    },
+    {
+        "name": "Prelate's Magic Inferno Crozier"
+    },
+    {
+        "name": "Prelate's Cold Inferno Crozier",
+        "type1": "Frost"
+    },
+    {
+        "name": "Prelate's Poison Inferno Crozier",
+        "type1": "Poison"
+    },
+    {
+        "name": "Prelate's Blood Inferno Crozier",
+        "type1": "Blood"
+    },
+    {
+        "name": "Prelate's Occult Inferno Crozier"
+    },
+    {
+        "name": "Watchdog's Staff"
+    },
+    {
+        "name": "Great Club"
+    },
+    {
+        "name": "Heavy Great Club"
+    },
+    {
+        "name": "Keen Great Club"
+    },
+    {
+        "name": "Quality Great Club"
+    },
+    {
+        "name": "Fire Great Club"
+    },
+    {
+        "name": "Flame Art Great Club"
+    },
+    {
+        "name": "Lightning Great Club"
+    },
+    {
+        "name": "Sacred Great Club"
+    },
+    {
+        "name": "Magic Great Club"
+    },
+    {
+        "name": "Cold Great Club",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Great Club",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Great Club",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Great Club"
+    },
+    {
+        "name": "Envoy's Greathorn"
+    },
+    {
+        "name": "Duelist Greataxe"
+    },
+    {
+        "name": "Heavy Duelist Greataxe"
+    },
+    {
+        "name": "Keen Duelist Greataxe"
+    },
+    {
+        "name": "Quality Duelist Greataxe"
+    },
+    {
+        "name": "Fire Duelist Greataxe"
+    },
+    {
+        "name": "Flame Art Duelist Greataxe"
+    },
+    {
+        "name": "Lightning Duelist Greataxe"
+    },
+    {
+        "name": "Sacred Duelist Greataxe"
+    },
+    {
+        "name": "Magic Duelist Greataxe"
+    },
+    {
+        "name": "Cold Duelist Greataxe",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Duelist Greataxe",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Duelist Greataxe",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Duelist Greataxe"
+    },
+    {
+        "name": "Axe of Godfrey"
+    },
+    {
+        "name": "Dragon Greatclaw"
+    },
+    {
+        "name": "Staff of the Avatar"
+    },
+    {
+        "name": "Fallingstar Beast Jaw"
+    },
+    {
+        "name": "Ghiza's Wheel",
+        "type1": "Blood"
+    },
+    {
+        "name": "Giant-Crusher"
+    },
+    {
+        "name": "Heavy Giant-Crusher"
+    },
+    {
+        "name": "Keen Giant-Crusher"
+    },
+    {
+        "name": "Quality Giant-Crusher"
+    },
+    {
+        "name": "Fire Giant-Crusher"
+    },
+    {
+        "name": "Flame Art Giant-Crusher"
+    },
+    {
+        "name": "Lightning Giant-Crusher"
+    },
+    {
+        "name": "Sacred Giant-Crusher"
+    },
+    {
+        "name": "Magic Giant-Crusher"
+    },
+    {
+        "name": "Cold Giant-Crusher",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Giant-Crusher",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Giant-Crusher",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Giant-Crusher"
+    },
+    {
+        "name": "Golem's Halberd"
+    },
+    {
+        "name": "Golem's Heavy Halberd"
+    },
+    {
+        "name": "Golem's Keen Halberd"
+    },
+    {
+        "name": "Golem's Quality Halberd"
+    },
+    {
+        "name": "Golem's Fire Halberd"
+    },
+    {
+        "name": "Golem's Flame Art Halberd"
+    },
+    {
+        "name": "Golem's Lightning Halberd"
+    },
+    {
+        "name": "Golem's Sacred Halberd"
+    },
+    {
+        "name": "Golem's Magic Halberd"
+    },
+    {
+        "name": "Golem's Cold Halberd",
+        "type1": "Frost"
+    },
+    {
+        "name": "Golem's Poison Halberd",
+        "type1": "Poison"
+    },
+    {
+        "name": "Golem's Blood Halberd",
+        "type1": "Blood"
+    },
+    {
+        "name": "Golem's Occult Halberd"
+    },
+    {
+        "name": "Troll's Hammer"
+    },
+    {
+        "name": "Troll's Heavy Hammer"
+    },
+    {
+        "name": "Troll's Keen Hammer"
+    },
+    {
+        "name": "Troll's Quality Hammer"
+    },
+    {
+        "name": "Troll's Fire Hammer"
+    },
+    {
+        "name": "Troll's Flame Art Hammer"
+    },
+    {
+        "name": "Troll's Lightning Hammer"
+    },
+    {
+        "name": "Troll's Sacred Hammer"
+    },
+    {
+        "name": "Troll's Magic Hammer"
+    },
+    {
+        "name": "Troll's Cold Hammer",
+        "type1": "Frost"
+    },
+    {
+        "name": "Troll's Poison Hammer",
+        "type1": "Poison"
+    },
+    {
+        "name": "Troll's Blood Hammer",
+        "type1": "Blood"
+    },
+    {
+        "name": "Troll's Occult Hammer"
+    },
+    {
+        "name": "Rotten Staff",
+        "type1": "Scarlet Rot",
+        "scarletRot0": "75"
+    },
+    {
+        "name": "Rotten Greataxe",
+        "type1": "Scarlet Rot",
+        "scarletRot0": "65"
+    },
+    {
+        "name": "Heavy Rotten Greataxe",
+        "type1": "Scarlet Rot",
+        "scarletRot0": "65"
+    },
+    {
+        "name": "Keen Rotten Greataxe",
+        "type1": "Scarlet Rot",
+        "scarletRot0": "65"
+    },
+    {
+        "name": "Quality Rotten Greataxe",
+        "type1": "Scarlet Rot",
+        "scarletRot0": "65"
+    },
+    {
+        "name": "Fire Rotten Greataxe",
+        "type1": "Scarlet Rot",
+        "scarletRot0": "65"
+    },
+    {
+        "name": "Flame Art Rotten Greataxe",
+        "type1": "Scarlet Rot",
+        "scarletRot0": "65"
+    },
+    {
+        "name": "Lightning Rotten Greataxe",
+        "type1": "Scarlet Rot",
+        "scarletRot0": "65"
+    },
+    {
+        "name": "Sacred Rotten Greataxe",
+        "type1": "Scarlet Rot",
+        "scarletRot0": "65"
+    },
+    {
+        "name": "Magic Rotten Greataxe",
+        "type1": "Scarlet Rot",
+        "scarletRot0": "65"
+    },
+    {
+        "name": "Cold Rotten Greataxe",
+        "type1": "Frost",
+        "type2": "Scarlet Rot",
+        "scarletRot0": "65"
+    },
+    {
+        "name": "Poison Rotten Greataxe",
+        "type1": "Poison",
+        "type2": "Scarlet Rot",
+        "scarletRot0": "65"
+    },
+    {
+        "name": "Blood Rotten Greataxe",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Rotten Greataxe",
+        "type1": "Scarlet Rot",
+        "scarletRot0": "65"
+    },
+    {
+        "name": "Torch"
+    },
+    {
+        "name": "Steel-Wire Torch"
+    },
+    {
+        "name": "St. Trina's Torch",
+        "type1": "Sleep",
+        "sleep0": "72"
+    },
+    {
+        "name": "Ghostflame Torch",
+        "type1": "Frost"
+    },
+    {
+        "name": "Beast-Repellent Torch"
+    },
+    {
+        "name": "Sentry's Torch"
+    },
+    {
+        "name": "Buckler"
+    },
+    {
+        "name": "Heavy Buckler"
+    },
+    {
+        "name": "Keen Buckler"
+    },
+    {
+        "name": "Quality Buckler"
+    },
+    {
+        "name": "Fire Buckler"
+    },
+    {
+        "name": "Flame Art Buckler"
+    },
+    {
+        "name": "Lightning Buckler"
+    },
+    {
+        "name": "Sacred Buckler"
+    },
+    {
+        "name": "Magic Buckler"
+    },
+    {
+        "name": "Cold Buckler",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Buckler",
+        "type1": "Poison"
+    },
+    {
+        "name": "Bloody Buckler",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Buckler"
+    },
+    {
+        "name": "Perfumer's Shield"
+    },
+    {
+        "name": "Perfumer's Heavy Shield"
+    },
+    {
+        "name": "Perfumer's Keen Shield"
+    },
+    {
+        "name": "Perfumer's Quality Shield"
+    },
+    {
+        "name": "Perfumer's Fire Shield"
+    },
+    {
+        "name": "Perfumer's Flame Art Shield"
+    },
+    {
+        "name": "Perfumer's Lightning Shield"
+    },
+    {
+        "name": "Perfumer's Sacred Shield"
+    },
+    {
+        "name": "Perfumer's Magic Shield"
+    },
+    {
+        "name": "Perfumer's Cold Shield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Perfumer's Poison Shield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Perfumer's Blood Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Perfumer's Occult Shield"
+    },
+    {
+        "name": "Man-Serpent's Shield"
+    },
+    {
+        "name": "Man-serpent's Heavy Shield"
+    },
+    {
+        "name": "Man-serpent's Keen Shield"
+    },
+    {
+        "name": "Man-serpent's Quality Shield"
+    },
+    {
+        "name": "Man-serpent's Fire Shield"
+    },
+    {
+        "name": "Man-serpent's Flame Art Shield"
+    },
+    {
+        "name": "Man-serpent's Lightning Shield"
+    },
+    {
+        "name": "Man-serpent's Sacred Shield"
+    },
+    {
+        "name": "Man-serpent's Magic Shield"
+    },
+    {
+        "name": "Man-serpent's Cold Shield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Man-serpent's Poison Shield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Man-serpent's Blood Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Man-serpent's Occult Shield"
+    },
+    {
+        "name": "Rickety Shield"
+    },
+    {
+        "name": "Heavy Rickety Shield"
+    },
+    {
+        "name": "Keen Rickety Shield"
+    },
+    {
+        "name": "Quality Rickety Shield"
+    },
+    {
+        "name": "Fire Rickety Shield"
+    },
+    {
+        "name": "Flame Art Rickety Shield"
+    },
+    {
+        "name": "Lightning Rickety Shield"
+    },
+    {
+        "name": "Sacred Rickety Shield"
+    },
+    {
+        "name": "Magic Rickety Shield"
+    },
+    {
+        "name": "Cold Rickety Shield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Rickety Shield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Bloody Rickety Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Rickety Shield"
+    },
+    {
+        "name": "Pillory Shield"
+    },
+    {
+        "name": "Heavy Pillory Shield"
+    },
+    {
+        "name": "Keen Pillory Shield"
+    },
+    {
+        "name": "Quality Pillory Shield"
+    },
+    {
+        "name": "Fire Pillory Shield"
+    },
+    {
+        "name": "Flame Art Pillory Shield"
+    },
+    {
+        "name": "Lightning Pillory Shield"
+    },
+    {
+        "name": "Sacred Pillory Shield"
+    },
+    {
+        "name": "Magic Pillory Shield"
+    },
+    {
+        "name": "Cold Pillory Shield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Pillory Shield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Pillory Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Pillory Shield"
+    },
+    {
+        "name": "Beastman's Jar-Shield"
+    },
+    {
+        "name": "Beastman's Heavy Jar-Shield"
+    },
+    {
+        "name": "Beastman's Keen Jar-Shield"
+    },
+    {
+        "name": "Beastman's Quality Jar-Shield"
+    },
+    {
+        "name": "Beastman's Fire Jar-Shield"
+    },
+    {
+        "name": "Beastman's Flame Art Jar-Shield"
+    },
+    {
+        "name": "Beastman's Lightning Jar-Shield"
+    },
+    {
+        "name": "Beastman's Sacred Jar-Shield"
+    },
+    {
+        "name": "Beastman's Magic Jar-Shield"
+    },
+    {
+        "name": "Beastman's Cold Jar-Shield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Beastman's Poison Jar-Shield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Beastman's Blood Jar-Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Beastman's Occult Jar-Shield"
+    },
+    {
+        "name": "Red Thorn Roundshield"
+    },
+    {
+        "name": "Heavy Red Thorn Roundshield"
+    },
+    {
+        "name": "Keen Red Thorn Roundshield"
+    },
+    {
+        "name": "Quality Red Thorn Roundshield"
+    },
+    {
+        "name": "Fire Red Thorn Roundshield"
+    },
+    {
+        "name": "Flame Art Red Thorn Roundshield"
+    },
+    {
+        "name": "Lightning Red Thorn Roundshield"
+    },
+    {
+        "name": "Sacred Red Thorn Roundshield"
+    },
+    {
+        "name": "Magic Red Thorn Roundshield"
+    },
+    {
+        "name": "Cold Red Thorn Roundshield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Red Thorn Roundshield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Bloody Red Thorn Roundshield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Red Thorn Roundshield"
+    },
+    {
+        "name": "Scripture Wooden Shield"
+    },
+    {
+        "name": "Heavy Scripture Wooden Shield"
+    },
+    {
+        "name": "Keen Scripture Wooden Shield"
+    },
+    {
+        "name": "Quality Scripture Wooden Shield"
+    },
+    {
+        "name": "Fire Scripture Wooden Shield"
+    },
+    {
+        "name": "Flame Art Scripture Wooden Shield"
+    },
+    {
+        "name": "Lightning Scripture Wooden Shield"
+    },
+    {
+        "name": "Sacred Scripture Wooden Shield"
+    },
+    {
+        "name": "Magic Scripture Wooden Shield"
+    },
+    {
+        "name": "Cold Scripture Wooden Shield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Scripture Wooden Shield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Scripture Wooden Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Scripture Wooden Shield"
+    },
+    {
+        "name": "Riveted Wooden Shield"
+    },
+    {
+        "name": "Heavy Riveted Wooden Shield"
+    },
+    {
+        "name": "Keen Riveted Wooden Shield"
+    },
+    {
+        "name": "Quality Riveted Wooden Shield"
+    },
+    {
+        "name": "Fire Riveted Wooden Shield"
+    },
+    {
+        "name": "Flame Art Riveted Wooden Shield"
+    },
+    {
+        "name": "Lightning Riveted Wooden Shield"
+    },
+    {
+        "name": "Sacred Riveted Wooden Shield"
+    },
+    {
+        "name": "Magic Riveted Wooden Shield"
+    },
+    {
+        "name": "Cold Riveted Wooden Shield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Riveted Wooden Shield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Riveted Wooden Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Riveted Wooden Shield"
+    },
+    {
+        "name": "Blue-White Wooden Shield"
+    },
+    {
+        "name": "Heavy Blue-White Wooden Shield"
+    },
+    {
+        "name": "Keen Blue-White Wooden Shield"
+    },
+    {
+        "name": "Quality Blue-White Wooden Shield"
+    },
+    {
+        "name": "Fire Blue-White Wooden Shield"
+    },
+    {
+        "name": "Flame Art Blue-White Wooden Shield"
+    },
+    {
+        "name": "Lightning Blue-White Wooden Shield"
+    },
+    {
+        "name": "Sacred Blue-White Wooden Shield"
+    },
+    {
+        "name": "Magic Blue-White Wooden Shield"
+    },
+    {
+        "name": "Cold Blue-White Wooden Shield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Blue-White Wooden Shield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Blue-White Wooden Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Blue-White Wooden Shield"
+    },
+    {
+        "name": "Rift Shield"
+    },
+    {
+        "name": "Heavy Rift Shield"
+    },
+    {
+        "name": "Keen Rift Shield"
+    },
+    {
+        "name": "Quality Rift Shield"
+    },
+    {
+        "name": "Fire Rift Shield"
+    },
+    {
+        "name": "Flame Art Rift Shield"
+    },
+    {
+        "name": "Lightning Rift Shield"
+    },
+    {
+        "name": "Sacred Rift Shield"
+    },
+    {
+        "name": "Magic Rift Shield"
+    },
+    {
+        "name": "Cold Rift Shield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Rift Shield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Rift Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Rift Shield"
+    },
+    {
+        "name": "Iron Roundshield"
+    },
+    {
+        "name": "Heavy Iron Roundshield"
+    },
+    {
+        "name": "Keen Iron Roundshield"
+    },
+    {
+        "name": "Quality Iron Roundshield"
+    },
+    {
+        "name": "Fire Iron Roundshield"
+    },
+    {
+        "name": "Flame Art Iron Roundshield"
+    },
+    {
+        "name": "Lightning Iron Roundshield"
+    },
+    {
+        "name": "Sacred Iron Roundshield"
+    },
+    {
+        "name": "Magic Iron Roundshield"
+    },
+    {
+        "name": "Cold Iron Roundshield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Iron Roundshield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Bloody Iron Roundshield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Iron Roundshield"
+    },
+    {
+        "name": "Gilded Iron Shield"
+    },
+    {
+        "name": "Gilded Heavy Iron Shield"
+    },
+    {
+        "name": "Gilded Keen Iron Shield"
+    },
+    {
+        "name": "Gilded Quality Iron Shield"
+    },
+    {
+        "name": "Gilded Fire Iron Shield"
+    },
+    {
+        "name": "Gilded Flame Art Iron Shield"
+    },
+    {
+        "name": "Gilded Lightning Iron Shield"
+    },
+    {
+        "name": "Gilded Sacred Iron Shield"
+    },
+    {
+        "name": "Gilded Magic Iron Shield"
+    },
+    {
+        "name": "Gilded Cold Iron Shield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Gilded Poison Iron Shield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Gilded Blood Iron Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Gilded Occult Iron Shield"
+    },
+    {
+        "name": "Ice Crest Shield"
+    },
+    {
+        "name": "Heavy Ice Crest Shield"
+    },
+    {
+        "name": "Keen Ice Crest Shield"
+    },
+    {
+        "name": "Quality Ice Crest Shield"
+    },
+    {
+        "name": "Fire Ice Crest Shield"
+    },
+    {
+        "name": "Flame Art Ice Crest Shield"
+    },
+    {
+        "name": "Lightning Ice Crest Shield"
+    },
+    {
+        "name": "Sacred Ice Crest Shield"
+    },
+    {
+        "name": "Magic Ice Crest Shield"
+    },
+    {
+        "name": "Cold Ice Crest Shield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Ice Crest Shield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Ice Crest Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Ice Crest Shield"
+    },
+    {
+        "name": "Smoldering Shield"
+    },
+    {
+        "name": "Spiralhorn Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Heavy Spiralhorn Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Keen Spiralhorn Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Quality Spiralhorn Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Fire Spiralhorn Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Flame Art Spiralhorn Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Lightning Spiralhorn Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Sacred Spiralhorn Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Magic Spiralhorn Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Cold Spiralhorn Shield",
+        "type1": "Frost",
+        "type2": "Blood"
+    },
+    {
+        "name": "Poison Spiralhorn Shield",
+        "type1": "Poison",
+        "type2": "Blood"
+    },
+    {
+        "name": "Blood Spiralhorn Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Spiralhorn Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Coil Shield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Kite Shield"
+    },
+    {
+        "name": "Heavy Kite Shield"
+    },
+    {
+        "name": "Keen Kite Shield"
+    },
+    {
+        "name": "Quality Kite Shield"
+    },
+    {
+        "name": "Fire Kite Shield"
+    },
+    {
+        "name": "Flame Art Kite Shield"
+    },
+    {
+        "name": "Lightning Kite Shield"
+    },
+    {
+        "name": "Sacred Kite Shield"
+    },
+    {
+        "name": "Magic Kite Shield"
+    },
+    {
+        "name": "Cold Kite Shield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Kite Shield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Kite Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Kite Shield"
+    },
+    {
+        "name": "Marred Leather Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Marred Heavy Leather Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Marred Keen Leather Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Marred Quality Leather Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Marred Fire Leather Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Marred Flame Art Leather Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Marred Lightning Leather Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Marred Sacred Leather Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Marred Magic Leather Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Marred Cold Leather Shield",
+        "type1": "Frost",
+        "type2": "Blood"
+    },
+    {
+        "name": "Marred Poison Leather Shield",
+        "type1": "Poison",
+        "type2": "Blood"
+    },
+    {
+        "name": "Marred Blood Leather Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Marred Occult Leather Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Marred Wooden Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Marred Heavy Wooden Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Marred Keen Wooden Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Marred Quality Wooden Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Marred Fire Wooden Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Marred Flame Art Wooden Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Marred Lightning Wooden Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Marred Sacred Wooden Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Marred Magic Wooden Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Marred Cold Wooden Shield",
+        "type1": "Frost",
+        "type2": "Blood"
+    },
+    {
+        "name": "Marred Poison Wooden Shield",
+        "type1": "Poison",
+        "type2": "Blood"
+    },
+    {
+        "name": "Marred Blood Wooden Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Marred Occult Wooden Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Banished Knight's Shield"
+    },
+    {
+        "name": "Banished Knight's Heavy Shield"
+    },
+    {
+        "name": "Banished Knight's Keen Shield"
+    },
+    {
+        "name": "Banished Knight's Quality Shield"
+    },
+    {
+        "name": "Banished Knight's Fire Shield"
+    },
+    {
+        "name": "Banished Knight's Flame Art Shield"
+    },
+    {
+        "name": "Banished Knight's Lightning Shield"
+    },
+    {
+        "name": "Banished Knight's Sacred Shield"
+    },
+    {
+        "name": "Banished Knight's Magic Shield"
+    },
+    {
+        "name": "Banished Knight's Cold Shield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Banished Knight's Poison Shield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Banished Knight's Blood Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Banished Knight's Occult Shield"
+    },
+    {
+        "name": "Albinauric Shield"
+    },
+    {
+        "name": "Heavy Albinauric Shield"
+    },
+    {
+        "name": "Keen Albinauric Shield"
+    },
+    {
+        "name": "Quality Albinauric Shield"
+    },
+    {
+        "name": "Fire Albinauric Shield"
+    },
+    {
+        "name": "Flame Art Albinauric Shield"
+    },
+    {
+        "name": "Lightning Albinauric Shield"
+    },
+    {
+        "name": "Sacred Albinauric Shield"
+    },
+    {
+        "name": "Magic Albinauric Shield"
+    },
+    {
+        "name": "Cold Albinauric Shield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Albinauric Shield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Albinauric Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Albinauric Shield"
+    },
+    {
+        "name": "Sun Realm Shield"
+    },
+    {
+        "name": "Heavy Sun Realm Shield"
+    },
+    {
+        "name": "Keen Sun Realm Shield"
+    },
+    {
+        "name": "Quality Sun Realm Shield"
+    },
+    {
+        "name": "Fire Sun Realm Shield"
+    },
+    {
+        "name": "Flame Art Sun Realm Shield"
+    },
+    {
+        "name": "Lightning Sun Realm Shield"
+    },
+    {
+        "name": "Sacred Sun Realm Shield"
+    },
+    {
+        "name": "Magic Sun Realm Shield"
+    },
+    {
+        "name": "Cold Sun Realm Shield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Sun Realm Shield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Sun Realm Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Sun Realm Shield"
+    },
+    {
+        "name": "Silver Mirrorshield"
+    },
+    {
+        "name": "Round Shield"
+    },
+    {
+        "name": "Heavy Round Shield"
+    },
+    {
+        "name": "Keen Round Shield"
+    },
+    {
+        "name": "Quality Round Shield"
+    },
+    {
+        "name": "Fire Round Shield"
+    },
+    {
+        "name": "Flame Art Round Shield"
+    },
+    {
+        "name": "Lightning Round Shield"
+    },
+    {
+        "name": "Sacred Round Shield"
+    },
+    {
+        "name": "Magic Round Shield"
+    },
+    {
+        "name": "Cold Round Shield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Round Shield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Round Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Round Shield"
+    },
+    {
+        "name": "Scorpion Kite Shield"
+    },
+    {
+        "name": "Heavy Scorpion Kite Shield"
+    },
+    {
+        "name": "Keen Scorpion Kite Shield"
+    },
+    {
+        "name": "Quality Scorpion Kite Shield"
+    },
+    {
+        "name": "Fire Scorpion Kite Shield"
+    },
+    {
+        "name": "Flame Art Scorpion Kite Shield"
+    },
+    {
+        "name": "Lightning Scorpion Kite Shield"
+    },
+    {
+        "name": "Sacred Scorpion Kite Shield"
+    },
+    {
+        "name": "Magic Scorpion Kite Shield"
+    },
+    {
+        "name": "Cold Scorpion Kite Shield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Scorpion Kite Shield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Scorpion Kite Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Scorpion Kite Shield"
+    },
+    {
+        "name": "Twinbird Kite Shield"
+    },
+    {
+        "name": "Heavy Twinbird Kite Shield"
+    },
+    {
+        "name": "Keen Twinbird Kite Shield"
+    },
+    {
+        "name": "Quality Twinbird Kite Shield"
+    },
+    {
+        "name": "Fire Twinbird Kite Shield"
+    },
+    {
+        "name": "Flame Art Twinbird Kite Shield"
+    },
+    {
+        "name": "Lightning Twinbird Kite Shield"
+    },
+    {
+        "name": "Sacred Twinbird Kite Shield"
+    },
+    {
+        "name": "Magic Twinbird Kite Shield"
+    },
+    {
+        "name": "Cold Twinbird Kite Shield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Twinbird Kite Shield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Twinbird Kite Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Twinbird Kite Shield"
+    },
+    {
+        "name": "Blue-Gold Kite Shield"
+    },
+    {
+        "name": "Heavy Blue-Gold Kite Shield"
+    },
+    {
+        "name": "Keen Blue-Gold Kite Shield"
+    },
+    {
+        "name": "Quality Blue-Gold Kite Shield"
+    },
+    {
+        "name": "Fire Blue-Gold Kite Shield"
+    },
+    {
+        "name": "Flame Art Blue-Gold Kite Shield"
+    },
+    {
+        "name": "Lightning Blue-Gold Kite Shield"
+    },
+    {
+        "name": "Sacred Blue-Gold Kite Shield"
+    },
+    {
+        "name": "Magic Blue-Gold Kite Shield"
+    },
+    {
+        "name": "Cold Blue-Gold Kite Shield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Blue-Gold Kite Shield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Blue-Gold Kite Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Blue-Gold Kite Shield"
+    },
+    {
+        "name": "Brass Shield"
+    },
+    {
+        "name": "Heavy Brass Shield"
+    },
+    {
+        "name": "Keen Brass Shield"
+    },
+    {
+        "name": "Quality Brass Shield"
+    },
+    {
+        "name": "Fire Brass Shield"
+    },
+    {
+        "name": "Flame Art Brass Shield"
+    },
+    {
+        "name": "Lightning Brass Shield"
+    },
+    {
+        "name": "Sacred Brass Shield"
+    },
+    {
+        "name": "Magic Brass Shield"
+    },
+    {
+        "name": "Cold Brass Shield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Brass Shield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Brass Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Brass Shield"
+    },
+    {
+        "name": "Great Turtle Shell"
+    },
+    {
+        "name": "Heavy Great Turtle Shell"
+    },
+    {
+        "name": "Keen Great Turtle Shell"
+    },
+    {
+        "name": "Quality Great Turtle Shell"
+    },
+    {
+        "name": "Fire Great Turtle Shell"
+    },
+    {
+        "name": "Flame Art Great Turtle Shell"
+    },
+    {
+        "name": "Lightning Great Turtle Shell"
+    },
+    {
+        "name": "Sacred Great Turtle Shell"
+    },
+    {
+        "name": "Magic Great Turtle Shell"
+    },
+    {
+        "name": "Cold Great Turtle Shell",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Great Turtle Shell",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Great Turtle Shell",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Great Turtle Shell"
+    },
+    {
+        "name": "Shield of the Guilty",
+        "type1": "Blood"
+    },
+    {
+        "name": "Heavy Shield of the Guilty",
+        "type1": "Blood"
+    },
+    {
+        "name": "Keen Shield of the Guilty",
+        "type1": "Blood"
+    },
+    {
+        "name": "Quality Shield of the Guilty",
+        "type1": "Blood"
+    },
+    {
+        "name": "Fire Shield of the Guilty",
+        "type1": "Blood"
+    },
+    {
+        "name": "Flame Art Shield of the Guilty",
+        "type1": "Blood"
+    },
+    {
+        "name": "Lightning Shield of the Guilty",
+        "type1": "Blood"
+    },
+    {
+        "name": "Sacred Shield of the Guilty",
+        "type1": "Blood"
+    },
+    {
+        "name": "Magic Shield of the Guilty",
+        "type1": "Blood"
+    },
+    {
+        "name": "Cold Shield of the Guilty",
+        "type1": "Frost",
+        "type2": "Blood"
+    },
+    {
+        "name": "Poison Shield of the Guilty",
+        "type1": "Poison",
+        "type2": "Blood"
+    },
+    {
+        "name": "Blood Shield of the Guilty",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Shield of the Guilty",
+        "type1": "Blood"
+    },
+    {
+        "name": "Carian Knight's Shield"
+    },
+    {
+        "name": "Carian Knight's Heavy Shield"
+    },
+    {
+        "name": "Carian Knight's Keen Shield"
+    },
+    {
+        "name": "Carian Knight's Quality Shield"
+    },
+    {
+        "name": "Carian Knight's Fire Shield"
+    },
+    {
+        "name": "Carian Knight's Flame Art Shield"
+    },
+    {
+        "name": "Carian Knight's Lightning Shield"
+    },
+    {
+        "name": "Carian Knight's Sacred Shield"
+    },
+    {
+        "name": "Carian Knight's Magic Shield"
+    },
+    {
+        "name": "Carian Knight's Cold Shield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Carian Knight's Poison Shield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Carian Knight's Bloody Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Carian Knight's Occult Shield"
+    },
+    {
+        "name": "Large Leather Shield"
+    },
+    {
+        "name": "Heavy Large Leather Shield"
+    },
+    {
+        "name": "Keen Large Leather Shield"
+    },
+    {
+        "name": "Quality Large Leather Shield"
+    },
+    {
+        "name": "Fire Large Leather Shield"
+    },
+    {
+        "name": "Flame Art Large Leather Shield"
+    },
+    {
+        "name": "Lightning Large Leather Shield"
+    },
+    {
+        "name": "Sacred Large Leather Shield"
+    },
+    {
+        "name": "Magic Large Leather Shield"
+    },
+    {
+        "name": "Cold Large Leather Shield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Large Leather Shield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Bloody Large Leather Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Large Leather Shield"
+    },
+    {
+        "name": "Horse Crest Wooden Shield"
+    },
+    {
+        "name": "Heavy Horse Crest Wooden Shield"
+    },
+    {
+        "name": "Keen Horse Crest Wooden Shield"
+    },
+    {
+        "name": "Quality Horse Crest Wooden Shield"
+    },
+    {
+        "name": "Fire Horse Crest Wooden Shield"
+    },
+    {
+        "name": "Flame Art Horse Crest Wooden Shield"
+    },
+    {
+        "name": "Lightning Horse Crest Wooden Shield"
+    },
+    {
+        "name": "Sacred Horse Crest Wooden Shield"
+    },
+    {
+        "name": "Magic Horse Crest Wooden Shield"
+    },
+    {
+        "name": "Cold Horse Crest Wooden Shield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Horse Crest Wooden Shield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Horse Crest Wooden Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Horse Crest Wooden Shield"
+    },
+    {
+        "name": "Candletree Wooden Shield"
+    },
+    {
+        "name": "Heavy Candletree Wooden Shield"
+    },
+    {
+        "name": "Keen Candletree Wooden Shield"
+    },
+    {
+        "name": "Quality Candletree Wooden Shield"
+    },
+    {
+        "name": "Fire Candletree Wooden Shield"
+    },
+    {
+        "name": "Flame Art Candletree Wooden Shield"
+    },
+    {
+        "name": "Lightning Candletree Wooden Shield"
+    },
+    {
+        "name": "Sacred Candletree Wooden Shield"
+    },
+    {
+        "name": "Magic Candletree Wooden Shield"
+    },
+    {
+        "name": "Cold Candletree Wooden Shield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Candletree Wooden Shield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Candletree Wooden Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Candletree Wooden Shield"
+    },
+    {
+        "name": "Flame Crest Wooden Shield"
+    },
+    {
+        "name": "Heavy Flame Crest Wooden Shield"
+    },
+    {
+        "name": "Keen Flame Crest Wooden Shield"
+    },
+    {
+        "name": "Quality Flame Crest Wooden Shield"
+    },
+    {
+        "name": "Fire Flame Crest Wooden Shield"
+    },
+    {
+        "name": "Flame Art Flame Crest Wooden Shield"
+    },
+    {
+        "name": "Lightning Flame Crest Wooden Shield"
+    },
+    {
+        "name": "Sacred Flame Crest Wooden Shield"
+    },
+    {
+        "name": "Magic Flame Crest Wooden Shield"
+    },
+    {
+        "name": "Cold Flame Crest Wooden Shield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Flame Crest Wooden Shield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Flame Crest Wooden Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Flame Crest Wooden Shield"
+    },
+    {
+        "name": "Hawk Crest Wooden Shield"
+    },
+    {
+        "name": "Heavy Hawk Crest Wooden Shield"
+    },
+    {
+        "name": "Keen Hawk Crest Wooden Shield"
+    },
+    {
+        "name": "Quality Hawk Crest Wooden Shield"
+    },
+    {
+        "name": "Fire Hawk Crest Wooden Shield"
+    },
+    {
+        "name": "Flame Art Hawk Crest Wooden Shield"
+    },
+    {
+        "name": "Lightning Hawk Crest Wooden Shield"
+    },
+    {
+        "name": "Sacred Hawk Crest Wooden Shield"
+    },
+    {
+        "name": "Magic Hawk Crest Wooden Shield"
+    },
+    {
+        "name": "Cold Hawk Crest Wooden Shield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Hawk Crest Wooden Shield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Hawk Crest Wooden Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Hawk Crest Wooden Shield"
+    },
+    {
+        "name": "Beast Crest Heater Shield"
+    },
+    {
+        "name": "Heavy Beast Crest Heater Shield"
+    },
+    {
+        "name": "Keen Beast Crest Heater Shield"
+    },
+    {
+        "name": "Quality Beast Crest Heater Shield"
+    },
+    {
+        "name": "Fire Beast Crest Heater Shield"
+    },
+    {
+        "name": "Flame Art Beast Crest Heater Shield"
+    },
+    {
+        "name": "Lightning Beast Crest Heater Shield"
+    },
+    {
+        "name": "Sacred Beast Crest Heater Shield"
+    },
+    {
+        "name": "Magic Beast Crest Heater Shield"
+    },
+    {
+        "name": "Cold Beast Crest Heater Shield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Beast Crest Heater Shield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Beast Crest Heater Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Beast Crest Heater Shield"
+    },
+    {
+        "name": "Red Crest Heater Shield"
+    },
+    {
+        "name": "Heavy Red Crest Heater Shield"
+    },
+    {
+        "name": "Keen Red Crest Heater Shield"
+    },
+    {
+        "name": "Quality Red Crest Heater Shield"
+    },
+    {
+        "name": "Fire Red Crest Heater Shield"
+    },
+    {
+        "name": "Flame Art Red Crest Heater Shield"
+    },
+    {
+        "name": "Lightning Red Crest Heater Shield"
+    },
+    {
+        "name": "Sacred Red Crest Heater Shield"
+    },
+    {
+        "name": "Magic Red Crest Heater Shield"
+    },
+    {
+        "name": "Cold Red Crest Heater Shield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Red Crest Heater Shield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Red Crest Heater Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Red Crest Heater Shield"
+    },
+    {
+        "name": "Blue Crest Heater Shield"
+    },
+    {
+        "name": "Heavy Blue Crest Heater Shield"
+    },
+    {
+        "name": "Keen Blue Crest Heater Shield"
+    },
+    {
+        "name": "Quality Blue Crest Heater Shield"
+    },
+    {
+        "name": "Fire Blue Crest Heater Shield"
+    },
+    {
+        "name": "Flame Art Blue Crest Heater Shield"
+    },
+    {
+        "name": "Lightning Blue Crest Heater Shield"
+    },
+    {
+        "name": "Sacred Blue Crest Heater Shield"
+    },
+    {
+        "name": "Magic Blue Crest Heater Shield"
+    },
+    {
+        "name": "Cold Blue Crest Heater Shield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Blue Crest Heater Shield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Blue Crest Heater Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Blue Crest Heater Shield"
+    },
+    {
+        "name": "Eclipse Crest Heater Shield"
+    },
+    {
+        "name": "Heavy Eclipse Crest Heater Shield"
+    },
+    {
+        "name": "Keen Eclipse Crest Heater Shield"
+    },
+    {
+        "name": "Quality Eclipse Crest Heater Shield"
+    },
+    {
+        "name": "Fire Eclipse Crest Heater Shield"
+    },
+    {
+        "name": "Flame Art Eclipse Crest Heater Shield"
+    },
+    {
+        "name": "Lightning Eclipse Crest Heater Shield"
+    },
+    {
+        "name": "Sacred Eclipse Crest Heater Shield"
+    },
+    {
+        "name": "Magic Eclipse Crest Heater Shield"
+    },
+    {
+        "name": "Cold Eclipse Crest Heater Shield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Eclipse Crest Heater Shield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Eclipse Crest Heater Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Eclipse Crest Heater Shield"
+    },
+    {
+        "name": "Inverted Hawk Heater Shield"
+    },
+    {
+        "name": "Heavy Inverted Hawk Heater Shield"
+    },
+    {
+        "name": "Keen Inverted Hawk Heater Shield"
+    },
+    {
+        "name": "Quality Inverted Hawk Heater Shield"
+    },
+    {
+        "name": "Fire Inverted Hawk Heater Shield"
+    },
+    {
+        "name": "Flame Art Inverted Hawk Heater Shield"
+    },
+    {
+        "name": "Lightning Inverted Hawk Heater Shield"
+    },
+    {
+        "name": "Sacred Inverted Hawk Heater Shield"
+    },
+    {
+        "name": "Magic Inverted Hawk Heater Shield"
+    },
+    {
+        "name": "Cold Inverted Hawk Heater Shield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Inverted Hawk Heater Shield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Inverted Hawk Heater Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Inverted Hawk Heater Shield"
+    },
+    {
+        "name": "Heater Shield"
+    },
+    {
+        "name": "Heavy Heater Shield"
+    },
+    {
+        "name": "Keen Heater Shield"
+    },
+    {
+        "name": "Quality Heater Shield"
+    },
+    {
+        "name": "Fire Heater Shield"
+    },
+    {
+        "name": "Flame Art Heater Shield"
+    },
+    {
+        "name": "Lightning Heater Shield"
+    },
+    {
+        "name": "Sacred Heater Shield"
+    },
+    {
+        "name": "Magic Heater Shield"
+    },
+    {
+        "name": "Cold Heater Shield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Heater Shield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Heater Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Heater Shield"
+    },
+    {
+        "name": "Black Leather Shield"
+    },
+    {
+        "name": "Heavy Black Leather Shield"
+    },
+    {
+        "name": "Keen Black Leather Shield"
+    },
+    {
+        "name": "Quality Black Leather Shield"
+    },
+    {
+        "name": "Fire Black Leather Shield"
+    },
+    {
+        "name": "Flame Art Black Leather Shield"
+    },
+    {
+        "name": "Lightning Black Leather Shield"
+    },
+    {
+        "name": "Sacred Black Leather Shield"
+    },
+    {
+        "name": "Magic Black Leather Shield"
+    },
+    {
+        "name": "Cold Black Leather Shield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Black Leather Shield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Black Leather Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Black Leather Shield"
+    },
+    {
+        "name": "Dragon Towershield"
+    },
+    {
+        "name": "Heavy Dragon Towershield"
+    },
+    {
+        "name": "Keen Dragon Towershield"
+    },
+    {
+        "name": "Quality Dragon Towershield"
+    },
+    {
+        "name": "Fire Dragon Towershield"
+    },
+    {
+        "name": "Flame Art Dragon Towershield"
+    },
+    {
+        "name": "Lightning Dragon Towershield"
+    },
+    {
+        "name": "Sacred Dragon Towershield"
+    },
+    {
+        "name": "Magic Dragon Towershield"
+    },
+    {
+        "name": "Cold Dragon Towershield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Dragon Towershield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Dragon Towershield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Dragon Towershield"
+    },
+    {
+        "name": "Distinguished Greatshield"
+    },
+    {
+        "name": "Distinguished Heavy Greatshield"
+    },
+    {
+        "name": "Distinguished Keen Greatshield"
+    },
+    {
+        "name": "Distinguished Quality Greatshield"
+    },
+    {
+        "name": "Distinguished Fire Greatshield"
+    },
+    {
+        "name": "Distinguished Flame Art Greatshield"
+    },
+    {
+        "name": "Distinguished Lightning Greatshield"
+    },
+    {
+        "name": "Distinguished Sacred Greatshield"
+    },
+    {
+        "name": "Distinguished Magic Greatshield"
+    },
+    {
+        "name": "Distinguished Cold Greatshield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Distinguished Poison Greatshield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Distinguished Blood Greatshield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Distinguished Occult Greatshield"
+    },
+    {
+        "name": "Crucible Hornshield"
+    },
+    {
+        "name": "Dragonclaw Shield"
+    },
+    {
+        "name": "Briar Greatshield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Heavy Briar Greatshield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Keen Briar Greatshield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Quality Briar Greatshield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Fire Briar Greatshield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Flame Art Briar Greatshield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Lightning Briar Greatshield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Sacred Briar Greatshield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Magic Briar Greatshield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Cold Briar Greatshield",
+        "type1": "Frost",
+        "type2": "Blood"
+    },
+    {
+        "name": "Poison Briar Greatshield",
+        "type1": "Poison",
+        "type2": "Blood"
+    },
+    {
+        "name": "Blood Briar Greatshield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Briar Greatshield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Erdtree Greatshield"
+    },
+    {
+        "name": "Golden Beast Crest Shield"
+    },
+    {
+        "name": "Heavy Golden Beast Crest Shield"
+    },
+    {
+        "name": "Keen Golden Beast Crest Shield"
+    },
+    {
+        "name": "Quality Golden Beast Crest Shield"
+    },
+    {
+        "name": "Fire Golden Beast Crest Shield"
+    },
+    {
+        "name": "Flame Art Golden Beast Crest Shield"
+    },
+    {
+        "name": "Lightning Golden Beast Crest Shield"
+    },
+    {
+        "name": "Sacred Golden Beast Crest Shield"
+    },
+    {
+        "name": "Magic Golden Beast Crest Shield"
+    },
+    {
+        "name": "Cold Golden Beast Crest Shield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Golden Beast Crest Shield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Golden Beast Crest Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Golden Beast Crest Shield"
+    },
+    {
+        "name": "Jellyfish Shield"
+    },
+    {
+        "name": "Fingerprint Stone Shield",
+        "type1": "Madness",
+        "madness0": "70"
+    },
+    {
+        "name": "Heavy Fingerprint Stone Shield",
+        "type1": "Madness",
+        "madness0": "70"
+    },
+    {
+        "name": "Keen Fingerprint Stone Shield",
+        "type1": "Madness",
+        "madness0": "70"
+    },
+    {
+        "name": "Quality Fingerprint Stone Shield",
+        "type1": "Madness",
+        "madness0": "70"
+    },
+    {
+        "name": "Fire Fingerprint Stone Shield",
+        "type1": "Madness",
+        "madness0": "70"
+    },
+    {
+        "name": "Flame Art Fingerprint Stone Shield",
+        "type1": "Madness",
+        "madness0": "70"
+    },
+    {
+        "name": "Lightning Fingerprint Stone Shield",
+        "type1": "Madness",
+        "madness0": "70"
+    },
+    {
+        "name": "Sacred Fingerprint Stone Shield",
+        "type1": "Madness",
+        "madness0": "70"
+    },
+    {
+        "name": "Magic Fingerprint Stone Shield",
+        "type1": "Madness",
+        "madness0": "70"
+    },
+    {
+        "name": "Cold Fingerprint Stone Shield",
+        "type1": "Frost",
+        "type2": "Madness",
+        "madness0": "70"
+    },
+    {
+        "name": "Poison Fingerprint Stone Shield",
+        "type1": "Poison",
+        "type2": "Madness",
+        "madness0": "70"
+    },
+    {
+        "name": "Blood Fingerprint Stone Shield",
+        "type1": "Madness",
+        "madness0": "70",
+        "type2": "Blood"
+    },
+    {
+        "name": "Occult Fingerprint Stone Shield",
+        "type1": "Madness",
+        "madness0": "70"
+    },
+    {
+        "name": "Icon Shield"
+    },
+    {
+        "name": "One-Eyed Shield"
+    },
+    {
+        "name": "Visage Shield"
+    },
+    {
+        "name": "Spiked Palisade Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Heavy Spiked Palisade Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Keen Spiked Palisade Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Quality Spiked Palisade Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Fire Spiked Palisade Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Flame Art Spiked Palisade Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Lightning Spiked Palisade Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Sacred Spiked Palisade Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Magic Spiked Palisade Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Cold Spiked Palisade Shield",
+        "type1": "Frost",
+        "type2": "Blood"
+    },
+    {
+        "name": "Poison Spiked Palisade Shield",
+        "type1": "Poison",
+        "type2": "Blood"
+    },
+    {
+        "name": "Blood Spiked Palisade Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Spiked Palisade Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Manor Towershield"
+    },
+    {
+        "name": "Heavy Manor Towershield"
+    },
+    {
+        "name": "Keen Manor Towershield"
+    },
+    {
+        "name": "Quality Manor Towershield"
+    },
+    {
+        "name": "Fire Manor Towershield"
+    },
+    {
+        "name": "Flame Art Manor Towershield"
+    },
+    {
+        "name": "Lightning Manor Towershield"
+    },
+    {
+        "name": "Sacred Manor Towershield"
+    },
+    {
+        "name": "Magic Manor Towershield"
+    },
+    {
+        "name": "Cold Manor Towershield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Manor Towershield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Manor Towershield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Manor Towershield"
+    },
+    {
+        "name": "Crossed-Tree Towershield"
+    },
+    {
+        "name": "Heavy Crossed-Tree Towershield"
+    },
+    {
+        "name": "Keen Crossed-Tree Towershield"
+    },
+    {
+        "name": "Quality Crossed-Tree Towershield"
+    },
+    {
+        "name": "Fire Crossed-Tree Towershield"
+    },
+    {
+        "name": "Flame Art Crossed-Tree Towershield"
+    },
+    {
+        "name": "Lightning Crossed-Tree Towershield"
+    },
+    {
+        "name": "Sacred Crossed-Tree Towershield"
+    },
+    {
+        "name": "Magic Crossed-Tree Towershield"
+    },
+    {
+        "name": "Cold Crossed-Tree Towershield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Crossed-Tree Towershield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Crossed-Tree Towershield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Crossed-Tree Towershield"
+    },
+    {
+        "name": "Inverted Hawk Towershield"
+    },
+    {
+        "name": "Heavy Inverted Hawk Towershield"
+    },
+    {
+        "name": "Keen Inverted Hawk Towershield"
+    },
+    {
+        "name": "Quality Inverted Hawk Towershield"
+    },
+    {
+        "name": "Fire Inverted Hawk Towershield"
+    },
+    {
+        "name": "Flame Art Inverted Hawk Towershield"
+    },
+    {
+        "name": "Lightning Inverted Hawk Towershield"
+    },
+    {
+        "name": "Sacred Inverted Hawk Towershield"
+    },
+    {
+        "name": "Magic Inverted Hawk Towershield"
+    },
+    {
+        "name": "Cold Inverted Hawk Towershield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Inverted Hawk Towershield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Inverted Hawk Towershield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Inverted Hawk Towershield"
+    },
+    {
+        "name": "Ant's Skull Plate",
+        "type1": "Poison"
+    },
+    {
+        "name": "Redmane Greatshield"
+    },
+    {
+        "name": "Heavy Redmane Greatshield"
+    },
+    {
+        "name": "Keen Redmane Greatshield"
+    },
+    {
+        "name": "Quality Redmane Greatshield"
+    },
+    {
+        "name": "Fire Redmane Greatshield"
+    },
+    {
+        "name": "Flame Art Redmane Greatshield"
+    },
+    {
+        "name": "Lightning Redmane Greatshield"
+    },
+    {
+        "name": "Sacred Redmane Greatshield"
+    },
+    {
+        "name": "Magic Redmane Greatshield"
+    },
+    {
+        "name": "Cold Redmane Greatshield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Redmane Greatshield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Redmane Greatshield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Redmane Greatshield"
+    },
+    {
+        "name": "Eclipse Crest Greatshield"
+    },
+    {
+        "name": "Heavy Eclipse Crest Greatshield"
+    },
+    {
+        "name": "Keen Eclipse Crest Greatshield"
+    },
+    {
+        "name": "Quality Eclipse Crest Greatshield"
+    },
+    {
+        "name": "Fire Eclipse Crest Greatshield"
+    },
+    {
+        "name": "Flame Art Eclipse Crest Greatshield"
+    },
+    {
+        "name": "Lightning Eclipse Crest Greatshield"
+    },
+    {
+        "name": "Sacred Eclipse Crest Greatshield"
+    },
+    {
+        "name": "Magic Eclipse Crest Greatshield"
+    },
+    {
+        "name": "Cold Eclipse Crest Greatshield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Eclipse Crest Greatshield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Eclipse Crest Greatshield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Eclipse Crest Greatshield"
+    },
+    {
+        "name": "Cuckoo Greatshield"
+    },
+    {
+        "name": "Heavy Cuckoo Greatshield"
+    },
+    {
+        "name": "Keen Cuckoo Greatshield"
+    },
+    {
+        "name": "Quality Cuckoo Greatshield"
+    },
+    {
+        "name": "Fire Cuckoo Greatshield"
+    },
+    {
+        "name": "Flame Art Cuckoo Greatshield"
+    },
+    {
+        "name": "Lightning Cuckoo Greatshield"
+    },
+    {
+        "name": "Sacred Cuckoo Greatshield"
+    },
+    {
+        "name": "Magic Cuckoo Greatshield"
+    },
+    {
+        "name": "Cold Cuckoo Greatshield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Cuckoo Greatshield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Cuckoo Greatshield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Cuckoo Greatshield"
+    },
+    {
+        "name": "Golden Greatshield"
+    },
+    {
+        "name": "Heavy Golden Greatshield"
+    },
+    {
+        "name": "Keen Golden Greatshield"
+    },
+    {
+        "name": "Quality Golden Greatshield"
+    },
+    {
+        "name": "Fire Golden Greatshield"
+    },
+    {
+        "name": "Flame Art Golden Greatshield"
+    },
+    {
+        "name": "Lightning Golden Greatshield"
+    },
+    {
+        "name": "Sacred Golden Greatshield"
+    },
+    {
+        "name": "Magic Golden Greatshield"
+    },
+    {
+        "name": "Cold Golden Greatshield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Golden Greatshield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Golden Greatshield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Golden Greatshield"
+    },
+    {
+        "name": "Gilded Greatshield"
+    },
+    {
+        "name": "Heavy Gilded Greatshield"
+    },
+    {
+        "name": "Keen Gilded Greatshield"
+    },
+    {
+        "name": "Quality Gilded Greatshield"
+    },
+    {
+        "name": "Fire Gilded Greatshield"
+    },
+    {
+        "name": "Flame Art Gilded Greatshield"
+    },
+    {
+        "name": "Lightning Gilded Greatshield"
+    },
+    {
+        "name": "Sacred Gilded Greatshield"
+    },
+    {
+        "name": "Magic Gilded Greatshield"
+    },
+    {
+        "name": "Cold Gilded Greatshield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Gilded Greatshield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Gilded Greatshield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Gilded Greatshield"
+    },
+    {
+        "name": "Haligtree Crest Greatshield"
+    },
+    {
+        "name": "Heavy Haligtree Crest Greatshield"
+    },
+    {
+        "name": "Keen Haligtree Crest Greatshield"
+    },
+    {
+        "name": "Quality Haligtree Crest Greatshield"
+    },
+    {
+        "name": "Fire Haligtree Crest Greatshield"
+    },
+    {
+        "name": "Flame Art Haligtree Crest Greatshield"
+    },
+    {
+        "name": "Lightning Haligtree Crest Greatshield"
+    },
+    {
+        "name": "Sacred Haligtree Crest Greatshield"
+    },
+    {
+        "name": "Magic Haligtree Crest Greatshield"
+    },
+    {
+        "name": "Cold Haligtree Crest Greatshield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Haligtree Crest Greatshield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Haligtree Crest Greatshield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Haligtree Crest Greatshield"
+    },
+    {
+        "name": "Wooden Greatshield"
+    },
+    {
+        "name": "Heavy Wooden Greatshield"
+    },
+    {
+        "name": "Keen Wooden Greatshield"
+    },
+    {
+        "name": "Quality Wooden Greatshield"
+    },
+    {
+        "name": "Fire Wooden Greatshield"
+    },
+    {
+        "name": "Flame Art Wooden Greatshield"
+    },
+    {
+        "name": "Lightning Wooden Greatshield"
+    },
+    {
+        "name": "Sacred Wooden Greatshield"
+    },
+    {
+        "name": "Magic Wooden Greatshield"
+    },
+    {
+        "name": "Cold Wooden Greatshield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Wooden Greatshield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Wooden Greatshield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Wooden Greatshield"
+    },
+    {
+        "name": "Lordsworn's Shield"
+    },
+    {
+        "name": "Heavy Lordsworn's Shield"
+    },
+    {
+        "name": "Keen Lordsworn's Shield"
+    },
+    {
+        "name": "Quality Lordsworn's Shield"
+    },
+    {
+        "name": "Fire Lordsworn's Shield"
+    },
+    {
+        "name": "Flame Art Lordsworn's Shield"
+    },
+    {
+        "name": "Lightning Lordsworn's Shield"
+    },
+    {
+        "name": "Sacred Lordsworn's Shield"
+    },
+    {
+        "name": "Magic Lordsworn's Shield"
+    },
+    {
+        "name": "Cold Lordsworn's Shield",
+        "type1": "Frost"
+    },
+    {
+        "name": "Poison Lordsworn's Shield",
+        "type1": "Poison"
+    },
+    {
+        "name": "Blood Lordsworn's Shield",
+        "type1": "Blood"
+    },
+    {
+        "name": "Occult Lordsworn's Shield"
+    },
+    {
+        "name": "Glintstone Staff"
+    },
+    {
+        "name": "Crystal Staff"
+    },
+    {
+        "name": "Gelmir Glintstone Staff"
+    },
+    {
+        "name": "Demi-Human Queen's Staff"
+    },
+    {
+        "name": "Carian Regal Scepter"
+    },
+    {
+        "name": "Digger's Staff"
+    },
+    {
+        "name": "Astrologer's Staff"
+    },
+    {
+        "name": "Carian Glintblade Staff"
+    },
+    {
+        "name": "Prince of Death's Staff"
+    },
+    {
+        "name": "Albinauric Staff"
+    },
+    {
+        "name": "Academy Glintstone Staff"
+    },
+    {
+        "name": "Carian Glintstone Staff"
+    },
+    {
+        "name": "Azur's Glintstone Staff"
+    },
+    {
+        "name": "Lusat's Glintstone Staff"
+    },
+    {
+        "name": "Meteorite Staff"
+    },
+    {
+        "name": "Staff of the Guilty",
+        "type1": "Blood"
+    },
+    {
+        "name": "Rotten Crystal Staff",
+        "type1": "Scarlet Rot",
+        "scarletRot0": "50"
+    },
+    {
+        "name": "Staff of Loss"
+    },
+    {
+        "name": "Finger Seal"
+    },
+    {
+        "name": "Godslayer's Seal"
+    },
+    {
+        "name": "Giant's Seal"
+    },
+    {
+        "name": "Gravel Stone Seal"
+    },
+    {
+        "name": "Clawmark Seal"
+    },
+    {
+        "name": "Golden Order Seal"
+    },
+    {
+        "name": "Erdtree Seal"
+    },
+    {
+        "name": "Dragon Communion Seal"
+    },
+    {
+        "name": "Frenzied Flame Seal",
+        "type1": "Madness",
+        "madness0": "55"
+    },
+    {
+        "name": "Shortbow"
+    },
+    {
+        "name": "Misbegotten Shortbow"
+    },
+    {
+        "name": "Red Branch Shortbow"
+    },
+    {
+        "name": "Harp Bow"
+    },
+    {
+        "name": "Composite Bow"
+    },
+    {
+        "name": "Longbow"
+    },
+    {
+        "name": "Albinauric Bow"
+    },
+    {
+        "name": "Horn Bow"
+    },
+    {
+        "name": "Erdtree Bow"
+    },
+    {
+        "name": "Serpent Bow"
+    },
+    {
+        "name": "Pulley Bow"
+    },
+    {
+        "name": "Black Bow"
+    },
+    {
+        "name": "Lion Greatbow"
+    },
+    {
+        "name": "Golem Greatbow"
+    },
+    {
+        "name": "Erdtree Greatbow"
+    },
+    {
+        "name": "Greatbow"
+    },
+    {
+        "name": "Soldier's Crossbow"
+    },
+    {
+        "name": "Light Crossbow"
+    },
+    {
+        "name": "Heavy Crossbow"
+    },
+    {
+        "name": "Pulley Crossbow"
+    },
+    {
+        "name": "Full Moon Crossbow"
+    },
+    {
+        "name": "Arbalest"
+    },
+    {
+        "name": "Crepus's Black-Key Crossbow"
+    },
+    {
+        "name": "Hand Ballista"
+    },
+    {
+        "name": "Jar Cannon"
+    }
+]
