@@ -37,6 +37,7 @@ Input_Affinity = {
     1100: "Blood",
     1200: "Occult",
 }
+
 Weapon_Type = {
     # MenuValueTableParam- Value: Row Name
     1: "Dagger",
@@ -226,8 +227,6 @@ def getWeaponReqs():
 
 ##############################################
 # weapon_damage.json
-# read done, shouldn't be any edge cases, need to compare with current json
-# need write
 ##############################################
 
 def getWeaponDamage():
@@ -279,8 +278,12 @@ def getWeaponDamage():
                     if row_dict[holy_name].is_integer():
                         row_dict[holy_name] = int(row_dict[holy_name])
 
-                    # need to calculate this but not needed
-                    row_dict["stam" + str(upgrade_level)] = -1
+                    dmg_stam = float(row['Damage: Stamina'])
+                    dmg_stam_perc = float(ReinforceParamWeapon[str(int(row["Reinforce Type ID"]) + upgrade_level)]['Damage %: Stamina'])
+                    stam_name = "stam" + str(upgrade_level)
+                    row_dict[stam_name] =  dmg_stam * dmg_stam_perc
+                    if row_dict[stam_name].is_integer():
+                        row_dict[stam_name] = int(row_dict[stam_name])
 
                 # probably delete later, unneeded but used to match current data
                 if upgrade_level_max != 25:
@@ -290,7 +293,7 @@ def getWeaponDamage():
                         row_dict["fire" + str(upgrade_level)] = 0
                         row_dict["ligh" + str(upgrade_level)] = 0
                         row_dict["holy" + str(upgrade_level)] = 0
-                        row_dict["stam" + str(upgrade_level)] = -1
+                        row_dict["stam" + str(upgrade_level)] = 0
 
                 weapon_damage_data.append(row_dict)
     
@@ -299,8 +302,7 @@ def getWeaponDamage():
 
 ##############################################
 # weapon_scaling.json
-# read done, shouldn't be any edge cases, need to compare with current json
-# need write
+# Not exact, but very very very close
 ##############################################
 
 def getWeaponScaling():
