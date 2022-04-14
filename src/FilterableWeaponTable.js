@@ -44,6 +44,15 @@ export default class FilterableWeaponTable extends Component {
     }
 
     setGA = () => {
+        ReactGA.gtag('consent', 'default', {
+            ad_storage: 'denied',
+            analytics_storage: 'denied',
+            functionality_storage: 'denied',
+            personalization_storage: 'denied',
+            security_storage: 'granted',
+            wait_for_update: 2000,
+        });
+        ReactGA.set({anonymizeIp: true});
         ReactGA.initialize("G-5ZHR8P9RRV");
         ReactGA.send("pageview");
     };

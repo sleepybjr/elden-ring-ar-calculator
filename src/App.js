@@ -6,6 +6,7 @@ import FilterableWeaponTable from './FilterableWeaponTable';
 // slow if all weapons are loaded, optimize our json
 // if no input for a field, get warning: Received NaN for the `children` attribute. If this is expected, cast the value to a string.
 // add search field
+// add rune gain and hp regain passive
 
 function App() {
     return (
