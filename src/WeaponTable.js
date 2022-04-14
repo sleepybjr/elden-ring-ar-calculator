@@ -110,14 +110,43 @@ export default class WeaponTable extends Component {
         function getPhyCalcData(physScale, level) {
             let physCalc = 0;
 
+            // 0 - CalcCorrectGraph.Row
             if (physScale === 0) {
+                // 80 - CalcCorrectGraph.Row.Stat Max 3
                 if (level > 80) {
+                    // 90 - CalcCorrectGraph.Row.Grow 3
+                    // 20 - CalcCorrectGraph.Row.Grow 4 - CalcCorrectGraph.Row.Grow 3
+                    // 80 - CalcCorrectGraph.Row.Stat Max 3
+                    // 70 - CalcCorrectGraph.Row.Stat Max 4 - CalcCorrectGraph.Row.Stat Max 3
+                    // 1 - CalcCorrectGraph.Row.Adjustment Point - Grow 3, notice no power
+                    // how is this equestion generated overall?
                     physCalc = 90 + (20 * (level - 80) / 70);
+                // 60 - CalcCorrectGraph.Row.Stat Max 2
                 } else if (level > 60) {
+                    // 75 - CalcCorrectGraph.Row.Grow 2
+                    // 15 - CalcCorrectGraph.Row.Grow 3 - CalcCorrectGraph.Row.Grow 2
+                    // 60 - CalcCorrectGraph.Row.Stat Max 2
+                    // 20 - CalcCorrectGraph.Row.Stat Max 3 - CalcCorrectGraph.Row.Stat Max 2
+                    // 1 - CalcCorrectGraph.Row.Adjustment Point - Grow 2, notice no power
+                    // how is this equestion generated overall?
                     physCalc = 75 + (15 * (level - 60) / 20);
+                // 18 - CalcCorrectGraph.Row.Stat Max 1
                 } else if (level > 18) {
+                    // 25 - CalcCorrectGraph.Row.Grow 1
+                    // 50 - CalcCorrectGraph.Row.Grow 2 - CalcCorrectGraph.Row.Grow 1
+                    // 18 - CalcCorrectGraph.Row.Stat Max 1
+                    // 42 - CalcCorrectGraph.Row.Stat Max 2 - CalcCorrectGraph.Row.Stat Max 1
+                    // -1.2 - CalcCorrectGraph.Row.Adjustment Point - Grow 1, negative means 1- ((1- ans) ^1.2) where ans = (level - 18) / 42
+                    // how is this equestion generated overall?
                     physCalc = 25 + (50 * (1 - ((1 - ((level - 18) / 42)) ** 1.2)));
+                // 80 - CalcCorrectGraph.Row.Stat Max 0
                 } else {
+                    // 0 - CalcCorrectGraph.Row.Grow 0, no addition
+                    // 25 - CalcCorrectGraph.Row.Grow 1 - CalcCorrectGraph.Row.Grow 0
+                    // 1 - CalcCorrectGraph.Row.Stat Max 0
+                    // 17 - CalcCorrectGraph.Row.Stat Max 1 - CalcCorrectGraph.Row.Stat Max 0
+                    // 1.2 - CalcCorrectGraph.Row.Adjustment Point - Grow 0
+                    // how is this equestion generated overall?
                     physCalc = 25 * (((level - 1) / 17) ** 1.2);
                 }
             } else if (physScale === 1) {
