@@ -1,9 +1,9 @@
 import './App.css';
 import FilterableWeaponTable from './FilterableWeaponTable';
 
-// TODO: add better styling
+// TODO: add better styling like dark mode
 // make multiselect boxes better and intuitive for multiselect
-// slow if all weapons are loaded
+// slow if all weapons are loaded, optimize our json
 // if no input for a field, get warning: Received NaN for the `children` attribute. If this is expected, cast the value to a string.
 // add search field
 

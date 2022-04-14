@@ -21,8 +21,8 @@ export default class FilterableWeaponTable extends Component {
             weaponTypeFilter: [],
             affinityTypeFilter: ["None"],
             weaponLevels: {
-                'somber': 0,
-                'smithing': 0,
+                'somber': 10,
+                'smithing': 25,
             },
             levels: {
                 'strength': 99,
