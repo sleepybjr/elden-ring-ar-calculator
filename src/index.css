@@ -13,7 +13,7 @@ label {
 }
 
 select {
-	width: 162px;
+  width: 162px;
 }
 
 table {
@@ -74,7 +74,8 @@ tbody td a {
   display: block;
 }
 
-tbody td a, a:visited{
+tbody td a,
+a:visited {
   color: black;
 }
 
@@ -129,6 +130,7 @@ tbody tr:hover {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
 }
+
 .all-button-style:hover {
   cursor: pointer;
   background-color: #bcd8ff;
@@ -137,4 +139,49 @@ tbody tr:hover {
 .center {
   margin: 0 auto;
   padding-top: 5px;
-  }
+}
+
+.popup-content {
+  background: #fff;
+  border: 1px solid #d7d7d7;
+  margin: auto;
+  width: 25%;
+}
+
+.modal {
+  font-size: 12px;
+}
+
+.modal>.header {
+  width: 100%;
+  /* border-bottom: 1px solid gray; */
+  font-size: 18px;
+  text-align: center;
+  padding: 5px;
+}
+
+.modal>.content {
+  width: 100%;
+  padding: 10px 5px;
+}
+
+.modal>.actions {
+  width: 100%;
+  padding: 10px 5px;
+  margin: auto;
+  text-align: center;
+}
+
+.modal>.close {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  padding: 2px 5px;
+  line-height: 20px;
+  right: -10px;
+  top: -10px;
+  font-size: 24px;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #cfcece;
+}

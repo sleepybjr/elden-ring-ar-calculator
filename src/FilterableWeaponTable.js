@@ -1,11 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 import FilterBar from './FilterBar';
 import WeaponTable from './WeaponTable';
 import Levels from './Levels';
 import WeaponLevels from './WeaponLevels';
 import OtherLevels from './OtherLevels';
-import ReactGA from "react-ga4";
 import ExtraFilters from './ExtraFilters';
 import SearchBar from './SearchBar';
 
@@ -45,24 +44,6 @@ export default class FilterableWeaponTable extends Component {
             searchedWeapons: [],
         };
     }
-
-    setGA = () => {
-        ReactGA.gtag('consent', 'default', {
-            ad_storage: 'denied',
-            analytics_storage: 'denied',
-            functionality_storage: 'denied',
-            personalization_storage: 'denied',
-            security_storage: 'granted',
-            wait_for_update: 2000,
-        });
-        ReactGA.set({ anonymizeIp: true });
-        ReactGA.initialize("G-5ZHR8P9RRV");
-        ReactGA.send("pageview");
-    };
-
-    componentDidMount() {
-        this.setGA();
-    };
 
     handleWeaponTypeFilterChange(weaponTypeFilter) {
         this.setState({ weaponTypeFilter: weaponTypeFilter });
