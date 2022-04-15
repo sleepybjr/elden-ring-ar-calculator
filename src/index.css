@@ -133,3 +133,8 @@ tbody tr:hover {
   cursor: pointer;
   background-color: #bcd8ff;
 }
+
+.center {
+  margin: 0 auto;
+  padding-top: 5px;
+  }

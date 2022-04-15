@@ -13,6 +13,7 @@
     "react-dom": "^18.0.0",
     "react-ga4": "^1.4.1",
     "react-scripts": "^5.0.0",
+    "react-select": "^5.3.0",
     "save-dev": "^0.0.1-security",
     "web-vitals": "^2.1.4"
   },

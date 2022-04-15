@@ -7,6 +7,7 @@ import WeaponLevels from './WeaponLevels';
 import OtherLevels from './OtherLevels';
 import ReactGA from "react-ga4";
 import ExtraFilters from './ExtraFilters';
+import SearchBar from './SearchBar';
 
 export default class FilterableWeaponTable extends Component {
     constructor(props) {
@@ -17,6 +18,7 @@ export default class FilterableWeaponTable extends Component {
         this.handleLevelChange = this.handleLevelChange.bind(this);
         this.handleTwoHandedChange = this.handleTwoHandedChange.bind(this);
         this.handleExtraFilterChange = this.handleExtraFilterChange.bind(this);
+        this.handleSearchItemsChange = this.handleSearchItemsChange.bind(this);
         this.state = {
             weaponTypeFilter: [],
             affinityTypeFilter: ["None"],
@@ -40,6 +42,7 @@ export default class FilterableWeaponTable extends Component {
             somberFilter: true,
             smithingFilter: true,
             hideNoReqWeapons: true,
+            searchedWeapons: [],
         };
     }
 
@@ -52,7 +55,7 @@ export default class FilterableWeaponTable extends Component {
             security_storage: 'granted',
             wait_for_update: 2000,
         });
-        ReactGA.set({anonymizeIp: true});
+        ReactGA.set({ anonymizeIp: true });
         ReactGA.initialize("G-5ZHR8P9RRV");
         ReactGA.send("pageview");
     };
@@ -128,6 +131,10 @@ export default class FilterableWeaponTable extends Component {
         }
     };
 
+    handleSearchItemsChange(searchedWeapons) {
+        this.setState({ searchedWeapons: searchedWeapons });
+    };
+
     render() {
         return (
             <div className="container">
@@ -150,6 +157,11 @@ export default class FilterableWeaponTable extends Component {
 
                     <ExtraFilters
                         handleExtraFilterChange={this.handleExtraFilterChange}
+                        {...this.state}
+                    />
+
+                    <SearchBar
+                        handleSearchItemsChange={this.handleSearchItemsChange}
                         {...this.state}
                     />
 
