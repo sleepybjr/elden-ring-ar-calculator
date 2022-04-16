@@ -1,5 +1,17 @@
 # After this, copy all files over to src/json folder.
 
+"""
+needed CSV
+
+AttackElementCorrectParam
+CalcCorrectGraph
+EquipParamWeapon
+MenuValueTableParam
+ReinforceParamWeapon
+SpEffectParam
+
+"""
+
 from collections import OrderedDict
 import csv
 import pprint

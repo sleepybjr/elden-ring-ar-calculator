@@ -63,25 +63,33 @@ export default class FilterableWeaponTable extends Component {
         this.setState({ weaponLevels: newWeaponLevels });
     };
 
-    handleLevelChange(level, type) {
+    handleLevelChange(type) {
         let newLevels = { ...this.state.levels };
-        if (type === 'strength') {
-            newLevels.strength = level;
-            newLevels.twohand_strength = Math.trunc(level * 1.5);
-        } else if (type === 'dexterity') {
-            newLevels.dexterity = level;
-        } else if (type === 'intelligence') {
-            newLevels.intelligence = level;
-        } else if (type === 'faith') {
-            newLevels.faith = level;
-        } else if (type === 'arcane') {
-            newLevels.arcane = level;
-        } else if (type === 'vigor') {
-            newLevels.vigor = level;
-        } else if (type === 'mind') {
-            newLevels.mind = level;
-        } else if (type === 'endurance') {
-            newLevels.endurance = level;
+        
+        if ('strength' in type) {
+            newLevels.strength = type.strength;
+            newLevels.twohand_strength = Math.trunc(type.strength * 1.5);
+        }
+        if ('dexterity' in type) {
+            newLevels.dexterity = type.dexterity;
+        }
+        if ('intelligence' in type) {
+            newLevels.intelligence = type.intelligence;
+        }
+        if ('faith' in type) {
+            newLevels.faith = type.faith;
+        }
+        if ('arcane' in type) {
+            newLevels.arcane = type.arcane;
+        }
+        if ('vigor' in type) {
+            newLevels.vigor = type.vigor;
+        }
+        if ('mind' in type) {
+            newLevels.mind = type.mind;
+        }
+        if ('endurance' in type) {
+            newLevels.endurance = type.endurance;
         }
 
         newLevels.total_level = 1 +

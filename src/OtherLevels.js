@@ -13,21 +13,21 @@ export default class OtherLevels extends Component {
             event.target.value = event.target.value.slice(1, event.target.maxLength);
         if (Number(event.target.value) > event.target.max)
             event.target.value = Math.trunc(event.target.value / 10);
-        this.props.handleLevelChange(event.target.value, 'vigor');
+        this.props.handleLevelChange({'vigor': event.target.value});
     };
     handleChangeMin = (event) => {
         if (event.target.value.length === event.target.maxLength && event.target.value[0] === '0')
             event.target.value = event.target.value.slice(1, event.target.maxLength);
         if (Number(event.target.value) > event.target.max)
             event.target.value = Math.trunc(event.target.value / 10);
-        this.props.handleLevelChange(event.target.value, 'mind');
+        this.props.handleLevelChange({'mind': event.target.value});
     };
     handleChangeEnd = (event) => {
         if (event.target.value.length === event.target.maxLength && event.target.value[0] === '0')
             event.target.value = event.target.value.slice(1, event.target.maxLength);
         if (Number(event.target.value) > event.target.max)
             event.target.value = Math.trunc(event.target.value / 10);
-        this.props.handleLevelChange(event.target.value, 'endurance');
+        this.props.handleLevelChange({'endurance': event.target.value});
     };
 
     render() {

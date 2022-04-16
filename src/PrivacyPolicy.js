@@ -34,7 +34,6 @@ export default class PrivacyPolicy extends Component {
                             <button
                                 className="button"
                                 onClick={() => {
-                                    console.log('modal closed ');
                                     close();
                                 }}
                             >
