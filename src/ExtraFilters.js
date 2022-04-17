@@ -13,7 +13,7 @@ export default class ExtraFilters extends Component {
     render() {
         return (
             <div>
-                <div className="rowC small-spacing">
+                <div className="rowC">
                     <label htmlFor="somber-weapons">Show Somber</label>
                     <input type="checkbox" id="somber-weapons" name="somber-weapons" defaultChecked={this.props.somberFilter} onChange={this.handleChangeExtraFilter} />
                     <label htmlFor="smithing-weapons">Show Smithing</label>

@@ -136,16 +136,19 @@ tbody tr:hover {
   background-color: #bcd8ff;
 }
 
-.center {
+.search-bar {
   margin: 0 auto;
   padding-top: 5px;
+  max-width: 450px;
+  width: 80%;
 }
 
 .popup-content {
   background: #fff;
   border: 1px solid #d7d7d7;
   margin: auto;
-  width: 25%;
+  max-width: 400px;
+  width: 100%;
 }
 
 .modal {
@@ -161,8 +164,9 @@ tbody tr:hover {
 }
 
 .modal>.content {
-  width: 100%;
+  width: 98%;
   padding: 10px 5px;
+  margin-right: 5px;
 }
 
 .modal>.actions {

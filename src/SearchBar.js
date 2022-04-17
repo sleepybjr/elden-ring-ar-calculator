@@ -16,7 +16,7 @@ export default class SearchBar extends Component {
 
     render() {
         return (
-            <div className='center' style={{ width: '400px' }}>
+            <div className='search-bar'>
                 <Select
                     value={this.props.searchItems}
                     onChange={this.handleChange}
@@ -26,9 +26,9 @@ export default class SearchBar extends Component {
                     styles={{
                         control: (provided, state) => ({
                             ...provided,
-                            borderColor: "black",
+                            borderColor: "#767676",
                             "&:hover": {
-                                borderColor: "black"
+                                borderColor: "#767676"
                             }
                         }),
                     }}
