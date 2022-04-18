@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Collapsible from 'react-collapsible';
 import Popup from 'reactjs-popup';
 import AcknowledgePopup from './AcknowledgePopup';
+import { FaTrash, FaShare, FaLevelUpAlt, FaSave } from "react-icons/fa";
 
 const saveName = "saves";
 
@@ -98,7 +99,7 @@ export default class Saves extends Component {
 
     render() {
         return (
-            <div className="search-bar small-spacing">
+            <div className="build-collapsible small-spacing">
                 <Collapsible
                     trigger="↓ Saved Builds ↓"
                 >
@@ -112,33 +113,33 @@ export default class Saves extends Component {
                         </div>
                     </div>
                     <table>
-                        <tbody className="remove-border">
+                        <tbody className="remove-border no-padding">
                             {[...this.state.saves].map((val, key) => {
                                 return (
                                     <tr key={key} style={{ backgroundColor: val === this.state.loadedSave ? "#d6d5d5" : "" }}>
                                         <td className="name">{val}</td>
                                         <td className="button">
                                             <AcknowledgePopup
-                                                buttonName="Overwrite"
-                                                handleYesClick={this.handleOverwriteSave(val)}
-                                                content={<div>
-                                                    Are you sure you want to overwrite <strong>{val}</strong> with your current input?
-                                                </div>}
-                                            />
-                                        </td>
-                                        <td className="button">
-                                            <AcknowledgePopup
-                                                buttonName="Delete"
+                                                buttonName={<FaTrash title="Delete"/>}
                                                 handleYesClick={this.handleDeleteSave(val)}
                                                 content={<div>
                                                     Are you sure you want to delete <strong>{val}</strong>?
                                                 </div>}
                                             />
                                         </td>
-                                        <td className="button"><button className="all-button-style all-button-style-bg" onClick={this.handleLoadSave(val)}>Load</button></td>
+                                        <td className="button">
+                                            <AcknowledgePopup
+                                                buttonName={<FaSave title="Overwrite"/>}
+                                                handleYesClick={this.handleOverwriteSave(val)}
+                                                content={<div>
+                                                    Are you sure you want to overwrite <strong>{val}</strong> with your current input?
+                                                </div>}
+                                            />
+                                        </td>
+                                        <td className="button"><button className="all-button-style all-button-style-bg" onClick={this.handleLoadSave(val)}>{<FaLevelUpAlt title="Load"/>}</button></td>
                                         <td className="button">
                                             <Popup
-                                                trigger={<button className="all-button-style all-button-style-bg">Share</button>
+                                                trigger={<button className="all-button-style all-button-style-bg">{<FaShare title="Share"/>}</button>
                                                 }
                                                 position="center center"
                                                 closeOnDocumentClick

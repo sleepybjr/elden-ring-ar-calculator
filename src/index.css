@@ -69,6 +69,12 @@ tbody td {
   border-bottom: 1px solid #ccc;
 }
 
+tbody.no-padding td {
+  padding: 0.1em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
 tbody.remove-border tr:last-child td {
   border-bottom: none;
 }
@@ -153,6 +159,13 @@ background-color: #d3e6ff;
   padding-top: 5px;
   max-width: 450px;
   width: 80%;
+}
+
+.build-collapsible {
+  margin: 0 auto;
+  padding-top: 5px;
+  max-width: 450px;
+  width: 90%;
 }
 
 .popup-content {
