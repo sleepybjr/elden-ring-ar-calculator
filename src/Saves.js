@@ -120,7 +120,8 @@ export default class Saves extends Component {
                                         <td className="name">{val}</td>
                                         <td className="button">
                                             <AcknowledgePopup
-                                                buttonName={<FaTrash title="Delete"/>}
+                                                styleName="all-button-style-bg-red"
+                                                buttonName={<FaTrash title="Delete" />}
                                                 handleYesClick={this.handleDeleteSave(val)}
                                                 content={<div>
                                                     Are you sure you want to delete <strong>{val}</strong>?
@@ -129,17 +130,18 @@ export default class Saves extends Component {
                                         </td>
                                         <td className="button">
                                             <AcknowledgePopup
-                                                buttonName={<FaSave title="Overwrite"/>}
+                                                styleName="all-button-style-bg"
+                                                buttonName={<FaSave title="Overwrite" />}
                                                 handleYesClick={this.handleOverwriteSave(val)}
                                                 content={<div>
                                                     Are you sure you want to overwrite <strong>{val}</strong> with your current input?
                                                 </div>}
                                             />
                                         </td>
-                                        <td className="button"><button className="all-button-style all-button-style-bg" onClick={this.handleLoadSave(val)}>{<FaLevelUpAlt title="Load"/>}</button></td>
+                                        <td className="button"><button className="all-button-style all-button-style-bg" onClick={this.handleLoadSave(val)}>{<FaLevelUpAlt title="Load" />}</button></td>
                                         <td className="button">
                                             <Popup
-                                                trigger={<button className="all-button-style all-button-style-bg">{<FaShare title="Share"/>}</button>
+                                                trigger={<button className="all-button-style all-button-style-bg">{<FaShare title="Share" />}</button>
                                                 }
                                                 position="center center"
                                                 closeOnDocumentClick

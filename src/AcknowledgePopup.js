@@ -6,7 +6,7 @@ export default class AcknowledgePopup extends Component {
         return (
             <div>
                 <Popup
-                    trigger={<button className="all-button-style all-button-style-bg"> {this.props.buttonName} </button>}
+                    trigger={<button className={`all-button-style ${ this.props.styleName }`}> {this.props.buttonName} </button>}
                     modal
                 >
                     {close => (

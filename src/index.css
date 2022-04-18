@@ -145,13 +145,22 @@ tbody tr:hover {
   -webkit-border-radius: 10px;
 }
 
+.all-button-style:hover {
+  cursor: pointer;
+  background-color: #a8ccfd;
+}
+
 .all-button-style-bg {
 background-color: #d3e6ff;
 }
 
-.all-button-style:hover {
+.all-button-style-bg-red {
+background-color: #ffd3d3;
+}
+
+.all-button-style-bg-red:hover {
   cursor: pointer;
-  background-color: #a8ccfd;
+  background-color: #fda8a8;
 }
 
 .search-bar {
