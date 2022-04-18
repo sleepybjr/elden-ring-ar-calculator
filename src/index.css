@@ -69,6 +69,14 @@ tbody td {
   border-bottom: 1px solid #ccc;
 }
 
+tbody.remove-border tr:last-child td {
+  border-bottom: none;
+}
+
+tbody td.button {
+  width:30px;
+}
+
 tbody td a {
   width: 100%;
   display: block;
@@ -131,9 +139,13 @@ tbody tr:hover {
   -webkit-border-radius: 10px;
 }
 
+.all-button-style-bg {
+background-color: #d3e6ff;
+}
+
 .all-button-style:hover {
   cursor: pointer;
-  background-color: #bcd8ff;
+  background-color: #a8ccfd;
 }
 
 .search-bar {
@@ -151,9 +163,8 @@ tbody tr:hover {
   width: 100%;
 }
 
-.modal {
-  font-size: 12px;
-}
+/* .modal {
+} */
 
 .modal>.header {
   width: 100%;
@@ -167,6 +178,10 @@ tbody tr:hover {
   width: 98%;
   padding: 10px 5px;
   margin-right: 5px;
+}
+
+.modal>.center-content {
+  text-align: center;
 }
 
 .modal>.actions {
@@ -189,3 +204,50 @@ tbody tr:hover {
   border-radius: 18px;
   border: 1px solid #cfcece;
 }
+
+[role='tooltip'].popup-content {
+  max-width: 300px;
+  width: fit-content;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+.error {
+  color: red;
+}
+
+.Collapsible {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.Collapsible__trigger {
+  display:block;
+  overflow:hidden;
+  width:100%;
+  height:100%;
+  background: #d3e6ff;
+  padding-bottom: 5px;
+}
+
+.Collapsible__trigger:hover {
+  background-color: #bcd8ff;
+  cursor: pointer;
+}
+
+.underline {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+}
+
+/* need to figure out how to get this to work*/
+/* ::-webkit-scrollbar:horizontal {
+  background: #000;
+  border-radius: 10px;
+}
+  
+::-webkit-scrollbar-thumb:horizontal{
+  background: #000;
+  border-radius: 10px;
+} */

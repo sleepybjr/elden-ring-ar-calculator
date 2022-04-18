@@ -7,6 +7,21 @@ import WeaponLevels from './WeaponLevels';
 import OtherLevels from './OtherLevels';
 import ExtraFilters from './ExtraFilters';
 import SearchBar from './SearchBar';
+import Saves from './Saves';
+
+function calculateTotalLevel(newLevels) {
+    const newLevel = 1 +
+        Number(newLevels.strength) +
+        Number(newLevels.dexterity) +
+        Number(newLevels.intelligence) +
+        Number(newLevels.faith) +
+        Number(newLevels.arcane) +
+        Number(newLevels.vigor) +
+        Number(newLevels.mind) +
+        Number(newLevels.endurance) -
+        80;
+    return newLevel;
+}
 
 export default class FilterableWeaponTable extends Component {
     constructor(props) {
@@ -18,6 +33,8 @@ export default class FilterableWeaponTable extends Component {
         this.handleTwoHandedChange = this.handleTwoHandedChange.bind(this);
         this.handleExtraFilterChange = this.handleExtraFilterChange.bind(this);
         this.handleSearchItemsChange = this.handleSearchItemsChange.bind(this);
+        this.handleLoadSave = this.handleLoadSave.bind(this);
+
         this.state = {
             weaponTypeFilter: [],
             affinityTypeFilter: ["None"],
@@ -45,6 +62,72 @@ export default class FilterableWeaponTable extends Component {
         };
     }
 
+    componentDidMount() {
+        // need to handle if get returns nothing
+        const windowUrl = window.location.search;
+        const params = new URLSearchParams(windowUrl);
+
+        let newLevels = { ...this.state.levels };
+
+        const strength = params.get('str');
+        const dexterity = params.get('dex');
+        const intelligence = params.get('int');
+        const faith = params.get('fai');
+        const arcane = params.get('arc');
+        const vigor = params.get('vig');
+        const mind = params.get('min');
+        const endurance = params.get('end');
+        const somber = params.get('somber');
+        const smithing = params.get('smith');
+        let newTwoHanded = params.get('twoHanded');
+
+
+        if (strength !== null) {
+            newLevels.strength = strength;
+            newLevels.twohand_strength = Math.trunc(strength * 1.5);
+        }
+        if (dexterity !== null) {
+            newLevels.dexterity = dexterity;
+        }
+        if (intelligence !== null) {
+            newLevels.intelligence = intelligence;
+        }
+        if (faith !== null) {
+            newLevels.faith = faith;
+        }
+        if (arcane !== null) {
+            newLevels.arcane = arcane;
+        }
+        if (vigor !== null) {
+            newLevels.vigor = vigor;
+        }
+        if (mind !== null) {
+            newLevels.mind = mind;
+        }
+        if (endurance !== null) {
+            newLevels.endurance = endurance;
+        }
+        
+        newLevels.total_level = calculateTotalLevel(newLevels);
+        
+        let newWeaponLevels = { ...this.state.weaponLevels };
+
+        if (somber !== null) {
+            newWeaponLevels.somber = somber;
+        }
+        if (smithing !== null) {
+            newWeaponLevels.smithing = smithing;
+        }
+        if (newTwoHanded === null) {
+            newTwoHanded = this.state.twoHanded;
+        } else {
+            newTwoHanded = newTwoHanded === 'true';
+        }
+
+        this.setState({ levels: newLevels, weaponLevels: newWeaponLevels, twoHanded: newTwoHanded})
+        window.history.pushState(null, "", window.location.href.split("?")[0]);
+    }
+
     handleWeaponTypeFilterChange(weaponTypeFilter) {
         this.setState({ weaponTypeFilter: weaponTypeFilter });
     };
@@ -65,7 +148,7 @@ export default class FilterableWeaponTable extends Component {
 
     handleLevelChange(type) {
         let newLevels = { ...this.state.levels };
-        
+
         if ('strength' in type) {
             newLevels.strength = type.strength;
             newLevels.twohand_strength = Math.trunc(type.strength * 1.5);
@@ -92,16 +175,7 @@ export default class FilterableWeaponTable extends Component {
             newLevels.endurance = type.endurance;
         }
 
-        newLevels.total_level = 1 +
-            Number(newLevels.strength) +
-            Number(newLevels.dexterity) +
-            Number(newLevels.intelligence) +
-            Number(newLevels.faith) +
-            Number(newLevels.arcane) +
-            Number(newLevels.vigor) +
-            Number(newLevels.mind) +
-            Number(newLevels.endurance) -
-            80;
+        newLevels.total_level = calculateTotalLevel(newLevels);
 
         this.setState({ levels: newLevels });
     };
@@ -122,6 +196,11 @@ export default class FilterableWeaponTable extends Component {
 
     handleSearchItemsChange(searchedWeapons) {
         this.setState({ searchedWeapons: searchedWeapons });
+    };
+
+    handleLoadSave(save) {
+        // i can filter out what actually gets loaded here
+        this.setState(save);
     };
 
     render() {
@@ -156,6 +235,11 @@ export default class FilterableWeaponTable extends Component {
 
                     <OtherLevels
                         handleLevelChange={this.handleLevelChange}
+                        {...this.state}
+                    />
+
+                    <Saves
+                        handleLoadSave={this.handleLoadSave}
                         {...this.state}
                     />
                 </div>

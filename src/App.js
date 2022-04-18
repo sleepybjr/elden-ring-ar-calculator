@@ -10,13 +10,13 @@ import ContentPopup from './ContentPopup';
 // add throwables and fists?
 // searching a weapon and then selecting the class will make it appear twice
 // add tracking on sort to see if i can remove anything from table
-// add a way for users to save inputs
+// load last used settings
 
 function App() {
     return (
         <div className="App">
             <FilterableWeaponTable />
-            <div>Elden Ring Data: v1.03.3 | Calculator Version 1.1.2</div>
+            <div>Elden Ring Data: v1.03.3 | Calculator Version 1.2.0</div>
             <ContentPopup
                 buttonName='Privacy Policy'
                 content={

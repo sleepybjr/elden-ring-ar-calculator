@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import Popup from 'reactjs-popup';
 
-export default class ContentPopup extends Component {
+export default class AcknowledgePopup extends Component {
     render() {
         return (
             <div>
                 <Popup
-                    trigger={<button className="all-button-style"> {this.props.buttonName} </button>}
+                    trigger={<button className="all-button-style all-button-style-bg"> {this.props.buttonName} </button>}
                     modal
                 >
                     {close => (
@@ -14,19 +14,27 @@ export default class ContentPopup extends Component {
                             <button className="close" onClick={close}>
                                 &times;
                             </button>
-                            <div className="header"> Privacy Policy </div>
-                            <div className="content">
+                            <div className="content center-content">
                                 {' '}
                                 {this.props.content}
                             </div>
                             <div className="actions">
                                 <button
-                                    className="button"
+                                    className="button middle-spacing"
+                                    onClick={() => {
+                                        this.props.handleYesClick();
+                                        close();
+                                    }}
+                                >
+                                    Yes
+                                </button>
+                                <button
+                                    className="button middle-spacing"
                                     onClick={() => {
                                         close();
                                     }}
                                 >
-                                    Close Window
+                                    No
                                 </button>
                             </div>
                         </div>

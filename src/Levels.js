@@ -119,7 +119,7 @@ export default class Levels extends Component {
                     <label htmlFor="arcane">Arcane</label>
                     <input type="number" min="7" max="99" maxLength="2" inputMode="numeric" id="arcane" name="arcane" value={this.props.levels.arcane} onChange={this.handleChangeArc} onKeyDown={(evt) => ["e", "E", "+", "-", "."].includes(evt.key) && evt.preventDefault()} />
                     <label htmlFor="twohand">Two-handed</label>
-                    <input type="checkbox" id="twohand" name="twohand" defaultChecked={this.props.twoHanded} onChange={this.handleChangeTwoHanded} />
+                    <input type="checkbox" id="twohand" name="twohand" checked={this.props.twoHanded} onChange={this.handleChangeTwoHanded} />
                 </div>
             </div>
         );
