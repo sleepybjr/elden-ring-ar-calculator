@@ -489,7 +489,10 @@ def getWeaponPassive():
                         # edge case for celebrant's  and others, this id is for the rune gain or health regain
                         continue
 
-                    # currently filtering out types by using own data and row name - row name isn't a var and can be changed, is there a real link in yapped?
+                    # currently filtering out types by using own data and row name - row name isn't a var and can be changed, is there a real link in yapped?\
+                    # Link is EquipParamWeapon.Reinforce Type ID to ReinforceParamWeapon.RowNum.
+                    # SpEffectParam (1/2/3) increase in damage is offset from ReinforceParamWeapon.Behavior SpEffect 1/2/3 Offset
+                    # EquipParamWeapon.Behavior SpEffect 1/2/3
                     if type == "Scarlet Rot":
                         row_dict["scarletRot0"] = int(SpEffectParam[str(row_id+upgrade_level)]["Inflict Scarlet Rot +"]) if not (6400 <= row_id <= 6805) else int(SpEffectParam[str(row_id)]["Inflict Scarlet Rot +"])
                     elif type == "Madness":
