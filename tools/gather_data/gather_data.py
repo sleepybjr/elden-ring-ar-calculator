@@ -119,8 +119,7 @@ def getMaxUpgrade(row):
 
     return max_upgrade
 
-def getMaxNumCap():
-    return 4
+max_num_cap =  4         # max number of level caps in correction file
 
 base_weapon = 1000000  # dagger
 max_weapon = 44010000  # jar cannon
@@ -678,7 +677,7 @@ def getWeaponGroups():
     return weapon_groups
 
 ##############################################
-# phys_calc.json
+# physical_calculations.json
 ##############################################
 
 def getPhysCalc():
@@ -694,7 +693,7 @@ def getPhysCalc():
                 row_dict = OrderedDict()
                 row_dict["row_id"] = int(key)
                 row_dict["name"] = row['Row Name']
-                for scaling_cap in range (0, getMaxNumCap()+1):
+                for scaling_cap in range (0, max_num_cap+1):
                     row_dict["stat_max_"+str(scaling_cap)] = int(row['Stat Max '+str(scaling_cap)])
                     row_dict["grow_"+str(scaling_cap)] = int(row['Grow '+str(scaling_cap)])
                     row_dict["adj_point_"+str(scaling_cap)] = float(row['Adjustment Point - Grow '+str(scaling_cap)])
