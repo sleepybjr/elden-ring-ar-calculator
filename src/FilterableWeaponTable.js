@@ -1,12 +1,27 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 import FilterBar from './FilterBar';
 import WeaponTable from './WeaponTable';
 import Levels from './Levels';
 import WeaponLevels from './WeaponLevels';
 import OtherLevels from './OtherLevels';
-import ReactGA from "react-ga4";
 import ExtraFilters from './ExtraFilters';
+import SearchBar from './SearchBar';
+import Saves from './Saves';
+
+function calculateTotalLevel(newLevels) {
+    const newLevel = 1 +
+        Number(newLevels.strength) +
+        Number(newLevels.dexterity) +
+        Number(newLevels.intelligence) +
+        Number(newLevels.faith) +
+        Number(newLevels.arcane) +
+        Number(newLevels.vigor) +
+        Number(newLevels.mind) +
+        Number(newLevels.endurance) -
+        80;
+    return newLevel;
+}
 
 export default class FilterableWeaponTable extends Component {
     constructor(props) {
@@ -17,6 +32,9 @@ export default class FilterableWeaponTable extends Component {
         this.handleLevelChange = this.handleLevelChange.bind(this);
         this.handleTwoHandedChange = this.handleTwoHandedChange.bind(this);
         this.handleExtraFilterChange = this.handleExtraFilterChange.bind(this);
+        this.handleSearchItemsChange = this.handleSearchItemsChange.bind(this);
+        this.handleLoadSave = this.handleLoadSave.bind(this);
+
         this.state = {
             weaponTypeFilter: [],
             affinityTypeFilter: ["None"],
@@ -40,26 +58,75 @@ export default class FilterableWeaponTable extends Component {
             somberFilter: true,
             smithingFilter: true,
             hideNoReqWeapons: true,
+            searchedWeapons: [],
         };
     }
 
-    setGA = () => {
-        ReactGA.gtag('consent', 'default', {
-            ad_storage: 'denied',
-            analytics_storage: 'denied',
-            functionality_storage: 'denied',
-            personalization_storage: 'denied',
-            security_storage: 'granted',
-            wait_for_update: 2000,
-        });
-        ReactGA.set({anonymizeIp: true});
-        ReactGA.initialize("G-5ZHR8P9RRV");
-        ReactGA.send("pageview");
-    };
-
     componentDidMount() {
-        this.setGA();
-    };
+        // need to handle if get returns nothing
+        const windowUrl = window.location.search;
+        const params = new URLSearchParams(windowUrl);
+
+        let newLevels = { ...this.state.levels };
+
+        const strength = params.get('str');
+        const dexterity = params.get('dex');
+        const intelligence = params.get('int');
+        const faith = params.get('fai');
+        const arcane = params.get('arc');
+        const vigor = params.get('vig');
+        const mind = params.get('min');
+        const endurance = params.get('end');
+        const somber = params.get('somber');
+        const smithing = params.get('smith');
+        let newTwoHanded = params.get('twoHanded');
+
+
+        if (strength !== null) {
+            newLevels.strength = strength;
+            newLevels.twohand_strength = Math.trunc(strength * 1.5);
+        }
+        if (dexterity !== null) {
+            newLevels.dexterity = dexterity;
+        }
+        if (intelligence !== null) {
+            newLevels.intelligence = intelligence;
+        }
+        if (faith !== null) {
+            newLevels.faith = faith;
+        }
+        if (arcane !== null) {
+            newLevels.arcane = arcane;
+        }
+        if (vigor !== null) {
+            newLevels.vigor = vigor;
+        }
+        if (mind !== null) {
+            newLevels.mind = mind;
+        }
+        if (endurance !== null) {
+            newLevels.endurance = endurance;
+        }
+        
+        newLevels.total_level = calculateTotalLevel(newLevels);
+        
+        let newWeaponLevels = { ...this.state.weaponLevels };
+
+        if (somber !== null) {
+            newWeaponLevels.somber = somber;
+        }
+        if (smithing !== null) {
+            newWeaponLevels.smithing = smithing;
+        }
+        if (newTwoHanded === null) {
+            newTwoHanded = this.state.twoHanded;
+        } else {
+            newTwoHanded = newTwoHanded === 'true';
+        }
+
+        this.setState({ levels: newLevels, weaponLevels: newWeaponLevels, twoHanded: newTwoHanded})
+        window.history.pushState(null, "", window.location.href.split("?")[0]);
+    }
 
     handleWeaponTypeFilterChange(weaponTypeFilter) {
         this.setState({ weaponTypeFilter: weaponTypeFilter });
@@ -79,37 +146,36 @@ export default class FilterableWeaponTable extends Component {
         this.setState({ weaponLevels: newWeaponLevels });
     };
 
-    handleLevelChange(level, type) {
+    handleLevelChange(type) {
         let newLevels = { ...this.state.levels };
-        if (type === 'strength') {
-            newLevels.strength = level;
-            newLevels.twohand_strength = Math.trunc(level * 1.5);
-        } else if (type === 'dexterity') {
-            newLevels.dexterity = level;
-        } else if (type === 'intelligence') {
-            newLevels.intelligence = level;
-        } else if (type === 'faith') {
-            newLevels.faith = level;
-        } else if (type === 'arcane') {
-            newLevels.arcane = level;
-        } else if (type === 'vigor') {
-            newLevels.vigor = level;
-        } else if (type === 'mind') {
-            newLevels.mind = level;
-        } else if (type === 'endurance') {
-            newLevels.endurance = level;
+
+        if ('strength' in type) {
+            newLevels.strength = type.strength;
+            newLevels.twohand_strength = Math.trunc(type.strength * 1.5);
+        }
+        if ('dexterity' in type) {
+            newLevels.dexterity = type.dexterity;
+        }
+        if ('intelligence' in type) {
+            newLevels.intelligence = type.intelligence;
+        }
+        if ('faith' in type) {
+            newLevels.faith = type.faith;
+        }
+        if ('arcane' in type) {
+            newLevels.arcane = type.arcane;
+        }
+        if ('vigor' in type) {
+            newLevels.vigor = type.vigor;
+        }
+        if ('mind' in type) {
+            newLevels.mind = type.mind;
+        }
+        if ('endurance' in type) {
+            newLevels.endurance = type.endurance;
         }
 
-        newLevels.total_level = 1 +
-            Number(newLevels.strength) +
-            Number(newLevels.dexterity) +
-            Number(newLevels.intelligence) +
-            Number(newLevels.faith) +
-            Number(newLevels.arcane) +
-            Number(newLevels.vigor) +
-            Number(newLevels.mind) +
-            Number(newLevels.endurance) -
-            80;
+        newLevels.total_level = calculateTotalLevel(newLevels);
 
         this.setState({ levels: newLevels });
     };
@@ -126,6 +192,15 @@ export default class FilterableWeaponTable extends Component {
         } else if (type === 'missing-req-weapons') {
             this.setState({ hideNoReqWeapons: isChecked });
         }
+    };
+
+    handleSearchItemsChange(searchedWeapons) {
+        this.setState({ searchedWeapons: searchedWeapons });
+    };
+
+    handleLoadSave(save) {
+        // i can filter out what actually gets loaded here
+        this.setState(save);
     };
 
     render() {
@@ -153,8 +228,18 @@ export default class FilterableWeaponTable extends Component {
                         {...this.state}
                     />
 
+                    <SearchBar
+                        handleSearchItemsChange={this.handleSearchItemsChange}
+                        {...this.state}
+                    />
+
                     <OtherLevels
                         handleLevelChange={this.handleLevelChange}
+                        {...this.state}
+                    />
+
+                    <Saves
+                        handleLoadSave={this.handleLoadSave}
                         {...this.state}
                     />
                 </div>

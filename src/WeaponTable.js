@@ -55,6 +55,12 @@ export default class WeaponTable extends Component {
         });
     };
 
+    filterBySearchedWeapons(searchedWeapons) {
+        return function (row) {
+            return searchedWeapons.includes(row.weaponname);
+        };
+    };
+
     filterByWeaponTypes(weaponTypes) {
         return function (row) {
             return weaponTypes.includes(row.weaponType);
@@ -71,15 +77,18 @@ export default class WeaponTable extends Component {
 
     prepareData = () => {
         const data = Table_Data;
+        const searchedWeaponsFilter = this.props.searchedWeapons.map(row => row.label);
+        const filteredDataSearched = data.filter(this.filterBySearchedWeapons(searchedWeaponsFilter));
         const weaponTypeFilter = this.props.weaponTypeFilter;
         const affinityTypeFilter = this.props.affinityTypeFilter;
         const filteredDataWeapon = data.filter(this.filterByWeaponTypes(weaponTypeFilter));
-        const filteredDataAffinity = filteredDataWeapon.filter(this.filterByAffinityTypes(affinityTypeFilter));
-        const filteredDataSomber = this.props.somberFilter === true ? filteredDataAffinity : filteredDataAffinity.filter((weapon) => weapon.maxUpgrade !== 10 && weapon.maxUpgrade !== 0);
+        const filteredDataSomber = this.props.somberFilter === true ? filteredDataWeapon : filteredDataWeapon.filter((weapon) => weapon.maxUpgrade !== 10 && weapon.maxUpgrade !== 0);
         const filteredDataSmithing = this.props.smithingFilter === true ? filteredDataSomber : filteredDataSomber.filter((weapon) => weapon.maxUpgrade !== 25);
         const filteredDataReqWeapons = this.props.hideNoReqWeapons === true ? filteredDataSmithing : filteredDataSmithing.filter((weapon) => this.highlightReqRow(weapon, this.props.levels, this.props.twoHanded) === false);
+        
+        const filteredDataAffinity = filteredDataSearched.concat(filteredDataReqWeapons).filter(this.filterByAffinityTypes(affinityTypeFilter));
 
-        return filteredDataReqWeapons;
+        return filteredDataAffinity;
     };
 
     highlightReqRow(val, levels, isTwoHanded) {

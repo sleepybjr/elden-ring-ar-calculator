@@ -1,5 +1,5 @@
 /*
-Run using "node merge_json.js" from the tools directory.
+Run using "node merge_json.js" from the tools directory. Move JSON files from tools/gather_data/output prior to running this.
 */
 
 const Weapon_Reqs_Data = require('../src/json/weapon_reqs');

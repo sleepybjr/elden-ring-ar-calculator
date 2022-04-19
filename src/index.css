@@ -13,7 +13,7 @@ label {
 }
 
 select {
-	width: 162px;
+  width: 162px;
 }
 
 table {
@@ -69,12 +69,27 @@ tbody td {
   border-bottom: 1px solid #ccc;
 }
 
+tbody.no-padding td {
+  padding: 0.1em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+tbody.remove-border tr:last-child td {
+  border-bottom: none;
+}
+
+tbody td.button {
+  width: 30px;
+}
+
 tbody td a {
   width: 100%;
   display: block;
 }
 
-tbody td a, a:visited{
+tbody td a,
+a:visited {
   color: black;
 }
 
@@ -129,7 +144,156 @@ tbody tr:hover {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
 }
+
 .all-button-style:hover {
   cursor: pointer;
-  background-color: #bcd8ff;
+  background-color: #a8ccfd;
 }
+
+.all-button-style-bg {
+  background-color: #d3e6ff;
+}
+
+.all-button-style-bg-red {
+  background-color: #ffd3d3;
+}
+
+.all-button-style-bg-red:hover {
+  cursor: pointer;
+  background-color: #fda8a8;
+}
+
+.all-button-style-icon {
+  font-size: 18px;
+  padding-bottom: 2px;
+}
+
+.search-bar {
+  margin: 0 auto;
+  padding-top: 5px;
+  max-width: 450px;
+  width: 80%;
+}
+
+.build-collapsible {
+  margin: 0 auto;
+  padding-top: 5px;
+  max-width: 450px;
+  width: 90%;
+}
+
+.popup-content {
+  background: #fff;
+  border: 1px solid #d7d7d7;
+  margin: auto;
+  max-width: 400px;
+  width: 100%;
+}
+
+/* .modal {
+} */
+
+.modal>.header {
+  width: 100%;
+  /* border-bottom: 1px solid gray; */
+  font-size: 18px;
+  text-align: center;
+  padding: 5px;
+}
+
+.modal>.content {
+  width: 98%;
+  padding: 10px 5px;
+  margin-right: 5px;
+}
+
+.modal>.center-content {
+  text-align: center;
+}
+
+.modal>.actions {
+  width: 100%;
+  padding: 10px 5px;
+  margin: auto;
+  text-align: center;
+}
+
+.modal>.close {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  padding: 2px 5px;
+  line-height: 20px;
+  right: -10px;
+  top: -10px;
+  font-size: 24px;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #cfcece;
+}
+
+[role='tooltip'].popup-content {
+  max-width: 300px;
+  width: fit-content;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+.error {
+  color: red;
+}
+
+.Collapsible {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.Collapsible__trigger {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background: #d3e6ff;
+  padding-bottom: 5px;
+  font-weight: 400;
+  text-decoration: none;
+  position: relative;
+}
+
+.Collapsible__trigger:after {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  content: '\f103';
+  position: absolute;
+  right: 10px;
+  top: 4px;
+  display: block;
+  transition: transform 300ms;
+}
+
+.Collapsible__trigger.is-open:after {
+  transform: rotateZ(180deg);
+}
+
+
+.Collapsible__trigger:hover {
+  background-color: #bcd8ff;
+  cursor: pointer;
+}
+
+.underline {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+}
+
+/* need to figure out how to get this to work*/
+/* ::-webkit-scrollbar:horizontal {
+  background: #000;
+  border-radius: 10px;
+}
+  
+::-webkit-scrollbar-thumb:horizontal{
+  background: #000;
+  border-radius: 10px;
+} */
