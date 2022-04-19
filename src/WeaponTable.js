@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import Attack_Element_Correct_Param from './json/attackelementcorrectparam';
+import Physical_Calculations from './json/physical_calculations.json';
 import Table_Data from './json/merged_json_data';
 
 const typesOrder = {
@@ -12,6 +13,17 @@ const typesOrder = {
     'E': 5,
     '-': 6,
 };
+
+const scalingValues = {
+    // In MenuValueTableParam
+    'S': 175,
+    'A': 140,
+    'B': 90,
+    'C': 60,
+    'D': 25,
+    'E': 1
+}
+
 const noTwoHandBuff = new Set([
     "Hookclaws", "Venomous Fang", "Bloodhound Claws", "Raptor Talons",
     "Caestus", "Spiked Caestus", "Grafted Dragon", "Iron Ball", "Star Fist", "Katar", "Clinging Bone", "Veteran's Prosthesis", "Cipher Pata",
@@ -21,6 +33,8 @@ const noTwoHandBuff = new Set([
 const autoTwoHandBuff = new Set([
     "Light Bow", "Bow", "Greatbow",
 ]);
+
+const passiveArcaneScaleId = 6;
 
 export default class WeaponTable extends Component {
     constructor(props) {
@@ -85,7 +99,7 @@ export default class WeaponTable extends Component {
         const filteredDataSomber = this.props.somberFilter === true ? filteredDataWeapon : filteredDataWeapon.filter((weapon) => weapon.maxUpgrade !== 10 && weapon.maxUpgrade !== 0);
         const filteredDataSmithing = this.props.smithingFilter === true ? filteredDataSomber : filteredDataSomber.filter((weapon) => weapon.maxUpgrade !== 25);
         const filteredDataReqWeapons = this.props.hideNoReqWeapons === true ? filteredDataSmithing : filteredDataSmithing.filter((weapon) => this.highlightReqRow(weapon, this.props.levels, this.props.twoHanded) === false);
-        
+
         const filteredDataAffinity = filteredDataSearched.concat(filteredDataReqWeapons).filter(this.filterByAffinityTypes(affinityTypeFilter));
 
         return filteredDataAffinity;
@@ -119,137 +133,44 @@ export default class WeaponTable extends Component {
         function getPhyCalcData(physScale, level) {
             let physCalc = 0;
 
-            // 0 - CalcCorrectGraph.Row
-            if (physScale === 0) {
-                // 80 - CalcCorrectGraph.Row.Stat Max 3
-                if (level > 80) {
-                    // 90 - CalcCorrectGraph.Row.Grow 3
-                    // 20 - CalcCorrectGraph.Row.Grow 4 - CalcCorrectGraph.Row.Grow 3
-                    // 80 - CalcCorrectGraph.Row.Stat Max 3
-                    // 70 - CalcCorrectGraph.Row.Stat Max 4 - CalcCorrectGraph.Row.Stat Max 3
-                    // 1 - CalcCorrectGraph.Row.Adjustment Point - Grow 3, notice no power
-                    // how is this equestion generated overall?
-                    physCalc = 90 + (20 * (level - 80) / 70);
-                // 60 - CalcCorrectGraph.Row.Stat Max 2
-                } else if (level > 60) {
-                    // 75 - CalcCorrectGraph.Row.Grow 2
-                    // 15 - CalcCorrectGraph.Row.Grow 3 - CalcCorrectGraph.Row.Grow 2
-                    // 60 - CalcCorrectGraph.Row.Stat Max 2
-                    // 20 - CalcCorrectGraph.Row.Stat Max 3 - CalcCorrectGraph.Row.Stat Max 2
-                    // 1 - CalcCorrectGraph.Row.Adjustment Point - Grow 2, notice no power
-                    // how is this equestion generated overall?
-                    physCalc = 75 + (15 * (level - 60) / 20);
-                // 18 - CalcCorrectGraph.Row.Stat Max 1
-                } else if (level > 18) {
-                    // 25 - CalcCorrectGraph.Row.Grow 1
-                    // 50 - CalcCorrectGraph.Row.Grow 2 - CalcCorrectGraph.Row.Grow 1
-                    // 18 - CalcCorrectGraph.Row.Stat Max 1
-                    // 42 - CalcCorrectGraph.Row.Stat Max 2 - CalcCorrectGraph.Row.Stat Max 1
-                    // -1.2 - CalcCorrectGraph.Row.Adjustment Point - Grow 1, negative means 1- ((1- ans) ^1.2) where ans = (level - 18) / 42
-                    // how is this equestion generated overall?
-                    physCalc = 25 + (50 * (1 - ((1 - ((level - 18) / 42)) ** 1.2)));
-                // 80 - CalcCorrectGraph.Row.Stat Max 0
-                } else {
-                    // 0 - CalcCorrectGraph.Row.Grow 0, no addition
-                    // 25 - CalcCorrectGraph.Row.Grow 1 - CalcCorrectGraph.Row.Grow 0
-                    // 1 - CalcCorrectGraph.Row.Stat Max 0
-                    // 17 - CalcCorrectGraph.Row.Stat Max 1 - CalcCorrectGraph.Row.Stat Max 0
-                    // 1.2 - CalcCorrectGraph.Row.Adjustment Point - Grow 0
-                    // how is this equestion generated overall?
-                    physCalc = 25 * (((level - 1) / 17) ** 1.2);
-                }
-            } else if (physScale === 1) {
-                if (level > 80) {
-                    physCalc = 90 + (20 * (level - 80) / 70);
-                } else if (level > 60) {
-                    physCalc = 75 + (15 * (level - 60) / 20);
-                } else if (level > 20) {
-                    physCalc = 35 + (40 * (1 - ((1 - ((level - 20) / 40)) ** 1.2)));
-                } else {
-                    physCalc = 35 * (((level - 1) / 19) ** 1.2);
-                }
-            } else if (physScale === 2) {
-                if (level > 80) {
-                    physCalc = 90 + (20 * (level - 80) / 70);
-                } else if (level > 60) {
-                    physCalc = 75 + (15 * (level - 60) / 20);
-                } else if (level > 20) {
-                    physCalc = 35 + (40 * (1 - ((1 - ((level - 20) / 40)) ** 1.2)));
-                } else {
-                    physCalc = 35 * (((level - 1) / 19) ** 1.2);
-                }
-            } else if (physScale === 4) {
-                if (level > 80) {
-                    physCalc = 95 + (5 * (level - 80) / 19);
-                } else if (level > 50) {
-                    physCalc = 80 + (15 * (level - 50) / 30);
-                } else if (level > 20) {
-                    physCalc = 40 + (40 * (level - 20) / 30);
-                } else {
-                    physCalc = 40 * (level - 1) / 19;
-                }
-            } else if (physScale === 7) {
-                if (level > 80) {
-                    physCalc = 90 + (20 * (level - 80) / 70);
-                } else if (level > 60) {
-                    physCalc = 75 + (15 * (level - 60) / 20);
-                } else if (level > 20) {
-                    physCalc = 35 + (40 * (1 - ((1 - ((level - 20) / 40)) ** 1.2)));
-                } else {
-                    physCalc = 35 * (((level - 1) / 19) ** 1.2);
-                }
-            } else if (physScale === 8) {
-                if (level > 80) {
-                    physCalc = 90 + (20 * (level - 80) / 70);
-                } else if (level > 60) {
-                    physCalc = 75 + (15 * (level - 60) / 20);
-                } else if (level > 16) {
-                    physCalc = 25 + (50 * (1 - ((1 - ((level - 16) / 44)) ** 1.2)));
-                } else {
-                    physCalc = 25 * (((level - 1) / 15) ** 1.2);
-                }
-            } else if (physScale === 12) {
-                if (level > 45) {
-                    physCalc = 75 + (25 * (level - 45) / 54);
-                } else if (level > 30) {
-                    physCalc = 55 + (20 * (level - 30) / 15);
-                } else if (level > 15) {
-                    physCalc = 10 + (45 * (level - 15) / 15);
-                } else {
-                    physCalc = 10 * (level - 1) / 14;
-                }
-            } else if (physScale === 14) {
-                if (level > 80) {
-                    physCalc = 85 + (15 * (level - 80) / 19);
-                } else if (level > 40) {
-                    physCalc = 60 + (25 * (level - 40) / 40);
-                } else if (level > 20) {
-                    physCalc = 40 + (20 * (level - 20) / 20);
-                } else {
-                    physCalc = 40 * (level - 1) / 19;
-                }
-            } else if (physScale === 15) {
-                if (level > 80) {
-                    physCalc = 95 + (5 * (level - 80) / 19);
-                } else if (level > 60) {
-                    physCalc = 65 + (30 * (level - 60) / 20);
-                } else if (level > 25) {
-                    physCalc = 25 + (40 * (level - 25) / 35);
-                } else {
-                    physCalc = 25 * (level - 1) / 24;
-                }
-            } else if (physScale === 16) {
-                if (level > 80) {
-                    physCalc = 90 + (10 * (level - 80) / 19);
-                } else if (level > 60) {
-                    physCalc = 75 + (15 * (level - 60) / 20);
-                } else if (level > 18) {
-                    physCalc = 20 + (55 * (level - 18) / 42);
-                } else {
-                    physCalc = 20 * (level - 1) / 17;
+            for (const element of Physical_Calculations) {
+                if (element.row_id === physScale) {
+                    if (level > element.stat_max_3) {
+                        // Don't know what to do if adjustment is 0
+                        if (element.adj_point_3 > 0.0) {
+                            physCalc = element.grow_3 + ((element.grow_4 - element.grow_3) * (((level - element.stat_max_3) / (element.stat_max_4 - element.stat_max_3)) ** element.adj_point_3))
+                        }
+                        else {
+                            physCalc = element.grow_3 + ((element.grow_4 - element.grow_3) * (1 - ((1 - ((level - element.stat_max_3) / (element.stat_max_4 - element.stat_max_3))) ** -element.adj_point_3)))
+                        }
+                    }
+                    else if (level > element.stat_max_2) {
+                        if (element.adj_point_2 > 0.0) {
+                            physCalc = element.grow_2 + ((element.grow_3 - element.grow_2) * (((level - element.stat_max_2) / (element.stat_max_3 - element.stat_max_2)) ** element.adj_point_2))
+                        }
+                        else {
+                            physCalc = element.grow_2 + ((element.grow_3 - element.grow_2) * (1 - ((1 - ((level - element.stat_max_2) / (element.stat_max_3 - element.stat_max_2))) ** -element.adj_point_2)))
+                        }
+                    }
+                    else if (level > element.stat_max_1) {
+                        if (element.adj_point_1 > 0.0) {
+                            physCalc = element.grow_1 + ((element.grow_2 - element.grow_1) * (((level - element.stat_max_1) / (element.stat_max_2 - element.stat_max_1)) ** element.adj_point_1))
+                        }
+                        else {
+                            physCalc = element.grow_1 + ((element.grow_2 - element.grow_1) * (1 - ((1 - ((level - element.stat_max_1) / (element.stat_max_2 - element.stat_max_1))) ** -element.adj_point_1)))
+                        }
+                    }
+                    else {
+                        if (element.adj_point_0 > 0.0) {
+                            physCalc = element.grow_0 + ((element.grow_1 - element.grow_0) * (((level - element.stat_max_0) / (element.stat_max_1 - element.stat_max_0)) ** element.adj_point_0))
+                        }
+                        else {
+                            physCalc = element.grow_0 + ((element.grow_1 - element.grow_0) * (1 - ((1 - ((level - element.stat_max_0) / (element.stat_max_1 - element.stat_max_0))) ** -element.adj_point_0)))
+                        }
+                    }
+                    break;
                 }
             }
-
             return physCalc;
 
         }
@@ -635,58 +556,58 @@ export default class WeaponTable extends Component {
             let scaleNum = 0;
             if (maxUpgrade === 10) {
                 const scaling = val[type + weaponLevel.somber];
-                if (scaling === 0) {
+                scaleNum = scaling * 100;
+                if (scaleNum === 0) {
                     return output;
-                } else if (scaling > 1.75) {
+                } else if (scaleNum >= scalingValues.S) {
                     output = 'S';
-                } else if (scaling >= 1.4) {
+                } else if (scaleNum >= scalingValues.A) {
                     output = 'A';
-                } else if (scaling >= 0.9) {
+                } else if (scaleNum >= scalingValues.B) {
                     output = 'B';
-                } else if (scaling >= 0.6) {
+                } else if (scaleNum >= scalingValues.C) {
                     output = 'C';
-                } else if (scaling >= 0.2) {
+                } else if (scaleNum >= scalingValues.D) {
                     output = 'D';
                 } else {
                     output = 'E';
                 }
-                scaleNum = scaling * 100;
             } else if (maxUpgrade === 25) {
                 const scaling = val[type + weaponLevel.smithing];
-                if (scaling === 0) {
+                scaleNum = scaling * 100;
+                if (scaleNum === 0) {
                     return output;
-                } else if (scaling > 1.75) {
+                } else if (scaleNum >= scalingValues.S) {
                     output = 'S';
-                } else if (scaling >= 1.4) {
+                } else if (scaleNum >= scalingValues.A) {
                     output = 'A';
-                } else if (scaling >= 0.9) {
+                } else if (scaleNum >= scalingValues.B) {
                     output = 'B';
-                } else if (scaling >= 0.6) {
+                } else if (scaleNum >= scalingValues.C) {
                     output = 'C';
-                } else if (scaling >= 0.2) {
+                } else if (scaleNum >= scalingValues.D) {
                     output = 'D';
                 } else {
                     output = 'E';
                 }
-                scaleNum = scaling * 100;
             } else if (maxUpgrade === 0) {
                 const scaling = val[type + 0];
-                if (scaling === 0) {
+                scaleNum = scaling * 100;
+                if (scaleNum === 0) {
                     return output;
-                } else if (scaling > 1.75) {
+                } else if (scaleNum >= scalingValues.S) {
                     output = 'S';
-                } else if (scaling >= 1.4) {
+                } else if (scaleNum >= scalingValues.A) {
                     output = 'A';
-                } else if (scaling >= 0.9) {
+                } else if (scaleNum >= scalingValues.B) {
                     output = 'B';
-                } else if (scaling >= 0.6) {
+                } else if (scaleNum >= scalingValues.C) {
                     output = 'C';
-                } else if (scaling >= 0.2) {
+                } else if (scaleNum >= scalingValues.D) {
                     output = 'D';
                 } else {
                     output = 'E';
                 }
-                scaleNum = scaling * 100;
             }
 
             return { letter: output, value: Math.trunc(scaleNum) };
@@ -699,13 +620,41 @@ export default class WeaponTable extends Component {
             let phsyBlood = 0;
             let arcScaling = 0;
 
-            let passiveArcaneCalcCorrect = 10 * (levels.arcane - 1) / 24;
-            if (levels.arcane > 60) {
-                passiveArcaneCalcCorrect = 90 + (10 * (levels.arcane - 60) / 39);
-            } else if (levels.arcane > 45) {
-                passiveArcaneCalcCorrect = 75 + (15 * (levels.arcane - 45) / 15);
-            } else if (levels.arcane > 25) {
-                passiveArcaneCalcCorrect = 10 + (65 * (levels.arcane - 25) / 20);
+
+            let passiveArcaneCalcCorrect = 0;
+            const passiveArcaneScale = Physical_Calculations[passiveArcaneScaleId];
+            if (levels.arcane > passiveArcaneScale.stat_max_3) {
+                // Don't know what to do if adjustment is 0
+                if (passiveArcaneScale.adj_point_3 > 0.0) {
+                    passiveArcaneCalcCorrect = passiveArcaneScale.grow_3 + ((passiveArcaneScale.grow_4 - passiveArcaneScale.grow_3) * (((levels.arcane - passiveArcaneScale.stat_max_3) / (passiveArcaneScale.stat_max_4 - passiveArcaneScale.stat_max_3)) ** passiveArcaneScale.adj_point_3))
+                }
+                else {
+                    passiveArcaneCalcCorrect = passiveArcaneScale.grow_3 + ((passiveArcaneScale.grow_4 - passiveArcaneScale.grow_3) * (1 - ((1 - ((levels.arcane - passiveArcaneScale.stat_max_3) / (passiveArcaneScale.stat_max_4 - passiveArcaneScale.stat_max_3))) ** -passiveArcaneScale.adj_point_3)))
+                }
+            }
+            else if (levels.arcane > passiveArcaneScale.stat_max_2) {
+                if (passiveArcaneScale.adj_point_2 > 0.0) {
+                    passiveArcaneCalcCorrect = passiveArcaneScale.grow_2 + ((passiveArcaneScale.grow_3 - passiveArcaneScale.grow_2) * (((levels.arcane - passiveArcaneScale.stat_max_2) / (passiveArcaneScale.stat_max_3 - passiveArcaneScale.stat_max_2)) ** passiveArcaneScale.adj_point_2))
+                }
+                else {
+                    passiveArcaneCalcCorrect = passiveArcaneScale.grow_2 + ((passiveArcaneScale.grow_3 - passiveArcaneScale.grow_2) * (1 - ((1 - ((levels.arcane - passiveArcaneScale.stat_max_2) / (passiveArcaneScale.stat_max_3 - passiveArcaneScale.stat_max_2))) ** -passiveArcaneScale.adj_point_2)))
+                }
+            }
+            else if (levels.arcane > passiveArcaneScale.stat_max_1) {
+                if (passiveArcaneScale.adj_point_1 > 0.0) {
+                    passiveArcaneCalcCorrect = passiveArcaneScale.grow_1 + ((passiveArcaneScale.grow_2 - passiveArcaneScale.grow_1) * (((levels.arcane - passiveArcaneScale.stat_max_1) / (passiveArcaneScale.stat_max_2 - passiveArcaneScale.stat_max_1)) ** passiveArcaneScale.adj_point_1))
+                }
+                else {
+                    passiveArcaneCalcCorrect = passiveArcaneScale.grow_1 + ((passiveArcaneScale.grow_2 - passiveArcaneScale.grow_1) * (1 - ((1 - ((levels.arcane - passiveArcaneScale.stat_max_1) / (passiveArcaneScale.stat_max_2 - passiveArcaneScale.stat_max_1))) ** -passiveArcaneScale.adj_point_1)))
+                }
+            }
+            else {
+                if (passiveArcaneScale.adj_point_0 > 0.0) {
+                    passiveArcaneCalcCorrect = passiveArcaneScale.grow_0 + ((passiveArcaneScale.grow_1 - passiveArcaneScale.grow_0) * (((levels.arcane - passiveArcaneScale.stat_max_0) / (passiveArcaneScale.stat_max_1 - passiveArcaneScale.stat_max_0)) ** passiveArcaneScale.adj_point_0))
+                }
+                else {
+                    passiveArcaneCalcCorrect = passiveArcaneScale.grow_0 + ((passiveArcaneScale.grow_1 - passiveArcaneScale.grow_0) * (1 - ((1 - ((levels.arcane - passiveArcaneScale.stat_max_0) / (passiveArcaneScale.stat_max_1 - passiveArcaneScale.stat_max_0))) ** -passiveArcaneScale.adj_point_0)))
+                }
             }
 
             passiveArcaneCalcCorrect /= 100;
@@ -718,7 +667,7 @@ export default class WeaponTable extends Component {
             }
 
             physRotMadSleep = val[type + '0'];
-            
+
             if (maxUpgrade === 10) {
                 physFrost = val['frost' + weaponLevel.somber];
                 phsyPoison = val['poison' + weaponLevel.somber];
@@ -793,13 +742,40 @@ export default class WeaponTable extends Component {
             let phsyBlood = 0;
             let arcScaling = 0;
 
-            let passiveArcaneCalcCorrect = 10 * (levels.arcane - 1) / 24;
-            if (levels.arcane > 60) {
-                passiveArcaneCalcCorrect = 90 + (10 * (levels.arcane - 60) / 39);
-            } else if (levels.arcane > 45) {
-                passiveArcaneCalcCorrect = 75 + (15 * (levels.arcane - 45) / 15);
-            } else if (levels.arcane > 25) {
-                passiveArcaneCalcCorrect = 10 + (65 * (levels.arcane - 25) / 20);
+            let passiveArcaneCalcCorrect = 0;
+            const passiveArcaneScale = Physical_Calculations[passiveArcaneScaleId];
+            if (levels.arcane > passiveArcaneScale.stat_max_3) {
+                // Don't know what to do if adjustment is 0
+                if (passiveArcaneScale.adj_point_3 > 0.0) {
+                    passiveArcaneCalcCorrect = passiveArcaneScale.grow_3 + ((passiveArcaneScale.grow_4 - passiveArcaneScale.grow_3) * (((levels.arcane - passiveArcaneScale.stat_max_3) / (passiveArcaneScale.stat_max_4 - passiveArcaneScale.stat_max_3)) ** passiveArcaneScale.adj_point_3))
+                }
+                else {
+                    passiveArcaneCalcCorrect = passiveArcaneScale.grow_3 + ((passiveArcaneScale.grow_4 - passiveArcaneScale.grow_3) * (1 - ((1 - ((levels.arcane - passiveArcaneScale.stat_max_3) / (passiveArcaneScale.stat_max_4 - passiveArcaneScale.stat_max_3))) ** -passiveArcaneScale.adj_point_3)))
+                }
+            }
+            else if (levels.arcane > passiveArcaneScale.stat_max_2) {
+                if (passiveArcaneScale.adj_point_2 > 0.0) {
+                    passiveArcaneCalcCorrect = passiveArcaneScale.grow_2 + ((passiveArcaneScale.grow_3 - passiveArcaneScale.grow_2) * (((levels.arcane - passiveArcaneScale.stat_max_2) / (passiveArcaneScale.stat_max_3 - passiveArcaneScale.stat_max_2)) ** passiveArcaneScale.adj_point_2))
+                }
+                else {
+                    passiveArcaneCalcCorrect = passiveArcaneScale.grow_2 + ((passiveArcaneScale.grow_3 - passiveArcaneScale.grow_2) * (1 - ((1 - ((levels.arcane - passiveArcaneScale.stat_max_2) / (passiveArcaneScale.stat_max_3 - passiveArcaneScale.stat_max_2))) ** -passiveArcaneScale.adj_point_2)))
+                }
+            }
+            else if (levels.arcane > passiveArcaneScale.stat_max_1) {
+                if (passiveArcaneScale.adj_point_1 > 0.0) {
+                    passiveArcaneCalcCorrect = passiveArcaneScale.grow_1 + ((passiveArcaneScale.grow_2 - passiveArcaneScale.grow_1) * (((levels.arcane - passiveArcaneScale.stat_max_1) / (passiveArcaneScale.stat_max_2 - passiveArcaneScale.stat_max_1)) ** passiveArcaneScale.adj_point_1))
+                }
+                else {
+                    passiveArcaneCalcCorrect = passiveArcaneScale.grow_1 + ((passiveArcaneScale.grow_2 - passiveArcaneScale.grow_1) * (1 - ((1 - ((levels.arcane - passiveArcaneScale.stat_max_1) / (passiveArcaneScale.stat_max_2 - passiveArcaneScale.stat_max_1))) ** -passiveArcaneScale.adj_point_1)))
+                }
+            }
+            else {
+                if (passiveArcaneScale.adj_point_0 > 0.0) {
+                    passiveArcaneCalcCorrect = passiveArcaneScale.grow_0 + ((passiveArcaneScale.grow_1 - passiveArcaneScale.grow_0) * (((levels.arcane - passiveArcaneScale.stat_max_0) / (passiveArcaneScale.stat_max_1 - passiveArcaneScale.stat_max_0)) ** passiveArcaneScale.adj_point_0))
+                }
+                else {
+                    passiveArcaneCalcCorrect = passiveArcaneScale.grow_0 + ((passiveArcaneScale.grow_1 - passiveArcaneScale.grow_0) * (1 - ((1 - ((levels.arcane - passiveArcaneScale.stat_max_0) / (passiveArcaneScale.stat_max_1 - passiveArcaneScale.stat_max_0))) ** -passiveArcaneScale.adj_point_0)))
+                }
             }
 
             passiveArcaneCalcCorrect /= 100;
@@ -885,7 +861,7 @@ export default class WeaponTable extends Component {
                     if ('fullweaponname' === this.state.sort.column) {
                         column = 'weaponname';
                     }
-                    
+
                     const nameA = a[column] ? a[column].toUpperCase() : 'Ω';
                     const nameB = b[column] ? b[column].toUpperCase() : 'Ω';
                     if (nameA < nameB) {

@@ -41,6 +41,7 @@ class InputBoolean(Enum):
 
 
 Input_Affinity = {
+    # MenuValueTableParam-
     0: "None",
     100: "Heavy",
     200: "Keen",
@@ -118,10 +119,14 @@ def getMaxUpgrade(row):
 
     return max_upgrade
 
+def getMaxNumCap():
+    return 4
 
 base_weapon = 1000000  # dagger
 max_weapon = 44010000  # jar cannon
 
+base_phys = 0          # default
+max_phys = 16          # Catalyst
 
 def writeToFile(filename, input):
     with open('output/' + filename + '.json', "w") as output_file:
@@ -672,6 +677,31 @@ def getWeaponGroups():
 
     return weapon_groups
 
+##############################################
+# phys_calc.json
+##############################################
+
+def getPhysCalc():
+        with open("CalcCorrectGraph.csv") as fp:
+            reader = csv.reader(fp, delimiter=";", quotechar='"')
+            headers = next(reader)[1:]
+            CalcCorrectGraph = OrderedDict(
+                (row[0], OrderedDict(zip(headers, row[1:]))) for row in reader)
+                
+        phys_calc_data = []
+        for key, row in CalcCorrectGraph.items():
+            if int(key) >= base_phys and int(key) <= max_phys:
+                row_dict = OrderedDict()
+                row_dict["row_id"] = int(key)
+                row_dict["name"] = row['Row Name']
+                for scaling_cap in range (0, getMaxNumCap()+1):
+                    row_dict["stat_max_"+str(scaling_cap)] = int(row['Stat Max '+str(scaling_cap)])
+                    row_dict["grow_"+str(scaling_cap)] = int(row['Grow '+str(scaling_cap)])
+                    row_dict["adj_point_"+str(scaling_cap)] = float(row['Adjustment Point - Grow '+str(scaling_cap)])
+
+                phys_calc_data.append(row_dict)
+        
+        return phys_calc_data
 
 ##############################################
 # main
@@ -684,6 +714,7 @@ weapon_scaling_data = getWeaponScaling()
 weapon_passive_data = getWeaponPassive()
 calc_correct_id = getCalcCorrectId()
 weapon_groups = getWeaponGroups()
+physical_calculations = getPhysCalc()
 
 writeToFile('attackelementcorrectparam', attack_element_correct_param_data)
 writeToFile('weapon_reqs', weapon_reqs_data)
@@ -692,6 +723,7 @@ writeToFile('weapon_scaling', weapon_scaling_data)
 writeToFile('weapon_passive', weapon_passive_data)
 writeToFile('calc_correct_id', calc_correct_id)
 writeToFile('weapon_groups', weapon_groups)
+writeToFile('physical_calculations', physical_calculations)
 
 # pp = pprint.PrettyPrinter(indent=4)
 # pp.pprint(weapon_groups)
