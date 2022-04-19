@@ -80,7 +80,7 @@ tbody.remove-border tr:last-child td {
 }
 
 tbody td.button {
-  width:30px;
+  width: 30px;
 }
 
 tbody td a {
@@ -151,16 +151,21 @@ tbody tr:hover {
 }
 
 .all-button-style-bg {
-background-color: #d3e6ff;
+  background-color: #d3e6ff;
 }
 
 .all-button-style-bg-red {
-background-color: #ffd3d3;
+  background-color: #ffd3d3;
 }
 
 .all-button-style-bg-red:hover {
   cursor: pointer;
   background-color: #fda8a8;
+}
+
+.all-button-style-icon {
+  font-size: 18px;
+  padding-bottom: 2px;
 }
 
 .search-bar {
@@ -245,13 +250,32 @@ background-color: #ffd3d3;
 }
 
 .Collapsible__trigger {
-  display:block;
-  overflow:hidden;
-  width:100%;
-  height:100%;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
   background: #d3e6ff;
   padding-bottom: 5px;
+  font-weight: 400;
+  text-decoration: none;
+  position: relative;
 }
+
+.Collapsible__trigger:after {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  content: '\f103';
+  position: absolute;
+  right: 10px;
+  top: 4px;
+  display: block;
+  transition: transform 300ms;
+}
+
+.Collapsible__trigger.is-open:after {
+  transform: rotateZ(180deg);
+}
+
 
 .Collapsible__trigger:hover {
   background-color: #bcd8ff;

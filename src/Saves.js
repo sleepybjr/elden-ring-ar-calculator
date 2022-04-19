@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import Collapsible from 'react-collapsible';
 import Popup from 'reactjs-popup';
 import AcknowledgePopup from './AcknowledgePopup';
-import { FaTrash, FaShare, FaLevelUpAlt, FaSave } from "react-icons/fa";
+import { FiTrash2, FiSave } from "react-icons/fi";
+import { RiShareForward2Fill } from "react-icons/ri";
+import { CgSoftwareUpload } from "react-icons/cg";
 
 const saveName = "saves";
 
@@ -101,7 +103,7 @@ export default class Saves extends Component {
         return (
             <div className="build-collapsible small-spacing">
                 <Collapsible
-                    trigger="↓ Saved Builds ↓"
+                    trigger="Saved Builds"
                 >
                     <div className="underline">
                         <div className='rowC small-spacing'>
@@ -120,8 +122,8 @@ export default class Saves extends Component {
                                         <td className="name">{val}</td>
                                         <td className="button">
                                             <AcknowledgePopup
-                                                styleName="all-button-style-bg-red"
-                                                buttonName={<FaTrash title="Delete" />}
+                                                styleName="all-button-style-bg-red all-button-style-icon"
+                                                buttonName={<FiTrash2 title="Delete" />}
                                                 handleYesClick={this.handleDeleteSave(val)}
                                                 content={<div>
                                                     Are you sure you want to delete <strong>{val}</strong>?
@@ -130,18 +132,18 @@ export default class Saves extends Component {
                                         </td>
                                         <td className="button">
                                             <AcknowledgePopup
-                                                styleName="all-button-style-bg"
-                                                buttonName={<FaSave title="Overwrite" />}
+                                                styleName="all-button-style-bg all-button-style-icon"
+                                                buttonName={<FiSave title="Overwrite" />}
                                                 handleYesClick={this.handleOverwriteSave(val)}
                                                 content={<div>
                                                     Are you sure you want to overwrite <strong>{val}</strong> with your current input?
                                                 </div>}
                                             />
                                         </td>
-                                        <td className="button"><button className="all-button-style all-button-style-bg" onClick={this.handleLoadSave(val)}>{<FaLevelUpAlt title="Load" />}</button></td>
+                                        <td className="button"><button className="all-button-style all-button-style-bg all-button-style-icon" onClick={this.handleLoadSave(val)}>{<CgSoftwareUpload title="Load" />}</button></td>
                                         <td className="button">
                                             <Popup
-                                                trigger={<button className="all-button-style all-button-style-bg">{<FaShare title="Share" />}</button>
+                                                trigger={<button className="all-button-style all-button-style-bg all-button-style-icon">{<RiShareForward2Fill title="Share" />}</button>
                                                 }
                                                 position="center center"
                                                 closeOnDocumentClick

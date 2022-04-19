@@ -1,6 +1,7 @@
 import './App.css';
 import FilterableWeaponTable from './FilterableWeaponTable';
 import ContentPopup from './ContentPopup';
+import "./css/fontawesome-free-6.1.1-web/css/all.min.css";
 
 // TODO: add better styling like dark mode
 // make multiselect boxes better and intuitive for multiselect
@@ -11,6 +12,7 @@ import ContentPopup from './ContentPopup';
 // searching a weapon and then selecting the class will make it appear twice
 // add tracking on sort to see if i can remove anything from table
 // load last used settings
+// refactor to use react hooks / functional components rather than class components
 
 function App() {
     return (
