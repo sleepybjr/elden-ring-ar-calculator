@@ -1,9 +1,10 @@
 import './App.css';
+import "./css/fontawesome-free-6.1.1-web/css/all.min.css";
 import FilterableWeaponTable from './FilterableWeaponTable';
 import ContentPopup from './ContentPopup';
-import "./css/fontawesome-free-6.1.1-web/css/all.min.css";
+import DarkModeToggle from './DarkModeToggle';
 
-// TODO: add better styling like dark mode
+// TODO: add better/modern styling
 // make multiselect boxes better and intuitive for multiselect
 // slow if all weapons are loaded, optimize our json
 // if no input for a field, get warning: Received NaN for the `children` attribute. If this is expected, cast the value to a string.
@@ -13,6 +14,7 @@ import "./css/fontawesome-free-6.1.1-web/css/all.min.css";
 // add tracking on sort to see if i can remove anything from table
 // load last used settings
 // refactor to use react hooks / functional components rather than class components
+// blue highlight in selects (class and weapon / affinity filter) are browser specific and i cant change the color
 
 function App() {
     return (
@@ -35,6 +37,10 @@ function App() {
                         Last updated: 4/15/2022</div>
                 } />
             <div>For feedback, bug reports or suggestions, use <a href="https://forms.gle/krzihsr22n5VPmDNA">Google Forms</a> or <a href="https://github.com/sleepybjr/elden-ring-ar-calculator/issues">GitHub</a>. Thanks!</div>
+            <div className='small-spacing'>
+                Dark Mode
+                <DarkModeToggle />
+            </div>
         </div>
     );
 }

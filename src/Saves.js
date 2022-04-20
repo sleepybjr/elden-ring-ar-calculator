@@ -101,7 +101,7 @@ export default class Saves extends Component {
 
     render() {
         return (
-            <div className="build-collapsible small-spacing">
+            <div className="build-collapsible">
                 <Collapsible
                     trigger="Saved Builds"
                 >
@@ -118,7 +118,7 @@ export default class Saves extends Component {
                         <tbody className="remove-border no-padding">
                             {[...this.state.saves].map((val, key) => {
                                 return (
-                                    <tr key={key} style={{ backgroundColor: val === this.state.loadedSave ? "#d6d5d5" : "" }}>
+                                    <tr key={key} className={val === this.state.loadedSave ? "highlight-load" : "" }>
                                         <td className="name">{val}</td>
                                         <td className="button">
                                             <AcknowledgePopup

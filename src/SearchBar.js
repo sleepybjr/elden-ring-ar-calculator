@@ -21,17 +21,10 @@ export default class SearchBar extends Component {
                     value={this.props.searchItems}
                     onChange={this.handleChange}
                     options={WeaponGroups}
+                    className='react-select-container'
+                    classNamePrefix="react-select"
                     isMulti
                     placeholder={"Search weapons... Select affinities using filter."}
-                    styles={{
-                        control: (provided, state) => ({
-                            ...provided,
-                            borderColor: "#767676",
-                            "&:hover": {
-                                borderColor: "#767676"
-                            }
-                        }),
-                    }}
                 />
             </div>
         );

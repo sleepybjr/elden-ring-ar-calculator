@@ -7,6 +7,123 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body.dark {
+  background-color: #1F2023;
+  color: #EFEFEF;
+}
+
+.dark input,
+.dark select {
+  background-color: #2e3033;
+  border-color: #68696d;
+  color: #EFEFEF;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.dark select option:checked,
+.dark select option:hover {
+  background-color: #545457;
+  color: #EFEFEF;
+}
+
+.dark .highlight-load {
+  background-color: #303030;
+}
+
+
+.dark .all-button-style {
+  background: none;
+}
+
+.dark button {
+  background-color: #414141;
+  border-color: #68696d;
+  color: #EFEFEF;
+}
+
+.dark input::placeholder {
+  color: #c9c9c9;
+}
+
+.dark .all-button-style-bg,
+.dark .Collapsible__trigger {
+  background-color: #3e4583;
+  color: #EFEFEF;
+}
+
+.dark thead button:hover,
+.dark thead button.ascending,
+.dark thead button.descending,
+.dark .all-button-style:hover,
+.dark .Collapsible__trigger:hover,
+.dark .react-select__option:active {
+  background-color: #4650ac;
+  color: #EFEFEF;
+}
+
+.dark .all-button-style-bg-red {
+  background-color: #582828;
+  color: #EFEFEF;
+}
+
+.dark .all-button-style-bg-red:hover {
+  background-color: #723f3f;
+  color: #EFEFEF;
+}
+
+.dark .react-select__control {
+  background-color: #353538;
+  color: #EFEFEF;
+  border-color: #4b4b4b;
+  box-shadow: none;
+}
+
+.dark .react-select__control--is-focused {
+  border-color: #4b4b4b;
+}
+
+.dark .react-select__indicator {
+  color: #c9c9c9;
+}
+
+.dark .react-select__indicator:hover {
+  color: #EFEFEF;
+}
+
+.dark .react-select__menu {
+  background-color: #353538;
+  color: #EFEFEF;
+
+}
+
+.dark .react-select__placeholder {
+  color: #c9c9c9;
+}
+
+.dark .react-select__option--is-focused {
+  background-color: #68696d;
+}
+
+.dark .react-select__multi-value {
+  background-color: #68696d;
+}
+
+.dark .react-select__multi-value__label {
+  color: #EFEFEF;
+}
+
+.highlight-red,
+.highlight-red:hover {
+  background-color: #FFBBAE;
+}
+
+.dark .highlight-red,
+.dark .highlight-red:hover {
+  background-color: #723f3f;
+}
+
+
 label {
   margin-right: 3px;
   margin-left: 5px;
@@ -23,6 +140,10 @@ table {
 
 thead th {
   border-bottom: 1px solid rgb(61, 61, 61);
+}
+
+.dark thead th {
+  border-bottom: 1px solid rgb(184, 184, 184);
 }
 
 thead button {
@@ -66,7 +187,12 @@ thead button.descending::after {
 
 tbody td {
   padding: 0.5em;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #cccccc;
+}
+
+.dark tbody td,
+.dark .underline {
+  border-bottom: 1px solid #4b4b4b;
 }
 
 tbody.no-padding td {
@@ -88,13 +214,24 @@ tbody td a {
   display: block;
 }
 
+.dark tbody td a,
+.dark :visited,
+a {
+  color: #EFEFEF;
+}
+
 tbody td a,
-a:visited {
+a:visited,
+a {
   color: black;
 }
 
 tbody tr:hover {
-  background-color: #eee;
+  background-color: #eeeeee;
+}
+
+.dark tbody tr:hover {
+  background-color: #3d3d3d;
 }
 
 .spacing {
@@ -168,6 +305,10 @@ tbody tr:hover {
   padding-bottom: 2px;
 }
 
+.highlight-load {
+  background-color: #d6d5d5;
+}
+
 .search-bar {
   margin: 0 auto;
   padding-top: 5px;
@@ -177,6 +318,7 @@ tbody tr:hover {
 
 .build-collapsible {
   margin: 0 auto;
+  margin-top: 8px;
   padding-top: 5px;
   max-width: 450px;
   width: 90%;
@@ -190,12 +332,13 @@ tbody tr:hover {
   width: 100%;
 }
 
-/* .modal {
-} */
+.dark .popup-content {
+  background: rgb(58, 58, 58);
+  border: 1px solid #818181;
+}
 
 .modal>.header {
   width: 100%;
-  /* border-bottom: 1px solid gray; */
   font-size: 18px;
   text-align: center;
   padding: 5px;
@@ -232,12 +375,21 @@ tbody tr:hover {
   border: 1px solid #cfcece;
 }
 
+.dark .modal>.close {
+  background: #222222;
+  border: 1px solid #cfcece;
+}
+
 [role='tooltip'].popup-content {
   max-width: 300px;
   width: fit-content;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
+  box-shadow: #00000029 0px 0px 3px;
   white-space: nowrap;
   overflow-x: auto;
+}
+
+.dark [role='tooltip'].popup-content .popup-arrow {
+  color: #3a3a3a;
 }
 
 .error {
@@ -245,8 +397,12 @@ tbody tr:hover {
 }
 
 .Collapsible {
-  border: 1px solid #ccc;
+  border: 1px solid #cccccc;
   border-radius: 4px;
+}
+
+.dark .Collapsible {
+  border: 1px solid #4b4b4b;
 }
 
 .Collapsible__trigger {
@@ -275,7 +431,6 @@ tbody tr:hover {
 .Collapsible__trigger.is-open:after {
   transform: rotateZ(180deg);
 }
-
 
 .Collapsible__trigger:hover {
   background-color: #bcd8ff;

@@ -1086,7 +1086,7 @@ export default class WeaponTable extends Component {
                     <tbody>
                         {sortedData.map((val, key) => {
                             return (
-                                <tr style={{ backgroundColor: this.highlightReqRow(val, this.props.levels, this.props.twoHanded) ? "#FFBBAE" : "" }} key={key}>
+                                <tr className={this.highlightReqRow(val, this.props.levels, this.props.twoHanded) ? "highlight-red" : "" } key={key}>
                                     <td><a target="_blank" rel="noopener noreferrer" href={"https://eldenring.wiki.fextralife.com/" + val.weaponname} >{val.fullweaponname}</a></td>
                                     <td>{val.weaponType}</td>
                                     <td>{val.affinity}</td>
