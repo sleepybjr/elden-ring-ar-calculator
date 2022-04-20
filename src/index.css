@@ -19,6 +19,8 @@ body.dark {
   color: #EFEFEF;
   border-width: 1px;
   border-style: solid;
+  -webkit-text-fill-color: #EFEFEF;
+  opacity: 1;
 }
 
 .dark select option:checked,

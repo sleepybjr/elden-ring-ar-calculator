@@ -20,7 +20,7 @@ function App() {
     return (
         <div className="App">
             <FilterableWeaponTable />
-            <div>Elden Ring Data: v1.04.0 | Calculator Version 1.2.1</div>
+            <div>Elden Ring Version: v1.04.0 | Calculator Version 1.3.0</div>
             <ContentPopup
                 buttonName='Privacy Policy'
                 content={
