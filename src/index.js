@@ -3,11 +3,35 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Weapons from './routes/weapons';
+import Armor from './routes/armor';
+import Home from './routes/home';
+import { Provider } from 'react-redux';
+import store from './app/store';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    <Provider store={store}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />}>
+            <Route index element={<Home />} />
+            <Route path="elden-ring-ar-calculator" element={<Weapons />} />
+            <Route path="armor" element={<Armor />} />
+            <Route
+              path="*"
+              element={
+                <main style={{ padding: "1rem" }}>
+                  <p>No page here.</p>
+                </main>
+              }
+            />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </Provider>
+  </React.StrictMode >,
   document.getElementById('root')
 );
 

@@ -18,7 +18,7 @@ export default class SearchBar extends Component {
         return (
             <div className='search-bar'>
                 <Select
-                    value={this.props.searchItems}
+                    value={this.props.searchedWeapons}
                     onChange={this.handleChange}
                     options={WeaponGroups}
                     className='react-select-container'
