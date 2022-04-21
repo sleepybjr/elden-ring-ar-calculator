@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 
-import Attack_Element_Correct_Param from './json/attackelementcorrectparam';
-import Physical_Calculations from './json/physical_calculations.json';
-import Table_Data from './json/merged_json_data';
+import Attack_Element_Correct_Param from '.././json/attackelementcorrectparam.json';
+import Physical_Calculations from '.././json/physical_calculations.json';
+import Table_Data from '.././json/merged_json_data.json';
 
 const typesOrder = {
     'S': 0,

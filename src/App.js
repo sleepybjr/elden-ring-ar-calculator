@@ -1,8 +1,8 @@
 import './App.css';
 import "./css/fontawesome-free-6.1.1-web/css/all.min.css";
-import FilterableWeaponTable from './FilterableWeaponTable';
-import ContentPopup from './ContentPopup';
-import DarkModeToggle from './DarkModeToggle';
+import FilterableWeaponTable from './weapons/FilterableWeaponTable';
+import ContentPopup from './component/ContentPopup';
+import DarkModeToggle from './component/DarkModeToggle';
 
 // TODO: add better/modern styling
 // make multiselect boxes better and intuitive for multiselect

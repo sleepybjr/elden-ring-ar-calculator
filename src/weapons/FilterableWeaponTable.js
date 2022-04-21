@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 
 import FilterBar from './FilterBar';
 import WeaponTable from './WeaponTable';
-import Levels from './Levels';
-import WeaponLevels from './WeaponLevels';
-import OtherLevels from './OtherLevels';
+import Levels from '../levels/Levels';
+import WeaponLevels from '../levels/WeaponLevels';
+import OtherLevels from '../levels/OtherLevels';
 import ExtraFilters from './ExtraFilters';
 import SearchBar from './SearchBar';
-import Saves from './Saves';
+import Saves from '../levels/Saves';
 
 function calculateTotalLevel(newLevels) {
     const newLevel = 1 +

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
-import WeaponGroups from './json/weapon_groups';
+import WeaponGroups from '.././json/weapon_groups';
 
 export default class SearchBar extends Component {
     constructor(props) {
