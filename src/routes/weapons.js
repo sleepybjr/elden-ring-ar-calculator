@@ -2,7 +2,7 @@ import FilterableWeaponTable from '../weapons/FilterableWeaponTable';
 
 export default function Weapons() {
     return (
-        <div>
+        <div className='extra-spacing'>
             <FilterableWeaponTable />
         </div>
     );

@@ -1,6 +1,6 @@
 export default function Armor() {
     return (
-        <div>
+        <div className='extra-spacing'>
             WIP.
         </div>
     );

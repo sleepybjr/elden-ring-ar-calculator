@@ -90,7 +90,7 @@ export default function InputStats() {
     };
 
     return (
-        <div>
+        <div className='extra-spacing'>
             <Levels
                 handleLevelChange={(newLevels) => dispatch(handleLevelChange(newLevels))}
                 handleTwoHandedChange={(isTwoHanded) => dispatch(handleTwoHandedChange(isTwoHanded))}
