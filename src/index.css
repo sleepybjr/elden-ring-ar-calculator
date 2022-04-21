@@ -218,7 +218,7 @@ tbody td a {
 
 .dark tbody td a,
 .dark :visited,
-a {
+.dark a {
   color: #EFEFEF;
 }
 
