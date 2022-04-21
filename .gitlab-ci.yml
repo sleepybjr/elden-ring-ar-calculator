@@ -6,7 +6,7 @@ build:
     paths:
       - node_modules/
   script:
-    - npm install
+    - npm install --leagcy-peer-deps
     - npm run build
   artifacts:
     paths:
