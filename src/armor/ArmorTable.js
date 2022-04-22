@@ -66,7 +66,7 @@ const data = [
 export default function ArmorTable(props) {
     const [column, setColumn] = useState(null);
     const [direction, setDirection] = useState(null);
-    const [sortedData, setSortedData] = useState(data);
+    const [sortedData, setSortedData] = useState([]);
 
     function onSort(sortedColumn) {
         let newDirection = null;

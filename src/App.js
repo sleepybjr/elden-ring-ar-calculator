@@ -19,6 +19,9 @@ import InputStats from './levels/InputStats';
 // refactor to use react hooks / functional components rather than class components
 // blue highlight in selects (class and weapon / affinity filter) are browser specific and i cant change the color
 
+// save table state across routes
+// remove selection from build
+// react-window use for table, should i switch to react table?
 
 function App() {
     return (
