@@ -6,6 +6,8 @@ import { FixedSizeList } from 'react-window';
 // make input faster for less rows by making it only update filtered columns? could pull out filters to make input faster, but then filters will be slower due to needing to redo calculations everytime. 
 // it's either filter first, then calculate. or calculate, then filter. trade-off.
 
+// sombers are linked to none
+
 // need to add row highlighting
 // and other styling
 
@@ -162,7 +164,7 @@ export default function WeaponTable(props) {
     const affinityTypeFilter = (rows, id, filterValue) => {
         return rows.filter((row) => {
             if (row.original.maxUpgrade === 0 || row.original.maxUpgrade === 10) {
-                return filterValue.affinityTypeFilter.includes(row.original.affinity) || filterValue.searchedWeapons.includes(row.original.weaponname);
+                return true;
             } else {
                 return filterValue.affinityTypeFilter.includes(row.original.affinity) || (filterValue.searchedWeapons.includes(row.original.weaponname) && filterValue.affinityTypeFilter.includes(row.original.affinity));
             }
