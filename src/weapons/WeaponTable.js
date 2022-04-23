@@ -340,7 +340,7 @@ export default function WeaponTable(props) {
                 
                 className="tbody">
                     <FixedSizeList
-                        height={700}
+                        height={600}
                         itemCount={rows.length}
                         itemSize={40}
                         width={totalColumnsWidth + scrollBarSize}

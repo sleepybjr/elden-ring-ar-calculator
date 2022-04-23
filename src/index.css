@@ -116,12 +116,16 @@ body.dark {
 }
 
 .highlight-red,
-.highlight-red:hover {
+.highlight-red:hover,
+tbody .tr.highlight-red,
+tbody .tr.highlight-red:hover {
   background-color: #FFBBAE;
 }
 
 .dark .highlight-red,
-.dark .highlight-red:hover {
+.dark .highlight-red:hover,
+.dark .tbody .tr.highlight-red,
+.dark .tbody .tr.highlight-red:hover {
   background-color: #723f3f;
 }
 
@@ -475,6 +479,10 @@ tbody tr:hover {
   height: 100%;
   white-space: nowrap;
   transition-duration: 0.4s;
+  background-color: #efefef;
+}
+
+.dark .thead .th {
   background-color: #414141;
   border-color: #68696d;
   color: #efefef;
