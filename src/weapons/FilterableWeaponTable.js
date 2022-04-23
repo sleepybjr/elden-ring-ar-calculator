@@ -507,6 +507,22 @@ function getPassiveData2(val, maxUpgrade, weaponLevel, levels) {
     }
 };
 
+function highlightReqRow(val, levels, isTwoHanded) {
+    let strength = levels.strength;
+    if ((isTwoHanded && !noTwoHandBuff.has(val.weaponname))) {
+        strength = levels.twohand_strength;
+    }
+    if (strength < val.strreq ||
+        levels.dexterity < val.dexreq ||
+        levels.intelligence < val.intreq ||
+        levels.faith < val.faireq ||
+        levels.arcane < val.arcreq) {
+        return true;
+    } else {
+        return false;
+    }
+};
+
 export default function FilterableWeaponTable() {
     const levels = useSelector((state) => state.allLevels.levels);
     const weaponLevels = useSelector((state) => state.allLevels.weaponLevels);
@@ -519,7 +535,7 @@ export default function FilterableWeaponTable() {
     const [hideNoReqWeapons, setHideNoReqWeapons] = useState(true);
     const [searchedWeapons, setSearchedWeapons] = useState([]);
 
-    const [preppedData, setPreppedData] = useState(Table_Data);
+    const [preppedData, setPreppedData] = useState([]);
 
     function handleWeaponTypeFilterChange(weaponTypeFilter) {
         setWeaponTypeFilter(weaponTypeFilter);
@@ -571,6 +587,8 @@ export default function FilterableWeaponTable() {
 
             val.final_passive1 = Math.trunc(getPassiveData(val, val.maxUpgrade, weaponLevels, levels));
             val.final_passive2 = Math.trunc(getPassiveData2(val, val.maxUpgrade, weaponLevels, levels));
+
+            val.missedReq = highlightReqRow(val, levels, twoHanded)
         });
 
         // console.log(data[0]);

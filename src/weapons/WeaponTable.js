@@ -3,10 +3,9 @@ import React, { useState, useEffect, } from 'react';
 import { useTable, useBlockLayout, useSortBy, useFilters } from 'react-table';
 import { FixedSizeList } from 'react-window';
 
-// fix row highlight
-// fix insufficient req filter
 // make input faster for less rows by making it only update filtered columns? not sure if thats possible?
 // readd llink to fextralife for weapon name
+// fix display for somber and passive types
 
 const typesOrder = {
     'S': 0,
@@ -51,22 +50,7 @@ const tableHeaders = {
     faireq: "FAI Req",
     arcreq: "ARC Req",
     maxUpgrade: "Upgrade",
-};
-
-function highlightReqRow(val, levels, isTwoHanded) {
-    let strength = levels.strength;
-    if ((isTwoHanded && !noTwoHandBuff.has(val.weaponname))) {
-        strength = levels.twohand_strength;
-    }
-    if (strength < val.strreq ||
-        levels.dexterity < val.dexreq ||
-        levels.intelligence < val.intreq ||
-        levels.faith < val.faireq ||
-        levels.arcane < val.arcreq) {
-        return true;
-    } else {
-        return false;
-    }
+    missedReq: "Meets Req",
 };
 
 function sortAlgorithm(rowA, rowB, columnId) {
@@ -144,6 +128,10 @@ export default function WeaponTable(props) {
         setFilter("maxUpgrade", { somberFilter: props.somberFilter, smithingFilter: props.smithingFilter, searchedWeapons: props.searchedWeapons });
     }, [props.somberFilter, props.smithingFilter, props.searchedWeapons]);
 
+    useEffect(() => {
+        setFilter("missedReq", { hideNoReqWeapons: props.hideNoReqWeapons, searchedWeapons: props.searchedWeapons });
+    }, [props.hideNoReqWeapons, props.searchedWeapons]);
+
     const defaultColumn = React.useMemo(
         () => ({
             width: 150,
@@ -165,6 +153,7 @@ export default function WeaponTable(props) {
         },
         [props.preppedData]
     )
+
     const weaponTypeFilter = (rows, id, filterValue) => {
         return rows.filter((row) => {
             return filterValue.weaponTypeFilter.includes(row.original.weaponType) || filterValue.searchedWeapons.includes(row.original.weaponname);
@@ -195,10 +184,11 @@ export default function WeaponTable(props) {
 
     const hideNoReqWeaponsFilter = (rows, id, filterValue) => {
         return rows.filter((row) => {
-            // if (hideNoReqWeapons === true) {
-            // return highlightReqRow(weapon, levels, twoHanded) === false;
-            // }
-            return true;
+            if (filterValue.hideNoReqWeapons === true) {
+                return true;
+            }
+
+            return !row.original.missedReq || filterValue.searchedWeapons.includes(row.original.weaponname);
         });
     }
 
@@ -219,12 +209,18 @@ export default function WeaponTable(props) {
                     row.filter = affinityTypeFilter;
                 else if (row.accessor === "maxUpgrade")
                     row.filter = upgradeFilter;
+                else if (row.accessor === "missedReq")
+                    row.filter = hideNoReqWeaponsFilter;
             });
 
             return newColumns;
         },
         []
     )
+
+
+    const initialState = { hiddenColumns: ['missedReq'] };
+
     const {
         getTableProps,
         getTableBodyProps,
@@ -244,6 +240,7 @@ export default function WeaponTable(props) {
         autoResetSortBy: !skipPageResetRef.current,
         autoResetFilters: !skipPageResetRef.current,
         autoResetRowState: !skipPageResetRef.current,
+        initialState,
     },
         useFilters,
         useBlockLayout,
@@ -259,7 +256,7 @@ export default function WeaponTable(props) {
                     {...row.getRowProps({
                         style,
                     })}
-                    className="tr"
+                    className={"tr" + row.original.missedReq && row.original.missedReq === true ? " highlight-red" : ""}
                 >
                     {row.cells.map(cell => {
                         return (
