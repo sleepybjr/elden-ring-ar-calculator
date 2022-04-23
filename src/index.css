@@ -331,7 +331,7 @@ tbody tr:hover {
   border: 1px solid #d7d7d7;
   margin: auto;
   max-width: 400px;
-  width: 100%;
+  width: 90%;
 }
 
 .dark .popup-content {
