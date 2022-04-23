@@ -6,6 +6,9 @@ import { FixedSizeList } from 'react-window';
 // make input faster for less rows by making it only update filtered columns? could pull out filters to make input faster, but then filters will be slower due to needing to redo calculations everytime. 
 // it's either filter first, then calculate. or calculate, then filter. trade-off.
 
+// need to add row highlighting
+// and other styling
+
 const typesOrder = {
     'S': 0,
     'A': 1,
@@ -199,38 +202,55 @@ export default function WeaponTable(props) {
             })
 
             newColumns.forEach((row) => {
-                if (row.accessor === "fullweaponname")
+                if (row.accessor === "fullweaponname") {
                     row.Cell = ({ row, value }) => {
                         return (
                             <a target="_blank" rel="noopener noreferrer" href={"https://eldenring.wiki.fextralife.com/" + row.original.weaponname} >{value}</a>
                         );
                     };
-                else if (row.accessor === "weaponType")
-                    row.filter = weaponTypeFilter
-                else if (row.accessor === "affinity")
+                    row.width = 277;
+                } else if (row.accessor === "weaponType") {
+                    row.filter = weaponTypeFilter;
+                    row.width = 163;
+                } else if (row.accessor === "affinity") {
                     row.filter = affinityTypeFilter;
-                else if (row.accessor === "maxUpgrade")
-                    row.filter = upgradeFilter;
-                else if (row.accessor === "missedReq")
-                    row.filter = hideNoReqWeaponsFilter;
-                else if (row.accessor === "type1" || row.accessor === "type2")
+                    row.width = 68;
+                } else if (new Set(['final_physical', 'final_magic', 'final_fire', 'final_lightning', 'final_holy', 'final_total_ar', 'final_sorcery_scaling']).has(row.accessor)) {
+                    row.width = 60;
+                } else if (row.accessor === "type1" || row.accessor === "type2") {
                     row.Cell = ({ value }) => {
                         return (
                             <>{value ? value : '-'}</>
                         );
                     };
-                else if (row.accessor === "final_passive1" || row.accessor === "final_passive2")
+                    row.width = 76;
+                } else if (row.accessor === "final_passive1" || row.accessor === "final_passive2") {
                     row.Cell = ({ value }) => {
                         return (
                             <>{value !== 0 ? value : '-'}</>
                         );
                     };
-                else if (new Set(['str_scaling_letter', 'dex_scaling_letter', 'int_scaling_letter', 'fai_scaling_letter', 'arc_scaling_letter']).has(row.accessor))
+                    row.width = 60;
+                } else if (new Set(['str_scaling_letter', 'dex_scaling_letter', 'int_scaling_letter', 'fai_scaling_letter', 'arc_scaling_letter']).has(row.accessor)) {
                     row.Cell = ({ value }) => {
                         return (
                             <>{value ? value.letter !== '-' ? value.letter + ' (' + value.value + ')' : value.letter : '-'}</>
                         );
                     };
+                    row.width = 60;
+                } else if (new Set(['strreq', 'dexreq', 'intreq', 'faireq', 'arcreq']).has(row.accessor)) {
+                    row.width = 60;
+                } else if (row.accessor === "missedReq")
+                    row.filter = hideNoReqWeaponsFilter;
+                else if (row.accessor === "maxUpgrade") {
+                    row.filter = upgradeFilter;
+                    row.Cell = ({ value }) => {
+                        return (
+                            <>{value === 25 || value === 10? 'Somber' : 'Smithing'}</>
+                        );
+                    };
+                    row.width = 60;
+                }
             });
 
             return newColumns;
