@@ -3,6 +3,11 @@ import React, { useState, useEffect, } from 'react';
 import { useTable, useBlockLayout, useSortBy, useFilters } from 'react-table';
 import { FixedSizeList } from 'react-window';
 
+// fix row highlight
+// fix insufficient req filter
+// make input faster for less rows by making it only update filtered columns? not sure if thats possible?
+// readd llink to fextralife for weapon name
+
 const typesOrder = {
     'S': 0,
     'A': 1,
@@ -36,7 +41,7 @@ const tableHeaders = {
     type2: "Passive 2",
     final_passive2: "Passive 2 Damage",
     str_scaling_letter_display: "STR Scaling",
-    dex_scaling_letter_display: "DEX Scalin",
+    dex_scaling_letter_display: "DEX Scaling",
     int_scaling_letter_display: "INT Scaling",
     fai_scaling_letter_display: "FAI Scaling",
     arc_scaling_letter_display: "ARC Scaling",
@@ -125,16 +130,18 @@ const scrollbarWidth = () => {
 }
 
 export default function WeaponTable(props) {
+    const skipPageResetRef = React.useRef();
+
     useEffect(() => {
-        setFilter("weaponType", {weaponTypeFilter: props.weaponTypeFilter, searchedWeapons: props.searchedWeapons});
+        setFilter("weaponType", { weaponTypeFilter: props.weaponTypeFilter, searchedWeapons: props.searchedWeapons });
     }, [props.weaponTypeFilter, props.searchedWeapons]);
 
     useEffect(() => {
-        setFilter("affinity", {affinityTypeFilter: props.affinityTypeFilter, searchedWeapons: props.searchedWeapons});
+        setFilter("affinity", { affinityTypeFilter: props.affinityTypeFilter, searchedWeapons: props.searchedWeapons });
     }, [props.affinityTypeFilter, props.searchedWeapons]);
 
     useEffect(() => {
-        setFilter("maxUpgrade", {somberFilter: props.somberFilter, smithingFilter: props.smithingFilter, searchedWeapons: props.searchedWeapons});
+        setFilter("maxUpgrade", { somberFilter: props.somberFilter, smithingFilter: props.smithingFilter, searchedWeapons: props.searchedWeapons });
     }, [props.somberFilter, props.smithingFilter, props.searchedWeapons]);
 
     const defaultColumn = React.useMemo(
@@ -146,31 +153,42 @@ export default function WeaponTable(props) {
 
     const scrollBarSize = React.useMemo(() => scrollbarWidth(), []);
 
+    React.useEffect(() => {
+        // After the table has updated, always remove the flag
+        skipPageResetRef.current = false
+    })
 
     const data = React.useMemo(
-        () => props.preppedData,
+        () => {
+            skipPageResetRef.current = true;
+            return props.preppedData;
+        },
         [props.preppedData]
     )
     const weaponTypeFilter = (rows, id, filterValue) => {
         return rows.filter((row) => {
-            return filterValue.weaponTypeFilter.includes(row.original.weaponType) || filterValue.searchedWeapons.includes(row.original.weaponname); 
+            return filterValue.weaponTypeFilter.includes(row.original.weaponType) || filterValue.searchedWeapons.includes(row.original.weaponname);
         });
     }
 
     const affinityTypeFilter = (rows, id, filterValue) => {
         return rows.filter((row) => {
-            return filterValue.affinityTypeFilter.includes(row.original.affinity) || filterValue.searchedWeapons.includes(row.original.weaponname); 
+            if (row.original.maxUpgrade === 0 || row.original.maxUpgrade === 10) {
+                return filterValue.affinityTypeFilter.includes(row.original.affinity) || filterValue.searchedWeapons.includes(row.original.weaponname);
+            } else if (row.original.maxUpgrade === 25) {
+                return filterValue.affinityTypeFilter.includes(row.original.affinity) || (filterValue.searchedWeapons.includes(row.original.weaponname) && filterValue.affinityTypeFilter.includes(row.original.affinity));
+            }
         });
     }
 
     const upgradeFilter = (rows, id, filterValue) => {
         return rows.filter((row) => {
             if (row.original.maxUpgrade === 0 || row.original.maxUpgrade === 10) {
-                return filterValue.somberFilter || filterValue.searchedWeapons.includes(row.original.weaponname); 
+                return filterValue.somberFilter || filterValue.searchedWeapons.includes(row.original.weaponname);
             } else if (row.original.maxUpgrade === 25) {
-                return filterValue.smithingFilter || filterValue.searchedWeapons.includes(row.original.weaponname); 
+                return filterValue.smithingFilter || filterValue.searchedWeapons.includes(row.original.weaponname);
             }
-            
+
             return false;
         });
     }
@@ -178,7 +196,7 @@ export default function WeaponTable(props) {
     const hideNoReqWeaponsFilter = (rows, id, filterValue) => {
         return rows.filter((row) => {
             // if (hideNoReqWeapons === true) {
-                // return highlightReqRow(weapon, levels, twoHanded) === false;
+            // return highlightReqRow(weapon, levels, twoHanded) === false;
             // }
             return true;
         });
@@ -219,7 +237,13 @@ export default function WeaponTable(props) {
         columns,
         data,
         defaultColumn,
-        autoResetFilters: false,
+        autoResetPage: !skipPageResetRef.current,
+        autoResetExpanded: !skipPageResetRef.current,
+        autoResetGroupBy: !skipPageResetRef.current,
+        autoResetSelectedRows: !skipPageResetRef.current,
+        autoResetSortBy: !skipPageResetRef.current,
+        autoResetFilters: !skipPageResetRef.current,
+        autoResetRowState: !skipPageResetRef.current,
     },
         useFilters,
         useBlockLayout,
