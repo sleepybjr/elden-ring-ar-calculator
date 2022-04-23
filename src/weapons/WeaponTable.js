@@ -3,13 +3,10 @@ import React, { useEffect, } from 'react';
 import { useTable, useBlockLayout, useSortBy, useFilters } from 'react-table';
 import { FixedSizeList } from 'react-window';
 
+import {FaSortDown, FaSortUp} from 'react-icons/fa';
+
 // make input faster for less rows by making it only update filtered columns? could pull out filters to make input faster, but then filters will be slower due to needing to redo calculations everytime. 
 // it's either filter first, then calculate. or calculate, then filter. trade-off.
-
-// sombers are linked to none
-
-// need to add row highlighting
-// and other styling
 
 const typesOrder = {
     'S': 0,
@@ -31,11 +28,11 @@ const tableHeaders = {
     final_lightning: "Lightning",
     final_holy: "Holy",
     final_total_ar: "Total AR",
-    final_sorcery_scaling: "Sorcery Scaling",
-    type1: "Passive 1",
-    final_passive1: "Passive 1 Damage",
-    type2: "Passive 2",
-    final_passive2: "Passive 2 Damage",
+    final_sorcery_scaling: "Sorcery",
+    type1: "Passive 1 (P1)",
+    final_passive1: "P1 Damage",
+    type2: "Passive 2 (P2)",
+    final_passive2: "P2 Damage",
     str_scaling_letter: "STR Scaling",
     dex_scaling_letter: "DEX Scaling",
     int_scaling_letter: "INT Scaling",
@@ -74,10 +71,9 @@ function sortAlgorithm(rowA, rowB, columnId) {
         }
 
         return 0;
-    } else if (new Set(['str_scaling_letter_display', 'dex_scaling_letter_display', 'int_scaling_letter_display', 'fai_scaling_letter_display', 'arc_scaling_letter_display']).has(columnId)) {
-        const columnType = columnId.substring(0, 3);
-        const A = rowA.original[columnType + '_scaling_letter'];
-        const B = rowB.original[columnType + '_scaling_letter'];
+    } else if (new Set(['str_scaling_letter', 'dex_scaling_letter', 'int_scaling_letter', 'fai_scaling_letter', 'arc_scaling_letter']).has(columnId)) {
+        const A = rowA.original[columnId];
+        const B = rowB.original[columnId];
 
         const letterAOrder = typesOrder[A.letter];
         const letterBOrder = typesOrder[B.letter];
@@ -210,38 +206,38 @@ export default function WeaponTable(props) {
                             <a target="_blank" rel="noopener noreferrer" href={"https://eldenring.wiki.fextralife.com/" + row.original.weaponname} >{value}</a>
                         );
                     };
-                    row.width = 277;
+                    row.width = 340;
                 } else if (row.accessor === "weaponType") {
                     row.filter = weaponTypeFilter;
-                    row.width = 163;
+                    row.width = 180;
                 } else if (row.accessor === "affinity") {
                     row.filter = affinityTypeFilter;
-                    row.width = 68;
+                    row.width = 110;
                 } else if (new Set(['final_physical', 'final_magic', 'final_fire', 'final_lightning', 'final_holy', 'final_total_ar', 'final_sorcery_scaling']).has(row.accessor)) {
-                    row.width = 60;
+                    row.width = 90;
                 } else if (row.accessor === "type1" || row.accessor === "type2") {
                     row.Cell = ({ value }) => {
                         return (
                             <>{value ? value : '-'}</>
                         );
                     };
-                    row.width = 76;
+                    row.width = 125;
                 } else if (row.accessor === "final_passive1" || row.accessor === "final_passive2") {
                     row.Cell = ({ value }) => {
                         return (
                             <>{value !== 0 ? value : '-'}</>
                         );
                     };
-                    row.width = 60;
+                    row.width = 110;
                 } else if (new Set(['str_scaling_letter', 'dex_scaling_letter', 'int_scaling_letter', 'fai_scaling_letter', 'arc_scaling_letter']).has(row.accessor)) {
                     row.Cell = ({ value }) => {
                         return (
                             <>{value ? value.letter !== '-' ? value.letter + ' (' + value.value + ')' : value.letter : '-'}</>
                         );
                     };
-                    row.width = 60;
+                    row.width = 115;
                 } else if (new Set(['strreq', 'dexreq', 'intreq', 'faireq', 'arcreq']).has(row.accessor)) {
-                    row.width = 60;
+                    row.width = 80;
                 } else if (row.accessor === "missedReq")
                     row.filter = hideNoReqWeaponsFilter;
                 else if (row.accessor === "maxUpgrade") {
@@ -251,7 +247,7 @@ export default function WeaponTable(props) {
                             <>{value === 25 || value === 10? 'Somber' : 'Smithing'}</>
                         );
                     };
-                    row.width = 60;
+                    row.width = 89;
                 }
             });
 
@@ -298,7 +294,8 @@ export default function WeaponTable(props) {
                     {...row.getRowProps({
                         style,
                     })}
-                    className={"tr" + row.original.missedReq && row.original.missedReq === true ? " highlight-red" : ""}
+                    className={row.original.missedReq === true ? "tr highlight-red" : "tr"}
+                    // className="tr"
                 >
                     {row.cells.map(cell => {
                         return (
@@ -316,20 +313,20 @@ export default function WeaponTable(props) {
     return (
         <div>
             <div {...getTableProps()} className="table">
-                <div>
+                <div className="thead">
                     {headerGroups.map(headerGroup => (
                         <div {...headerGroup.getHeaderGroupProps()} className="tr">
                             {headerGroup.headers.map(column => (
                                 <div>
-                                    <div {...column.getHeaderProps(column.getSortByToggleProps())} className="th">
+                                    <div {...column.getHeaderProps(column.getSortByToggleProps())} className={column.isSorted ? "th sorted" : "th"}>
                                         {column.render('Header')}
 
-                                        <span>
+                                        <span className="sortspan">
                                             {column.isSorted
                                                 ? column.isSortedDesc
-                                                    ? ' 🔽'
-                                                    : ' 🔼'
-                                                : ''}
+                                                    ? <FaSortDown/>
+                                                    : <FaSortUp/>
+                                                : ""}
                                         </span>
 
                                     </div>
@@ -339,11 +336,13 @@ export default function WeaponTable(props) {
                     ))}
                 </div>
 
-                <div {...getTableBodyProps()}>
+                <div {...getTableBodyProps()}
+                
+                className="tbody">
                     <FixedSizeList
-                        height={800}
+                        height={700}
                         itemCount={rows.length}
-                        itemSize={35}
+                        itemSize={40}
                         width={totalColumnsWidth + scrollBarSize}
                     >
                         {RenderRow}

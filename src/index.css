@@ -454,3 +454,62 @@ tbody tr:hover {
   background: #000;
   border-radius: 10px;
 } */
+
+.thead .tr {
+  border-bottom: 1px solid rgb(61, 61, 61);
+}
+
+.dark .thead .tr {
+  border-bottom: 1px solid rgb(184, 184, 184);
+}
+
+.thead .th {
+  border: 0;
+  border-radius: none;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: inherit;
+  padding: 0.5em;
+  margin-bottom: 1px;
+  width: 100%;
+  height: 100%;
+  white-space: nowrap;
+  transition-duration: 0.4s;
+  background-color: #414141;
+  border-color: #68696d;
+  color: #efefef;
+}
+
+.thead .th:hover,
+.thead .th.sorted {
+  background-color: #bcd8ff;
+  cursor: pointer;
+}
+
+.dark .thead .th:hover,
+.dark .thead .th.sorted {
+  background-color: #4650ac;
+  color: #EFEFEF;
+}
+
+.thead .th .sortspan {
+  /* display: inline-block; */
+  /* margin-left: 1em; */
+}
+
+.tbody .td {
+  padding: 0.5em;
+  border-bottom: 1px solid #cccccc;
+}
+
+.dark .tbody .td {
+  border-bottom: 1px solid #4b4b4b;
+}
+
+.tbody .tr:hover {
+  background-color: #eeeeee;
+}
+
+.dark .tbody .tr:hover {
+  background-color: #3d3d3d;
+}
