@@ -34,7 +34,7 @@ const noTwoHandBuff = new Set([
 ]);
 
 
-    
+
 function totalAR(val, maxUpgrade, weaponLevel, levels, twoHanded) {
     return getPhyData(val, maxUpgrade, weaponLevel, levels, twoHanded) +
         getMagData(val, maxUpgrade, weaponLevel, levels, twoHanded) +
@@ -562,7 +562,6 @@ export default function FilterableWeaponTable() {
     useEffect(() => {
         let data = [...Table_Data];
 
-        // console.log(data[0]);
         //calc data
         data.forEach((val) => {
             val.final_physical = Math.trunc(getPhyData(val, val.maxUpgrade, weaponLevels, levels, twoHanded));
@@ -579,19 +578,12 @@ export default function FilterableWeaponTable() {
             val.fai_scaling_letter = getScalingLetter(val, val.maxUpgrade, weaponLevels, "fai");
             val.arc_scaling_letter = getScalingLetter(val, val.maxUpgrade, weaponLevels, "arc");
 
-            val.str_scaling_letter_display = val.str_scaling_letter ? val.str_scaling_letter.letter !== '-' ? val.str_scaling_letter.letter + ' (' + val.str_scaling_letter.value + ')' : val.str_scaling_letter.letter : '-';
-            val.dex_scaling_letter_display = val.dex_scaling_letter ? val.dex_scaling_letter.letter !== '-' ? val.dex_scaling_letter.letter + ' (' + val.dex_scaling_letter.value + ')' : val.dex_scaling_letter.letter : '-';
-            val.int_scaling_letter_display = val.int_scaling_letter ? val.int_scaling_letter.letter !== '-' ? val.int_scaling_letter.letter + ' (' + val.int_scaling_letter.value + ')' : val.int_scaling_letter.letter : '-';
-            val.fai_scaling_letter_display = val.fai_scaling_letter ? val.fai_scaling_letter.letter !== '-' ? val.fai_scaling_letter.letter + ' (' + val.fai_scaling_letter.value + ')' : val.fai_scaling_letter.letter : '-';
-            val.arc_scaling_letter_display = val.arc_scaling_letter ? val.arc_scaling_letter.letter !== '-' ? val.arc_scaling_letter.letter + ' (' + val.arc_scaling_letter.value + ')' : val.arc_scaling_letter.letter : '-';
-
             val.final_passive1 = Math.trunc(getPassiveData(val, val.maxUpgrade, weaponLevels, levels));
             val.final_passive2 = Math.trunc(getPassiveData2(val, val.maxUpgrade, weaponLevels, levels));
 
             val.missedReq = highlightReqRow(val, levels, twoHanded)
         });
 
-        // console.log(data[0]);
         setPreppedData([...data]);
     }, [levels, weaponLevels, twoHanded]);
 

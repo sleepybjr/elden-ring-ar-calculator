@@ -1,11 +1,10 @@
-import React, { useState, useEffect, } from 'react';
+import React, { useEffect, } from 'react';
 
 import { useTable, useBlockLayout, useSortBy, useFilters } from 'react-table';
 import { FixedSizeList } from 'react-window';
 
-// make input faster for less rows by making it only update filtered columns? not sure if thats possible?
-// readd llink to fextralife for weapon name
-// fix display for somber and passive types
+// make input faster for less rows by making it only update filtered columns? could pull out filters to make input faster, but then filters will be slower due to needing to redo calculations everytime. 
+// it's either filter first, then calculate. or calculate, then filter. trade-off.
 
 const typesOrder = {
     'S': 0,
@@ -16,13 +15,6 @@ const typesOrder = {
     'E': 5,
     '-': 6,
 };
-
-const noTwoHandBuff = new Set([
-    "Hookclaws", "Venomous Fang", "Bloodhound Claws", "Raptor Talons",
-    "Caestus", "Spiked Caestus", "Grafted Dragon", "Iron Ball", "Star Fist", "Katar", "Clinging Bone", "Veteran's Prosthesis", "Cipher Pata",
-    "Starscourge Greatsword",
-    "Ornamental Straight Sword",
-]);
 
 const tableHeaders = {
     fullweaponname: "Weapon Name",
@@ -39,11 +31,11 @@ const tableHeaders = {
     final_passive1: "Passive 1 Damage",
     type2: "Passive 2",
     final_passive2: "Passive 2 Damage",
-    str_scaling_letter_display: "STR Scaling",
-    dex_scaling_letter_display: "DEX Scaling",
-    int_scaling_letter_display: "INT Scaling",
-    fai_scaling_letter_display: "FAI Scaling",
-    arc_scaling_letter_display: "ARC Scaling",
+    str_scaling_letter: "STR Scaling",
+    dex_scaling_letter: "DEX Scaling",
+    int_scaling_letter: "INT Scaling",
+    fai_scaling_letter: "FAI Scaling",
+    arc_scaling_letter: "ARC Scaling",
     strreq: "STR Req",
     dexreq: "DEX Req",
     intreq: "INT Req",
@@ -54,7 +46,6 @@ const tableHeaders = {
 };
 
 function sortAlgorithm(rowA, rowB, columnId) {
-    // console.log(rowA);
     if (new Set(['fullweaponname', 'weaponType', 'affinity', 'type1', 'type2']).has(columnId)) {
         let sortedColumn = columnId;
 
@@ -67,6 +58,7 @@ function sortAlgorithm(rowA, rowB, columnId) {
         if (nameA < nameB) {
             return -1;
         }
+
         if (nameA > nameB) {
             return 1;
         }
@@ -105,12 +97,12 @@ function sortAlgorithm(rowA, rowB, columnId) {
 }
 
 const scrollbarWidth = () => {
-    const scrollDiv = document.createElement('div')
-    scrollDiv.setAttribute('style', 'width: 100px; height: 100px; overflow: scroll; position:absolute; top:-9999px;')
-    document.body.appendChild(scrollDiv)
-    const scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth
-    document.body.removeChild(scrollDiv)
-    return scrollbarWidth
+    const scrollDiv = document.createElement('div');
+    scrollDiv.setAttribute('style', 'width: 100px; height: 100px; overflow: scroll; position:absolute; top:-9999px;');
+    document.body.appendChild(scrollDiv);
+    const scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+    document.body.removeChild(scrollDiv);
+    return scrollbarWidth;
 }
 
 export default function WeaponTable(props) {
@@ -118,18 +110,22 @@ export default function WeaponTable(props) {
 
     useEffect(() => {
         setFilter("weaponType", { weaponTypeFilter: props.weaponTypeFilter, searchedWeapons: props.searchedWeapons });
+        // eslint-disable-next-line
     }, [props.weaponTypeFilter, props.searchedWeapons]);
 
     useEffect(() => {
         setFilter("affinity", { affinityTypeFilter: props.affinityTypeFilter, searchedWeapons: props.searchedWeapons });
+        // eslint-disable-next-line
     }, [props.affinityTypeFilter, props.searchedWeapons]);
 
     useEffect(() => {
         setFilter("maxUpgrade", { somberFilter: props.somberFilter, smithingFilter: props.smithingFilter, searchedWeapons: props.searchedWeapons });
+        // eslint-disable-next-line
     }, [props.somberFilter, props.smithingFilter, props.searchedWeapons]);
 
     useEffect(() => {
         setFilter("missedReq", { hideNoReqWeapons: props.hideNoReqWeapons, searchedWeapons: props.searchedWeapons });
+        // eslint-disable-next-line
     }, [props.hideNoReqWeapons, props.searchedWeapons]);
 
     const defaultColumn = React.useMemo(
@@ -137,14 +133,14 @@ export default function WeaponTable(props) {
             width: 150,
         }),
         []
-    )
+    );
 
     const scrollBarSize = React.useMemo(() => scrollbarWidth(), []);
 
     React.useEffect(() => {
         // After the table has updated, always remove the flag
         skipPageResetRef.current = false
-    })
+    });
 
     const data = React.useMemo(
         () => {
@@ -152,23 +148,23 @@ export default function WeaponTable(props) {
             return props.preppedData;
         },
         [props.preppedData]
-    )
+    );
 
     const weaponTypeFilter = (rows, id, filterValue) => {
         return rows.filter((row) => {
             return filterValue.weaponTypeFilter.includes(row.original.weaponType) || filterValue.searchedWeapons.includes(row.original.weaponname);
         });
-    }
+    };
 
     const affinityTypeFilter = (rows, id, filterValue) => {
         return rows.filter((row) => {
             if (row.original.maxUpgrade === 0 || row.original.maxUpgrade === 10) {
                 return filterValue.affinityTypeFilter.includes(row.original.affinity) || filterValue.searchedWeapons.includes(row.original.weaponname);
-            } else if (row.original.maxUpgrade === 25) {
+            } else {
                 return filterValue.affinityTypeFilter.includes(row.original.affinity) || (filterValue.searchedWeapons.includes(row.original.weaponname) && filterValue.affinityTypeFilter.includes(row.original.affinity));
             }
         });
-    }
+    };
 
     const upgradeFilter = (rows, id, filterValue) => {
         return rows.filter((row) => {
@@ -180,7 +176,7 @@ export default function WeaponTable(props) {
 
             return false;
         });
-    }
+    };
 
     const hideNoReqWeaponsFilter = (rows, id, filterValue) => {
         return rows.filter((row) => {
@@ -190,7 +186,7 @@ export default function WeaponTable(props) {
 
             return !row.original.missedReq || filterValue.searchedWeapons.includes(row.original.weaponname);
         });
-    }
+    };
 
     const columns = React.useMemo(
         () => {
@@ -203,7 +199,13 @@ export default function WeaponTable(props) {
             })
 
             newColumns.forEach((row) => {
-                if (row.accessor === "weaponType")
+                if (row.accessor === "fullweaponname")
+                    row.Cell = ({ row, value }) => {
+                        return (
+                            <a target="_blank" rel="noopener noreferrer" href={"https://eldenring.wiki.fextralife.com/" + row.original.weaponname} >{value}</a>
+                        );
+                    };
+                else if (row.accessor === "weaponType")
                     row.filter = weaponTypeFilter
                 else if (row.accessor === "affinity")
                     row.filter = affinityTypeFilter;
@@ -211,12 +213,30 @@ export default function WeaponTable(props) {
                     row.filter = upgradeFilter;
                 else if (row.accessor === "missedReq")
                     row.filter = hideNoReqWeaponsFilter;
+                else if (row.accessor === "type1" || row.accessor === "type2")
+                    row.Cell = ({ value }) => {
+                        return (
+                            <>{value ? value : '-'}</>
+                        );
+                    };
+                else if (row.accessor === "final_passive1" || row.accessor === "final_passive2")
+                    row.Cell = ({ value }) => {
+                        return (
+                            <>{value !== 0 ? value : '-'}</>
+                        );
+                    };
+                else if (new Set(['str_scaling_letter', 'dex_scaling_letter', 'int_scaling_letter', 'fai_scaling_letter', 'arc_scaling_letter']).has(row.accessor))
+                    row.Cell = ({ value }) => {
+                        return (
+                            <>{value ? value.letter !== '-' ? value.letter + ' (' + value.value + ')' : value.letter : '-'}</>
+                        );
+                    };
             });
 
             return newColumns;
         },
         []
-    )
+    );
 
 
     const initialState = { hiddenColumns: ['missedReq'] };
@@ -245,7 +265,7 @@ export default function WeaponTable(props) {
         useFilters,
         useBlockLayout,
         useSortBy
-    )
+    );
 
     const RenderRow = React.useCallback(
         ({ index, style }) => {
@@ -269,7 +289,7 @@ export default function WeaponTable(props) {
             )
         },
         [prepareRow, rows]
-    )
+    );
 
     return (
         <div>
@@ -282,7 +302,6 @@ export default function WeaponTable(props) {
                                     <div {...column.getHeaderProps(column.getSortByToggleProps())} className="th">
                                         {column.render('Header')}
 
-                                        {/* Add a sort direction indicator */}
                                         <span>
                                             {column.isSorted
                                                 ? column.isSortedDesc
@@ -309,59 +328,6 @@ export default function WeaponTable(props) {
                     </FixedSizeList>
                 </div>
             </div>
-            )
-            {/* <table>
-                <thead>
-                    <tr>
-                        {Object.keys(tableHeaders).map(key =>
-                            <th key={key}>
-                                <button
-                                    type="button"
-                                    className={key === sort.column ? sort.direction === "asc" ? "ascending" : sort.direction === "desc" ? "descending" : "" : ""}
-                                    onClick={() => onSort(key)}>
-                                    {tableHeaders[key]}
-                                </button>
-                            </th>
-                        )}
-                    </tr>
-                </thead>
-                <tbody>
-                    {sortedData.map((val, key) => {
-                        return (
-                            <tr
-                                className={highlightReqRow(val, props.levels, props.twoHanded) ? "highlight-red" : ""}
-                                key={key}
-                            >
-                                <td><a target="_blank" rel="noopener noreferrer" href={"https://eldenring.wiki.fextralife.com/" + val.weaponname} >{val.fullweaponname}</a></td>
-                                <td>{val.weaponType}</td>
-                                <td>{val.affinity}</td>
-                                <td>{val.final_physical}</td>
-                                <td>{val.final_magic}</td>
-                                <td>{val.final_fire}</td>
-                                <td>{val.final_lightning}</td>
-                                <td>{val.final_holy}</td>
-                                <td>{val.final_total_ar}</td>
-                                <td>{val.final_sorcery_scaling}</td>
-                                <td>{val.type1 ? val.type1 : '-'}</td>
-                                <td>{val.final_passive1 !== 0 ? val.final_passive1 : '-'}</td>
-                                <td>{val.type2 ? val.type2 : '-'}</td>
-                                <td>{val.final_passive2 !== 0 ? val.final_passive2 : '-'}</td>
-                                <td>{val.str_scaling_letter ? val.str_scaling_letter.letter !== '-' ? val.str_scaling_letter.letter + ' (' + val.str_scaling_letter.value + ')' : val.str_scaling_letter.letter : '-'}</td>
-                                <td>{val.dex_scaling_letter ? val.dex_scaling_letter.letter !== '-' ? val.dex_scaling_letter.letter + ' (' + val.dex_scaling_letter.value + ')' : val.dex_scaling_letter.letter : '-'}</td>
-                                <td>{val.int_scaling_letter ? val.int_scaling_letter.letter !== '-' ? val.int_scaling_letter.letter + ' (' + val.int_scaling_letter.value + ')' : val.int_scaling_letter.letter : '-'}</td>
-                                <td>{val.fai_scaling_letter ? val.fai_scaling_letter.letter !== '-' ? val.fai_scaling_letter.letter + ' (' + val.fai_scaling_letter.value + ')' : val.fai_scaling_letter.letter : '-'}</td>
-                                <td>{val.arc_scaling_letter ? val.arc_scaling_letter.letter !== '-' ? val.arc_scaling_letter.letter + ' (' + val.arc_scaling_letter.value + ')' : val.arc_scaling_letter.letter : '-'}</td>
-                                <td>{val.strreq}</td>
-                                <td>{val.dexreq}</td>
-                                <td>{val.intreq}</td>
-                                <td>{val.faireq}</td>
-                                <td>{val.arcreq}</td>
-                                <td>{val.maxUpgrade === 25 ? "Smithing" : "Somber"}</td>
-                            </tr>
-                        )
-                    })}
-                </tbody>
-            </table> */}
         </div>
     );
 }
