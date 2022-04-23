@@ -126,26 +126,16 @@ const scrollbarWidth = () => {
 
 export default function WeaponTable(props) {
     useEffect(() => {
-        // This will now use our custom filter for age
-        setFilter("fullweaponname", props.searchedWeapons.map(row => row.label));
-    }, [props.searchedWeapons]);
+        setFilter("weaponType", {weaponTypeFilter: props.weaponTypeFilter, searchedWeapons: props.searchedWeapons});
+    }, [props.weaponTypeFilter, props.searchedWeapons]);
 
     useEffect(() => {
-        // This will now use our custom filter for age
-        // console.log(props.weaponNameFilter);
-        setFilter("weaponType", props.weaponTypeFilter);
-    }, [props.weaponTypeFilter]);
+        setFilter("affinity", {affinityTypeFilter: props.affinityTypeFilter, searchedWeapons: props.searchedWeapons});
+    }, [props.affinityTypeFilter, props.searchedWeapons]);
 
     useEffect(() => {
-        // This will now use our custom filter for age
-        // console.log(props.weaponNameFilter);
-        setFilter("affinity", props.affinityTypeFilter);
-    }, [props.affinityTypeFilter]);
-
-    useEffect(() => {
-        // This will now use our custom filter for age
-        setFilter("maxUpgrade", {somberFilter: props.somberFilter, smithingFilter: props.smithingFilter});
-    }, [props.somberFilter, props.smithingFilter]);
+        setFilter("maxUpgrade", {somberFilter: props.somberFilter, smithingFilter: props.smithingFilter, searchedWeapons: props.searchedWeapons});
+    }, [props.somberFilter, props.smithingFilter, props.searchedWeapons]);
 
     const defaultColumn = React.useMemo(
         () => ({
@@ -154,42 +144,31 @@ export default function WeaponTable(props) {
         []
     )
 
-    const scrollBarSize = React.useMemo(() => scrollbarWidth(), [])
+    const scrollBarSize = React.useMemo(() => scrollbarWidth(), []);
 
-    // const data = React.useMemo(
-    //     () => Table_Data,
-    //     []
-    // )
 
     const data = React.useMemo(
         () => props.preppedData,
         [props.preppedData]
     )
-
-    const weaponNameFilter = (rows, id, filterValue) => {
-        return rows.filter((row) => {
-            return filterValue.includes(row.original.weaponname);
-        });
-    }
-
     const weaponTypeFilter = (rows, id, filterValue) => {
         return rows.filter((row) => {
-            return filterValue.includes(row.original.weaponType);
+            return filterValue.weaponTypeFilter.includes(row.original.weaponType) || filterValue.searchedWeapons.includes(row.original.weaponname); 
         });
     }
 
     const affinityTypeFilter = (rows, id, filterValue) => {
         return rows.filter((row) => {
-            return filterValue.includes(row.original.affinity);
+            return filterValue.affinityTypeFilter.includes(row.original.affinity) || filterValue.searchedWeapons.includes(row.original.weaponname); 
         });
     }
 
     const upgradeFilter = (rows, id, filterValue) => {
         return rows.filter((row) => {
             if (row.original.maxUpgrade === 0 || row.original.maxUpgrade === 10) {
-                return filterValue.somberFilter;
+                return filterValue.somberFilter || filterValue.searchedWeapons.includes(row.original.weaponname); 
             } else if (row.original.maxUpgrade === 25) {
-                return filterValue.smithingFilter;
+                return filterValue.smithingFilter || filterValue.searchedWeapons.includes(row.original.weaponname); 
             }
             
             return false;
@@ -216,10 +195,7 @@ export default function WeaponTable(props) {
             })
 
             newColumns.forEach((row) => {
-                if (row.accessor === "fullweaponname") {
-                    // row.filter = weaponNameFilter;
-                }
-                else if (row.accessor === "weaponType")
+                if (row.accessor === "weaponType")
                     row.filter = weaponTypeFilter
                 else if (row.accessor === "affinity")
                     row.filter = affinityTypeFilter;

@@ -606,7 +606,7 @@ export default function FilterableWeaponTable() {
                 somberFilter={somberFilter}
                 smithingFilter={smithingFilter}
                 hideNoReqWeapons={hideNoReqWeapons}
-                searchedWeapons={searchedWeapons}
+                searchedWeapons={searchedWeapons.map(row => row.label)}
                 preppedData={preppedData}
             />
 
