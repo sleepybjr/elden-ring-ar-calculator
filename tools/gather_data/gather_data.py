@@ -914,6 +914,7 @@ Conditional_Weapon_Effect = {
 
 def getPassiveEffect(specialEffect):
     row_dict = OrderedDict()
+    row_dict["name"] = specialEffect['Row Name']
     row_dict["state_info"] = State_Info_Effect[int(specialEffect['State Info'])]
     if (int(specialEffect['Trigger at HP Below %']) != -1):
         row_dict["trigger_below_hp_%"] = int(specialEffect['Trigger at HP Below %'])
