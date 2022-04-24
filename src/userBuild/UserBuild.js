@@ -1,5 +1,5 @@
-import { handleWeaponRight1Change } from '../weapons/userBuildSlice';
-import { useSelector, useDispatch } from 'react-redux';
+import { handleWeaponRight1Change } from '../weapons/userBuildSlice';// eslint-disable-line no-unused-vars
+import { useSelector, useDispatch } from 'react-redux';// eslint-disable-line no-unused-vars
 
 export default function UserBuild() {
     const weaponLeft1 = useSelector((state) => state.userBuild.weaponLeft1);

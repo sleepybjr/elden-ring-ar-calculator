@@ -16,7 +16,7 @@ const rollTypes = [
     "Fat Rolls",
 ];
 
-const rollTypeMapping = {
+const rollTypeMapping = {// eslint-disable-line no-unused-vars
     light: 29.9,
     normal: 69.9,
     fat: 99.9,
@@ -25,7 +25,7 @@ const rollTypeMapping = {
 export default function FilterableArmorTable() {
     const [armorTypeFilter, setArmorTypeFilter] = useState("");
     const [minimumPoise, setMinimumPoise] = useState(0);
-    const [rollTypeChoice, setRollTypeChoice] = useState("");
+    const [rollTypeChoice, setRollTypeChoice] = useState("");// eslint-disable-line no-unused-vars
     // const [affinityTypeFilter, setaffinityTypeFilter] = useState(["None"]);
     // const [somberFilter, setSomberFilter] = useState(true);
     // const [smithingFilter, setSmithingFilter] = useState(true);
@@ -45,6 +45,7 @@ export default function FilterableArmorTable() {
         console.log(event.target.value);
     };
     
+    //
     function handleChangeRollTypes(event) {
         // console.log(event.target.value);
         setRollTypeChoice(event.target.value);
