@@ -318,7 +318,7 @@ export default function WeaponTable(props) {
                         <div {...headerGroup.getHeaderGroupProps()} className="tr">
                             {headerGroup.headers.map(column => (
                                 <div>
-                                    <div {...column.getHeaderProps(column.getSortByToggleProps())} className={column.isSorted ? "th sorted" : "th"}>
+                                    <div {...column.getHeaderProps(column.getSortByToggleProps())} className={column.isSorted ? "th sorted noselect" : "th noselect"}>
                                         {column.render('Header')}
 
                                         <span className="sortspan">
