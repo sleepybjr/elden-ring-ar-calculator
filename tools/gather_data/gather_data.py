@@ -1032,22 +1032,26 @@ def getPassiveEffect(specialEffect):
         row_dict["pvp_absorptione_percent_lightning"] = -(float(specialEffect['PVP Absorption %: Lightning'])  - 1.0)
     if (float(specialEffect['PVP Absorption %: Holy']) != 1.0):
         row_dict["pvp_absorption_percent_holy"] = -(float(specialEffect['PVP Absorption %: Holy']) - 1.0)
+
+    # You use this to get the new absorption from armor.
+    # An example calculation to get a new physical absorption for armor is found below
+    # physical_absorption = -((1 - physical_absorption) * absorption_standard)
     if (float(specialEffect['Absorption: Standard']) != 1.0):
-        row_dict["absorption_standard"] = float(specialEffect['Absorption: Standard']) - 1.0
+        row_dict["absorption_standard"] = float(specialEffect['Absorption: Standard'])
     if (float(specialEffect['Absorption: Strike']) != 1.0):
-        row_dict["absorption_strike"] = float(specialEffect['Absorption: Strike']) - 1.0
+        row_dict["absorption_strike"] = float(specialEffect['Absorption: Strike'])
     if (float(specialEffect['Absorption: Slash']) != 1.0):
-        row_dict["absorption_slash"] = float(specialEffect['Absorption: Slash']) - 1.0
+        row_dict["absorption_slash"] = float(specialEffect['Absorption: Slash'])
     if (float(specialEffect['Absorption: Thrust']) != 1.0):
-        row_dict["absorption_thrust"] = float(specialEffect['Absorption: Thrust']) - 1.0
+        row_dict["absorption_thrust"] = float(specialEffect['Absorption: Thrust'])
     if (float(specialEffect['Absorption: Magic']) != 1.0):
-        row_dict["absorption_magic"] = float(specialEffect['Absorption: Magic']) - 1.0
+        row_dict["absorption_magic"] = float(specialEffect['Absorption: Magic'])
     if (float(specialEffect['Absorption: Fire']) != 1.0):
-        row_dict["absorption_fire"] = float(specialEffect['Absorption: Fire']) - 1.0
+        row_dict["absorption_fire"] = float(specialEffect['Absorption: Fire'])
     if (float(specialEffect['Absorption: Lightning']) != 1.0):
-        row_dict["absorption_lightning"] = float(specialEffect['Absorption: Lightning'])  - 1.0
+        row_dict["absorption_lightning"] = float(specialEffect['Absorption: Lightning'])
     if (float(specialEffect['Absorption: Holy']) != 1.0):
-        row_dict["absorption_holy"] = float(specialEffect['Absorption: Holy']) - 1.0
+        row_dict["absorption_holy"] = float(specialEffect['Absorption: Holy'])
 
     if (int(specialEffect['Resist: Poison +']) == int(specialEffect['Resist: Scarlet Rot +'])):
         if (int(specialEffect['Resist: Poison +']) != 0):
