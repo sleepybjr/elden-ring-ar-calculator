@@ -501,10 +501,10 @@ tbody tr:hover {
   color: #EFEFEF;
 }
 
-.thead .th .sortspan {
-  /* display: inline-block; */
-  /* margin-left: 1em; */
-}
+/* .thead .th .sortspan {
+  display: inline-block;
+  margin-left: 1em;
+} */
 
 .tbody .td {
   padding: 0.5em;
