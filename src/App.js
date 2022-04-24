@@ -27,8 +27,9 @@ function App() {
     return (
         <div className="App">
             <Link to="/">Home</Link> |{" "}
-            <Link to="/elden-ring-ar-calculator">Weapons</Link> |{" "}
-            <Link to="/armor">Armor</Link>
+            <Link to="/elden-ring-ar-calculator">Weapons</Link>
+             {/* |{" "} */}
+            {/* <Link to="/armor">Armor</Link> */}
             <InputStats />
             <Outlet />
             <div className='extra-spacing'>
