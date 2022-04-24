@@ -418,6 +418,7 @@ tbody tr:hover {
   height: 100%;
   background: #d3e6ff;
   padding-bottom: 5px;
+  padding-top: 5px;
   font-weight: 400;
   text-decoration: none;
   position: relative;
@@ -429,7 +430,7 @@ tbody tr:hover {
   content: '\f103';
   position: absolute;
   right: 10px;
-  top: 4px;
+  top: 8px;
   display: block;
   transition: transform 300ms;
 }
