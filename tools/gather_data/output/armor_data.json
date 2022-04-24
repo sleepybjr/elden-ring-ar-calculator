@@ -571,6 +571,7 @@
         "poise": 0,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20207,
             "coditional_weapon_effect_1": "Thorn Spell",
             "attack_percent_physical": 0.06000000000000005,
             "attack_percent_magic": 0.06000000000000005,
@@ -599,6 +600,7 @@
         "poise": 1,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20207,
             "coditional_weapon_effect_1": "Thorn Spell",
             "attack_percent_physical": 0.06000000000000005,
             "attack_percent_magic": 0.06000000000000005,
@@ -627,6 +629,7 @@
         "poise": 0,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20207,
             "coditional_weapon_effect_1": "Thorn Spell",
             "attack_percent_physical": 0.06000000000000005,
             "attack_percent_magic": 0.06000000000000005,
@@ -674,6 +677,7 @@
         "poise": 0,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20207,
             "coditional_weapon_effect_1": "Thorn Spell",
             "attack_percent_physical": 0.06000000000000005,
             "attack_percent_magic": 0.06000000000000005,
@@ -721,6 +725,7 @@
         "poise": 0,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20295,
             "coditional_weapon_effect_1": "Skill Attack",
             "coditional_weapon_effect_2": "Charged Skill Attack",
             "attack_percent_magic": 0.020000000000000018
@@ -746,6 +751,7 @@
         "poise": 1,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20295,
             "coditional_weapon_effect_1": "Skill Attack",
             "coditional_weapon_effect_2": "Charged Skill Attack",
             "attack_percent_magic": 0.020000000000000018
@@ -771,6 +777,7 @@
         "poise": 0,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20295,
             "coditional_weapon_effect_1": "Skill Attack",
             "coditional_weapon_effect_2": "Charged Skill Attack",
             "attack_percent_magic": 0.020000000000000018
@@ -796,6 +803,7 @@
         "poise": 1,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20295,
             "coditional_weapon_effect_1": "Skill Attack",
             "coditional_weapon_effect_2": "Charged Skill Attack",
             "attack_percent_magic": 0.020000000000000018
@@ -821,6 +829,7 @@
         "poise": 0,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20295,
             "coditional_weapon_effect_1": "Skill Attack",
             "coditional_weapon_effect_2": "Charged Skill Attack",
             "attack_percent_magic": 0.020000000000000018
@@ -1188,6 +1197,7 @@
         "poise": 14,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20222,
             "enemy_listen_adjustment_%": -1.0
         }
     },
@@ -1458,6 +1468,7 @@
         "poise": 5,
         "passive_1": {
             "state_info": "Trigger on Roll (Head)",
+            "icon_id": 20220,
             "damage_physical": 18
         }
     },
@@ -1481,6 +1492,7 @@
         "poise": 15,
         "passive_1": {
             "state_info": "Trigger on Roll (Body)",
+            "icon_id": 20220,
             "damage_physical": 25
         }
     },
@@ -1504,6 +1516,7 @@
         "poise": 3,
         "passive_1": {
             "state_info": "Trigger on Roll (Arm)",
+            "icon_id": 20220,
             "damage_physical": 18
         }
     },
@@ -1527,6 +1540,7 @@
         "poise": 9,
         "passive_1": {
             "state_info": "Trigger on Roll (Leg)",
+            "icon_id": 20220,
             "damage_physical": 18
         }
     },
@@ -1550,6 +1564,7 @@
         "poise": 12,
         "passive_1": {
             "state_info": "Trigger on Roll (Body)",
+            "icon_id": 20220,
             "damage_physical": 25
         }
     },
@@ -2551,6 +2566,7 @@
         "poise": 8,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20229,
             "target_priority_%": 0.03
         }
     },
@@ -2601,6 +2617,7 @@
         "poise": 11,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20229,
             "target_priority_%": 0.03
         }
     },
@@ -2624,6 +2641,7 @@
         "poise": 1,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20229,
             "target_priority_%": 0.04
         }
     },
@@ -2723,6 +2741,7 @@
         "poise": 5,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20213,
             "hp_restore_correction_%": 0.10000000000000009
         }
     },
@@ -3467,7 +3486,8 @@
         "vitality": 18,
         "poise": 9,
         "passive_1": {
-            "state_info": "Reduce Headshot Impact"
+            "state_info": "Reduce Headshot Impact",
+            "icon_id": 20272
         }
     },
     {
@@ -3718,6 +3738,7 @@
         "poise": 1,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20207,
             "intelligence": 3
         }
     },
@@ -3893,6 +3914,7 @@
         "poise": 5,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20207,
             "coditional_weapon_effect_1": "Godslayer Spell",
             "attack_percent_physical": 0.19999999999999996,
             "attack_percent_magic": 0.19999999999999996,
@@ -4054,6 +4076,7 @@
         "poise": 9,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20207,
             "coditional_weapon_effect_1": "Primordial Crucible Spell",
             "attack_percent_physical": 0.040000000000000036,
             "attack_percent_magic": 0.040000000000000036,
@@ -4082,6 +4105,7 @@
         "poise": 27,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20207,
             "coditional_weapon_effect_1": "Primordial Crucible Spell",
             "attack_percent_physical": 0.040000000000000036,
             "attack_percent_magic": 0.040000000000000036,
@@ -4110,6 +4134,7 @@
         "poise": 6,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20207,
             "coditional_weapon_effect_1": "Primordial Crucible Spell",
             "attack_percent_physical": 0.040000000000000036,
             "attack_percent_magic": 0.040000000000000036,
@@ -4138,6 +4163,7 @@
         "poise": 16,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20207,
             "coditional_weapon_effect_1": "Primordial Crucible Spell",
             "attack_percent_physical": 0.040000000000000036,
             "attack_percent_magic": 0.040000000000000036,
@@ -4166,6 +4192,7 @@
         "poise": 9,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20207,
             "coditional_weapon_effect_1": "Primordial Crucible Spell",
             "attack_percent_physical": 0.040000000000000036,
             "attack_percent_magic": 0.040000000000000036,
@@ -4194,6 +4221,7 @@
         "poise": 27,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20207,
             "coditional_weapon_effect_1": "Primordial Crucible Spell",
             "attack_percent_physical": 0.040000000000000036,
             "attack_percent_magic": 0.040000000000000036,
@@ -4222,6 +4250,7 @@
         "poise": 23,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20207,
             "coditional_weapon_effect_1": "Primordial Crucible Spell",
             "attack_percent_physical": 0.040000000000000036,
             "attack_percent_magic": 0.040000000000000036,
@@ -4250,6 +4279,7 @@
         "poise": 23,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20207,
             "coditional_weapon_effect_1": "Primordial Crucible Spell",
             "attack_percent_physical": 0.040000000000000036,
             "attack_percent_magic": 0.040000000000000036,
@@ -4288,6 +4318,7 @@
         },
         "passive_2": {
             "state_info": "None",
+            "icon_id": 20207,
             "coditional_weapon_effect_1": "Lusat Spell",
             "attack_percent_physical": 0.1499999999999999,
             "attack_percent_magic": 0.1499999999999999,
@@ -4383,6 +4414,7 @@
         },
         "passive_2": {
             "state_info": "None",
+            "icon_id": 20207,
             "coditional_weapon_effect_1": "Azur Spell",
             "attack_percent_physical": 0.1499999999999999,
             "attack_percent_magic": 0.1499999999999999,
@@ -5209,9 +5241,11 @@
         "poise": 2,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20285,
             "trigger_on_state_info_1": "Trigger in Presence of Blood Loss",
             "cycle_special_effect": {
                 "state_info": "None",
+                "icon_id": 20285,
                 "duration": 20.0,
                 "damage_percent_physical": 0.10000000000000009,
                 "damage_percent_magic": 0.10000000000000009,
@@ -5322,6 +5356,7 @@
         "poise": 5,
         "passive_1": {
             "state_info": "HP/FP/Stamina Recovery",
+            "icon_id": 20211,
             "trigger_below_hp_%": 18,
             "change_hp": 2
         }
@@ -5346,6 +5381,7 @@
         "poise": 15,
         "passive_1": {
             "state_info": "HP/FP/Stamina Recovery",
+            "icon_id": 20211,
             "trigger_below_hp_%": 18,
             "change_hp": 2
         }
@@ -5370,6 +5406,7 @@
         "poise": 3,
         "passive_1": {
             "state_info": "HP/FP/Stamina Recovery",
+            "icon_id": 20211,
             "trigger_below_hp_%": 18,
             "change_hp": 2
         }
@@ -5394,6 +5431,7 @@
         "poise": 9,
         "passive_1": {
             "state_info": "HP/FP/Stamina Recovery",
+            "icon_id": 20211,
             "trigger_below_hp_%": 18,
             "change_hp": 2
         }
@@ -5589,6 +5627,7 @@
         "poise": 0,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20291,
             "vigor": 1
         }
     },
@@ -5669,6 +5708,7 @@
         "poise": 0,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20292,
             "mind": 1
         }
     },
@@ -6205,6 +6245,7 @@
         "poise": 2,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20207,
             "faith": 1
         }
     },
@@ -6266,6 +6307,7 @@
         "poise": 0,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20207,
             "faith": 1
         }
     },
@@ -6289,6 +6331,7 @@
         "poise": 2,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20207,
             "faith": 1
         }
     },
@@ -6312,6 +6355,7 @@
         "poise": 0,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20207,
             "faith": 1
         }
     },
@@ -6335,6 +6379,7 @@
         "poise": 2,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20295,
             "coditional_weapon_effect_1": "Unknown Attack",
             "attack_percent_physical": 0.1499999999999999,
             "attack_percent_magic": 0.1499999999999999,
@@ -6369,11 +6414,13 @@
         },
         "passive_3": {
             "state_info": "None",
+            "icon_id": 20207,
             "intelligence": 6,
             "max_hp_%": -0.08999999999999997,
             "max_stamina_%": -0.08999999999999997,
             "cycle_special_effect": {
                 "state_info": "None",
+                "icon_id": 20260,
                 "duration": 0.1
             }
         }
@@ -6461,10 +6508,12 @@
         },
         "passive_3": {
             "state_info": "None",
+            "icon_id": 20207,
             "intelligence": 3,
             "max_hp_%": -0.08999999999999997,
             "cycle_special_effect": {
                 "state_info": "None",
+                "icon_id": 20260,
                 "duration": 0.1
             }
         }
@@ -6495,14 +6544,17 @@
         },
         "passive_3": {
             "state_info": "None",
+            "icon_id": 20207,
             "dexterity": 3,
             "intelligence": 3,
             "max_hp_%": -0.18000000000000005,
             "cycle_special_effect": {
                 "state_info": "None",
+                "icon_id": 20206,
                 "duration": 0.1,
                 "cycle_special_effect": {
                     "state_info": "None",
+                    "icon_id": 20260,
                     "duration": 0.1
                 }
             }
@@ -6534,6 +6586,7 @@
         },
         "passive_3": {
             "state_info": "None",
+            "icon_id": 20207,
             "intelligence": 3,
             "max_stamina_%": -0.08999999999999997,
             "cycle_special_effect": {
@@ -6568,11 +6621,13 @@
         },
         "passive_3": {
             "state_info": "None",
+            "icon_id": 20207,
             "intelligence": 3,
             "arcane": 3,
             "max_stamina_%": -0.18000000000000005,
             "cycle_special_effect": {
                 "state_info": "None",
+                "icon_id": 20227,
                 "duration": 0.1
             }
         }
@@ -6844,6 +6899,7 @@
         "poise": 2,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20206,
             "dexterity": 3,
             "resist_focus": -50,
             "cycle_special_effect": {
@@ -7290,6 +7346,7 @@
         "poise": 2,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20292,
             "mind": 3,
             "max_stamina_%": -0.08999999999999997,
             "cycle_special_effect": {
@@ -7376,6 +7433,7 @@
         "poise": 1,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20227,
             "arcane": 3
         }
     },
@@ -7437,6 +7495,7 @@
         "poise": 5,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20254,
             "coditional_weapon_effect_1": "Jump Attack",
             "attack_percent_physical": 0.10000000000000009,
             "attack_percent_magic": 0.10000000000000009,
@@ -7712,6 +7771,7 @@
         "poise": 2,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20206,
             "dexterity": 1
         }
     },
@@ -7773,6 +7833,7 @@
         "poise": 1,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20207,
             "faith": 1
         }
     },
@@ -7834,6 +7895,7 @@
         "poise": 1,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20227,
             "arcane": 1
         }
     },
@@ -8176,6 +8238,7 @@
         "poise": 2,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20207,
             "endurance": 2,
             "intelligence": 2,
             "max_fp_%": -0.08999999999999997,
@@ -8281,11 +8344,13 @@
         "poise": 2,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20207,
             "strength": 2,
             "intelligence": 2,
             "max_fp_%": -0.08999999999999997,
             "cycle_special_effect": {
                 "state_info": "None",
+                "icon_id": 20206,
                 "duration": 0.1
             }
         }
@@ -8367,6 +8432,7 @@
         "poise": 1,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20207,
             "coditional_weapon_effect_1": "Ranni Spell",
             "attack_percent_physical": 0.10000000000000009,
             "attack_percent_magic": 0.10000000000000009,
@@ -8547,6 +8613,7 @@
         "poise": 1,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20207,
             "coditional_weapon_effect_1": "Golden Order Spell",
             "attack_percent_physical": 0.10000000000000009,
             "attack_percent_magic": 0.10000000000000009,
@@ -8651,10 +8718,12 @@
         "poise": 3,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20227,
             "arcane": 4,
             "hp_restore_correction_%": -0.09999999999999998,
             "cycle_special_effect": {
                 "state_info": "None",
+                "icon_id": 20204,
                 "duration": 0.1
             }
         }
@@ -8774,6 +8843,7 @@
         "poise": 8,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20207,
             "intelligence": 2
         }
     },
@@ -8797,6 +8867,7 @@
         "poise": 8,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20206,
             "strength": 2
         }
     },
@@ -8820,6 +8891,7 @@
         "poise": 8,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20206,
             "dexterity": 2
         }
     },
@@ -8843,6 +8915,7 @@
         "poise": 8,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20207,
             "faith": 2
         }
     },
@@ -8866,6 +8939,7 @@
         "poise": 8,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20293,
             "endurance": 2
         }
     },
@@ -8889,6 +8963,7 @@
         "poise": 8,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20227,
             "arcane": 2
         }
     },
@@ -8912,10 +8987,12 @@
         "poise": 3,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20227,
             "arcane": 8,
             "power_percent_physical": -0.050000000000000044,
             "cycle_special_effect": {
                 "state_info": "None",
+                "icon_id": 20268,
                 "duration": 0.1
             }
         }
@@ -9092,6 +9169,7 @@
         "poise": 8,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20280,
             "coditional_weapon_effect_1": "Pot Item Attack",
             "attack_percent_physical": 0.1499999999999999,
             "attack_percent_magic": 0.1499999999999999,
@@ -9405,11 +9483,13 @@
         "poise": 2,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20207,
             "intelligence": 2,
             "faith": 2,
             "max_hp_%": -0.08999999999999997,
             "cycle_special_effect": {
                 "state_info": "None",
+                "icon_id": 20260,
                 "duration": 0.1
             }
         }
@@ -9795,6 +9875,7 @@
         "poise": 4,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20207,
             "faith": 1
         }
     },
@@ -10426,6 +10507,7 @@
         "poise": 5,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20207,
             "faith": 2
         }
     },
@@ -10734,6 +10816,7 @@
         "poise": 2,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20207,
             "faith": 1
         }
     },
@@ -10776,6 +10859,7 @@
         "poise": 2,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20206,
             "strength": 2
         }
     },
@@ -10856,6 +10940,7 @@
         "poise": 2,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20231,
             "absorption_standard": 0.10000000000000009,
             "absorption_strike": 0.10000000000000009,
             "absorption_slash": 0.10000000000000009,
@@ -10867,6 +10952,7 @@
             "skill_fp_cost_%": -0.15000000000000002,
             "cycle_special_effect": {
                 "state_info": "None",
+                "icon_id": 20218,
                 "duration": 0.1
             }
         }
@@ -10891,6 +10977,7 @@
         "poise": 2,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20231,
             "absorption_standard": 0.10000000000000009,
             "absorption_strike": 0.10000000000000009,
             "absorption_slash": 0.10000000000000009,
@@ -10902,6 +10989,7 @@
             "incantation_fp_cost_%": -0.15000000000000002,
             "cycle_special_effect": {
                 "state_info": "None",
+                "icon_id": 20217,
                 "duration": 0.1
             }
         }
@@ -10926,6 +11014,7 @@
         "poise": 2,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20231,
             "absorption_standard": 0.10000000000000009,
             "absorption_strike": 0.10000000000000009,
             "absorption_slash": 0.10000000000000009,
@@ -10937,6 +11026,7 @@
             "sorcery_fp_cost_%": -0.15000000000000002,
             "cycle_special_effect": {
                 "state_info": "None",
+                "icon_id": 20217,
                 "duration": 0.1
             }
         }
@@ -10961,6 +11051,7 @@
         "poise": 2,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20231,
             "absorption_standard": 0.10000000000000009,
             "absorption_strike": 0.10000000000000009,
             "absorption_slash": 0.10000000000000009,
@@ -10972,6 +11063,7 @@
             "hp_restore_correction_%": 0.10000000000000009,
             "cycle_special_effect": {
                 "state_info": "None",
+                "icon_id": 20213,
                 "duration": 0.1
             }
         }
@@ -10996,6 +11088,7 @@
         "poise": 2,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20231,
             "absorption_standard": 0.10000000000000009,
             "absorption_strike": 0.10000000000000009,
             "absorption_slash": 0.10000000000000009,
@@ -11007,6 +11100,7 @@
             "fp_restore_correction_%": 0.10000000000000009,
             "cycle_special_effect": {
                 "state_info": "None",
+                "icon_id": 20214,
                 "duration": 0.1
             }
         }
@@ -11228,6 +11322,7 @@
         "poise": 8,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20229,
             "target_priority_%": 0.03
         }
     },
@@ -11270,6 +11365,7 @@
         "poise": 10,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20229,
             "target_priority_%": 0.03
         }
     },
@@ -11293,6 +11389,7 @@
         "poise": 1,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20229,
             "target_priority_%": 0.04
         }
     },
@@ -11316,9 +11413,11 @@
         "poise": 9,
         "passive_1": {
             "state_info": "None",
+            "icon_id": 20286,
             "trigger_on_state_info_1": "Trigger in Presence of Rot",
             "cycle_special_effect": {
                 "state_info": "None",
+                "icon_id": 20286,
                 "duration": 20.0,
                 "damage_percent_physical": 0.10000000000000009,
                 "damage_percent_magic": 0.10000000000000009,
@@ -11356,6 +11455,7 @@
             "trigger_on_state_info_1": "Madness",
             "cycle_special_effect": {
                 "state_info": "None",
+                "icon_id": 20406,
                 "duration": 60.0,
                 "damage_percent_physical": 0.10000000000000009,
                 "damage_percent_magic": 0.10000000000000009,

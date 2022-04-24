@@ -741,100 +741,100 @@ def getWeaponGroups():
 ##############################################
 
 def getPhysCalc():
-        with open("CalcCorrectGraph.csv") as fp:
-            reader = csv.reader(fp, delimiter=";", quotechar='"')
-            headers = next(reader)[1:]
-            CalcCorrectGraph = OrderedDict(
-                (row[0], OrderedDict(zip(headers, row[1:]))) for row in reader)
-                
-        phys_calc_data = []
-        for key, row in CalcCorrectGraph.items():
-            if (int(key) >= base_phys and int(key) <= max_phys) or (int(key) >= base_stats and int(key) <= max_stats):
-                row_dict = OrderedDict()
-                row_dict["row_id"] = int(key)
-                row_dict["name"] = row['Row Name']
-                for scaling_cap in range (0, max_num_cap+1):
-                    row_dict["stat_max_"+str(scaling_cap)] = int(row['Stat Max '+str(scaling_cap)])
-                    if (int(key) == item_discovery_stat):
-                        row_dict["grow_"+str(scaling_cap)] = float(row['Grow '+str(scaling_cap)])
-                    else:
-                        row_dict["grow_"+str(scaling_cap)] = int(row['Grow '+str(scaling_cap)])
-                    row_dict["adj_point_"+str(scaling_cap)] = float(row['Adjustment Point - Grow '+str(scaling_cap)])
+    with open("CalcCorrectGraph.csv") as fp:
+        reader = csv.reader(fp, delimiter=";", quotechar='"')
+        headers = next(reader)[1:]
+        CalcCorrectGraph = OrderedDict(
+            (row[0], OrderedDict(zip(headers, row[1:]))) for row in reader)
+            
+    phys_calc_data = []
+    for key, row in CalcCorrectGraph.items():
+        if (int(key) >= base_phys and int(key) <= max_phys) or (int(key) >= base_stats and int(key) <= max_stats):
+            row_dict = OrderedDict()
+            row_dict["row_id"] = int(key)
+            row_dict["name"] = row['Row Name']
+            for scaling_cap in range (0, max_num_cap+1):
+                row_dict["stat_max_"+str(scaling_cap)] = int(row['Stat Max '+str(scaling_cap)])
+                if (int(key) == item_discovery_stat):
+                    row_dict["grow_"+str(scaling_cap)] = float(row['Grow '+str(scaling_cap)])
+                else:
+                    row_dict["grow_"+str(scaling_cap)] = int(row['Grow '+str(scaling_cap)])
+                row_dict["adj_point_"+str(scaling_cap)] = float(row['Adjustment Point - Grow '+str(scaling_cap)])
 
-                phys_calc_data.append(row_dict)
-        
-        return phys_calc_data
+            phys_calc_data.append(row_dict)
+    
+    return phys_calc_data
 
 ##############################################
 # armor_data.json
 ##############################################
 
 def getArmorData():
-        with open("EquipParamProtector.csv") as fp:
-            reader = csv.reader(fp, delimiter=";", quotechar='"')
-            headers = next(reader)[1:]
-            EquipParamProtector = OrderedDict(
-                (row[0], OrderedDict(zip(headers, row[1:]))) for row in reader)
+    with open("EquipParamProtector.csv") as fp:
+        reader = csv.reader(fp, delimiter=";", quotechar='"')
+        headers = next(reader)[1:]
+        EquipParamProtector = OrderedDict(
+            (row[0], OrderedDict(zip(headers, row[1:]))) for row in reader)
 
-        with open("SpEffectParam.csv") as fp:
-            reader = csv.reader(fp, delimiter=";", quotechar='"')
-            headers = next(reader)[1:]
-            SpEffectParam = OrderedDict(
-                (row[0], OrderedDict(zip(headers, row[1:]))) for row in reader)
+    with open("SpEffectParam.csv") as fp:
+        reader = csv.reader(fp, delimiter=";", quotechar='"')
+        headers = next(reader)[1:]
+        SpEffectParam = OrderedDict(
+            (row[0], OrderedDict(zip(headers, row[1:]))) for row in reader)
 
-        armor_data = []
-        for key, row in EquipParamProtector.items():
-            if row['Can Drop'] == InputBoolean.TRUE.value:
-                row_dict = OrderedDict()
-                row_dict["row_id"] = int(key)
-                row_dict["name"] = row['Row Name']
-                if row['Is Head Equipment'] == InputBoolean.TRUE.value:
-                    row_dict["equipment_type"] = "Head"
-                elif row['Is Body Equipment'] == InputBoolean.TRUE.value:
-                    row_dict["equipment_type"] = "Body"
-                elif row['Is Arm Equipment'] == InputBoolean.TRUE.value:
-                    row_dict["equipment_type"] = "Arm"
-                elif row['Is Leg Equipment'] == InputBoolean.TRUE.value:
-                    row_dict["equipment_type"] = "Leg"
-                else:
-                    row_dict["equipment_type"] = "None"
-                row_dict["weight"] = float(row['Weight'])
-                row_dict["physical_absorption"] = 1 - float(row['Absorption - Physical'])
-                row_dict["strike_absorption"] = 1 - float(row['Absorption - Strike'])
-                row_dict["slash_absorption"] = 1 - float(row['Absorption - Slash'])
-                row_dict["thrust_absorption"] = 1 - float(row['Absorption - Thrust'])
-                row_dict["magic_absorption"] = 1 - float(row['Absorption - Magic'])
-                row_dict["fire_absorption"] = 1 - float(row['Absorption - Fire'])
-                row_dict["lightning_absorption"] = 1 - float(row['Absorption - Lightning'])
-                row_dict["holy_absorption"] = 1 - float(row['Absorption - Holy'])
-                if (int(row['Resist - Poison']) == int(row['Resist - Scarlet Rot'])):
-                    row_dict["immunity"] = int(row['Resist - Poison'])
-                else:
-                    row_dict["poison_resist"] = int(row['Resist - Poison'])
-                    row_dict["rot_resist"] = int(row['Resist - Scarlet Rot'])
-                if (int(row['Resist - Hemorrhage']) == int(row['Resist - Frost'])):
-                    row_dict["robustness"] = int(row['Resist - Hemorrhage'])
-                else:
-                    row_dict["bleed_resist"] = int(row['Resist - Hemorrhage'])
-                    row_dict["frost_resist"] = int(row['Resist - Frost'])
-                if (int(row['Resist - Madness']) == int(row['Resist - Sleep'])):
-                    row_dict["focus"] = int(row['Resist - Madness'])
-                else:
-                    row_dict["madness_resist"] = int(row['Resist - Madness'])
-                    row_dict["sleep_resist"] = int(row['Resist - Sleep'])
-                row_dict["vitality"] = int(row['Resist - Blight'])
-                row_dict["poise"] = int(float(row['Poise']) * 1000.0)
+    armor_data = []
+    for key, row in EquipParamProtector.items():
+        if row['Can Drop'] == InputBoolean.TRUE.value:
+            row_dict = OrderedDict()
+            row_dict["row_id"] = int(key)
+            row_dict["name"] = row['Row Name']
+            if row['Is Head Equipment'] == InputBoolean.TRUE.value:
+                row_dict["equipment_type"] = "Head"
+            elif row['Is Body Equipment'] == InputBoolean.TRUE.value:
+                row_dict["equipment_type"] = "Body"
+            elif row['Is Arm Equipment'] == InputBoolean.TRUE.value:
+                row_dict["equipment_type"] = "Arm"
+            elif row['Is Leg Equipment'] == InputBoolean.TRUE.value:
+                row_dict["equipment_type"] = "Leg"
+            else:
+                row_dict["equipment_type"] = "None"
+            row_dict["weight"] = float(row['Weight'])
+            row_dict["physical_absorption"] = 1 - float(row['Absorption - Physical'])
+            row_dict["strike_absorption"] = 1 - float(row['Absorption - Strike'])
+            row_dict["slash_absorption"] = 1 - float(row['Absorption - Slash'])
+            row_dict["thrust_absorption"] = 1 - float(row['Absorption - Thrust'])
+            row_dict["magic_absorption"] = 1 - float(row['Absorption - Magic'])
+            row_dict["fire_absorption"] = 1 - float(row['Absorption - Fire'])
+            row_dict["lightning_absorption"] = 1 - float(row['Absorption - Lightning'])
+            row_dict["holy_absorption"] = 1 - float(row['Absorption - Holy'])
+            if (int(row['Resist - Poison']) == int(row['Resist - Scarlet Rot'])):
+                row_dict["immunity"] = int(row['Resist - Poison'])
+            else:
+                row_dict["poison_resist"] = int(row['Resist - Poison'])
+                row_dict["rot_resist"] = int(row['Resist - Scarlet Rot'])
+            if (int(row['Resist - Hemorrhage']) == int(row['Resist - Frost'])):
+                row_dict["robustness"] = int(row['Resist - Hemorrhage'])
+            else:
+                row_dict["bleed_resist"] = int(row['Resist - Hemorrhage'])
+                row_dict["frost_resist"] = int(row['Resist - Frost'])
+            if (int(row['Resist - Madness']) == int(row['Resist - Sleep'])):
+                row_dict["focus"] = int(row['Resist - Madness'])
+            else:
+                row_dict["madness_resist"] = int(row['Resist - Madness'])
+                row_dict["sleep_resist"] = int(row['Resist - Sleep'])
+            row_dict["vitality"] = int(row['Resist - Blight'])
+            row_dict["poise"] = int(float(row['Poise']) * 1000.0)
 
-                if int(row['Resident SpEffect ID [1]']) != -1:
-                    row_dict["passive_1"] = getPassiveEffect(SpEffectParam[row['Resident SpEffect ID [1]']])
-                if int(row['Resident SpEffect ID [2]']) != -1:
-                    row_dict["passive_2"] = getPassiveEffect(SpEffectParam[row['Resident SpEffect ID [2]']])
-                if int(row['Resident SpEffect ID [3]']) != -1:
-                    row_dict["passive_3"] = getPassiveEffect(SpEffectParam[row['Resident SpEffect ID [3]']])
+            if int(row['Resident SpEffect ID [1]']) != -1:
+                row_dict["passive_1"] = getPassiveEffect(SpEffectParam[row['Resident SpEffect ID [1]']])
+            if int(row['Resident SpEffect ID [2]']) != -1:
+                row_dict["passive_2"] = getPassiveEffect(SpEffectParam[row['Resident SpEffect ID [2]']])
+            if int(row['Resident SpEffect ID [3]']) != -1:
+                row_dict["passive_3"] = getPassiveEffect(SpEffectParam[row['Resident SpEffect ID [3]']])
 
-                armor_data.append(row_dict)
-        
-        return armor_data
+            armor_data.append(row_dict)
+    
+    return armor_data
 
 State_Info_Effect = {
     # SpEffectParam - State Info
@@ -913,374 +913,376 @@ Conditional_Weapon_Effect = {
 }
 
 def getPassiveEffect(specialEffect):
-        row_dict = OrderedDict()
-        row_dict["state_info"] = State_Info_Effect[int(specialEffect['State Info'])]
-        if (int(specialEffect['Trigger at HP Below %']) != -1):
-            row_dict["trigger_below_hp_%"] = int(specialEffect['Trigger at HP Below %'])
-        if (float(specialEffect['Duration']) != -1.0):
-            row_dict["duration"] = float(specialEffect['Duration'])
-        if (int(specialEffect['Vigor']) != 0):
-            row_dict["vigor"] = int(specialEffect['Vigor'])
-        if (int(specialEffect['Mind']) != 0):
-            row_dict["mind"] = int(specialEffect['Mind'])
-        if (int(specialEffect['Endurance']) != 0):
-            row_dict["endurance"] = int(specialEffect['Endurance'])
-        if (int(specialEffect['Strength']) != 0):
-            row_dict["strength"] = int(specialEffect['Strength'])
-        if (int(specialEffect['Dexterity']) != 0):
-            row_dict["dexterity"] = int(specialEffect['Dexterity'])
-        if (int(specialEffect['Intelligence']) != 0):
-            row_dict["intelligence"] = int(specialEffect['Intelligence'])
-        if (int(specialEffect['Faith']) != 0):
-            row_dict["faith"] = int(specialEffect['Faith'])
-        if (int(specialEffect['Arcane']) != 0):
-            row_dict["arcane"] = int(specialEffect['Arcane'])
-        if (int(specialEffect['Conditional Weapon Effect 1']) != 0):
-            row_dict["coditional_weapon_effect_1"] = Conditional_Weapon_Effect[int(specialEffect['Conditional Weapon Effect 1'])]
-        if (int(specialEffect['Conditional Weapon Effect 2']) != 0):
-            row_dict["coditional_weapon_effect_2"] = Conditional_Weapon_Effect[int(specialEffect['Conditional Weapon Effect 2'])]
-        if (int(specialEffect['Conditional Weapon Effect 3']) != 0):
-            row_dict["coditional_weapon_effect_3"] = Conditional_Weapon_Effect[int(specialEffect['Conditional Weapon Effect 3'])]
-        if (float(specialEffect['Attack %: Physical']) != 1.0):
-            row_dict["attack_percent_physical"] = float(specialEffect['Attack %: Physical']) - 1.0
-        if (float(specialEffect['Attack %: Magic']) != 1.0):
-            row_dict["attack_percent_magic"] = float(specialEffect['Attack %: Magic']) - 1.0
-        if (float(specialEffect['Attack %: Fire']) != 1.0):
-            row_dict["attack_percent_fire"] = float(specialEffect['Attack %: Fire']) - 1.0
-        if (float(specialEffect['Attack %: Lightning']) != 1.0):
-            row_dict["attack_percent_lightning"] = float(specialEffect['Attack %: Lightning'])  - 1.0
-        if (float(specialEffect['Attack %: Holy']) != 1.0):
-            row_dict["attack_percent_holy"] = float(specialEffect['Attack %: Holy']) - 1.0
-        if (float(specialEffect['Power %: Physical']) != 1.0):
-            row_dict["power_percent_physical"] = float(specialEffect['Power %: Physical']) - 1.0
-        if (float(specialEffect['Power %: Magic']) != 1.0):
-            row_dict["power_percent_magic"] = float(specialEffect['Power %: Magic']) - 1.0
-        if (float(specialEffect['Power %: Fire']) != 1.0):
-            row_dict["power_percent_fire"] = float(specialEffect['Power %: Fire']) - 1.0
-        if (float(specialEffect['Power %: Lightning']) != 1.0):
-            row_dict["power_percent_lightning"] = float(specialEffect['Power %: Lightning'])  - 1.0
-        if (float(specialEffect['Power %: Holy']) != 1.0):
-            row_dict["power_percent_holy"] = float(specialEffect['Power %: Holy']) - 1.0
-        if (int(specialEffect['Damage +: Physical']) != 0):
-            row_dict["damage_physical"] = int(specialEffect['Damage +: Physical'])
-        if (int(specialEffect['Damage +: Magic']) != 0):
-            row_dict["damage_magic"] = int(specialEffect['Damage +: Magic'])
-        if (int(specialEffect['Damage +: Fire']) != 0):
-            row_dict["damage_fire"] = int(specialEffect['Damage +: Fire'])
-        if (int(specialEffect['Damage +: Lighting']) != 0):
-            row_dict["damage_lightning"] = int(specialEffect['Damage +: Lighting'])
-        if (int(specialEffect['Damage +: Holy']) != 0):
-            row_dict["damage_holy"] = int(specialEffect['Damage +: Holy'])
-        if (float(specialEffect['Damage %: Physical']) != 1.0):
-            row_dict["damage_percent_physical"] = float(specialEffect['Damage %: Physical']) - 1.0
-        if (float(specialEffect['Damage %: Magic']) != 1.0):
-            row_dict["damage_percent_magic"] = float(specialEffect['Damage %: Magic']) - 1.0
-        if (float(specialEffect['Damage %: Fire']) != 1.0):
-            row_dict["damage_percent_fire"] = float(specialEffect['Damage %: Fire']) - 1.0
-        if (float(specialEffect['Damage %: Lightning']) != 1.0):
-            row_dict["damage_percent_lightning"] = float(specialEffect['Damage %: Lightning'])  - 1.0
-        if (float(specialEffect['Damage %: Holy']) != 1.0):
-            row_dict["damage_percent_holy"] = float(specialEffect['Damage %: Holy']) - 1.0
-        if (int(specialEffect['Defence +: Physical']) != 0):
-            row_dict["defense_physical"] = int(specialEffect['Defence +: Physical'])
-        if (int(specialEffect['Defence +: Magic']) != 0):
-            row_dict["defense_magic"] = int(specialEffect['Defence +: Magic'])
-        if (int(specialEffect['Defence +: Fire']) != 0):
-            row_dict["defense_fire"] = int(specialEffect['Defence +: Fire'])
-        if (int(specialEffect['Defence +: Lightning']) != 0):
-            row_dict["defense_lightning"] = int(specialEffect['Defence +: Lightning'])
-        if (int(specialEffect['Defence +: Holy']) != 0):
-            row_dict["defense_holy"] = int(specialEffect['Defence +: Holy'])
-        if (float(specialEffect['Defence %: Physical']) != 1.0):
-            row_dict["defense_percent_physical"] = float(specialEffect['Defence %: Physical']) - 1.0
-        if (float(specialEffect['Defence %: Magic']) != 1.0):
-            row_dict["defense_percent_magic"] = float(specialEffect['Defence %: Magic']) - 1.0
-        if (float(specialEffect['Defence %: Fire']) != 1.0):
-            row_dict["defense_percent_fire"] = float(specialEffect['Defence %: Fire']) - 1.0
-        if (float(specialEffect['Defence %: Lightning']) != 1.0):
-            row_dict["defense_percent_lightning"] = float(specialEffect['Defence %: Lightning'])  - 1.0
-        if (float(specialEffect['Defence %: Holy']) != 1.0):
-            row_dict["defensee_percent_holy"] = float(specialEffect['Defence %: Holy']) - 1.0
-        if (float(specialEffect['PVP Damage %: Physical']) != 1.0):
-            row_dict["pvp_damage_percent_physical"] = float(specialEffect['PVP Damage %: Physical']) - 1.0
-        if (float(specialEffect['PVP Damage %: Magic']) != 1.0):
-            row_dict["pvp_damage_percent_magic"] = float(specialEffect['PVP Damage %: Magic']) - 1.0
-        if (float(specialEffect['PVP Damage %: Fire']) != 1.0):
-            row_dict["pvp_damage_percent_fire"] = float(specialEffect['PVP Damage %: Fire']) - 1.0
-        if (float(specialEffect['PVP Damage %: Lightning']) != 1.0):
-            row_dict["pvp_damage_percent_lightning"] = float(specialEffect['PVP Damage %: Lightning'])  - 1.0
-        if (float(specialEffect['PVP Damage %: Holy']) != 1.0):
-            row_dict["pvp_damage_percent_holy"] = float(specialEffect['PVP Damage %: Holy']) - 1.0
-        if (float(specialEffect['Absorption %: Physical']) != 1.0):
-            row_dict["absorption_percent_physical"] = -(float(specialEffect['Absorption %: Physical']) - 1.0)
-        if (float(specialEffect['Absorption %: Magic']) != 1.0):
-            row_dict["absorption_percent_magic"] = -(float(specialEffect['Absorption %: Magic']) - 1.0)
-        if (float(specialEffect['Absorption %: Fire']) != 1.0):
-            row_dict["absorption_percent_fire"] = -(float(specialEffect['Absorption %: Fire']) - 1.0)
-        if (float(specialEffect['Absorption %: Lightning']) != 1.0):
-            row_dict["absorption_percent_lightning"] = -(float(specialEffect['Absorption %: Lightning'])  - 1.0)
-        if (float(specialEffect['Absorption %: Holy']) != 1.0):
-            row_dict["absorption_percent_holy"] = -(float(specialEffect['Absorption %: Holy']) - 1.0)
-        if (float(specialEffect['PVP Absorption %: Physical']) != 1.0):
-            row_dict["pvp_absorption_percent_physical"] = -(float(specialEffect['PVP Absorption %: Physical']) - 1.0)
-        if (float(specialEffect['PVP Absorption %: Magic']) != 1.0):
-            row_dict["pvp_absorption_percent_magic"] = -(float(specialEffect['PVP Absorption %: Magic']) - 1.0)
-        if (float(specialEffect['PVP Absorption %: Fire']) != 1.0):
-            row_dict["pvp_absorption_percent_fire"] = -(float(specialEffect['PVP Absorption %: Fire']) - 1.0)
-        if (float(specialEffect['PVP Absorption %: Lightning']) != 1.0):
-            row_dict["pvp_absorptione_percent_lightning"] = -(float(specialEffect['PVP Absorption %: Lightning'])  - 1.0)
-        if (float(specialEffect['PVP Absorption %: Holy']) != 1.0):
-            row_dict["pvp_absorption_percent_holy"] = -(float(specialEffect['PVP Absorption %: Holy']) - 1.0)
-        if (float(specialEffect['Absorption: Standard']) != 1.0):
-            row_dict["absorption_standard"] = float(specialEffect['Absorption: Standard']) - 1.0
-        if (float(specialEffect['Absorption: Strike']) != 1.0):
-            row_dict["absorption_strike"] = float(specialEffect['Absorption: Strike']) - 1.0
-        if (float(specialEffect['Absorption: Slash']) != 1.0):
-            row_dict["absorption_slash"] = float(specialEffect['Absorption: Slash']) - 1.0
-        if (float(specialEffect['Absorption: Thrust']) != 1.0):
-            row_dict["absorption_thrust"] = float(specialEffect['Absorption: Thrust']) - 1.0
-        if (float(specialEffect['Absorption: Magic']) != 1.0):
-            row_dict["absorption_magic"] = float(specialEffect['Absorption: Magic']) - 1.0
-        if (float(specialEffect['Absorption: Fire']) != 1.0):
-            row_dict["absorption_fire"] = float(specialEffect['Absorption: Fire']) - 1.0
-        if (float(specialEffect['Absorption: Lightning']) != 1.0):
-            row_dict["absorption_lightning"] = float(specialEffect['Absorption: Lightning'])  - 1.0
-        if (float(specialEffect['Absorption: Holy']) != 1.0):
-            row_dict["absorption_holy"] = float(specialEffect['Absorption: Holy']) - 1.0
+    row_dict = OrderedDict()
+    row_dict["state_info"] = State_Info_Effect[int(specialEffect['State Info'])]
+    if (int(specialEffect['Icon ID']) != -1):
+        row_dict["icon_id"] = int(specialEffect['Icon ID'])
+    if (int(specialEffect['Trigger at HP Below %']) != -1):
+        row_dict["trigger_below_hp_%"] = int(specialEffect['Trigger at HP Below %'])
+    if (float(specialEffect['Duration']) != -1.0):
+        row_dict["duration"] = float(specialEffect['Duration'])
+    if (int(specialEffect['Vigor']) != 0):
+        row_dict["vigor"] = int(specialEffect['Vigor'])
+    if (int(specialEffect['Mind']) != 0):
+        row_dict["mind"] = int(specialEffect['Mind'])
+    if (int(specialEffect['Endurance']) != 0):
+        row_dict["endurance"] = int(specialEffect['Endurance'])
+    if (int(specialEffect['Strength']) != 0):
+        row_dict["strength"] = int(specialEffect['Strength'])
+    if (int(specialEffect['Dexterity']) != 0):
+        row_dict["dexterity"] = int(specialEffect['Dexterity'])
+    if (int(specialEffect['Intelligence']) != 0):
+        row_dict["intelligence"] = int(specialEffect['Intelligence'])
+    if (int(specialEffect['Faith']) != 0):
+        row_dict["faith"] = int(specialEffect['Faith'])
+    if (int(specialEffect['Arcane']) != 0):
+        row_dict["arcane"] = int(specialEffect['Arcane'])
+    if (int(specialEffect['Conditional Weapon Effect 1']) != 0):
+        row_dict["coditional_weapon_effect_1"] = Conditional_Weapon_Effect[int(specialEffect['Conditional Weapon Effect 1'])]
+    if (int(specialEffect['Conditional Weapon Effect 2']) != 0):
+        row_dict["coditional_weapon_effect_2"] = Conditional_Weapon_Effect[int(specialEffect['Conditional Weapon Effect 2'])]
+    if (int(specialEffect['Conditional Weapon Effect 3']) != 0):
+        row_dict["coditional_weapon_effect_3"] = Conditional_Weapon_Effect[int(specialEffect['Conditional Weapon Effect 3'])]
+    if (float(specialEffect['Attack %: Physical']) != 1.0):
+        row_dict["attack_percent_physical"] = float(specialEffect['Attack %: Physical']) - 1.0
+    if (float(specialEffect['Attack %: Magic']) != 1.0):
+        row_dict["attack_percent_magic"] = float(specialEffect['Attack %: Magic']) - 1.0
+    if (float(specialEffect['Attack %: Fire']) != 1.0):
+        row_dict["attack_percent_fire"] = float(specialEffect['Attack %: Fire']) - 1.0
+    if (float(specialEffect['Attack %: Lightning']) != 1.0):
+        row_dict["attack_percent_lightning"] = float(specialEffect['Attack %: Lightning'])  - 1.0
+    if (float(specialEffect['Attack %: Holy']) != 1.0):
+        row_dict["attack_percent_holy"] = float(specialEffect['Attack %: Holy']) - 1.0
+    if (float(specialEffect['Power %: Physical']) != 1.0):
+        row_dict["power_percent_physical"] = float(specialEffect['Power %: Physical']) - 1.0
+    if (float(specialEffect['Power %: Magic']) != 1.0):
+        row_dict["power_percent_magic"] = float(specialEffect['Power %: Magic']) - 1.0
+    if (float(specialEffect['Power %: Fire']) != 1.0):
+        row_dict["power_percent_fire"] = float(specialEffect['Power %: Fire']) - 1.0
+    if (float(specialEffect['Power %: Lightning']) != 1.0):
+        row_dict["power_percent_lightning"] = float(specialEffect['Power %: Lightning'])  - 1.0
+    if (float(specialEffect['Power %: Holy']) != 1.0):
+        row_dict["power_percent_holy"] = float(specialEffect['Power %: Holy']) - 1.0
+    if (int(specialEffect['Damage +: Physical']) != 0):
+        row_dict["damage_physical"] = int(specialEffect['Damage +: Physical'])
+    if (int(specialEffect['Damage +: Magic']) != 0):
+        row_dict["damage_magic"] = int(specialEffect['Damage +: Magic'])
+    if (int(specialEffect['Damage +: Fire']) != 0):
+        row_dict["damage_fire"] = int(specialEffect['Damage +: Fire'])
+    if (int(specialEffect['Damage +: Lighting']) != 0):
+        row_dict["damage_lightning"] = int(specialEffect['Damage +: Lighting'])
+    if (int(specialEffect['Damage +: Holy']) != 0):
+        row_dict["damage_holy"] = int(specialEffect['Damage +: Holy'])
+    if (float(specialEffect['Damage %: Physical']) != 1.0):
+        row_dict["damage_percent_physical"] = float(specialEffect['Damage %: Physical']) - 1.0
+    if (float(specialEffect['Damage %: Magic']) != 1.0):
+        row_dict["damage_percent_magic"] = float(specialEffect['Damage %: Magic']) - 1.0
+    if (float(specialEffect['Damage %: Fire']) != 1.0):
+        row_dict["damage_percent_fire"] = float(specialEffect['Damage %: Fire']) - 1.0
+    if (float(specialEffect['Damage %: Lightning']) != 1.0):
+        row_dict["damage_percent_lightning"] = float(specialEffect['Damage %: Lightning'])  - 1.0
+    if (float(specialEffect['Damage %: Holy']) != 1.0):
+        row_dict["damage_percent_holy"] = float(specialEffect['Damage %: Holy']) - 1.0
+    if (int(specialEffect['Defence +: Physical']) != 0):
+        row_dict["defense_physical"] = int(specialEffect['Defence +: Physical'])
+    if (int(specialEffect['Defence +: Magic']) != 0):
+        row_dict["defense_magic"] = int(specialEffect['Defence +: Magic'])
+    if (int(specialEffect['Defence +: Fire']) != 0):
+        row_dict["defense_fire"] = int(specialEffect['Defence +: Fire'])
+    if (int(specialEffect['Defence +: Lightning']) != 0):
+        row_dict["defense_lightning"] = int(specialEffect['Defence +: Lightning'])
+    if (int(specialEffect['Defence +: Holy']) != 0):
+        row_dict["defense_holy"] = int(specialEffect['Defence +: Holy'])
+    if (float(specialEffect['Defence %: Physical']) != 1.0):
+        row_dict["defense_percent_physical"] = float(specialEffect['Defence %: Physical']) - 1.0
+    if (float(specialEffect['Defence %: Magic']) != 1.0):
+        row_dict["defense_percent_magic"] = float(specialEffect['Defence %: Magic']) - 1.0
+    if (float(specialEffect['Defence %: Fire']) != 1.0):
+        row_dict["defense_percent_fire"] = float(specialEffect['Defence %: Fire']) - 1.0
+    if (float(specialEffect['Defence %: Lightning']) != 1.0):
+        row_dict["defense_percent_lightning"] = float(specialEffect['Defence %: Lightning'])  - 1.0
+    if (float(specialEffect['Defence %: Holy']) != 1.0):
+        row_dict["defensee_percent_holy"] = float(specialEffect['Defence %: Holy']) - 1.0
+    if (float(specialEffect['PVP Damage %: Physical']) != 1.0):
+        row_dict["pvp_damage_percent_physical"] = float(specialEffect['PVP Damage %: Physical']) - 1.0
+    if (float(specialEffect['PVP Damage %: Magic']) != 1.0):
+        row_dict["pvp_damage_percent_magic"] = float(specialEffect['PVP Damage %: Magic']) - 1.0
+    if (float(specialEffect['PVP Damage %: Fire']) != 1.0):
+        row_dict["pvp_damage_percent_fire"] = float(specialEffect['PVP Damage %: Fire']) - 1.0
+    if (float(specialEffect['PVP Damage %: Lightning']) != 1.0):
+        row_dict["pvp_damage_percent_lightning"] = float(specialEffect['PVP Damage %: Lightning'])  - 1.0
+    if (float(specialEffect['PVP Damage %: Holy']) != 1.0):
+        row_dict["pvp_damage_percent_holy"] = float(specialEffect['PVP Damage %: Holy']) - 1.0
+    if (float(specialEffect['Absorption %: Physical']) != 1.0):
+        row_dict["absorption_percent_physical"] = -(float(specialEffect['Absorption %: Physical']) - 1.0)
+    if (float(specialEffect['Absorption %: Magic']) != 1.0):
+        row_dict["absorption_percent_magic"] = -(float(specialEffect['Absorption %: Magic']) - 1.0)
+    if (float(specialEffect['Absorption %: Fire']) != 1.0):
+        row_dict["absorption_percent_fire"] = -(float(specialEffect['Absorption %: Fire']) - 1.0)
+    if (float(specialEffect['Absorption %: Lightning']) != 1.0):
+        row_dict["absorption_percent_lightning"] = -(float(specialEffect['Absorption %: Lightning'])  - 1.0)
+    if (float(specialEffect['Absorption %: Holy']) != 1.0):
+        row_dict["absorption_percent_holy"] = -(float(specialEffect['Absorption %: Holy']) - 1.0)
+    if (float(specialEffect['PVP Absorption %: Physical']) != 1.0):
+        row_dict["pvp_absorption_percent_physical"] = -(float(specialEffect['PVP Absorption %: Physical']) - 1.0)
+    if (float(specialEffect['PVP Absorption %: Magic']) != 1.0):
+        row_dict["pvp_absorption_percent_magic"] = -(float(specialEffect['PVP Absorption %: Magic']) - 1.0)
+    if (float(specialEffect['PVP Absorption %: Fire']) != 1.0):
+        row_dict["pvp_absorption_percent_fire"] = -(float(specialEffect['PVP Absorption %: Fire']) - 1.0)
+    if (float(specialEffect['PVP Absorption %: Lightning']) != 1.0):
+        row_dict["pvp_absorptione_percent_lightning"] = -(float(specialEffect['PVP Absorption %: Lightning'])  - 1.0)
+    if (float(specialEffect['PVP Absorption %: Holy']) != 1.0):
+        row_dict["pvp_absorption_percent_holy"] = -(float(specialEffect['PVP Absorption %: Holy']) - 1.0)
+    if (float(specialEffect['Absorption: Standard']) != 1.0):
+        row_dict["absorption_standard"] = float(specialEffect['Absorption: Standard']) - 1.0
+    if (float(specialEffect['Absorption: Strike']) != 1.0):
+        row_dict["absorption_strike"] = float(specialEffect['Absorption: Strike']) - 1.0
+    if (float(specialEffect['Absorption: Slash']) != 1.0):
+        row_dict["absorption_slash"] = float(specialEffect['Absorption: Slash']) - 1.0
+    if (float(specialEffect['Absorption: Thrust']) != 1.0):
+        row_dict["absorption_thrust"] = float(specialEffect['Absorption: Thrust']) - 1.0
+    if (float(specialEffect['Absorption: Magic']) != 1.0):
+        row_dict["absorption_magic"] = float(specialEffect['Absorption: Magic']) - 1.0
+    if (float(specialEffect['Absorption: Fire']) != 1.0):
+        row_dict["absorption_fire"] = float(specialEffect['Absorption: Fire']) - 1.0
+    if (float(specialEffect['Absorption: Lightning']) != 1.0):
+        row_dict["absorption_lightning"] = float(specialEffect['Absorption: Lightning'])  - 1.0
+    if (float(specialEffect['Absorption: Holy']) != 1.0):
+        row_dict["absorption_holy"] = float(specialEffect['Absorption: Holy']) - 1.0
 
-        if (int(specialEffect['Resist: Poison +']) == int(specialEffect['Resist: Scarlet Rot +'])):
-            if (int(specialEffect['Resist: Poison +']) != 0):
-                row_dict["resist_immunity"] = int(specialEffect['Resist: Poison +'])
-        else:
-            if (int(specialEffect['Resist: Poison +']) != 0):
-                row_dict["resist_poison"] = int(specialEffect['Resist: Poison +'])
-            if (int(specialEffect['Resist: Scarlet Rot +']) != 0):
-                row_dict["resist_rot"] = int(specialEffect['Resist: Scarlet Rot +'])
-        if (int(specialEffect['Resist: Hemorrhage +']) == int(specialEffect['Resist: Frostbite +'])):
-            if (int(specialEffect['Resist: Hemorrhage +']) != 0):
-                row_dict["resist_robustness"] = int(specialEffect['Resist: Hemorrhage +'])
-        else:
-            if (int(specialEffect['Resist: Hemorrhage +']) != 0):
-                row_dict["resist_bleed"] = int(specialEffect['Resist: Hemorrhage +'])
-            if (int(specialEffect['Resist: Frostbite +']) != 0):
-                row_dict["resist_frost"] = int(specialEffect['Resist: Frostbite +'])
-        if (int(specialEffect['Resist: Madness +']) == int(specialEffect['Resist: Sleep +'])):
-            if (int(specialEffect['Resist: Madness +']) != 0):
-                row_dict["resist_focus"] = int(specialEffect['Resist: Madness +'])
-        else:
-            if (int(specialEffect['Resist: Madness +']) != 0):
-                row_dict["resist_madness"] = int(specialEffect['Resist: Madness +'])
-            if (int(specialEffect['Resist: Sleep +']) != 0):
-                row_dict["resist_sleep"] = int(specialEffect['Resist: Sleep +'])
-        if (int(specialEffect['Resist: Blight +']) != 0):
-            row_dict["resist_vitality"] = int(specialEffect['Resist: Blight +'])
+    if (int(specialEffect['Resist: Poison +']) == int(specialEffect['Resist: Scarlet Rot +'])):
+        if (int(specialEffect['Resist: Poison +']) != 0):
+            row_dict["resist_immunity"] = int(specialEffect['Resist: Poison +'])
+    else:
+        if (int(specialEffect['Resist: Poison +']) != 0):
+            row_dict["resist_poison"] = int(specialEffect['Resist: Poison +'])
+        if (int(specialEffect['Resist: Scarlet Rot +']) != 0):
+            row_dict["resist_rot"] = int(specialEffect['Resist: Scarlet Rot +'])
+    if (int(specialEffect['Resist: Hemorrhage +']) == int(specialEffect['Resist: Frostbite +'])):
+        if (int(specialEffect['Resist: Hemorrhage +']) != 0):
+            row_dict["resist_robustness"] = int(specialEffect['Resist: Hemorrhage +'])
+    else:
+        if (int(specialEffect['Resist: Hemorrhage +']) != 0):
+            row_dict["resist_bleed"] = int(specialEffect['Resist: Hemorrhage +'])
+        if (int(specialEffect['Resist: Frostbite +']) != 0):
+            row_dict["resist_frost"] = int(specialEffect['Resist: Frostbite +'])
+    if (int(specialEffect['Resist: Madness +']) == int(specialEffect['Resist: Sleep +'])):
+        if (int(specialEffect['Resist: Madness +']) != 0):
+            row_dict["resist_focus"] = int(specialEffect['Resist: Madness +'])
+    else:
+        if (int(specialEffect['Resist: Madness +']) != 0):
+            row_dict["resist_madness"] = int(specialEffect['Resist: Madness +'])
+        if (int(specialEffect['Resist: Sleep +']) != 0):
+            row_dict["resist_sleep"] = int(specialEffect['Resist: Sleep +'])
+    if (int(specialEffect['Resist: Blight +']) != 0):
+        row_dict["resist_vitality"] = int(specialEffect['Resist: Blight +'])
 
-        if (int(specialEffect['Inflict Poison +']) == int(specialEffect['Inflict Scarlet Rot +'])):
-            if (int(specialEffect['Inflict Poison +']) != 0):
-                row_dict["resist_immunity"] = int(specialEffect['Inflict Poison +'])
-        else:
-            if (int(specialEffect['Inflict Poison +']) != 0):
-                row_dict["inflict_poison"] = int(specialEffect['Inflict Poison +'])
-            if (int(specialEffect['Inflict Scarlet Rot +']) != 0):
-                row_dict["inflict_rot"] = int(specialEffect['Inflict Scarlet Rot +'])
-        if (int(specialEffect['Inflict Hemorrhage +']) == int(specialEffect['Inflict Frostbite +'])):
-            if (int(specialEffect['Inflict Hemorrhage +']) != 0):
-                row_dict["inflict_robustness"] = int(specialEffect['Inflict Hemorrhage +'])
-        else:
-            if (int(specialEffect['Inflict Hemorrhage +']) != 0):
-                row_dict["inflict_bleed"] = int(specialEffect['Inflict Hemorrhage +'])
-            if (int(specialEffect['Inflict Frostbite +']) != 0):
-                row_dict["inflict_frost"] = int(specialEffect['Inflict Frostbite +'])
-        if (int(specialEffect['Inflict Madness +']) == int(specialEffect['Inflict Sleep +'])):
-            if (int(specialEffect['Inflict Madness +']) != 0):
-                row_dict["inflict_focus"] = int(specialEffect['Inflict Madness +'])
-        else:
-            if (int(specialEffect['Inflict Madness +']) != 0):
-                row_dict["inflict_madness"] = int(specialEffect['Inflict Madness +'])
-            if (int(specialEffect['Inflict Sleep +']) != 0):
-                row_dict["inflict_sleep"] = int(specialEffect['Inflict Sleep +'])
-        if (int(specialEffect['Inflict Blight +']) != 0):
-            row_dict["inflict_vitality"] = int(specialEffect['Inflict Blight +'])
+    if (int(specialEffect['Inflict Poison +']) == int(specialEffect['Inflict Scarlet Rot +'])):
+        if (int(specialEffect['Inflict Poison +']) != 0):
+            row_dict["resist_immunity"] = int(specialEffect['Inflict Poison +'])
+    else:
+        if (int(specialEffect['Inflict Poison +']) != 0):
+            row_dict["inflict_poison"] = int(specialEffect['Inflict Poison +'])
+        if (int(specialEffect['Inflict Scarlet Rot +']) != 0):
+            row_dict["inflict_rot"] = int(specialEffect['Inflict Scarlet Rot +'])
+    if (int(specialEffect['Inflict Hemorrhage +']) == int(specialEffect['Inflict Frostbite +'])):
+        if (int(specialEffect['Inflict Hemorrhage +']) != 0):
+            row_dict["inflict_robustness"] = int(specialEffect['Inflict Hemorrhage +'])
+    else:
+        if (int(specialEffect['Inflict Hemorrhage +']) != 0):
+            row_dict["inflict_bleed"] = int(specialEffect['Inflict Hemorrhage +'])
+        if (int(specialEffect['Inflict Frostbite +']) != 0):
+            row_dict["inflict_frost"] = int(specialEffect['Inflict Frostbite +'])
+    if (int(specialEffect['Inflict Madness +']) == int(specialEffect['Inflict Sleep +'])):
+        if (int(specialEffect['Inflict Madness +']) != 0):
+            row_dict["inflict_focus"] = int(specialEffect['Inflict Madness +'])
+    else:
+        if (int(specialEffect['Inflict Madness +']) != 0):
+            row_dict["inflict_madness"] = int(specialEffect['Inflict Madness +'])
+        if (int(specialEffect['Inflict Sleep +']) != 0):
+            row_dict["inflict_sleep"] = int(specialEffect['Inflict Sleep +'])
+    if (int(specialEffect['Inflict Blight +']) != 0):
+        row_dict["inflict_vitality"] = int(specialEffect['Inflict Blight +'])
 
-        if (int(specialEffect['Resist %: Poison']) == int(specialEffect['Resist %: Scarlet Rot'])):
-            if (float(specialEffect['Resist %: Poison']) != 1.0):
-                row_dict["resist_percent_immunity"] = int(specialEffect['Resist %: Poison'])
-        else:
-            if (float(specialEffect['Resist %: Poison']) != 1.0):
-                row_dict["resist_percent_poison"] = int(specialEffect['Resist %: Poison'])
-            if (float(specialEffect['Resist %: Scarlet Rot']) != 1.0):
-                row_dict["resist_percent_rot"] = int(specialEffect['Resist %: Scarlet Rot'])
-        if (int(specialEffect['Resist %: Hemorrhage']) == int(specialEffect['Resist %: Frostbite'])):
-            if (float(specialEffect['Resist %: Hemorrhage']) != 1.0):
-                row_dict["resist_percent_robustness"] = int(specialEffect['Resist %: Hemorrhage'])
-        else:
-            if (float(specialEffect['Resist %: Hemorrhage']) != 1.0):
-                row_dict["resist_percent_bleed"] = int(specialEffect['Resist %: Hemorrhage'])
-            if (float(specialEffect['Resist %: Frostbite']) != 1.0):
-                row_dict["resist_percent_frost"] = int(specialEffect['Resist %: Frostbite'])
-        if (int(specialEffect['Resist %: Madness']) == int(specialEffect['Resist %: Sleep'])):
-            if (float(specialEffect['Resist %: Sleep']) != 1.0):
-                row_dict["resist_percent_focus"] = int(specialEffect['Resist %: Sleep'])
-        else:
-            if (float(specialEffect['Resist %: Madness']) != 1.0):
-                row_dict["resist_percent_madness"] = int(specialEffect['Resist %: Madness'])
-            if (float(specialEffect['Resist %: Sleep']) != 1.0):
-                row_dict["resist_percent_sleep"] = int(specialEffect['Resist %: Sleep'])
-        if (float(specialEffect['Resist %: Blight']) != 1.0):
-            row_dict["resist_percent_vitality"] = int(specialEffect['Resist %: Blight'])
+    if (int(specialEffect['Resist %: Poison']) == int(specialEffect['Resist %: Scarlet Rot'])):
+        if (float(specialEffect['Resist %: Poison']) != 1.0):
+            row_dict["resist_percent_immunity"] = int(specialEffect['Resist %: Poison'])
+    else:
+        if (float(specialEffect['Resist %: Poison']) != 1.0):
+            row_dict["resist_percent_poison"] = int(specialEffect['Resist %: Poison'])
+        if (float(specialEffect['Resist %: Scarlet Rot']) != 1.0):
+            row_dict["resist_percent_rot"] = int(specialEffect['Resist %: Scarlet Rot'])
+    if (int(specialEffect['Resist %: Hemorrhage']) == int(specialEffect['Resist %: Frostbite'])):
+        if (float(specialEffect['Resist %: Hemorrhage']) != 1.0):
+            row_dict["resist_percent_robustness"] = int(specialEffect['Resist %: Hemorrhage'])
+    else:
+        if (float(specialEffect['Resist %: Hemorrhage']) != 1.0):
+            row_dict["resist_percent_bleed"] = int(specialEffect['Resist %: Hemorrhage'])
+        if (float(specialEffect['Resist %: Frostbite']) != 1.0):
+            row_dict["resist_percent_frost"] = int(specialEffect['Resist %: Frostbite'])
+    if (int(specialEffect['Resist %: Madness']) == int(specialEffect['Resist %: Sleep'])):
+        if (float(specialEffect['Resist %: Sleep']) != 1.0):
+            row_dict["resist_percent_focus"] = int(specialEffect['Resist %: Sleep'])
+    else:
+        if (float(specialEffect['Resist %: Madness']) != 1.0):
+            row_dict["resist_percent_madness"] = int(specialEffect['Resist %: Madness'])
+        if (float(specialEffect['Resist %: Sleep']) != 1.0):
+            row_dict["resist_percent_sleep"] = int(specialEffect['Resist %: Sleep'])
+    if (float(specialEffect['Resist %: Blight']) != 1.0):
+        row_dict["resist_percent_vitality"] = int(specialEffect['Resist %: Blight'])
 
-        if (int(specialEffect['Status Damage %: Poison']) == int(specialEffect['Status Damage %: Scarlet Rot'])):
-            if (float(specialEffect['Status Damage %: Poison']) != 1.0):
-                row_dict["status_damage_percent_immunity"] = int(specialEffect['Status Damage %: Poison'])
-        else:
-            if (float(specialEffect['Status Damage %: Poison']) != 1.0):
-                row_dict["status_damage_percent_poison"] = int(specialEffect['Status Damage %: Poison'])
-            if (float(specialEffect['Status Damage %: Scarlet Rot']) != 1.0):
-                row_dict["status_damage_percent_rot"] = int(specialEffect['Status Damage %: Scarlet Rot'])
-        if (int(specialEffect['Status Damage %: Hemorrhage']) == int(specialEffect['Status Damage %: Frostbite'])):
-            if (float(specialEffect['Status Damage %: Hemorrhage']) != 1.0):
-                row_dict["status_damage_percent_robustness"] = int(specialEffect['Status Damage %: Hemorrhage'])
-        else:
-            if (float(specialEffect['Status Damage %: Hemorrhage']) != 1.0):
-                row_dict["status_damage_percent_bleed"] = int(specialEffect['Status Damage %: Hemorrhage'])
-            if (float(specialEffect['Status Damage %: Frostbite']) != 1.0):
-                row_dict["status_damage_percent_frost"] = int(specialEffect['Status Damage %: Frostbite'])
-        if (int(specialEffect['Status Damage %: Madness']) == int(specialEffect['Status Damage %: Sleep'])):
-            if (float(specialEffect['Status Damage %: Sleep']) != 1.0):
-                row_dict["status_damage_percent_focus"] = int(specialEffect['Status Damage %: Sleep'])
-        else:
-            if (float(specialEffect['Status Damage %: Madness']) != 1.0):
-                row_dict["status_damage_percent_madness"] = int(specialEffect['Status Damage %: Madness'])
-            if (float(specialEffect['Status Damage %: Sleep']) != 1.0):
-                row_dict["status_damage_percent_sleep"] = int(specialEffect['Status Damage %: Sleep'])
-        if (float(specialEffect['Status Damage %: Blight']) != 1.0):
-            row_dict["status_damage_percent_vitality"] = int(specialEffect['Status Damage %: Blight'])
+    if (int(specialEffect['Status Damage %: Poison']) == int(specialEffect['Status Damage %: Scarlet Rot'])):
+        if (float(specialEffect['Status Damage %: Poison']) != 1.0):
+            row_dict["status_damage_percent_immunity"] = int(specialEffect['Status Damage %: Poison'])
+    else:
+        if (float(specialEffect['Status Damage %: Poison']) != 1.0):
+            row_dict["status_damage_percent_poison"] = int(specialEffect['Status Damage %: Poison'])
+        if (float(specialEffect['Status Damage %: Scarlet Rot']) != 1.0):
+            row_dict["status_damage_percent_rot"] = int(specialEffect['Status Damage %: Scarlet Rot'])
+    if (int(specialEffect['Status Damage %: Hemorrhage']) == int(specialEffect['Status Damage %: Frostbite'])):
+        if (float(specialEffect['Status Damage %: Hemorrhage']) != 1.0):
+            row_dict["status_damage_percent_robustness"] = int(specialEffect['Status Damage %: Hemorrhage'])
+    else:
+        if (float(specialEffect['Status Damage %: Hemorrhage']) != 1.0):
+            row_dict["status_damage_percent_bleed"] = int(specialEffect['Status Damage %: Hemorrhage'])
+        if (float(specialEffect['Status Damage %: Frostbite']) != 1.0):
+            row_dict["status_damage_percent_frost"] = int(specialEffect['Status Damage %: Frostbite'])
+    if (int(specialEffect['Status Damage %: Madness']) == int(specialEffect['Status Damage %: Sleep'])):
+        if (float(specialEffect['Status Damage %: Sleep']) != 1.0):
+            row_dict["status_damage_percent_focus"] = int(specialEffect['Status Damage %: Sleep'])
+    else:
+        if (float(specialEffect['Status Damage %: Madness']) != 1.0):
+            row_dict["status_damage_percent_madness"] = int(specialEffect['Status Damage %: Madness'])
+        if (float(specialEffect['Status Damage %: Sleep']) != 1.0):
+            row_dict["status_damage_percent_sleep"] = int(specialEffect['Status Damage %: Sleep'])
+    if (float(specialEffect['Status Damage %: Blight']) != 1.0):
+        row_dict["status_damage_percent_vitality"] = int(specialEffect['Status Damage %: Blight'])
 
-        if (float(specialEffect['Target Priority']) != 0.0):
-            row_dict["target_priority_%"] = float(specialEffect['Target Priority'])
-        if (float(specialEffect['Enemy Sight Adjustment']) != 1.0):
-            row_dict["enemy_sight_adjustment_%"] = float(specialEffect['Enemy Sight Adjustment']) - 1.0
-        if (float(specialEffect['Enemy Listen Adjustment']) != 1.0):
-            row_dict["enemy_listen_adjustment_%"] = float(specialEffect['Enemy Listen Adjustment']) - 1.0
-        if (float(specialEffect['Sight Search - Enemy Addition']) != 0.0):
-            row_dict["sight_search_enemy_addition_%"] = float(specialEffect['Sight Search - Enemy Addition'])
-        if (float(specialEffect['Listen Search - Enemy Addition']) != 0.0):
-            row_dict["listen_search_enemy_addition_%"] = float(specialEffect['Listen Search - Enemy Addition'])
-        if (float(specialEffect['Sight Search Addition']) != 0.0):
-            row_dict["sight_search_addition_%"] = float(specialEffect['Sight Search Addition'])
-        if (float(specialEffect['Listen Search Addition']) != 0.0):
-            row_dict["listen_search_addition_%"] = float(specialEffect['Listen Search Addition'])
-        if (float(specialEffect['Listen Search Correction']) != 1.0):
-            row_dict["listen_search_correction_%"] = float(specialEffect['Listen Search Correction']) - 1.0
-        if (int(specialEffect['Change HP +']) != 0):
-            row_dict["change_hp"] = -int(specialEffect['Change HP +'])
-        if (int(specialEffect['Change FP +']) != 0):
-            row_dict["change_fp"] = -int(specialEffect['Change FP +'])
-        if (int(specialEffect['Change Stamina +']) != 0):
-            row_dict["change_stamina"] = -int(specialEffect['Change Stamina +'])
-        if (float(specialEffect['Change HP %']) != 0):
-            row_dict["change_hp_%"] = -float(specialEffect['Change HP %'])
-        if (float(specialEffect['Change FP %']) != 0):
-            row_dict["change_fp_%"] = -float(specialEffect['Change FP %'])
-        if (float(specialEffect['Change Stamina %']) != 0):
-            row_dict["change_stamina_%"] = -float(specialEffect['Change Stamina %'])
-        if (int(specialEffect['FP Recovery']) != 0):
-            row_dict["fp_recovery"] = int(specialEffect['FP Recovery'])
-        if (int(specialEffect['Stamina Recovery']) != 0):
-            row_dict["stamina_recovery"] = int(specialEffect['Stamina Recovery'])
-        if (float(specialEffect['Max HP']) != 1.0):
-            row_dict["max_hp_%"] = float(specialEffect['Max HP']) - 1.0
-        if (float(specialEffect['Max FP']) != 1.0):
-            row_dict["max_fp_%"] = float(specialEffect['Max FP']) - 1.0
-        if (float(specialEffect['Max Stamina']) != 1.0):
-            row_dict["max_stamina_%"] = float(specialEffect['Max Stamina']) - 1.0
-        if (float(specialEffect['Poise %']) != 1.0):
-            row_dict["poise_%"] = float(specialEffect['Poise %']) - 1.0
-        if (float(specialEffect['Poise +']) != 0.0):
-            row_dict["poise"] = float(specialEffect['Poise +'])
-        if (float(specialEffect['Fall Damage %']) != 1.0):
-            row_dict["fall_damage_%"] = float(specialEffect['Fall Damage %']) - 1.0
-        if (float(specialEffect['Equip Load %']) != 1.0):
-            row_dict["equip_load_%"] = float(specialEffect['Equip Load %']) - 1.0
-        if (float(specialEffect['Effect Duration %']) != 1.0):
-            row_dict["effect_duration_%"] = float(specialEffect['Effect Duration %']) - 1.0
-        if (float(specialEffect['Guard Stability %']) != 1.0):
-            row_dict["guard_stability_%"] = float(specialEffect['Guard Stability %']) - 1.0
-        if (float(specialEffect['Attack %: Stamina']) != 1.0):
-            row_dict["guard_break_%"] = float(specialEffect['Attack %: Stamina']) - 1.0
-        if (float(specialEffect['No Guard Damage %']) != 1.0):
-            row_dict["no_guard_damage_%"] = float(specialEffect['No Guard Damage %']) - 1.0
-        if (float(specialEffect['Poise Recovery Time %']) != 1.0):
-            row_dict["poise_recovery_time_%"] = float(specialEffect['Poise Recovery Time %']) - 1.0
-        if (float(specialEffect['Regain Correction %']) != 1.0):
-            row_dict["regain_correction_%"] = float(specialEffect['Regain Correction %']) - 1.0
-        if (float(specialEffect['Poise Damage %']) != 1.0):
-            row_dict["poise_damage_%"] = float(specialEffect['Poise Damage %']) - 1.0
-        if (int(specialEffect['Rune Gain +']) != 0):
-            row_dict["rune_gain"] = int(specialEffect['Rune Gain +'])
-        if (float(specialEffect['Rune Gain %']) != 1.0):
-            row_dict["rune_gain_%"] = float(specialEffect['Rune Gain %']) - 1.0
-        if (float(specialEffect['HP Flask - HP Restore Correction']) != 1.0):
-            row_dict["hp_restore_correction_%"] = float(specialEffect['HP Flask - HP Restore Correction']) - 1.0
-        if (float(specialEffect['FP Flask - HP Restore Correction']) != 1.0):
-            row_dict["fp_restore_correction_%"] = float(specialEffect['FP Flask - HP Restore Correction']) - 1.0
-        if (float(specialEffect['Skill FP Cost %']) != 1.0):
-            row_dict["skill_fp_cost_%"] = float(specialEffect['Skill FP Cost %']) - 1.0 
-        if (float(specialEffect['Sorcery FP Cost %']) != 1.0):
-            row_dict["sorcery_fp_cost_%"] = float(specialEffect['Sorcery FP Cost %']) - 1.0 
-        if (float(specialEffect['Incantation FP Cost %']) != 1.0):
-            row_dict["incantation_fp_cost_%"] = float(specialEffect['Incantation FP Cost %']) - 1.0  
-        if (int(specialEffect['Cast Speed']) != 0):
-            row_dict["cast_speed"] = int(specialEffect['Cast Speed'])
-        if (int(specialEffect['Memory Slot']) != 0):
-            row_dict["memory_slot"] = int(specialEffect['Memory Slot'])  
-        if (int(specialEffect['Bow Distance']) != 0):
-            row_dict["bow_distance"] = int(specialEffect['Bow Distance'])  
+    if (float(specialEffect['Target Priority']) != 0.0):
+        row_dict["target_priority_%"] = float(specialEffect['Target Priority'])
+    if (float(specialEffect['Enemy Sight Adjustment']) != 1.0):
+        row_dict["enemy_sight_adjustment_%"] = float(specialEffect['Enemy Sight Adjustment']) - 1.0
+    if (float(specialEffect['Enemy Listen Adjustment']) != 1.0):
+        row_dict["enemy_listen_adjustment_%"] = float(specialEffect['Enemy Listen Adjustment']) - 1.0
+    if (float(specialEffect['Sight Search - Enemy Addition']) != 0.0):
+        row_dict["sight_search_enemy_addition_%"] = float(specialEffect['Sight Search - Enemy Addition'])
+    if (float(specialEffect['Listen Search - Enemy Addition']) != 0.0):
+        row_dict["listen_search_enemy_addition_%"] = float(specialEffect['Listen Search - Enemy Addition'])
+    if (float(specialEffect['Sight Search Addition']) != 0.0):
+        row_dict["sight_search_addition_%"] = float(specialEffect['Sight Search Addition'])
+    if (float(specialEffect['Listen Search Addition']) != 0.0):
+        row_dict["listen_search_addition_%"] = float(specialEffect['Listen Search Addition'])
+    if (float(specialEffect['Listen Search Correction']) != 1.0):
+        row_dict["listen_search_correction_%"] = float(specialEffect['Listen Search Correction']) - 1.0
+    if (int(specialEffect['Change HP +']) != 0):
+        row_dict["change_hp"] = -int(specialEffect['Change HP +'])
+    if (int(specialEffect['Change FP +']) != 0):
+        row_dict["change_fp"] = -int(specialEffect['Change FP +'])
+    if (int(specialEffect['Change Stamina +']) != 0):
+        row_dict["change_stamina"] = -int(specialEffect['Change Stamina +'])
+    if (float(specialEffect['Change HP %']) != 0):
+        row_dict["change_hp_%"] = -float(specialEffect['Change HP %'])
+    if (float(specialEffect['Change FP %']) != 0):
+        row_dict["change_fp_%"] = -float(specialEffect['Change FP %'])
+    if (float(specialEffect['Change Stamina %']) != 0):
+        row_dict["change_stamina_%"] = -float(specialEffect['Change Stamina %'])
+    if (int(specialEffect['FP Recovery']) != 0):
+        row_dict["fp_recovery"] = int(specialEffect['FP Recovery'])
+    if (int(specialEffect['Stamina Recovery']) != 0):
+        row_dict["stamina_recovery"] = int(specialEffect['Stamina Recovery'])
+    if (float(specialEffect['Max HP']) != 1.0):
+        row_dict["max_hp_%"] = float(specialEffect['Max HP']) - 1.0
+    if (float(specialEffect['Max FP']) != 1.0):
+        row_dict["max_fp_%"] = float(specialEffect['Max FP']) - 1.0
+    if (float(specialEffect['Max Stamina']) != 1.0):
+        row_dict["max_stamina_%"] = float(specialEffect['Max Stamina']) - 1.0
+    if (float(specialEffect['Poise %']) != 1.0):
+        row_dict["poise_%"] = float(specialEffect['Poise %']) - 1.0
+    if (float(specialEffect['Poise +']) != 0.0):
+        row_dict["poise"] = float(specialEffect['Poise +'])
+    if (float(specialEffect['Fall Damage %']) != 1.0):
+        row_dict["fall_damage_%"] = float(specialEffect['Fall Damage %']) - 1.0
+    if (float(specialEffect['Equip Load %']) != 1.0):
+        row_dict["equip_load_%"] = float(specialEffect['Equip Load %']) - 1.0
+    if (float(specialEffect['Effect Duration %']) != 1.0):
+        row_dict["effect_duration_%"] = float(specialEffect['Effect Duration %']) - 1.0
+    if (float(specialEffect['Guard Stability %']) != 1.0):
+        row_dict["guard_stability_%"] = float(specialEffect['Guard Stability %']) - 1.0
+    if (float(specialEffect['Attack %: Stamina']) != 1.0):
+        row_dict["guard_break_%"] = float(specialEffect['Attack %: Stamina']) - 1.0
+    if (float(specialEffect['No Guard Damage %']) != 1.0):
+        row_dict["no_guard_damage_%"] = float(specialEffect['No Guard Damage %']) - 1.0
+    if (float(specialEffect['Poise Recovery Time %']) != 1.0):
+        row_dict["poise_recovery_time_%"] = float(specialEffect['Poise Recovery Time %']) - 1.0
+    if (float(specialEffect['Regain Correction %']) != 1.0):
+        row_dict["regain_correction_%"] = float(specialEffect['Regain Correction %']) - 1.0
+    if (float(specialEffect['Poise Damage %']) != 1.0):
+        row_dict["poise_damage_%"] = float(specialEffect['Poise Damage %']) - 1.0
+    if (int(specialEffect['Rune Gain +']) != 0):
+        row_dict["rune_gain"] = int(specialEffect['Rune Gain +'])
+    if (float(specialEffect['Rune Gain %']) != 1.0):
+        row_dict["rune_gain_%"] = float(specialEffect['Rune Gain %']) - 1.0
+    if (float(specialEffect['HP Flask - HP Restore Correction']) != 1.0):
+        row_dict["hp_restore_correction_%"] = float(specialEffect['HP Flask - HP Restore Correction']) - 1.0
+    if (float(specialEffect['FP Flask - HP Restore Correction']) != 1.0):
+        row_dict["fp_restore_correction_%"] = float(specialEffect['FP Flask - HP Restore Correction']) - 1.0
+    if (float(specialEffect['Skill FP Cost %']) != 1.0):
+        row_dict["skill_fp_cost_%"] = float(specialEffect['Skill FP Cost %']) - 1.0 
+    if (float(specialEffect['Sorcery FP Cost %']) != 1.0):
+        row_dict["sorcery_fp_cost_%"] = float(specialEffect['Sorcery FP Cost %']) - 1.0 
+    if (float(specialEffect['Incantation FP Cost %']) != 1.0):
+        row_dict["incantation_fp_cost_%"] = float(specialEffect['Incantation FP Cost %']) - 1.0  
+    if (int(specialEffect['Cast Speed']) != 0):
+        row_dict["cast_speed"] = int(specialEffect['Cast Speed'])
+    if (int(specialEffect['Memory Slot']) != 0):
+        row_dict["memory_slot"] = int(specialEffect['Memory Slot'])  
+    if (int(specialEffect['Bow Distance']) != 0):
+        row_dict["bow_distance"] = int(specialEffect['Bow Distance'])  
 
-        if (int(specialEffect['Trigger on State Info [1]']) != 0):
-            row_dict["trigger_on_state_info_1"] = State_Info_Effect[int(specialEffect['Trigger on State Info [1]'])]
-        if (int(specialEffect['Trigger on State Info [2]']) != 0):
-            row_dict["trigger_on_state_info_2"] = State_Info_Effect[int(specialEffect['Trigger on State Info [2]'])]
-        if (int(specialEffect['Trigger on State Info [3]']) != 0):
-            row_dict["trigger_on_state_info_3"] = State_Info_Effect[int(specialEffect['Trigger on State Info [3]'])]
+    if (int(specialEffect['Trigger on State Info [1]']) != 0):
+        row_dict["trigger_on_state_info_1"] = State_Info_Effect[int(specialEffect['Trigger on State Info [1]'])]
+    if (int(specialEffect['Trigger on State Info [2]']) != 0):
+        row_dict["trigger_on_state_info_2"] = State_Info_Effect[int(specialEffect['Trigger on State Info [2]'])]
+    if (int(specialEffect['Trigger on State Info [3]']) != 0):
+        row_dict["trigger_on_state_info_3"] = State_Info_Effect[int(specialEffect['Trigger on State Info [3]'])]
 
-        if (int(specialEffect['Chain SpEffect ID']) != -1):
-            with open("SpEffectParam.csv") as fp:
-                reader = csv.reader(fp, delimiter=";", quotechar='"')
-                headers = next(reader)[1:]
-                SpEffectParam = OrderedDict(
-                    (row[0], OrderedDict(zip(headers, row[1:]))) for row in reader)
+    if (int(specialEffect['Chain SpEffect ID']) != -1):
+        with open("SpEffectParam.csv") as fp:
+            reader = csv.reader(fp, delimiter=";", quotechar='"')
+            headers = next(reader)[1:]
+            SpEffectParam = OrderedDict(
+                (row[0], OrderedDict(zip(headers, row[1:]))) for row in reader)
 
-            row_dict["chain_special_effect"] = getPassiveEffect(SpEffectParam[specialEffect['Chain SpEffect ID']])
+        row_dict["chain_special_effect"] = getPassiveEffect(SpEffectParam[specialEffect['Chain SpEffect ID']])
 
-        if (int(specialEffect['Cycle SpEffect ID']) != -1):
-            with open("SpEffectParam.csv") as fp:
-                reader = csv.reader(fp, delimiter=";", quotechar='"')
-                headers = next(reader)[1:]
-                SpEffectParam = OrderedDict(
-                    (row[0], OrderedDict(zip(headers, row[1:]))) for row in reader)
+    if (int(specialEffect['Cycle SpEffect ID']) != -1):
+        with open("SpEffectParam.csv") as fp:
+            reader = csv.reader(fp, delimiter=";", quotechar='"')
+            headers = next(reader)[1:]
+            SpEffectParam = OrderedDict(
+                (row[0], OrderedDict(zip(headers, row[1:]))) for row in reader)
 
-            row_dict["cycle_special_effect"] = getPassiveEffect(SpEffectParam[specialEffect['Cycle SpEffect ID']])
-        
-        if (int(specialEffect['Attack SpEffect ID']) != -1):
-            with open("SpEffectParam.csv") as fp:
-                reader = csv.reader(fp, delimiter=";", quotechar='"')
-                headers = next(reader)[1:]
-                SpEffectParam = OrderedDict(
-                    (row[0], OrderedDict(zip(headers, row[1:]))) for row in reader)
+        row_dict["cycle_special_effect"] = getPassiveEffect(SpEffectParam[specialEffect['Cycle SpEffect ID']])
+    
+    if (int(specialEffect['Attack SpEffect ID']) != -1):
+        with open("SpEffectParam.csv") as fp:
+            reader = csv.reader(fp, delimiter=";", quotechar='"')
+            headers = next(reader)[1:]
+            SpEffectParam = OrderedDict(
+                (row[0], OrderedDict(zip(headers, row[1:]))) for row in reader)
 
-            row_dict["attack_special_effect"] = getPassiveEffect(SpEffectParam[specialEffect['Attack SpEffect ID']])
+        row_dict["attack_special_effect"] = getPassiveEffect(SpEffectParam[specialEffect['Attack SpEffect ID']])
 
-        if (int(specialEffect['Kill SpEffect ID']) != 0):
-            with open("SpEffectParam.csv") as fp:
-                reader = csv.reader(fp, delimiter=";", quotechar='"')
-                headers = next(reader)[1:]
-                SpEffectParam = OrderedDict(
-                    (row[0], OrderedDict(zip(headers, row[1:]))) for row in reader)
+    if (int(specialEffect['Kill SpEffect ID']) != 0):
+        with open("SpEffectParam.csv") as fp:
+            reader = csv.reader(fp, delimiter=";", quotechar='"')
+            headers = next(reader)[1:]
+            SpEffectParam = OrderedDict(
+                (row[0], OrderedDict(zip(headers, row[1:]))) for row in reader)
 
-            row_dict["kill_special_effect"] = getPassiveEffect(SpEffectParam[specialEffect['Kill SpEffect ID']])
+        row_dict["kill_special_effect"] = getPassiveEffect(SpEffectParam[specialEffect['Kill SpEffect ID']])
 
-        return row_dict
+    return row_dict
 
 
 
