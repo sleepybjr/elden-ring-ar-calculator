@@ -1179,11 +1179,11 @@ def getPassiveEffect(specialEffect):
         if (int(specialEffect['Change Stamina +']) != 0):
             row_dict["change_stamina"] = -int(specialEffect['Change Stamina +'])
         if (float(specialEffect['Change HP %']) != 0):
-            row_dict["change_hp_%"] = float(specialEffect['Change HP %'])
+            row_dict["change_hp_%"] = -float(specialEffect['Change HP %'])
         if (float(specialEffect['Change FP %']) != 0):
-            row_dict["change_fp_%"] = float(specialEffect['Change FP %'])
+            row_dict["change_fp_%"] = -float(specialEffect['Change FP %'])
         if (float(specialEffect['Change Stamina %']) != 0):
-            row_dict["change_stamina_%"] = float(specialEffect['Change Stamina %'])
+            row_dict["change_stamina_%"] = -float(specialEffect['Change Stamina %'])
         if (int(specialEffect['FP Recovery']) != 0):
             row_dict["fp_recovery"] = int(specialEffect['FP Recovery'])
         if (int(specialEffect['Stamina Recovery']) != 0):
@@ -1270,6 +1270,15 @@ def getPassiveEffect(specialEffect):
                     (row[0], OrderedDict(zip(headers, row[1:]))) for row in reader)
 
             row_dict["attack_special_effect"] = getPassiveEffect(SpEffectParam[specialEffect['Attack SpEffect ID']])
+
+        if (int(specialEffect['Kill SpEffect ID']) != 0):
+            with open("SpEffectParam.csv") as fp:
+                reader = csv.reader(fp, delimiter=";", quotechar='"')
+                headers = next(reader)[1:]
+                SpEffectParam = OrderedDict(
+                    (row[0], OrderedDict(zip(headers, row[1:]))) for row in reader)
+
+            row_dict["kill_special_effect"] = getPassiveEffect(SpEffectParam[specialEffect['Kill SpEffect ID']])
 
         return row_dict
 
