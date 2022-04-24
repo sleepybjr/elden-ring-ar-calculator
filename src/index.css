@@ -116,12 +116,16 @@ body.dark {
 }
 
 .highlight-red,
-.highlight-red:hover {
+.highlight-red:hover,
+tbody .tr.highlight-red,
+tbody .tr.highlight-red:hover {
   background-color: #FFBBAE;
 }
 
 .dark .highlight-red,
-.dark .highlight-red:hover {
+.dark .highlight-red:hover,
+.dark .tbody .tr.highlight-red,
+.dark .tbody .tr.highlight-red:hover {
   background-color: #723f3f;
 }
 
@@ -331,7 +335,7 @@ tbody tr:hover {
   border: 1px solid #d7d7d7;
   margin: auto;
   max-width: 400px;
-  width: 100%;
+  width: 90%;
 }
 
 .dark .popup-content {
@@ -414,6 +418,7 @@ tbody tr:hover {
   height: 100%;
   background: #d3e6ff;
   padding-bottom: 5px;
+  padding-top: 5px;
   font-weight: 400;
   text-decoration: none;
   position: relative;
@@ -425,7 +430,7 @@ tbody tr:hover {
   content: '\f103';
   position: absolute;
   right: 10px;
-  top: 4px;
+  top: 8px;
   display: block;
   transition: transform 300ms;
 }
@@ -454,3 +459,76 @@ tbody tr:hover {
   background: #000;
   border-radius: 10px;
 } */
+
+.thead .tr {
+  border-bottom: 1px solid rgb(61, 61, 61);
+}
+
+.dark .thead .tr {
+  border-bottom: 1px solid rgb(184, 184, 184);
+}
+
+.thead .th {
+  border: 0;
+  border-radius: none;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: inherit;
+  padding: 0.5em;
+  margin-bottom: 1px;
+  width: 100%;
+  height: 100%;
+  white-space: nowrap;
+  transition-duration: 0.4s;
+  background-color: #efefef;
+}
+
+.dark .thead .th {
+  background-color: #414141;
+  border-color: #68696d;
+  color: #efefef;
+}
+
+.thead .th:hover,
+.thead .th.sorted {
+  background-color: #bcd8ff;
+  cursor: pointer;
+}
+
+.dark .thead .th:hover,
+.dark .thead .th.sorted {
+  background-color: #4650ac;
+  color: #EFEFEF;
+}
+
+/* .thead .th .sortspan {
+  display: inline-block;
+  margin-left: 1em;
+} */
+
+.tbody .td {
+  padding: 0.5em;
+  border-bottom: 1px solid #cccccc;
+}
+
+.dark .tbody .td {
+  border-bottom: 1px solid #4b4b4b;
+}
+
+.tbody .tr:hover {
+  background-color: #eeeeee;
+}
+
+.dark .tbody .tr:hover {
+  background-color: #3d3d3d;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}

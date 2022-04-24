@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Collapsible from 'react-collapsible';
 import Popup from 'reactjs-popup';
-import AcknowledgePopup from './AcknowledgePopup';
+import AcknowledgePopup from '../component/AcknowledgePopup';
 import { FiTrash2, FiSave } from "react-icons/fi";
 import { RiShareForward2Fill } from "react-icons/ri";
 import { CgSoftwareUpload } from "react-icons/cg";
