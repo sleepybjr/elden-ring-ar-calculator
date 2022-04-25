@@ -824,13 +824,22 @@ def getArmorData():
                 row_dict["sleep_resist"] = int(row['Resist - Sleep'])
             row_dict["vitality"] = int(row['Resist - Blight'])
             row_dict["poise"] = int(float(row['Poise']) * 1000.0)
-
-            if int(row['Resident SpEffect ID [1]']) != -1:
-                row_dict["passive_1"] = getPassiveEffect(SpEffectParam[row['Resident SpEffect ID [1]']])
-            if int(row['Resident SpEffect ID [2]']) != -1:
-                row_dict["passive_2"] = getPassiveEffect(SpEffectParam[row['Resident SpEffect ID [2]']])
-            if int(row['Resident SpEffect ID [3]']) != -1:
-                row_dict["passive_3"] = getPassiveEffect(SpEffectParam[row['Resident SpEffect ID [3]']])
+            
+            # if death bed dress
+            if (int(key) == 1930100):
+                if int(row['Resident SpEffect ID [1]']) != -1:
+                    row_dict["passive_1"] = getPassiveEffect(SpEffectParam[str(int(row['Resident SpEffect ID [1]']) + 2)])
+                if int(row['Resident SpEffect ID [2]']) != -1:
+                    row_dict["passive_2"] = getPassiveEffect(SpEffectParam[str(int(row['Resident SpEffect ID [2]']) + 2)])
+                if int(row['Resident SpEffect ID [3]']) != -1:
+                    row_dict["passive_3"] = getPassiveEffect(SpEffectParam[str(int(row['Resident SpEffect ID [3]']) + 2)])
+            else:
+                if int(row['Resident SpEffect ID [1]']) != -1:
+                    row_dict["passive_1"] = getPassiveEffect(SpEffectParam[row['Resident SpEffect ID [1]']])
+                if int(row['Resident SpEffect ID [2]']) != -1:
+                    row_dict["passive_2"] = getPassiveEffect(SpEffectParam[row['Resident SpEffect ID [2]']])
+                if int(row['Resident SpEffect ID [3]']) != -1:
+                    row_dict["passive_3"] = getPassiveEffect(SpEffectParam[row['Resident SpEffect ID [3]']])
 
             armor_data.append(row_dict)
     
@@ -1035,7 +1044,7 @@ def getPassiveEffect(specialEffect):
 
     # You use this to get the new absorption from armor.
     # An example calculation to get a new physical absorption for armor is found below
-    # physical_absorption = -((1 - physical_absorption) * absorption_standard)
+    # physical_absorption = -((1 - physical_absorption) * absorption_standard) + 1 
     if (float(specialEffect['Absorption: Standard']) != 1.0):
         row_dict["absorption_standard"] = float(specialEffect['Absorption: Standard'])
     if (float(specialEffect['Absorption: Strike']) != 1.0):
@@ -1241,6 +1250,13 @@ def getPassiveEffect(specialEffect):
         row_dict["memory_slot"] = int(specialEffect['Memory Slot'])  
     if (int(specialEffect['Bow Distance']) != 0):
         row_dict["bow_distance"] = int(specialEffect['Bow Distance'])  
+
+    if (specialEffect['Trigger for Opponent'] == InputBoolean.TRUE.value):
+        row_dict["trigger_effect_for_opponent"] = InputBoolean.TRUE.value
+    if (specialEffect['Trigger for Friendly'] == InputBoolean.TRUE.value):
+        row_dict["trigger_effect_for_friendly"] = InputBoolean.TRUE.value
+    if (specialEffect['Trigger for Self'] == InputBoolean.TRUE.value):
+        row_dict["trigger_effect_for_self"] = InputBoolean.TRUE.value
 
     if (int(specialEffect['Trigger on State Info [1]']) != 0):
         row_dict["trigger_on_state_info_1"] = State_Info_Effect[int(specialEffect['Trigger on State Info [1]'])]
