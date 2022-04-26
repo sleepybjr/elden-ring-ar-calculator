@@ -1,0 +1,365 @@
+{
+    "label": "Arm",
+    "options": [
+        {
+            "label": "Iron Gauntlets",
+            "value": 3
+        },
+        {
+            "label": "Kaiden Gauntlets",
+            "value": 7
+        },
+        {
+            "label": "Drake Knight Gauntlets",
+            "value": 11
+        },
+        {
+            "label": "Scaled Gauntlets",
+            "value": 17
+        },
+        {
+            "label": "Perfumer Gloves",
+            "value": 22
+        },
+        {
+            "label": "Traveler's Gloves",
+            "value": 27
+        },
+        {
+            "label": "Alberich's Bracers",
+            "value": 32
+        },
+        {
+            "label": "Spellblade's Gloves",
+            "value": 38
+        },
+        {
+            "label": "Bull-Goat Gauntlets",
+            "value": 43
+        },
+        {
+            "label": "Ronin's Gauntlets",
+            "value": 47
+        },
+        {
+            "label": "Blaidd's Gauntlets",
+            "value": 55
+        },
+        {
+            "label": "Black Knife Gauntlets",
+            "value": 60
+        },
+        {
+            "label": "Exile Gauntlets",
+            "value": 65
+        },
+        {
+            "label": "Banished Knight Gauntlets",
+            "value": 69
+        },
+        {
+            "label": "Briar Gauntlets",
+            "value": 75
+        },
+        {
+            "label": "Night's Cavalry Gauntlets",
+            "value": 84
+        },
+        {
+            "label": "Blue Silver Bracelets",
+            "value": 90
+        },
+        {
+            "label": "Malformed Dragon Gauntlets",
+            "value": 99
+        },
+        {
+            "label": "Tree Sentinel Gauntlets",
+            "value": 103
+        },
+        {
+            "label": "Royal Knight Gauntlets",
+            "value": 108
+        },
+        {
+            "label": "Nox Monk Bracelets",
+            "value": 113
+        },
+        {
+            "label": "Guardian Bracers",
+            "value": 138
+        },
+        {
+            "label": "Cleanrot Gauntlets",
+            "value": 143
+        },
+        {
+            "label": "Fire Monk Gauntlets",
+            "value": 149
+        },
+        {
+            "label": "Blackflame Monk Gauntlets",
+            "value": 153
+        },
+        {
+            "label": "Fire Prelate Gauntlets",
+            "value": 157
+        },
+        {
+            "label": "Vulgar Militia Gauntlets",
+            "value": 171
+        },
+        {
+            "label": "Elden Lord Bracers",
+            "value": 179
+        },
+        {
+            "label": "Radahn's Gauntlets",
+            "value": 184
+        },
+        {
+            "label": "Queen's Bracelets",
+            "value": 191
+        },
+        {
+            "label": "Sanguine Noble Bracelets",
+            "value": 195
+        },
+        {
+            "label": "Godskin Apostle Bracelets",
+            "value": 199
+        },
+        {
+            "label": "Depraved Perfumer Gloves",
+            "value": 203
+        },
+        {
+            "label": "Crucible Gauntlets",
+            "value": 208
+        },
+        {
+            "label": "Lusat's Manchettes",
+            "value": 216
+        },
+        {
+            "label": "Azur's Manchettes",
+            "value": 220
+        },
+        {
+            "label": "All-Knowing Gauntlets",
+            "value": 223
+        },
+        {
+            "label": "Twinned Gauntlets",
+            "value": 228
+        },
+        {
+            "label": "Astrologer Gloves",
+            "value": 238
+        },
+        {
+            "label": "Lionel's Gauntlets",
+            "value": 243
+        },
+        {
+            "label": "Hoslow's Gauntlets",
+            "value": 248
+        },
+        {
+            "label": "Vagabond Knight Gauntlets",
+            "value": 254
+        },
+        {
+            "label": "Warrior Gauntlets",
+            "value": 259
+        },
+        {
+            "label": "War Surgeon Gloves",
+            "value": 263
+        },
+        {
+            "label": "Royal Remains Gauntlets",
+            "value": 268
+        },
+        {
+            "label": "Beast Champion Gauntlets",
+            "value": 272
+        },
+        {
+            "label": "Champion Bracers",
+            "value": 277
+        },
+        {
+            "label": "Noble's Gloves",
+            "value": 281
+        },
+        {
+            "label": "Maliketh's Gauntlets",
+            "value": 286
+        },
+        {
+            "label": "Malenia's Gauntlet",
+            "value": 291
+        },
+        {
+            "label": "Veteran's Gauntlets",
+            "value": 296
+        },
+        {
+            "label": "Bloodhound Knight Gauntlets",
+            "value": 301
+        },
+        {
+            "label": "Sorcerer Manchettes",
+            "value": 320
+        },
+        {
+            "label": "Raging Wolf Gauntlets",
+            "value": 331
+        },
+        {
+            "label": "Land of Reeds Gauntlets",
+            "value": 336
+        },
+        {
+            "label": "White Reed Gauntlets",
+            "value": 341
+        },
+        {
+            "label": "Confessor Gloves",
+            "value": 345
+        },
+        {
+            "label": "Traveling Maiden Gloves",
+            "value": 355
+        },
+        {
+            "label": "Preceptor's Gloves",
+            "value": 364
+        },
+        {
+            "label": "Bandit Manchettes",
+            "value": 370
+        },
+        {
+            "label": "Eccentric's Manchettes",
+            "value": 375
+        },
+        {
+            "label": "Fingerprint Gauntlets",
+            "value": 380
+        },
+        {
+            "label": "Bloodsoaked Manchettes",
+            "value": 391
+        },
+        {
+            "label": "Omen Gauntlets",
+            "value": 396
+        },
+        {
+            "label": "Carian Knight Gauntlets",
+            "value": 400
+        },
+        {
+            "label": "Errant Sorcerer Manchettes",
+            "value": 405
+        },
+        {
+            "label": "Battlemage Manchettes",
+            "value": 410
+        },
+        {
+            "label": "Traveler's Manchettes",
+            "value": 417
+        },
+        {
+            "label": "Gold Bracelets",
+            "value": 423
+        },
+        {
+            "label": "Zamor Bracelets",
+            "value": 430
+        },
+        {
+            "label": "Chain Gauntlets",
+            "value": 441
+        },
+        {
+            "label": "Mushroom Arms",
+            "value": 450
+        },
+        {
+            "label": "Leather Gloves",
+            "value": 456
+        },
+        {
+            "label": "Knight Gauntlets",
+            "value": 461
+        },
+        {
+            "label": "Godrick Soldier Gauntlets",
+            "value": 466
+        },
+        {
+            "label": "Raya Lucarian Gauntlets",
+            "value": 470
+        },
+        {
+            "label": "Leyndell Soldier Gauntlets",
+            "value": 474
+        },
+        {
+            "label": "Radahn Soldier Gauntlets",
+            "value": 478
+        },
+        {
+            "label": "Mausoleum Gauntlets",
+            "value": 481
+        },
+        {
+            "label": "Haligtree Gauntlets",
+            "value": 485
+        },
+        {
+            "label": "Gelmir Knight Gauntlets",
+            "value": 489
+        },
+        {
+            "label": "Godrick Knight Gauntlets",
+            "value": 494
+        },
+        {
+            "label": "Cuckoo Knight Gauntlets",
+            "value": 499
+        },
+        {
+            "label": "Leyndell Knight Gauntlets",
+            "value": 504
+        },
+        {
+            "label": "Redmane Knight Gauntlets",
+            "value": 509
+        },
+        {
+            "label": "Mausoleum Knight Gauntlets",
+            "value": 513
+        },
+        {
+            "label": "Haligtree Knight Gauntlets",
+            "value": 518
+        },
+        {
+            "label": "Foot Soldier Gauntlets",
+            "value": 523
+        },
+        {
+            "label": "Omenkiller Long Gloves",
+            "value": 536
+        },
+        {
+            "label": "Highwayman Gauntlets",
+            "value": 549
+        }
+    ]
+}

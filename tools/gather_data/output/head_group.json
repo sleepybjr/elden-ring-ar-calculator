@@ -1,0 +1,661 @@
+{
+    "label": "Head",
+    "options": [
+        {
+            "label": "Iron Helmet",
+            "value": 1
+        },
+        {
+            "label": "Kaiden Helm",
+            "value": 5
+        },
+        {
+            "label": "Drake Knight Helm",
+            "value": 9
+        },
+        {
+            "label": "Drake Knight Helm (Altered)",
+            "value": 13
+        },
+        {
+            "label": "Scaled Helm",
+            "value": 15
+        },
+        {
+            "label": "Perfumer Hood",
+            "value": 20
+        },
+        {
+            "label": "Traveler's Hat",
+            "value": 25
+        },
+        {
+            "label": "Alberich's Pointed Hat",
+            "value": 30
+        },
+        {
+            "label": "Alberich's Pointed Hat (Altered)",
+            "value": 34
+        },
+        {
+            "label": "Spellblade's Pointed Hat",
+            "value": 36
+        },
+        {
+            "label": "Bull-Goat Helm",
+            "value": 41
+        },
+        {
+            "label": "Iron Kasa",
+            "value": 45
+        },
+        {
+            "label": "Guilty Hood",
+            "value": 50
+        },
+        {
+            "label": "Black Wolf Mask",
+            "value": 53
+        },
+        {
+            "label": "Black Knife Hood",
+            "value": 58
+        },
+        {
+            "label": "Exile Hood",
+            "value": 63
+        },
+        {
+            "label": "Banished Knight Helm",
+            "value": 67
+        },
+        {
+            "label": "Banished Knight Helm (Altered)",
+            "value": 71
+        },
+        {
+            "label": "Briar Helm",
+            "value": 73
+        },
+        {
+            "label": "Page Hood",
+            "value": 78
+        },
+        {
+            "label": "Night's Cavalry Helm",
+            "value": 82
+        },
+        {
+            "label": "Night's Cavalry Helm (Altered)",
+            "value": 86
+        },
+        {
+            "label": "Blue Silver Mail Hood",
+            "value": 88
+        },
+        {
+            "label": "Nomadic Merchant's Chapeau",
+            "value": 93
+        },
+        {
+            "label": "Malformed Dragon Helm",
+            "value": 97
+        },
+        {
+            "label": "Tree Sentinel Helm",
+            "value": 101
+        },
+        {
+            "label": "Royal Knight Helm",
+            "value": 106
+        },
+        {
+            "label": "Nox Monk Hood",
+            "value": 111
+        },
+        {
+            "label": "Nox Monk Hood (Altered)",
+            "value": 115
+        },
+        {
+            "label": "Nox Swordstress Crown",
+            "value": 117
+        },
+        {
+            "label": "Night Maiden Twin Crown",
+            "value": 119
+        },
+        {
+            "label": "Nox Swordstress Crown (Altered)",
+            "value": 121
+        },
+        {
+            "label": "Great Horned Headband",
+            "value": 123
+        },
+        {
+            "label": "Shining Horned Headband",
+            "value": 126
+        },
+        {
+            "label": "Duelist Helm",
+            "value": 129
+        },
+        {
+            "label": "Sanguine Noble Hood",
+            "value": 133
+        },
+        {
+            "label": "Guardian Mask",
+            "value": 136
+        },
+        {
+            "label": "Cleanrot Helm",
+            "value": 141
+        },
+        {
+            "label": "Cleanrot Helm (Altered)",
+            "value": 145
+        },
+        {
+            "label": "Fire Monk Hood",
+            "value": 147
+        },
+        {
+            "label": "Blackflame Monk Hood",
+            "value": 151
+        },
+        {
+            "label": "Fire Prelate Helm",
+            "value": 155
+        },
+        {
+            "label": "Aristocrat Headband",
+            "value": 160
+        },
+        {
+            "label": "Aristocrat Hat",
+            "value": 164
+        },
+        {
+            "label": "Old Aristocrat Cowl",
+            "value": 166
+        },
+        {
+            "label": "Vulgar Militia Helm",
+            "value": 169
+        },
+        {
+            "label": "Sage Hood",
+            "value": 173
+        },
+        {
+            "label": "Pumpkin Helm",
+            "value": 176
+        },
+        {
+            "label": "Elden Lord Crown",
+            "value": 177
+        },
+        {
+            "label": "Radahn's Redmane Helm",
+            "value": 182
+        },
+        {
+            "label": "Queen's Crescent Crown",
+            "value": 189
+        },
+        {
+            "label": "Sanguine Noble Hood",
+            "value": 193
+        },
+        {
+            "label": "Godskin Apostle Hood",
+            "value": 197
+        },
+        {
+            "label": "Depraved Perfumer Headscarf",
+            "value": 201
+        },
+        {
+            "label": "Crucible Axe Helm",
+            "value": 206
+        },
+        {
+            "label": "Crucible Tree Helm",
+            "value": 210
+        },
+        {
+            "label": "Lusat's Glintstone Crown",
+            "value": 214
+        },
+        {
+            "label": "Azur's Glintstone Crown",
+            "value": 218
+        },
+        {
+            "label": "All-Knowing Helm",
+            "value": 221
+        },
+        {
+            "label": "Twinned Helm",
+            "value": 226
+        },
+        {
+            "label": "Prophet Blindfold",
+            "value": 231
+        },
+        {
+            "label": "Astrologer Hood",
+            "value": 236
+        },
+        {
+            "label": "Lionel's Helm",
+            "value": 241
+        },
+        {
+            "label": "Hoslow's Helm",
+            "value": 246
+        },
+        {
+            "label": "Diallos's Mask",
+            "value": 250
+        },
+        {
+            "label": "Vagabond Knight Helm",
+            "value": 252
+        },
+        {
+            "label": "Blue Cloth Cowl",
+            "value": 257
+        },
+        {
+            "label": "White Mask",
+            "value": 261
+        },
+        {
+            "label": "Royal Remains Helm",
+            "value": 266
+        },
+        {
+            "label": "Beast Champion Helm",
+            "value": 270
+        },
+        {
+            "label": "Champion Headband",
+            "value": 275
+        },
+        {
+            "label": "Crimson Hood",
+            "value": 279
+        },
+        {
+            "label": "Navy Hood",
+            "value": 283
+        },
+        {
+            "label": "Maliketh's Helm",
+            "value": 284
+        },
+        {
+            "label": "Malenia's Winged Helm",
+            "value": 289
+        },
+        {
+            "label": "Veteran's Helm",
+            "value": 294
+        },
+        {
+            "label": "Bloodhound Knight Helm",
+            "value": 299
+        },
+        {
+            "label": "Festive Hood",
+            "value": 304
+        },
+        {
+            "label": "Festive Hood (Altered)",
+            "value": 306
+        },
+        {
+            "label": "Blue Festive Hood",
+            "value": 308
+        },
+        {
+            "label": "Commoner's Headband",
+            "value": 310
+        },
+        {
+            "label": "Commoner's Headband (Altered)",
+            "value": 313
+        },
+        {
+            "label": "Envoy Crown",
+            "value": 317
+        },
+        {
+            "label": "Twinsage Glintstone Crown",
+            "value": 318
+        },
+        {
+            "label": "Olivinus Glintstone Crown",
+            "value": 322
+        },
+        {
+            "label": "Lazuli Glintstone Crown",
+            "value": 323
+        },
+        {
+            "label": "Karolos Glintstone Crown",
+            "value": 324
+        },
+        {
+            "label": "Witch's Glintstone Crown",
+            "value": 325
+        },
+        {
+            "label": "Marionette Soldier Helm",
+            "value": 326
+        },
+        {
+            "label": "Marionette Soldier Birdhelm",
+            "value": 328
+        },
+        {
+            "label": "Raging Wolf Helm",
+            "value": 329
+        },
+        {
+            "label": "Land of Reeds Helm",
+            "value": 334
+        },
+        {
+            "label": "Okina Mask",
+            "value": 339
+        },
+        {
+            "label": "Confessor Hood",
+            "value": 343
+        },
+        {
+            "label": "Confessor Hood (Altered)",
+            "value": 347
+        },
+        {
+            "label": "Prisoner Iron Mask",
+            "value": 349
+        },
+        {
+            "label": "Blackguard's Iron Mask",
+            "value": 352
+        },
+        {
+            "label": "Traveling Maiden Hood",
+            "value": 353
+        },
+        {
+            "label": "Finger Maiden Fillet",
+            "value": 358
+        },
+        {
+            "label": "Preceptor's Big Hat",
+            "value": 362
+        },
+        {
+            "label": "Mask of Confidence",
+            "value": 366
+        },
+        {
+            "label": "Skeletal Mask",
+            "value": 368
+        },
+        {
+            "label": "Eccentric's Hood",
+            "value": 373
+        },
+        {
+            "label": "Eccentric's Hood (Altered)",
+            "value": 377
+        },
+        {
+            "label": "Fingerprint Helm",
+            "value": 378
+        },
+        {
+            "label": "Consort's Mask",
+            "value": 383
+        },
+        {
+            "label": "Ruler's Mask",
+            "value": 386
+        },
+        {
+            "label": "Marais Mask",
+            "value": 389
+        },
+        {
+            "label": "Bloodsoaked Mask",
+            "value": 392
+        },
+        {
+            "label": "Omen Helm",
+            "value": 394
+        },
+        {
+            "label": "Carian Knight Helm",
+            "value": 398
+        },
+        {
+            "label": "Hierodas Glintstone Crown",
+            "value": 403
+        },
+        {
+            "label": "Haima Glintstone Crown",
+            "value": 408
+        },
+        {
+            "label": "Snow Witch Hat",
+            "value": 412
+        },
+        {
+            "label": "Juvenile Scholar Cap",
+            "value": 419
+        },
+        {
+            "label": "Radiant Gold Mask",
+            "value": 421
+        },
+        {
+            "label": "Albinauric Mask",
+            "value": 426
+        },
+        {
+            "label": "Zamor Mask",
+            "value": 428
+        },
+        {
+            "label": "Imp Head (Cat)",
+            "value": 432
+        },
+        {
+            "label": "Imp Head (Fanged)",
+            "value": 433
+        },
+        {
+            "label": "Imp Head (Long-Tongued)",
+            "value": 434
+        },
+        {
+            "label": "Imp Head (Corpse)",
+            "value": 435
+        },
+        {
+            "label": "Imp Head (Wolf)",
+            "value": 436
+        },
+        {
+            "label": "Imp Head (Elder)",
+            "value": 437
+        },
+        {
+            "label": "Silver Tear Mask",
+            "value": 438
+        },
+        {
+            "label": "Chain Coif",
+            "value": 439
+        },
+        {
+            "label": "Greathelm",
+            "value": 443
+        },
+        {
+            "label": "Octopus Head",
+            "value": 446
+        },
+        {
+            "label": "Jar",
+            "value": 447
+        },
+        {
+            "label": "Mushroom Head",
+            "value": 448
+        },
+        {
+            "label": "Nox Mirrorhelm",
+            "value": 452
+        },
+        {
+            "label": "Iji's Mirrorhelm",
+            "value": 453
+        },
+        {
+            "label": "Black Hood",
+            "value": 454
+        },
+        {
+            "label": "Bandit Mask",
+            "value": 458
+        },
+        {
+            "label": "Knight Helm",
+            "value": 459
+        },
+        {
+            "label": "Greathood",
+            "value": 463
+        },
+        {
+            "label": "Godrick Soldier Helm",
+            "value": 464
+        },
+        {
+            "label": "Raya Lucarian Helm",
+            "value": 468
+        },
+        {
+            "label": "Leyndell Soldier Helm",
+            "value": 472
+        },
+        {
+            "label": "Radahn Soldier Helm",
+            "value": 476
+        },
+        {
+            "label": "Haligtree Helm",
+            "value": 483
+        },
+        {
+            "label": "Gelmir Knight Helm",
+            "value": 487
+        },
+        {
+            "label": "Godrick Knight Helm",
+            "value": 492
+        },
+        {
+            "label": "Cuckoo Knight Helm",
+            "value": 497
+        },
+        {
+            "label": "Leyndell Knight Helm",
+            "value": 502
+        },
+        {
+            "label": "Redmane Knight Helm",
+            "value": 507
+        },
+        {
+            "label": "Haligtree Knight Helm",
+            "value": 516
+        },
+        {
+            "label": "Foot Soldier Cap",
+            "value": 521
+        },
+        {
+            "label": "Foot Soldier Helmet",
+            "value": 525
+        },
+        {
+            "label": "Gilded Foot Soldier Cap",
+            "value": 527
+        },
+        {
+            "label": "Foot Soldier Helm",
+            "value": 529
+        },
+        {
+            "label": "Sacred Crown Helm",
+            "value": 532
+        },
+        {
+            "label": "Omensmirk Mask",
+            "value": 534
+        },
+        {
+            "label": "Ash-of-War Scarab",
+            "value": 538
+        },
+        {
+            "label": "Incantation Scarab",
+            "value": 539
+        },
+        {
+            "label": "Glintstone Scarab",
+            "value": 540
+        },
+        {
+            "label": "Crimson Tear Scarab",
+            "value": 541
+        },
+        {
+            "label": "Cerulean Tear Scarab",
+            "value": 542
+        },
+        {
+            "label": "Fia's Hood",
+            "value": 544
+        },
+        {
+            "label": "Highwayman Hood",
+            "value": 547
+        },
+        {
+            "label": "High Page Hood",
+            "value": 550
+        },
+        {
+            "label": "Rotten Duelist Helm",
+            "value": 553
+        },
+        {
+            "label": "Mushroom Crown",
+            "value": 557
+        },
+        {
+            "label": "Black Dumpling",
+            "value": 558
+        }
+    ]
+}
