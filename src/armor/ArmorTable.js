@@ -138,9 +138,9 @@ export default function ArmorTable(props) {
                         </th>
                         <th>
                             <button type="button"
-                                className={'vs_strength' === column ? direction === "asc" ? "ascending" : direction === "desc" ? "descending" : "" : ""}
-                                onClick={() => onSort('vs_strength')}>
-                                VS Strength
+                                className={'vs_strike' === column ? direction === "asc" ? "ascending" : direction === "desc" ? "descending" : "" : ""}
+                                onClick={() => onSort('vs_strike')}>
+                                VS Strike
                             </button>
                         </th>
                         <th>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
-import WeaponGroups from '.././json/weapon_groups';
+import WeaponGroups from '../json/armor_data.json';
 
 export default class SearchBar extends Component {
     constructor(props) {
@@ -23,9 +23,7 @@ export default class SearchBar extends Component {
                     options={WeaponGroups}
                     className='react-select-container'
                     classNamePrefix="react-select"
-                    isMulti
                     placeholder={this.props.placeholder}
-                    isOptionDisabled={(option) => this.props.maxLimit !== null ? this.props.searchedWeapons.length >= this.props.maxLimit : false}
                 />
             </div>
         );
