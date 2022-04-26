@@ -1,0 +1,797 @@
+{
+    "label": "Body",
+    "options": [
+        {
+            "label": "Scale Armor",
+            "value": 2
+        },
+        {
+            "label": "Kaiden Armor",
+            "value": 6
+        },
+        {
+            "label": "Drake Knight Armor",
+            "value": 10
+        },
+        {
+            "label": "Drake Knight Armor (Altered)",
+            "value": 14
+        },
+        {
+            "label": "Scaled Armor",
+            "value": 16
+        },
+        {
+            "label": "Scaled Armor (Altered)",
+            "value": 19
+        },
+        {
+            "label": "Perfumer Robe",
+            "value": 21
+        },
+        {
+            "label": "Perfumer Robe (Altered)",
+            "value": 24
+        },
+        {
+            "label": "Perfumer's Traveling Garb",
+            "value": 26
+        },
+        {
+            "label": "Perfumer's Traveling Garb (Altered)",
+            "value": 29
+        },
+        {
+            "label": "Alberich's Robe",
+            "value": 31
+        },
+        {
+            "label": "Alberich's Robe (Altered)",
+            "value": 35
+        },
+        {
+            "label": "Spellblade's Traveling Attire",
+            "value": 37
+        },
+        {
+            "label": "Spellblade's Traveling Attire (Altered)",
+            "value": 40
+        },
+        {
+            "label": "Bull-Goat Armor",
+            "value": 42
+        },
+        {
+            "label": "Ronin's Armor",
+            "value": 46
+        },
+        {
+            "label": "Ronin's Armor (Altered)",
+            "value": 49
+        },
+        {
+            "label": "Cloth Garb",
+            "value": 51
+        },
+        {
+            "label": "Blaidd's Armor",
+            "value": 54
+        },
+        {
+            "label": "Blaidd's Armor (Altered)",
+            "value": 57
+        },
+        {
+            "label": "Black Knife Armor",
+            "value": 59
+        },
+        {
+            "label": "Black Knife Armor (Altered)",
+            "value": 62
+        },
+        {
+            "label": "Exile Armor",
+            "value": 64
+        },
+        {
+            "label": "Banished Knight Armor",
+            "value": 68
+        },
+        {
+            "label": "Banished Knight Armor (Altered)",
+            "value": 72
+        },
+        {
+            "label": "Briar Armor",
+            "value": 74
+        },
+        {
+            "label": "Briar Armor (Altered)",
+            "value": 77
+        },
+        {
+            "label": "Page Garb",
+            "value": 79
+        },
+        {
+            "label": "Page Garb (Altered)",
+            "value": 81
+        },
+        {
+            "label": "Night's Cavalry Armor",
+            "value": 83
+        },
+        {
+            "label": "Night's Cavalry Armor (Altered)",
+            "value": 87
+        },
+        {
+            "label": "Blue Silver Mail Armor",
+            "value": 89
+        },
+        {
+            "label": "Blue Silver Mail Armor (Altered)",
+            "value": 92
+        },
+        {
+            "label": "Nomadic Merchant's Finery",
+            "value": 94
+        },
+        {
+            "label": "Nomadic Merchant's Finery (Altered)",
+            "value": 96
+        },
+        {
+            "label": "Malformed Dragon Armor",
+            "value": 98
+        },
+        {
+            "label": "Tree Sentinel Armor",
+            "value": 102
+        },
+        {
+            "label": "Tree Sentinel Armor (Altered)",
+            "value": 105
+        },
+        {
+            "label": "Royal Knight Armor",
+            "value": 107
+        },
+        {
+            "label": "Royal Knight Armor (Altered)",
+            "value": 110
+        },
+        {
+            "label": "Nox Monk Armor",
+            "value": 112
+        },
+        {
+            "label": "Nox Monk Armor (Altered)",
+            "value": 116
+        },
+        {
+            "label": "Nox Swordstress Armor",
+            "value": 118
+        },
+        {
+            "label": "Night Maiden Armor",
+            "value": 120
+        },
+        {
+            "label": "Nox Swordstress Armor (Altered)",
+            "value": 122
+        },
+        {
+            "label": "Fur Raiment",
+            "value": 124
+        },
+        {
+            "label": "Shaman Furs",
+            "value": 127
+        },
+        {
+            "label": "Gravekeeper Cloak",
+            "value": 130
+        },
+        {
+            "label": "Gravekeeper Cloak (Altered)",
+            "value": 132
+        },
+        {
+            "label": "Sanguine Noble Robe",
+            "value": 134
+        },
+        {
+            "label": "Guardian Garb (Full Bloom)",
+            "value": 137
+        },
+        {
+            "label": "Guardian Garb",
+            "value": 140
+        },
+        {
+            "label": "Cleanrot Armor",
+            "value": 142
+        },
+        {
+            "label": "Cleanrot Armor (Altered)",
+            "value": 146
+        },
+        {
+            "label": "Fire Monk Armor",
+            "value": 148
+        },
+        {
+            "label": "Blackflame Monk Armor",
+            "value": 152
+        },
+        {
+            "label": "Fire Prelate Armor",
+            "value": 156
+        },
+        {
+            "label": "Fire Prelate Armor (Altered)",
+            "value": 159
+        },
+        {
+            "label": "Aristocrat Garb",
+            "value": 161
+        },
+        {
+            "label": "Aristocrat Garb (Altered)",
+            "value": 163
+        },
+        {
+            "label": "Aristocrat Coat",
+            "value": 165
+        },
+        {
+            "label": "Old Aristocrat Gown",
+            "value": 167
+        },
+        {
+            "label": "Vulgar Militia Armor",
+            "value": 170
+        },
+        {
+            "label": "Sage Robe",
+            "value": 174
+        },
+        {
+            "label": "Elden Lord Armor",
+            "value": 178
+        },
+        {
+            "label": "Elden Lord Armor (Altered)",
+            "value": 181
+        },
+        {
+            "label": "Radahn's Lion Armor",
+            "value": 183
+        },
+        {
+            "label": "Radahn's Lion Armor (Altered)",
+            "value": 186
+        },
+        {
+            "label": "Lord of Blood's Robe",
+            "value": 187
+        },
+        {
+            "label": "Lord of Blood's Robe (Altered)",
+            "value": 188
+        },
+        {
+            "label": "Queen's Robe",
+            "value": 190
+        },
+        {
+            "label": "Sanguine Noble Robe",
+            "value": 194
+        },
+        {
+            "label": "Godskin Apostle Robe",
+            "value": 198
+        },
+        {
+            "label": "Depraved Perfumer Robe",
+            "value": 202
+        },
+        {
+            "label": "Depraved Perfumer Robe (Altered)",
+            "value": 205
+        },
+        {
+            "label": "Crucible Axe Armor",
+            "value": 207
+        },
+        {
+            "label": "Crucible Tree Armor",
+            "value": 211
+        },
+        {
+            "label": "Crucible Axe Armor (Altered)",
+            "value": 212
+        },
+        {
+            "label": "Crucible Tree Armor (Altered)",
+            "value": 213
+        },
+        {
+            "label": "Lusat's Robe",
+            "value": 215
+        },
+        {
+            "label": "Azur's Glintstone Robe",
+            "value": 219
+        },
+        {
+            "label": "All-Knowing Armor",
+            "value": 222
+        },
+        {
+            "label": "All-Knowing Armor (Altered)",
+            "value": 225
+        },
+        {
+            "label": "Twinned Armor",
+            "value": 227
+        },
+        {
+            "label": "Twinned Armor (Altered)",
+            "value": 230
+        },
+        {
+            "label": "Corhyn's Robe",
+            "value": 232
+        },
+        {
+            "label": "Prophet Robe (Altered)",
+            "value": 234
+        },
+        {
+            "label": "Prophet Robe",
+            "value": 235
+        },
+        {
+            "label": "Astrologer Robe",
+            "value": 237
+        },
+        {
+            "label": "Astrologer Robe (Altered)",
+            "value": 240
+        },
+        {
+            "label": "Lionel's Armor",
+            "value": 242
+        },
+        {
+            "label": "Lionel's Armor (Altered)",
+            "value": 245
+        },
+        {
+            "label": "Hoslow's Armor",
+            "value": 247
+        },
+        {
+            "label": "Hoslow's Armor (Altered)",
+            "value": 251
+        },
+        {
+            "label": "Vagabond Knight Armor",
+            "value": 253
+        },
+        {
+            "label": "Vagabond Knight Armor (Altered)",
+            "value": 256
+        },
+        {
+            "label": "Blue Cloth Vest",
+            "value": 258
+        },
+        {
+            "label": "War Surgeon Gown",
+            "value": 262
+        },
+        {
+            "label": "War Surgeon Gown (Altered)",
+            "value": 265
+        },
+        {
+            "label": "Royal Remains Armor",
+            "value": 267
+        },
+        {
+            "label": "Beast Champion Armor",
+            "value": 271
+        },
+        {
+            "label": "Beast Champion Armor (Altered)",
+            "value": 274
+        },
+        {
+            "label": "Champion Pauldron",
+            "value": 276
+        },
+        {
+            "label": "Noble's Traveling Garb",
+            "value": 280
+        },
+        {
+            "label": "Maliketh's Armor",
+            "value": 285
+        },
+        {
+            "label": "Maliketh's Armor (Altered)",
+            "value": 288
+        },
+        {
+            "label": "Malenia's Armor",
+            "value": 290
+        },
+        {
+            "label": "Malenia's Armor (Altered)",
+            "value": 293
+        },
+        {
+            "label": "Veteran's Armor",
+            "value": 295
+        },
+        {
+            "label": "Veteran's Armor (Altered)",
+            "value": 298
+        },
+        {
+            "label": "Bloodhound Knight Armor",
+            "value": 300
+        },
+        {
+            "label": "Bloodhound Knight Armor (Altered)",
+            "value": 303
+        },
+        {
+            "label": "Festive Garb",
+            "value": 305
+        },
+        {
+            "label": "Festive Garb (Altered)",
+            "value": 307
+        },
+        {
+            "label": "Blue Festive Garb",
+            "value": 309
+        },
+        {
+            "label": "Commoner's Garb",
+            "value": 311
+        },
+        {
+            "label": "Commoner's Garb (Altered)",
+            "value": 314
+        },
+        {
+            "label": "Commoner's Simple Garb",
+            "value": 315
+        },
+        {
+            "label": "Commoner's Simple Garb (Altered)",
+            "value": 316
+        },
+        {
+            "label": "Raya Lucarian Robe",
+            "value": 319
+        },
+        {
+            "label": "Marionette Soldier Armor",
+            "value": 327
+        },
+        {
+            "label": "Raging Wolf Armor",
+            "value": 330
+        },
+        {
+            "label": "Raging Wolf Armor (Altered)",
+            "value": 333
+        },
+        {
+            "label": "Land of Reeds Armor",
+            "value": 335
+        },
+        {
+            "label": "Land of Reeds Armor (Altered)",
+            "value": 338
+        },
+        {
+            "label": "White Reed Armor",
+            "value": 340
+        },
+        {
+            "label": "Confessor Armor",
+            "value": 344
+        },
+        {
+            "label": "Confessor Armor (Altered)",
+            "value": 348
+        },
+        {
+            "label": "Prisoner Clothing",
+            "value": 350
+        },
+        {
+            "label": "Traveling Maiden Robe",
+            "value": 354
+        },
+        {
+            "label": "Traveling Maiden Robe (Altered)",
+            "value": 357
+        },
+        {
+            "label": "Finger Maiden Robe",
+            "value": 359
+        },
+        {
+            "label": "Finger Maiden Robe (Altered)",
+            "value": 361
+        },
+        {
+            "label": "Preceptor's Long Gown",
+            "value": 363
+        },
+        {
+            "label": "Preceptor's Long Gown (Altered)",
+            "value": 367
+        },
+        {
+            "label": "Raptor's Black Feathers",
+            "value": 369
+        },
+        {
+            "label": "Bandit Garb",
+            "value": 372
+        },
+        {
+            "label": "Eccentric's Armor",
+            "value": 374
+        },
+        {
+            "label": "Fingerprint Armor",
+            "value": 379
+        },
+        {
+            "label": "Fingerprint Armor (Altered)",
+            "value": 382
+        },
+        {
+            "label": "Consort's Robe",
+            "value": 384
+        },
+        {
+            "label": "Ruler's Robe",
+            "value": 387
+        },
+        {
+            "label": "Upper-Class Robe",
+            "value": 388
+        },
+        {
+            "label": "Marais Robe",
+            "value": 390
+        },
+        {
+            "label": "Official's Attire",
+            "value": 393
+        },
+        {
+            "label": "Omen Armor",
+            "value": 395
+        },
+        {
+            "label": "Carian Knight Armor",
+            "value": 399
+        },
+        {
+            "label": "Carian Knight Armor (Altered)",
+            "value": 402
+        },
+        {
+            "label": "Errant Sorcerer Robe",
+            "value": 404
+        },
+        {
+            "label": "Errant Sorcerer Robe (Altered)",
+            "value": 407
+        },
+        {
+            "label": "Battlemage Robe",
+            "value": 409
+        },
+        {
+            "label": "Snow Witch Robe",
+            "value": 413
+        },
+        {
+            "label": "Snow Witch Robe (Altered)",
+            "value": 415
+        },
+        {
+            "label": "Traveler's Clothes",
+            "value": 416
+        },
+        {
+            "label": "Juvenile Scholar Robe",
+            "value": 420
+        },
+        {
+            "label": "Goldmask's Rags",
+            "value": 422
+        },
+        {
+            "label": "Fell Omen Cloak",
+            "value": 425
+        },
+        {
+            "label": "Dirty Chainmail",
+            "value": 427
+        },
+        {
+            "label": "Zamor Armor",
+            "value": 429
+        },
+        {
+            "label": "Chain Armor",
+            "value": 440
+        },
+        {
+            "label": "Eye Surcoat",
+            "value": 444
+        },
+        {
+            "label": "Tree Surcoat",
+            "value": 445
+        },
+        {
+            "label": "Mushroom Body",
+            "value": 449
+        },
+        {
+            "label": "Leather Armor",
+            "value": 455
+        },
+        {
+            "label": "Knight Armor",
+            "value": 460
+        },
+        {
+            "label": "Tree-and-Beast Surcoat",
+            "value": 465
+        },
+        {
+            "label": "Cuckoo Surcoat",
+            "value": 469
+        },
+        {
+            "label": "Erdtree Surcoat",
+            "value": 473
+        },
+        {
+            "label": "Redmane Surcoat",
+            "value": 477
+        },
+        {
+            "label": "Mausoleum Surcoat",
+            "value": 480
+        },
+        {
+            "label": "Haligtree Crest Surcoat",
+            "value": 484
+        },
+        {
+            "label": "Gelmir Knight Armor",
+            "value": 488
+        },
+        {
+            "label": "Gelmir Knight Armor (Altered)",
+            "value": 491
+        },
+        {
+            "label": "Godrick Knight Armor",
+            "value": 493
+        },
+        {
+            "label": "Godrick Knight Armor (Altered)",
+            "value": 496
+        },
+        {
+            "label": "Cuckoo Knight Armor",
+            "value": 498
+        },
+        {
+            "label": "Cuckoo Knight Armor (Altered)",
+            "value": 501
+        },
+        {
+            "label": "Leyndell Knight Armor",
+            "value": 503
+        },
+        {
+            "label": "Leyndell Knight Armor (Altered)",
+            "value": 506
+        },
+        {
+            "label": "Redmane Knight Armor",
+            "value": 508
+        },
+        {
+            "label": "Redmane Knight Armor (Altered)",
+            "value": 511
+        },
+        {
+            "label": "Mausoleum Knight Armor",
+            "value": 512
+        },
+        {
+            "label": "Mausoleum Knight Armor (Altered)",
+            "value": 515
+        },
+        {
+            "label": "Haligtree Knight Armor",
+            "value": 517
+        },
+        {
+            "label": "Haligtree Knight Armor (Altered)",
+            "value": 520
+        },
+        {
+            "label": "Chain-Draped Tabard",
+            "value": 522
+        },
+        {
+            "label": "Foot Soldier Tabard",
+            "value": 526
+        },
+        {
+            "label": "Leather-Draped Tabard",
+            "value": 528
+        },
+        {
+            "label": "Scarlet Tabard",
+            "value": 530
+        },
+        {
+            "label": "Bloodsoaked Tabard",
+            "value": 531
+        },
+        {
+            "label": "Ivory-Draped Tabard",
+            "value": 533
+        },
+        {
+            "label": "Omenkiller Robe",
+            "value": 535
+        },
+        {
+            "label": "Highwayman Cloth Armor",
+            "value": 548
+        },
+        {
+            "label": "High Page Clothes",
+            "value": 551
+        },
+        {
+            "label": "High Page Clothes (Altered)",
+            "value": 552
+        },
+        {
+            "label": "Rotten Gravekeeper Cloak",
+            "value": 554
+        },
+        {
+            "label": "Rotten Gravekeeper Cloak (Altered)",
+            "value": 556
+        },
+        {
+            "label": "Lazuli Robe",
+            "value": 559
+        }
+    ]
+}

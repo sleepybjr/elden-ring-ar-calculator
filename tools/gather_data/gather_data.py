@@ -746,64 +746,35 @@ def getWeaponGroups():
 ##############################################
 
 def getArmorGroups():
-    armor_groups = []
-    ArmorTypes = set()
-    armors = OrderedDict()
+    head = OrderedDict()
+    head['label'] = "Head"
+    head['options'] = []
+    body = OrderedDict()
+    body['label'] = "Body"
+    body['options'] = []
+    arm = OrderedDict()
+    arm['label'] = "Arm"
+    arm['options'] = []
+    leg = OrderedDict()
+    leg['label'] = "Leg"
+    leg['options'] = []
+    i = 1
     for key, row in EquipParamProtector.items():
         if row['Can Drop'] == InputBoolean.TRUE.value:
-            # REFORMAT DATA SO IT IS
-            """
-            [
-                {
-                    label: 'weapontype',
-                    options: [
-                        {
-                            label: 'weaponname',
-                            value: 'weaponname',
-                        },
-                        {
-                            label: 'weaponname',
-                            value: 'weaponname',
-                        },
-                    ]
-                }
-            ]
-            """
             if row['Is Head Equipment'] == InputBoolean.TRUE.value:
-                ArmorTypes.add("Head")
-                armors[row['Row Name']] = "Head"
+                head["options"].append({'label': row['Row Name'], 'value': i})
+                i+=1
             elif row['Is Body Equipment'] == InputBoolean.TRUE.value:
-                ArmorTypes.add("Body")
-                armors[row['Row Name']] = "Body"
+                body["options"].append({'label': row['Row Name'], 'value': i})
+                i+=1
             elif row['Is Arm Equipment'] == InputBoolean.TRUE.value:
-                ArmorTypes.add("Arm")
-                armors[row['Row Name']] = "Arm"
+                arm["options"].append({'label': row['Row Name'], 'value': i})
+                i+=1
             elif row['Is Leg Equipment'] == InputBoolean.TRUE.value:
-                ArmorTypes.add("Leg")
-                armors[row['Row Name']] = "Leg"
-            else:
-                ArmorTypes.add("None")
-                armors[row['Row Name']] = "None"
-    i = 1
-    for key, val in armors.items():
-        isGroup = -1
-        if len(armor_groups) != 0:
-            for idx, groups in enumerate(armor_groups):
-                if val == groups['label']:
-                    isGroup = idx
+                leg["options"].append({'label': row['Row Name'], 'value': i})
+                i+=1
 
-        if isGroup == -1:
-            group = OrderedDict()
-            group['label'] = val
-            group['options'] = []
-            group['options'].append({'label': key, 'value': str(i)})
-            i+=1
-            armor_groups.append(group)
-        else:
-            armor_groups[isGroup]['options'].append(OrderedDict({'label': key, 'value': i}))
-            i+=1
-
-    return armor_groups
+    return head, body, arm, leg
 
 
 ##############################################
@@ -1354,7 +1325,7 @@ calc_correct_id = getCalcCorrectId()
 weapon_groups = getWeaponGroups()
 physical_calculations = getPhysCalc()
 armor_data = getArmorData()
-armor_groups = getArmorGroups()
+head_group, body_group, arm_group, leg_group = getArmorGroups()
 
 writeToFile('attackelementcorrectparam', attack_element_correct_param_data)
 writeToFile('weapon_reqs', weapon_reqs_data)
@@ -1365,7 +1336,10 @@ writeToFile('calc_correct_id', calc_correct_id)
 writeToFile('weapon_groups', weapon_groups)
 writeToFile('physical_calculations', physical_calculations)
 writeToFile('armor_data', armor_data)
-writeToFile('armor_groups', armor_groups)
+writeToFile('head_group', head_group)
+writeToFile('body_group', body_group)
+writeToFile('arm_group', arm_group)
+writeToFile('leg_group', leg_group)
 
 # pp = pprint.PrettyPrinter(indent=4)
 # pp.pprint(weapon_groups)
