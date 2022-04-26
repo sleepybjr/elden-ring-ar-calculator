@@ -96,6 +96,18 @@ Weapon_Type = {
     87: "Torch"
 }
 
+Armor_Type = {
+    # MenuValueTableParam- Value: Row Name
+    0: "Head",
+    1: "Body",
+    2: "Arm",
+    3: "Leg"
+}
+
+def getArmorType(value):
+    armortype = int(value)
+    return Armor_Type[armortype]
+
 
 def getWeaponType(value):
     weapontype = int(value)
@@ -207,6 +219,17 @@ with open("ReinforceParamWeapon.csv") as fp:
     ReinforceParamWeapon = OrderedDict(
         (row[0], OrderedDict(zip(headers, row[1:]))) for row in reader)
 
+with open("EquipParamProtector.csv") as fp:
+    reader = csv.reader(fp, delimiter=";", quotechar='"')
+    headers = next(reader)[1:]
+    EquipParamProtector = OrderedDict(
+        (row[0], OrderedDict(zip(headers, row[1:]))) for row in reader)
+
+with open("SpEffectParam.csv") as fp:
+    reader = csv.reader(fp, delimiter=";", quotechar='"')
+    headers = next(reader)[1:]
+    SpEffectParam = OrderedDict(
+        (row[0], OrderedDict(zip(headers, row[1:]))) for row in reader)
 
 ##############################################
 # weapon_reqs.json
@@ -463,16 +486,9 @@ SortOrder = {
 
 
 def getWeaponPassive():
-    with open("SpEffectParam.csv") as fp:
-        reader = csv.reader(fp, delimiter=";", quotechar='"')
-        headers = next(reader)[1:]
-        SpEffectParam = OrderedDict(
-            (row[0], OrderedDict(zip(headers, row[1:]))) for row in reader)
-
     weapon_passive_data = []
 
     # ReinforceParamWeapon['Behavior SpEffect 1 Offset'] used for something?
-
     for key, row in EquipParamWeapon.items():
         if row['Row Name'] != '' and base_weapon <= int(key) <= max_weapon:
             if not (row["Prevent Affinity Change"] == "True" and getAffinity(key) != "None"):
@@ -736,6 +752,43 @@ def getWeaponGroups():
 
     return weapon_groups
 
+
+##############################################
+# armor_groups.json
+##############################################
+
+def getArmorGroups():
+    head = OrderedDict()
+    head['label'] = "Head"
+    head['options'] = []
+    body = OrderedDict()
+    body['label'] = "Body"
+    body['options'] = []
+    arm = OrderedDict()
+    arm['label'] = "Arm"
+    arm['options'] = []
+    leg = OrderedDict()
+    leg['label'] = "Leg"
+    leg['options'] = []
+    i = 1
+    for key, row in EquipParamProtector.items():
+        if row['Can Drop'] == InputBoolean.TRUE.value:
+            if getArmorType(row['Armor Category']) == head['label']:
+                head["options"].append({'label': row['Row Name'], 'value': i})
+                i+=1
+            elif getArmorType(row['Armor Category']) == body['label']:
+                body["options"].append({'label': row['Row Name'], 'value': i})
+                i+=1
+            elif getArmorType(row['Armor Category']) == arm['label']:
+                arm["options"].append({'label': row['Row Name'], 'value': i})
+                i+=1
+            elif getArmorType(row['Armor Category']) == leg['label']:
+                leg["options"].append({'label': row['Row Name'], 'value': i})
+                i+=1
+
+    return head, body, arm, leg
+
+
 ##############################################
 # physical_calculations.json
 ##############################################
@@ -765,39 +818,19 @@ def getPhysCalc():
     
     return phys_calc_data
 
+
 ##############################################
 # armor_data.json
 ##############################################
 
 def getArmorData():
-    with open("EquipParamProtector.csv") as fp:
-        reader = csv.reader(fp, delimiter=";", quotechar='"')
-        headers = next(reader)[1:]
-        EquipParamProtector = OrderedDict(
-            (row[0], OrderedDict(zip(headers, row[1:]))) for row in reader)
-
-    with open("SpEffectParam.csv") as fp:
-        reader = csv.reader(fp, delimiter=";", quotechar='"')
-        headers = next(reader)[1:]
-        SpEffectParam = OrderedDict(
-            (row[0], OrderedDict(zip(headers, row[1:]))) for row in reader)
-
     armor_data = []
     for key, row in EquipParamProtector.items():
         if row['Can Drop'] == InputBoolean.TRUE.value:
             row_dict = OrderedDict()
             row_dict["row_id"] = int(key)
             row_dict["name"] = row['Row Name']
-            if row['Is Head Equipment'] == InputBoolean.TRUE.value:
-                row_dict["equipment_type"] = "Head"
-            elif row['Is Body Equipment'] == InputBoolean.TRUE.value:
-                row_dict["equipment_type"] = "Body"
-            elif row['Is Arm Equipment'] == InputBoolean.TRUE.value:
-                row_dict["equipment_type"] = "Arm"
-            elif row['Is Leg Equipment'] == InputBoolean.TRUE.value:
-                row_dict["equipment_type"] = "Leg"
-            else:
-                row_dict["equipment_type"] = "None"
+            row_dict["equipment_type"] = getArmorType(row['Armor Category'])
             row_dict["weight"] = float(row['Weight'])
             row_dict["physical_absorption"] = 1 - float(row['Absorption - Physical'])
             row_dict["strike_absorption"] = 1 - float(row['Absorption - Strike'])
@@ -824,13 +857,22 @@ def getArmorData():
                 row_dict["sleep_resist"] = int(row['Resist - Sleep'])
             row_dict["vitality"] = int(row['Resist - Blight'])
             row_dict["poise"] = int(float(row['Poise']) * 1000.0)
-
-            if int(row['Resident SpEffect ID [1]']) != -1:
-                row_dict["passive_1"] = getPassiveEffect(SpEffectParam[row['Resident SpEffect ID [1]']])
-            if int(row['Resident SpEffect ID [2]']) != -1:
-                row_dict["passive_2"] = getPassiveEffect(SpEffectParam[row['Resident SpEffect ID [2]']])
-            if int(row['Resident SpEffect ID [3]']) != -1:
-                row_dict["passive_3"] = getPassiveEffect(SpEffectParam[row['Resident SpEffect ID [3]']])
+            
+            # if death bed dress
+            if (int(key) == 1930100):
+                if int(row['Resident SpEffect ID [1]']) != -1:
+                    row_dict["passive_1"] = getPassiveEffect(SpEffectParam[str(int(row['Resident SpEffect ID [1]']) + 2)])
+                if int(row['Resident SpEffect ID [2]']) != -1:
+                    row_dict["passive_2"] = getPassiveEffect(SpEffectParam[str(int(row['Resident SpEffect ID [2]']) + 2)])
+                if int(row['Resident SpEffect ID [3]']) != -1:
+                    row_dict["passive_3"] = getPassiveEffect(SpEffectParam[str(int(row['Resident SpEffect ID [3]']) + 2)])
+            else:
+                if int(row['Resident SpEffect ID [1]']) != -1:
+                    row_dict["passive_1"] = getPassiveEffect(SpEffectParam[row['Resident SpEffect ID [1]']])
+                if int(row['Resident SpEffect ID [2]']) != -1:
+                    row_dict["passive_2"] = getPassiveEffect(SpEffectParam[row['Resident SpEffect ID [2]']])
+                if int(row['Resident SpEffect ID [3]']) != -1:
+                    row_dict["passive_3"] = getPassiveEffect(SpEffectParam[row['Resident SpEffect ID [3]']])
 
             armor_data.append(row_dict)
     
@@ -911,6 +953,7 @@ Conditional_Weapon_Effect = {
     117 : "Wraith Attack",
     118 : "Ammunition OnHit Attack"
 }
+
 
 def getPassiveEffect(specialEffect):
     row_dict = OrderedDict()
@@ -1032,22 +1075,26 @@ def getPassiveEffect(specialEffect):
         row_dict["pvp_absorptione_percent_lightning"] = -(float(specialEffect['PVP Absorption %: Lightning'])  - 1.0)
     if (float(specialEffect['PVP Absorption %: Holy']) != 1.0):
         row_dict["pvp_absorption_percent_holy"] = -(float(specialEffect['PVP Absorption %: Holy']) - 1.0)
+
+    # You use this to get the new absorption from armor.
+    # An example calculation to get a new physical absorption for armor is found below
+    # physical_absorption = -((1 - physical_absorption) * absorption_standard) + 1 
     if (float(specialEffect['Absorption: Standard']) != 1.0):
-        row_dict["absorption_standard"] = float(specialEffect['Absorption: Standard']) - 1.0
+        row_dict["absorption_standard"] = float(specialEffect['Absorption: Standard'])
     if (float(specialEffect['Absorption: Strike']) != 1.0):
-        row_dict["absorption_strike"] = float(specialEffect['Absorption: Strike']) - 1.0
+        row_dict["absorption_strike"] = float(specialEffect['Absorption: Strike'])
     if (float(specialEffect['Absorption: Slash']) != 1.0):
-        row_dict["absorption_slash"] = float(specialEffect['Absorption: Slash']) - 1.0
+        row_dict["absorption_slash"] = float(specialEffect['Absorption: Slash'])
     if (float(specialEffect['Absorption: Thrust']) != 1.0):
-        row_dict["absorption_thrust"] = float(specialEffect['Absorption: Thrust']) - 1.0
+        row_dict["absorption_thrust"] = float(specialEffect['Absorption: Thrust'])
     if (float(specialEffect['Absorption: Magic']) != 1.0):
-        row_dict["absorption_magic"] = float(specialEffect['Absorption: Magic']) - 1.0
+        row_dict["absorption_magic"] = float(specialEffect['Absorption: Magic'])
     if (float(specialEffect['Absorption: Fire']) != 1.0):
-        row_dict["absorption_fire"] = float(specialEffect['Absorption: Fire']) - 1.0
+        row_dict["absorption_fire"] = float(specialEffect['Absorption: Fire'])
     if (float(specialEffect['Absorption: Lightning']) != 1.0):
-        row_dict["absorption_lightning"] = float(specialEffect['Absorption: Lightning'])  - 1.0
+        row_dict["absorption_lightning"] = float(specialEffect['Absorption: Lightning'])
     if (float(specialEffect['Absorption: Holy']) != 1.0):
-        row_dict["absorption_holy"] = float(specialEffect['Absorption: Holy']) - 1.0
+        row_dict["absorption_holy"] = float(specialEffect['Absorption: Holy'])
 
     if (int(specialEffect['Resist: Poison +']) == int(specialEffect['Resist: Scarlet Rot +'])):
         if (int(specialEffect['Resist: Poison +']) != 0):
@@ -1238,6 +1285,13 @@ def getPassiveEffect(specialEffect):
     if (int(specialEffect['Bow Distance']) != 0):
         row_dict["bow_distance"] = int(specialEffect['Bow Distance'])  
 
+    if (specialEffect['Trigger for Opponent'] == InputBoolean.TRUE.value):
+        row_dict["trigger_effect_for_opponent"] = InputBoolean.TRUE.value
+    if (specialEffect['Trigger for Friendly'] == InputBoolean.TRUE.value):
+        row_dict["trigger_effect_for_friendly"] = InputBoolean.TRUE.value
+    if (specialEffect['Trigger for Self'] == InputBoolean.TRUE.value):
+        row_dict["trigger_effect_for_self"] = InputBoolean.TRUE.value
+
     if (int(specialEffect['Trigger on State Info [1]']) != 0):
         row_dict["trigger_on_state_info_1"] = State_Info_Effect[int(specialEffect['Trigger on State Info [1]'])]
     if (int(specialEffect['Trigger on State Info [2]']) != 0):
@@ -1246,39 +1300,15 @@ def getPassiveEffect(specialEffect):
         row_dict["trigger_on_state_info_3"] = State_Info_Effect[int(specialEffect['Trigger on State Info [3]'])]
 
     if (int(specialEffect['Chain SpEffect ID']) != -1):
-        with open("SpEffectParam.csv") as fp:
-            reader = csv.reader(fp, delimiter=";", quotechar='"')
-            headers = next(reader)[1:]
-            SpEffectParam = OrderedDict(
-                (row[0], OrderedDict(zip(headers, row[1:]))) for row in reader)
-
         row_dict["chain_special_effect"] = getPassiveEffect(SpEffectParam[specialEffect['Chain SpEffect ID']])
 
     if (int(specialEffect['Cycle SpEffect ID']) != -1):
-        with open("SpEffectParam.csv") as fp:
-            reader = csv.reader(fp, delimiter=";", quotechar='"')
-            headers = next(reader)[1:]
-            SpEffectParam = OrderedDict(
-                (row[0], OrderedDict(zip(headers, row[1:]))) for row in reader)
-
         row_dict["cycle_special_effect"] = getPassiveEffect(SpEffectParam[specialEffect['Cycle SpEffect ID']])
     
     if (int(specialEffect['Attack SpEffect ID']) != -1):
-        with open("SpEffectParam.csv") as fp:
-            reader = csv.reader(fp, delimiter=";", quotechar='"')
-            headers = next(reader)[1:]
-            SpEffectParam = OrderedDict(
-                (row[0], OrderedDict(zip(headers, row[1:]))) for row in reader)
-
         row_dict["attack_special_effect"] = getPassiveEffect(SpEffectParam[specialEffect['Attack SpEffect ID']])
 
     if (int(specialEffect['Kill SpEffect ID']) != 0):
-        with open("SpEffectParam.csv") as fp:
-            reader = csv.reader(fp, delimiter=";", quotechar='"')
-            headers = next(reader)[1:]
-            SpEffectParam = OrderedDict(
-                (row[0], OrderedDict(zip(headers, row[1:]))) for row in reader)
-
         row_dict["kill_special_effect"] = getPassiveEffect(SpEffectParam[specialEffect['Kill SpEffect ID']])
 
     return row_dict
@@ -1298,6 +1328,7 @@ calc_correct_id = getCalcCorrectId()
 weapon_groups = getWeaponGroups()
 physical_calculations = getPhysCalc()
 armor_data = getArmorData()
+head_group, body_group, arm_group, leg_group = getArmorGroups()
 
 writeToFile('attackelementcorrectparam', attack_element_correct_param_data)
 writeToFile('weapon_reqs', weapon_reqs_data)
@@ -1308,6 +1339,10 @@ writeToFile('calc_correct_id', calc_correct_id)
 writeToFile('weapon_groups', weapon_groups)
 writeToFile('physical_calculations', physical_calculations)
 writeToFile('armor_data', armor_data)
+writeToFile('head_group', head_group)
+writeToFile('body_group', body_group)
+writeToFile('arm_group', arm_group)
+writeToFile('leg_group', leg_group)
 
 # pp = pprint.PrettyPrinter(indent=4)
 # pp.pprint(weapon_groups)
