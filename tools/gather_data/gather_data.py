@@ -207,6 +207,17 @@ with open("ReinforceParamWeapon.csv") as fp:
     ReinforceParamWeapon = OrderedDict(
         (row[0], OrderedDict(zip(headers, row[1:]))) for row in reader)
 
+with open("EquipParamProtector.csv") as fp:
+    reader = csv.reader(fp, delimiter=";", quotechar='"')
+    headers = next(reader)[1:]
+    EquipParamProtector = OrderedDict(
+        (row[0], OrderedDict(zip(headers, row[1:]))) for row in reader)
+
+with open("SpEffectParam.csv") as fp:
+    reader = csv.reader(fp, delimiter=";", quotechar='"')
+    headers = next(reader)[1:]
+    SpEffectParam = OrderedDict(
+        (row[0], OrderedDict(zip(headers, row[1:]))) for row in reader)
 
 ##############################################
 # weapon_reqs.json
@@ -463,16 +474,9 @@ SortOrder = {
 
 
 def getWeaponPassive():
-    with open("SpEffectParam.csv") as fp:
-        reader = csv.reader(fp, delimiter=";", quotechar='"')
-        headers = next(reader)[1:]
-        SpEffectParam = OrderedDict(
-            (row[0], OrderedDict(zip(headers, row[1:]))) for row in reader)
-
     weapon_passive_data = []
 
     # ReinforceParamWeapon['Behavior SpEffect 1 Offset'] used for something?
-
     for key, row in EquipParamWeapon.items():
         if row['Row Name'] != '' and base_weapon <= int(key) <= max_weapon:
             if not (row["Prevent Affinity Change"] == "True" and getAffinity(key) != "None"):
@@ -736,6 +740,72 @@ def getWeaponGroups():
 
     return weapon_groups
 
+
+##############################################
+# armor_groups.json
+##############################################
+
+def getArmorGroups():
+    armor_groups = []
+    ArmorTypes = set()
+    armors = OrderedDict()
+    for key, row in EquipParamProtector.items():
+        if row['Can Drop'] == InputBoolean.TRUE.value:
+            # REFORMAT DATA SO IT IS
+            """
+            [
+                {
+                    label: 'weapontype',
+                    options: [
+                        {
+                            label: 'weaponname',
+                            value: 'weaponname',
+                        },
+                        {
+                            label: 'weaponname',
+                            value: 'weaponname',
+                        },
+                    ]
+                }
+            ]
+            """
+            if row['Is Head Equipment'] == InputBoolean.TRUE.value:
+                ArmorTypes.add("Head")
+                armors[row['Row Name']] = "Head"
+            elif row['Is Body Equipment'] == InputBoolean.TRUE.value:
+                ArmorTypes.add("Body")
+                armors[row['Row Name']] = "Body"
+            elif row['Is Arm Equipment'] == InputBoolean.TRUE.value:
+                ArmorTypes.add("Arm")
+                armors[row['Row Name']] = "Arm"
+            elif row['Is Leg Equipment'] == InputBoolean.TRUE.value:
+                ArmorTypes.add("Leg")
+                armors[row['Row Name']] = "Leg"
+            else:
+                ArmorTypes.add("None")
+                armors[row['Row Name']] = "None"
+    i = 1
+    for key, val in armors.items():
+        isGroup = -1
+        if len(armor_groups) != 0:
+            for idx, groups in enumerate(armor_groups):
+                if val == groups['label']:
+                    isGroup = idx
+
+        if isGroup == -1:
+            group = OrderedDict()
+            group['label'] = val
+            group['options'] = []
+            group['options'].append({'label': key, 'value': str(i)})
+            i+=1
+            armor_groups.append(group)
+        else:
+            armor_groups[isGroup]['options'].append(OrderedDict({'label': key, 'value': i}))
+            i+=1
+
+    return armor_groups
+
+
 ##############################################
 # physical_calculations.json
 ##############################################
@@ -765,23 +835,12 @@ def getPhysCalc():
     
     return phys_calc_data
 
+
 ##############################################
 # armor_data.json
 ##############################################
 
 def getArmorData():
-    with open("EquipParamProtector.csv") as fp:
-        reader = csv.reader(fp, delimiter=";", quotechar='"')
-        headers = next(reader)[1:]
-        EquipParamProtector = OrderedDict(
-            (row[0], OrderedDict(zip(headers, row[1:]))) for row in reader)
-
-    with open("SpEffectParam.csv") as fp:
-        reader = csv.reader(fp, delimiter=";", quotechar='"')
-        headers = next(reader)[1:]
-        SpEffectParam = OrderedDict(
-            (row[0], OrderedDict(zip(headers, row[1:]))) for row in reader)
-
     armor_data = []
     for key, row in EquipParamProtector.items():
         if row['Can Drop'] == InputBoolean.TRUE.value:
@@ -920,6 +979,7 @@ Conditional_Weapon_Effect = {
     117 : "Wraith Attack",
     118 : "Ammunition OnHit Attack"
 }
+
 
 def getPassiveEffect(specialEffect):
     row_dict = OrderedDict()
@@ -1266,39 +1326,15 @@ def getPassiveEffect(specialEffect):
         row_dict["trigger_on_state_info_3"] = State_Info_Effect[int(specialEffect['Trigger on State Info [3]'])]
 
     if (int(specialEffect['Chain SpEffect ID']) != -1):
-        with open("SpEffectParam.csv") as fp:
-            reader = csv.reader(fp, delimiter=";", quotechar='"')
-            headers = next(reader)[1:]
-            SpEffectParam = OrderedDict(
-                (row[0], OrderedDict(zip(headers, row[1:]))) for row in reader)
-
         row_dict["chain_special_effect"] = getPassiveEffect(SpEffectParam[specialEffect['Chain SpEffect ID']])
 
     if (int(specialEffect['Cycle SpEffect ID']) != -1):
-        with open("SpEffectParam.csv") as fp:
-            reader = csv.reader(fp, delimiter=";", quotechar='"')
-            headers = next(reader)[1:]
-            SpEffectParam = OrderedDict(
-                (row[0], OrderedDict(zip(headers, row[1:]))) for row in reader)
-
         row_dict["cycle_special_effect"] = getPassiveEffect(SpEffectParam[specialEffect['Cycle SpEffect ID']])
     
     if (int(specialEffect['Attack SpEffect ID']) != -1):
-        with open("SpEffectParam.csv") as fp:
-            reader = csv.reader(fp, delimiter=";", quotechar='"')
-            headers = next(reader)[1:]
-            SpEffectParam = OrderedDict(
-                (row[0], OrderedDict(zip(headers, row[1:]))) for row in reader)
-
         row_dict["attack_special_effect"] = getPassiveEffect(SpEffectParam[specialEffect['Attack SpEffect ID']])
 
     if (int(specialEffect['Kill SpEffect ID']) != 0):
-        with open("SpEffectParam.csv") as fp:
-            reader = csv.reader(fp, delimiter=";", quotechar='"')
-            headers = next(reader)[1:]
-            SpEffectParam = OrderedDict(
-                (row[0], OrderedDict(zip(headers, row[1:]))) for row in reader)
-
         row_dict["kill_special_effect"] = getPassiveEffect(SpEffectParam[specialEffect['Kill SpEffect ID']])
 
     return row_dict
@@ -1318,6 +1354,7 @@ calc_correct_id = getCalcCorrectId()
 weapon_groups = getWeaponGroups()
 physical_calculations = getPhysCalc()
 armor_data = getArmorData()
+armor_groups = getArmorGroups()
 
 writeToFile('attackelementcorrectparam', attack_element_correct_param_data)
 writeToFile('weapon_reqs', weapon_reqs_data)
@@ -1328,6 +1365,7 @@ writeToFile('calc_correct_id', calc_correct_id)
 writeToFile('weapon_groups', weapon_groups)
 writeToFile('physical_calculations', physical_calculations)
 writeToFile('armor_data', armor_data)
+writeToFile('armor_groups', armor_groups)
 
 # pp = pprint.PrettyPrinter(indent=4)
 # pp.pprint(weapon_groups)
