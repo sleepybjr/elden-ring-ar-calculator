@@ -96,6 +96,18 @@ Weapon_Type = {
     87: "Torch"
 }
 
+Armor_Type = {
+    # MenuValueTableParam- Value: Row Name
+    0: "Head",
+    1: "Body",
+    2: "Arm",
+    3: "Leg"
+}
+
+def getArmorType(value):
+    armortype = int(value)
+    return Armor_Type[armortype]
+
 
 def getWeaponType(value):
     weapontype = int(value)
@@ -761,16 +773,16 @@ def getArmorGroups():
     i = 1
     for key, row in EquipParamProtector.items():
         if row['Can Drop'] == InputBoolean.TRUE.value:
-            if row['Is Head Equipment'] == InputBoolean.TRUE.value:
+            if getArmorType(row['Armor Category']) == head['label']:
                 head["options"].append({'label': row['Row Name'], 'value': i})
                 i+=1
-            elif row['Is Body Equipment'] == InputBoolean.TRUE.value:
+            elif getArmorType(row['Armor Category']) == body['label']:
                 body["options"].append({'label': row['Row Name'], 'value': i})
                 i+=1
-            elif row['Is Arm Equipment'] == InputBoolean.TRUE.value:
+            elif getArmorType(row['Armor Category']) == arm['label']:
                 arm["options"].append({'label': row['Row Name'], 'value': i})
                 i+=1
-            elif row['Is Leg Equipment'] == InputBoolean.TRUE.value:
+            elif getArmorType(row['Armor Category']) == leg['label']:
                 leg["options"].append({'label': row['Row Name'], 'value': i})
                 i+=1
 
@@ -818,16 +830,7 @@ def getArmorData():
             row_dict = OrderedDict()
             row_dict["row_id"] = int(key)
             row_dict["name"] = row['Row Name']
-            if row['Is Head Equipment'] == InputBoolean.TRUE.value:
-                row_dict["equipment_type"] = "Head"
-            elif row['Is Body Equipment'] == InputBoolean.TRUE.value:
-                row_dict["equipment_type"] = "Body"
-            elif row['Is Arm Equipment'] == InputBoolean.TRUE.value:
-                row_dict["equipment_type"] = "Arm"
-            elif row['Is Leg Equipment'] == InputBoolean.TRUE.value:
-                row_dict["equipment_type"] = "Leg"
-            else:
-                row_dict["equipment_type"] = "None"
+            row_dict["equipment_type"] = getArmorType(row['Armor Category'])
             row_dict["weight"] = float(row['Weight'])
             row_dict["physical_absorption"] = 1 - float(row['Absorption - Physical'])
             row_dict["strike_absorption"] = 1 - float(row['Absorption - Strike'])

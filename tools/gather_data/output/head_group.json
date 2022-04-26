@@ -634,20 +634,8 @@
             "value": 542
         },
         {
-            "label": "Deathbed Dress",
-            "value": 543
-        },
-        {
             "label": "Fia's Hood",
             "value": 544
-        },
-        {
-            "label": "Fia's Robe",
-            "value": 545
-        },
-        {
-            "label": "Fia's Robe (Altered)",
-            "value": 546
         },
         {
             "label": "Highwayman Hood",
@@ -660,10 +648,6 @@
         {
             "label": "Rotten Duelist Helm",
             "value": 553
-        },
-        {
-            "label": "Rotten Duelist Greaves",
-            "value": 555
         },
         {
             "label": "Mushroom Crown",

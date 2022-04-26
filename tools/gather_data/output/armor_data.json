@@ -11274,7 +11274,7 @@
     {
         "row_id": 1930100,
         "name": "Deathbed Dress",
-        "equipment_type": "Head",
+        "equipment_type": "Body",
         "weight": 3.2,
         "physical_absorption": 0.006000000000000005,
         "strike_absorption": 0.027000000000000024,
@@ -11319,7 +11319,7 @@
     {
         "row_id": 1940100,
         "name": "Fia's Robe",
-        "equipment_type": "Head",
+        "equipment_type": "Body",
         "weight": 5.1,
         "physical_absorption": 0.05300000000000005,
         "strike_absorption": 0.061000000000000054,
@@ -11338,7 +11338,7 @@
     {
         "row_id": 1941100,
         "name": "Fia's Robe (Altered)",
-        "equipment_type": "Head",
+        "equipment_type": "Body",
         "weight": 3.2,
         "physical_absorption": 0.027000000000000024,
         "strike_absorption": 0.04200000000000004,
@@ -11515,7 +11515,7 @@
     {
         "row_id": 2000300,
         "name": "Rotten Duelist Greaves",
-        "equipment_type": "Head",
+        "equipment_type": "Leg",
         "weight": 7.3,
         "physical_absorption": 0.07399999999999995,
         "strike_absorption": 0.062000000000000055,
