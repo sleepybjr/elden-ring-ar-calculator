@@ -3,8 +3,18 @@ import { useSelector } from 'react-redux';
 
 import ArmorTable from './ArmorTable';
 import WeaponSearchBar from '../weapons/SearchBar';
+import ArmorSearchBar from './ArmorSearchBar';
 import { getPhyCalcData } from '../weapons/FilterableWeaponTable'
 import Weapon_Reqs from '../json/weapon_reqs.json';
+
+import Helmets_Select from '../json/head_group.json';
+import Chest_Select from '../json/body_group.json';
+import Gauntlets_Select from '../json/arm_group.json';
+import Legs_Select from '../json/leg_group.json';
+
+import Armor_Data from '../json/armor_data.json';
+
+import armorOptimizer from './ArmorOptimizer';
 
 const armorResistances = {
     damage_negation: [
@@ -26,6 +36,38 @@ const armorResistances = {
     ]
 }
 
+const startArmorResistances = {
+    physical_absorption: 0,
+    strike_absorption: 0,
+    slash_absorption: 0,
+    thrust_absorption: 0,
+    magic_absorption: 0,
+    fire_absorption: 0,
+    lightning_absorption: 0,
+    holy_absorption: 0,
+    immunity: 0,
+    robustness: 0,
+    focus: 0,
+    vitality: 0,
+    poise: 0,
+}
+
+const startArmorResistancesMultiplier = {
+    physical_absorption_multiplier: 1,
+    strike_absorption_multiplier: 1,
+    slash_absorption_multiplier: 1,
+    thrust_absorption_multiplier: 1,
+    magic_absorption_multiplier: 1,
+    fire_absorption_multiplier: 1,
+    lightning_absorption_multiplier: 1,
+    holy_absorption_multiplier: 1,
+    immunity_multiplier: 1,
+    robustness_multiplier: 1,
+    focus_multiplier: 1,
+    vitality_multiplier: 1,
+    poise_multiplier: 1,
+}
+
 const armorTypes = [
     "Helm",
     "Chest",
@@ -40,9 +82,9 @@ const rollTypes = [
 ];
 
 const rollTypeMapping = {// eslint-disable-line no-unused-vars
-    light: 29.9,
-    normal: 69.9,
-    fat: 99.9,
+    "Light Rolls": 29.9,
+    "Normal Rolls": 69.9,
+    "Fat Rolls": 99.9,
 };
 
 const MAX_LIMIT = 6;
@@ -51,22 +93,25 @@ export default function FilterableArmorTable() {
     const levels = useSelector((state) => state.allLevels.levels);
 
     const [armorTypeFilter, setArmorTypeFilter] = useState("");
-    const [minimumPoise, setMinimumPoise] = useState(0);
+
     const [rollTypeChoice, setRollTypeChoice] = useState("");// eslint-disable-line no-unused-vars
 
     const [searchedArmorWeapons, setSearchedArmorWeapons] = useState([]);
+    const [searchedHelmet, setSearchedHelmet] = useState(null);
+    const [searchedChest, setSearchedChest] = useState(null);
+    const [searchedGauntlets, setSearchedGauntlets] = useState(null);
+    const [searchedLegs, setSearchedLegs] = useState(null);
     const [maxEquip, setMaxEquip] = useState(0);
     const [currEquip, setCurrEquip] = useState(0);
     const [minCurrEquip, setMinCurrEquip] = useState(0);
     const [maxCurrEquip, setMaxCurrEquip] = useState(0);
 
+    const [resistances, setResistances] = useState(startArmorResistances);
+    const [resistancesMultiplier, setResistancesMultiplier] = useState(startArmorResistancesMultiplier);
+
     function handleChangeArmorFilter(event) {
         // console.log(event.target.value);
         setArmorTypeFilter(event.target.value);
-    };
-
-    function handleChangePoise(event) {
-        setMinimumPoise(event.target.value);
     };
 
     function handleChangeCurrEquip(event) {
@@ -79,12 +124,28 @@ export default function FilterableArmorTable() {
 
 
     function handleClickCalculateArmor(event) {
-        console.log(event.target.value);
+        const equippedArmor = {
+            Head: searchedHelmet !== null ? 0 : 1,
+            Body: searchedChest !== null ? 0 : 1,
+            Arm: searchedGauntlets !== null ? 0 : 1,
+            Leg: searchedLegs !== null ? 0 : 1,
+        };
+
+        // console.log(resistancesMultiplier);
+        const output = armorOptimizer(
+            equippedArmor,
+            currEquip,
+            maxEquip,
+            rollTypeChoice,
+            resistances,
+            resistancesMultiplier
+        );
+        console.log(output);
     };
 
     //
     function handleChangeRollTypes(event) {
-        // console.log(event.target.value);
+        // console.log(event.target);
         setRollTypeChoice(event.target.value);
     };
 
@@ -93,6 +154,81 @@ export default function FilterableArmorTable() {
             setSearchedArmorWeapons(searchedWeapons);
         }
     };
+
+    function handleSearchHelmetItemChange(searchedArmor) {
+        setSearchedHelmet(searchedArmor);
+    };
+    function handleSearchChestItemChange(searchedArmor) {
+        setSearchedChest(searchedArmor);
+    };
+    function handleSearchGauntletsItemChange(searchedArmor) {
+        setSearchedGauntlets(searchedArmor);
+    };
+    function handleSearchLegsItemChange(searchedArmor) {
+        setSearchedLegs(searchedArmor);
+    };
+
+    function handleResistanceChange(event) {
+        const newValue = event.target.value;
+        const newId = event.target.id;
+
+        let newResistances = { ...resistances };
+
+        newResistances[newId] = newValue;
+
+        setResistances(newResistances);
+    };
+
+    const displayMins = (data) => {
+        return data.map(value => {
+            return (
+                <div key={value}>
+                    <label htmlFor={value}>Minimum {value}</label>
+                    <input
+                        type="number"
+                        inputMode="numeric"
+                        min={0}
+                        id={value}
+                        name={value}
+                        value={resistances[value]}
+                        onChange={handleResistanceChange}
+                        onKeyDown={(evt) => ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()}
+                    />
+                </div>
+            )
+        });
+    }
+
+    function handleResistanceMultiplierChange(event) {
+        const newValue = event.target.value;
+        const newId = event.target.id;
+
+        let newResistances = { ...resistancesMultiplier };
+
+        newResistances[newId] = newValue;
+
+        setResistancesMultiplier(newResistances);
+    };
+
+    const displayMultipliers = (data) => {
+        return data.map(value => {
+            return (
+                <div key={value + "_multiplier"}>
+                    <label htmlFor={value + "_multiplier"}>{value} Multiplier</label>
+                    <input
+                        type="number"
+                        inputMode="numeric"
+                        min={1}
+                        id={value + "_multiplier"}
+                        name={value + "_multiplier"}
+                        value={resistancesMultiplier[value + "_multiplier"]}
+                        onChange={handleResistanceMultiplierChange}
+                        onKeyDown={(evt) => ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()}
+                    />
+                </div>
+            )
+        });
+    }
 
     useEffect(() => {
         const newMaxLoad = getPhyCalcData(220, levels.endurance);
@@ -111,9 +247,24 @@ export default function FilterableArmorTable() {
             }
         }
 
+        for (let element of Armor_Data) {
+            if (searchedHelmet !== null && searchedHelmet.label === element.name) {
+                newCurrentLoad += element.weight;
+            }
+            if (searchedChest !== null && searchedChest.label === element.name) {
+                newCurrentLoad += element.weight;
+            }
+            if (searchedGauntlets !== null && searchedGauntlets.label === element.name) {
+                newCurrentLoad += element.weight;
+            }
+            if (searchedLegs !== null && searchedLegs.label === element.name) {
+                newCurrentLoad += element.weight;
+            }
+        }
+
         setCurrEquip(newCurrentLoad);
         setMinCurrEquip(newCurrentLoad);
-    }, [searchedArmorWeapons]);
+    }, [searchedArmorWeapons, searchedHelmet, searchedChest, searchedGauntlets, searchedLegs]);
 
     return (
         <div className='extra-spacing'>
@@ -133,8 +284,8 @@ export default function FilterableArmorTable() {
             <br />
 
             <select name="roll-types" id="roll-types" defaultValue={0} onChange={handleChangeRollTypes}>
-                <option value='0' disabled>Select a roll type...</option>
-                {rollTypes.map((value, index) => <option key={index + 1} value={value}>{value}</option>)}
+                <option key={0} value='0' disabled>Select a roll type...</option>
+                {Object.keys(rollTypeMapping).map((rollKey, index) => <option key={index + 1} value={rollTypeMapping[rollKey]}>{rollKey}</option>)}
             </select>
             <br />
             <br />
@@ -161,55 +312,40 @@ export default function FilterableArmorTable() {
             />
             <br />
             <br />
-            <label htmlFor="helmet">Helmet</label>
-            <input
-                type="text"
-                id="helmet"
-                name="helmet"
-                placeholder="ignore if wanting to optimize"
-                disabled
+            <ArmorSearchBar
+                handleSearchItemsChange={handleSearchHelmetItemChange}
+                searchedArmor={searchedHelmet}
+                options={Helmets_Select.options}
+                placeholder="Select helmet... Ignore to optimize."
             />
-            <br />
-            <label htmlFor="chest">Chest</label>
-            <input
-                type="text"
-                id="chest"
-                name="chest"
-                placeholder="ignore if wanting to optimize"
-                disabled
+            <ArmorSearchBar
+                handleSearchItemsChange={handleSearchChestItemChange}
+                searchedArmor={searchedChest}
+                options={Chest_Select.options}
+                placeholder="Select chest... Ignore to optimize."
             />
-            <br />
-            <label htmlFor="gauntlets">Gauntlets</label>
-            <input
-                type="text"
-                id="gauntlets"
-                name="gauntlets"
-                placeholder="ignore if wanting to optimize"
-                disabled
+            <ArmorSearchBar
+                handleSearchItemsChange={handleSearchGauntletsItemChange}
+                searchedArmor={searchedGauntlets}
+                options={Gauntlets_Select.options}
+                placeholder="Select gauntlets... Ignore to optimize."
             />
-            <br />
-            <label htmlFor="legs">Legs</label>
-            <input
-                type="text"
-                id="legs"
-                name="legs"
-                placeholder="ignore if wanting to optimize"
-                disabled
+            <ArmorSearchBar
+                handleSearchItemsChange={handleSearchLegsItemChange}
+                searchedArmor={searchedLegs}
+                options={Legs_Select.options}
+                placeholder="Select legs... Ignore to optimize."
             />
             <br />
             <br />
-            Poise: choose if you want to set min/max for poise or leave default<br />
-            Allow user to pick importance of stats? <br />
-            <label htmlFor="min-poise">Minimum Poise</label>
-            <input
-                type="number"
-                inputMode="numeric"
-                id="min-poise"
-                name="min-poise"
-                value={minimumPoise}
-                onChange={handleChangePoise}
-                onKeyDown={(evt) => ["e", "E", "+", "-", "."].includes(evt.key) && evt.preventDefault()}
-            />
+            {displayMins(armorResistances.damage_negation)}
+            <br />
+            {displayMins(armorResistances.resistance)}
+            <br />
+            <br />
+            {displayMultipliers(armorResistances.damage_negation)}
+            <br />
+            {displayMultipliers(armorResistances.resistance)}
             <br />
             <br />
             <button className="all-button-style all-button-style-bg" onClick={handleClickCalculateArmor}>Calculate Best Armor</button>

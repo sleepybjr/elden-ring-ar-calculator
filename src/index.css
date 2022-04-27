@@ -115,6 +115,10 @@ body.dark {
   color: #EFEFEF;
 }
 
+.dark .react-select__single-value {
+  color: #EFEFEF;
+}
+
 .highlight-red,
 .highlight-red:hover,
 tbody .tr.highlight-red,
