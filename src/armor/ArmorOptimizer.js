@@ -7,8 +7,12 @@ import Legs_Select from '../json/leg_group.json';
 
 import Heap from 'heap-js';
 
+// edge cases
+// equipmentload == max equipment load
+
 const resultComparator = (a, b) => b.robustness - a.robustness;
-const resultComparatorMax = (a, b) => a.robustness - b.robustness;
+const resultComparatorMin = (a, b) => a.robustness - b.robustness;
+const resultComparatorMaxReal = (a, b) => b.robustness - a.robustness;
 const MAX_HEAP_LENGTH = 250;
 
 const armorResistances = [
@@ -49,13 +53,6 @@ const fillNoneValue = (armorType) => {
 
 }
 
-// add none type, should be added into input data
-for (const value of ['Head', 'Arm', 'Body', 'Legs']) {
-    Armor_Data.push(fillNoneValue(value));
-};
-
-const sortedWeight = Armor_Data.sort((a, b) => a.weight - b.weight);
-
 function groupBy(arr, property) {
     return arr.reduce((acc, cur) => {
         acc[cur[property]] = [...acc[cur[property]] || [], cur];
@@ -63,6 +60,7 @@ function groupBy(arr, property) {
     }, {});
 }
 
+// why does this start duplicating? need to debug with fresher mind
 const combineArmor = (iterateArmor1, iterateArmor2) => {
     const result = [];
     const armorSet = [];
@@ -70,12 +68,12 @@ const combineArmor = (iterateArmor1, iterateArmor2) => {
     let armorSetValue = 0;
 
     for (const armor1 of iterateArmor1) {
-        armorSet.push(armor1);
+        armorSet.push({ ...armor1 });
         armorSetWeight += armor1.weight;
         armorSetValue += armor1.robustness ? armor1.robustness : 0;
 
         for (const armor2 of iterateArmor2) {
-            armorSet.push(armor2);
+            armorSet.push({ ...armor2 });
             armorSetWeight += armor2.weight;
             armorSetValue += armor2.robustness ? armor2.robustness : 0;
 
@@ -94,20 +92,36 @@ const combineArmor = (iterateArmor1, iterateArmor2) => {
     return result;
 };
 
-// const splitDataWeight = groupBy(sortedWeight, "weight");
-const splitDataEquipmentType = groupBy(sortedWeight, "equipment_type");
-//Helm.length = 168, Chest.length = 198, Hands.length = 90, Legs.length = 103
-
 const permuteArmor = function (equippedArmor, currWeight, maxWeight, rollMultipler, resistanceMinimum, resistanceMultiplier) {
-    const result = new Heap(resultComparator);
+    const Copy_Armor_Data = [...Armor_Data];
+
+    // add none type, should be added into input data
+    for (const value of ['Head', 'Arm', 'Body', 'Leg']) {
+        Copy_Armor_Data.push(fillNoneValue(value));
+    };
+
+    const sortedWeight = Copy_Armor_Data.sort((a, b) => a.weight - b.weight);
+
+    // const splitDataWeight = groupBy(sortedWeight, "weight");
+    const splitDataEquipmentType = groupBy(sortedWeight, "equipment_type");
+    //Helm.length = 168, Chest.length = 198, Hands.length = 90, Legs.length = 103
+
+
+    // console.log(splitDataEquipmentType);
+
+    const result = new Heap(resultComparatorMin);
     result.init();
 
-    const resultMaxHeap = new Heap(resultComparatorMax);
+    const resultMaxHeap = new Heap(resultComparatorMaxReal);
     resultMaxHeap.init();
 
     const maxEquipWeight = (maxWeight * (rollMultipler / 100)) - currWeight;
+    // no armor can be found
+    if (maxEquipWeight <= 0) {
+        return -1;
+    }
 
-    console.log(splitDataEquipmentType);
+    // console.log(splitDataEquipmentType);
 
     // remove armor type that is already equipped
     let iterateArmor = [];
@@ -122,16 +136,19 @@ const permuteArmor = function (equippedArmor, currWeight, maxWeight, rollMultipl
         return -1;
     }
 
+    // this takes forever
     if (iterateArmor.length === 4) {
         const sortedIterateArmor = iterateArmor.sort((a, b) => a.length - b.length);
         const firstCombined = combineArmor(sortedIterateArmor[0], sortedIterateArmor[3]);
         const secondCombined = combineArmor(sortedIterateArmor[1], sortedIterateArmor[2]);
-        // iterateArmor = [firstCombined, secondCombined];
-        iterateArmor = [groupBy(firstCombined, "robustness"), groupBy(secondCombined, "robustness")];
-        findArmorOptimizationDouble(iterateArmor, resultMaxHeap, maxEquipWeight);
-        return resultMaxHeap.toArray();
+        console.log(firstCombined);
+        iterateArmor = [groupBy(firstCombined, "robustness"), groupBy(secondCombined, "robustness")]; // try sorting each one by weight in each group so i can skip anything that doesnt meet weight constraint
+        const ans = findArmorOptimizationDouble(iterateArmor, resultMaxHeap, maxEquipWeight);
+        // return [];
+        return ans;
     }
 
+    console.log(iterateArmor);
     const armorSet = [];
     let currPosition = 0;
     findArmorOptimization(armorSet, iterateArmor, result, maxEquipWeight, currPosition);
@@ -146,24 +163,41 @@ const findArmorOptimizationDouble = (iterateArmor, resultMaxHeap, maxEquipWeight
     let iteratorA = 0;
     let iteratorB = 0;
 
-    // this works for high endurance, what about low equip load?
-    while (resultMaxHeap.length < MAX_HEAP_LENGTH || (iteratorA < keysA.length && iteratorB < keysB.length)) {
-        const armorSetsA = iterateArmor[A][keysA[iteratorA]];
-        const armorSetsB = iterateArmor[B][keysB[iteratorB]];
+    let count = 0;
+    // console.log(iterateArmor)
+
+    const ans = [];
+
+    // add first combination to heap
+    resultMaxHeap.push({first_key: keysA[iteratorA], second_key: keysB[iteratorB], robustness: parseInt(keysA[iteratorA]) + parseInt (keysB[iteratorB])});
+
+    // TODO: why isn't it showing 300 mil combinations????????
+    // the reason is because im not comparing everything due to the step down... i wonder if this will cause problems?
+    // example: 0 legs / guantlets and 132 chest / head isnt checked. far apart variables are ignored.
+    // while (ans.length < MAX_HEAP_LENGTH || (iteratorA < keysA.length && iteratorB < keysB.length)) { // this works and gets all solutions
+    while (ans.length < MAX_HEAP_LENGTH && (iteratorA < keysA.length && iteratorB < keysB.length)) { // this gets up to heap length
+
+        const maxValue = resultMaxHeap.pop();
+
+        const armorSetsA = iterateArmor[A][maxValue.first_key];
+        const armorSetsB = iterateArmor[B][maxValue.second_key];
 
         // make combinations of each armor set, 
         const results = combineArmor(armorSetsA, armorSetsB);
+        count += results.length;
+        // console.log(results);
         for (const result of results) {
             if (result.weight <= maxEquipWeight) {
-                resultMaxHeap.push({ armorSet: { ...result } });
+                console.log(result);
+                ans.push({ armorSet: { ...result } });
             }
         }
-        if (iteratorB + 1 === keysB.length || keysA[iteratorA + 1] + keysB[iteratorB] > keysA[iteratorA] + keysB[iteratorB + 1]) {
-            iteratorA += 1;
-        } else {
-            iteratorB += 1;
-        }
+
+        resultMaxHeap.push({first_key: keysA[iteratorA+1], second_key: keysB[iteratorB], robustness: parseInt(keysA[iteratorA+1]) + parseInt (keysB[iteratorB])});
+        resultMaxHeap.push({first_key: keysA[iteratorA], second_key: keysB[iteratorB+1], robustness: parseInt(keysA[iteratorA]) + parseInt (keysB[iteratorB+1])});
     }
+
+    return ans;
 }
 
 // works for 3 sets, but once it hits 4, it's incredibly slow.
@@ -182,9 +216,12 @@ const findArmorOptimization = (armorSet, iterateArmor, result, maxEquipWeight, c
             findArmorOptimization(armorSet, iterateArmor, result, maxEquipWeight, currPosition, armorSetWeight, armorSetValue);
         } else {
             if (armorSetWeight > maxEquipWeight) {
+                armorSetWeight -= newArmorPiece.weight;
+                armorSetValue -= newArmorPiece.robustness ? newArmorPiece.robustness : 0;
+                armorSet.pop();
                 break;
             } else {
-                if (result.length === 0 || result.length < MAX_HEAP_LENGTH) {
+                if (result.length < MAX_HEAP_LENGTH) {
                     result.push({ armorSet: [...armorSet], robustness: armorSetValue });
                 } else {
                     if (result.peek().robustness < armorSetValue) {
