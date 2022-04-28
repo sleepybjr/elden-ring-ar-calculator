@@ -92,7 +92,7 @@ const combineArmor = (iterateArmor1, iterateArmor2) => {
     return result;
 };
 
-const permuteArmor = function (equippedArmor, loadRemaining, resistanceMinimum, resistanceMultiplier) {
+const permuteArmor = function (equippedArmor, loadRemaining, resistanceMinimum, resistanceMultiplier, currEquippedArmor) {
     const Copy_Armor_Data = [...Armor_Data];
 
     // add none type, should be added into input data
@@ -102,7 +102,7 @@ const permuteArmor = function (equippedArmor, loadRemaining, resistanceMinimum, 
 
     const sortedWeight = Copy_Armor_Data.sort((a, b) => a.weight - b.weight);
 
-    console.log(resistanceMultiplier);
+    // console.log(resistanceMultiplier);
     // prefind values
     for (const row of sortedWeight) {
         let totalResistanceValueWeighted = 0;
@@ -182,9 +182,19 @@ const permuteArmor = function (equippedArmor, loadRemaining, resistanceMinimum, 
         "vitality": 0,
         "poise": 0,
     };
+
+    let armorSetWeight = 0;
+    let armorSetValue = 0;
+
+    // initialize values to selected armor pieces, should it be included in the total value? I dont think so.
+    for (const element of currEquippedArmor) {
+        for (const key of Object.keys(currMinimums)) {
+            currMinimums[key] += element[key];
+        }
+    }
     
-    findArmorOptimization(armorSet, iterateArmor, result, maxEquipWeight, currPosition, currMinimums, resistanceMinimum);
-    console.log(result);
+    findArmorOptimization(armorSet, iterateArmor, result, maxEquipWeight, currPosition, currMinimums, resistanceMinimum, armorSetWeight, armorSetValue);
+    // console.log(result);
     return result.toArray().sort(resultComparator);
     // return [];
 };
@@ -235,7 +245,7 @@ const findArmorOptimizationDouble = (iterateArmor, resultMaxHeap, maxEquipWeight
 }
 
 // works for 3 sets, but once it hits 4, it's incredibly slow.
-const findArmorOptimization = (armorSet, iterateArmor, result, maxEquipWeight, currPosition, currMinimums, resistanceMinimum, armorSetWeight = 0, armorSetValue = 0) => {
+const findArmorOptimization = (armorSet, iterateArmor, result, maxEquipWeight, currPosition, currMinimums, resistanceMinimum, armorSetWeight, armorSetValue) => {
     const currentIterationArmor = iterateArmor[currPosition];
     currPosition += 1;
     // console.log(currMinimums);
@@ -293,117 +303,6 @@ const findArmorOptimization = (armorSet, iterateArmor, result, maxEquipWeight, c
     currPosition -= 1;
 };
 
-export default function armorOptimizer(equippedArmor, currWeight, maxWeight, rollMultipler, resistanceMinimum, resistanceMultiplier) {
-    return permuteArmor(equippedArmor, currWeight, maxWeight, rollMultipler, resistanceMinimum, resistanceMultiplier);
-    // const result = new Heap(resultComparator);
-    // result.init();
-
-
-
-    // for (const helmetName of Helmets_Select.options) {
-    //     if (end === 100000) break;
-    //     for (const chestName of Chest_Select.options) {
-    //         if (end === 100000) break;
-    //         for (const gauntletsName of Gauntlets_Select.options) {
-    //             if (end === 100000) break;
-    //             for (const legsName of Legs_Select.options) {
-    //                 end += 1;
-    //                 if (end === 100000) break;
-    //                 const armorSet = {};
-    //                 let helmet = null;
-    //                 let chest = null;
-    //                 let gauntlets = null;
-    //                 let legs = null;
-
-    //                 const count = {
-    //                     helmet: 0,
-    //                     chest: 0,
-    //                     gauntlets: 0,
-    //                     legs: 0,
-    //                 }
-    //                 for (const element of Armor_Data) {
-    //                     // console.log(element);
-    //                     if (count.helmet === 0 && helmetName.label === element.name) {
-    //                         count.helmet += 1;
-    //                         helmet = element;
-    //                     } else if (count.chest === 0 && chestName.label === element.name) {
-    //                         count.chest += 1;
-    //                         chest = element;
-    //                     } else if (count.gauntlets === 0 && gauntletsName.label === element.name) {
-    //                         count.gauntlets += 1;
-    //                         gauntlets = element;
-    //                     } else if (count.legs === 0 && legsName.label === element.name) {
-    //                         count.legs += 1;
-    //                         legs = element;
-    //                     } else {
-    //                         // console.log("NOT FOUND SO FAR");
-    //                     }
-
-    //                     // need to add an error check
-    //                 }
-
-    //                 // console.log(helmet);
-    //                 // console.log(chest);
-    //                 // console.log(gauntlets);
-    //                 // console.log(legs);
-
-    //                 // helmet = fillDummyValues(helmet);
-    //                 // chest = fillDummyValues(chest);
-    //                 // gauntlets = fillDummyValues(gauntlets);
-    //                 // legs = fillDummyValues(legs);
-
-    //                 const totalWeight = equippedArmor.helmet * helmet.weight + equippedArmor.chest * chest.weight + equippedArmor.gauntlets * gauntlets.weight + equippedArmor.legs * legs.weight;
-    //                 if (totalWeight + currWeight > maxWeight * (rollMultipler / 100)) {
-    //                     break;
-    //                 }
-    //                 armorSet.weight = totalWeight;
-
-    //                 const loopResistances = () => {
-    //                     for (const resistance of armorResistances) {
-    //                         // console.log(resistance);
-
-    //                         const totalResistanceValue = equippedArmor.helmet * helmet[resistance] + equippedArmor.chest * chest[resistance] + equippedArmor.gauntlets * gauntlets[resistance] + equippedArmor.legs * legs[resistance];
-    //                         if (totalResistanceValue < resistanceMinimum[resistance]) {
-    //                             return -1;
-    //                         }
-
-    //                         armorSet[resistance] = totalResistanceValue
-    //                     }
-    //                     return 0;
-    //                 }
-
-    //                 if (loopResistances() === -1) {
-    //                     break;
-    //                 }
-
-    //                 const MinPhysical = -1; // need to set these to tru values of the true minimum and max of resistance values
-    //                 const MaxPhysical = 1; // need to set these to true values
-    //                 let totalResistance = 0;
-    //                 for (const [key, value] of Object.entries(armorSet)) {
-    //                     if (key !== "weight") {
-    //                         totalResistance += resistanceMultiplier[key + "_multiplier"] * (value - MinPhysical) / (MaxPhysical - MinPhysical);
-    //                     }
-    //                 }
-
-    //                 armorSet.totalResistance = totalResistance;
-    //                 armorSet.helmet = helmet;
-    //                 armorSet.chest = chest;
-    //                 armorSet.gauntlets = gauntlets;
-    //                 armorSet.legs = legs;
-    //                 if (result.length === 0 || result.length < MAX_HEAP_LENGTH) {
-    //                     result.push(armorSet)
-    //                 } else {
-    //                     if (result.peek().totalResistance < armorSet.totalResistance) { // should i replace anything that is the same?
-    //                         result.pushpop(armorSet);
-    //                     }
-    //                 }
-
-    //             }
-
-    //         }
-
-    //     }
-    // }
-
-    // return result.toArray().sort(resultComparator).reverse();
+export default function armorOptimizer(equippedArmor, loadRemaining, resistanceMinimum, resistanceMultiplier, currEquippedArmor) {
+    return permuteArmor(equippedArmor, loadRemaining, resistanceMinimum, resistanceMultiplier, currEquippedArmor);
 }

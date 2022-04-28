@@ -101,6 +101,8 @@ export default function FilterableArmorTable() {
     const [searchedChest, setSearchedChest] = useState(null);
     const [searchedGauntlets, setSearchedGauntlets] = useState(null);
     const [searchedLegs, setSearchedLegs] = useState(null);
+    const [currEquippedArmor, setCurrEquippedArmor] = useState([]);
+
     const [maxEquip, setMaxEquip] = useState(0);
     const [currEquip, setCurrEquip] = useState(0);
     const [minCurrEquip, setMinCurrEquip] = useState(0);
@@ -154,18 +156,30 @@ export default function FilterableArmorTable() {
             return;
         }
         setErrors("");
+        
+        const adjustedResistances = {}
+        for (const key of Object.keys(resistances)) {
+            if (new Set(['physical_absorption', 'strike_absorption', 'slash_absorption', 'thrust_absorption', 'magic_absorption', 'fire_absorption', 'lightning_absorption', 'holy_absorption']).has(key)) {
+                adjustedResistances[key] = resistances[key] / 1000;
+            } else {
+                adjustedResistances[key] = resistances[key];
+            }
+        }
 
         // console.log(resistancesMultiplier);
         const output = armorOptimizer(
             equippedArmor,
             loadRemaining,
-            resistances,
-            resistancesMultiplier
+            adjustedResistances,
+            resistancesMultiplier,
+            currEquippedArmor
         );
 
-        if (output === -1) {
-            setPreppedData([]);
+        // console.log(output);
+
+        if (output === -1 || output.length === 0) {
             setErrors("Incorrect input, unable to find an answer.");
+            setPreppedData([]);
             return;
         }
         setErrors("");
@@ -224,6 +238,36 @@ export default function FilterableArmorTable() {
 
             trueOutput.push(newRow);
         }
+
+        for (const row of trueOutput) {
+            for (const armor of currEquippedArmor) {
+                if (armor.equipment_type === "Head") {
+                    row.helm_name = armor.name;
+                } else if (armor.equipment_type === "Arm") {
+                    row.chest_name = armor.name;
+                } else if (armor.equipment_type === "Body") {
+                    row.gauntlet_name = armor.name;
+                } else if (armor.equipment_type === "Leg") {
+                    row.leg_name = armor.name;
+                }
+
+                row.weight += armor.weight;
+                row.physical_absorption += armor.physical_absorption;
+                row.strike_absorption += armor.strike_absorption;
+                row.slash_absorption += armor.slash_absorption;
+                row.thrust_absorption += armor.thrust_absorption;
+                row.magic_absorption += armor.magic_absorption;
+                row.fire_absorption += armor.fire_absorption;
+                row.lightning_absorption += armor.lightning_absorption;
+                row.holy_absorption += armor.holy_absorption;
+                row.immunity += armor.immunity;
+                row.robustness += armor.robustness;
+                row.focus += armor.focus;
+                row.vitality += armor.vitality;
+                row.poise += armor.poise;
+            }
+        }
+
         setPreppedData(trueOutput);
     };
 
@@ -258,7 +302,7 @@ export default function FilterableArmorTable() {
 
         let newResistances = { ...resistances };
 
-        newResistances[newId] = parseInt(newValue);
+        newResistances[newId] = newValue ? parseInt(newValue) : 0;
 
         setResistances(newResistances);
     };
@@ -289,7 +333,7 @@ export default function FilterableArmorTable() {
 
         let newResistances = { ...resistancesMultiplier };
 
-        newResistances[newId] = parseInt(newValue);
+        newResistances[newId] = newValue ? parseInt(newValue) : 1;
 
         setResistancesMultiplier(newResistances);
     };
@@ -331,21 +375,28 @@ export default function FilterableArmorTable() {
             }
         }
 
+        let newCurrEquippedArmor = [];
+
         for (let element of Armor_Data) {
             if (searchedHelmet !== null && searchedHelmet.label === element.name) {
                 newCurrentLoad += element.weight;
+                newCurrEquippedArmor.push(element);
             }
             if (searchedChest !== null && searchedChest.label === element.name) {
                 newCurrentLoad += element.weight;
+                newCurrEquippedArmor.push(element);
             }
             if (searchedGauntlets !== null && searchedGauntlets.label === element.name) {
                 newCurrentLoad += element.weight;
+                newCurrEquippedArmor.push(element);
             }
             if (searchedLegs !== null && searchedLegs.label === element.name) {
                 newCurrentLoad += element.weight;
+                newCurrEquippedArmor.push(element);
             }
         }
 
+        setCurrEquippedArmor(newCurrEquippedArmor);
         setCurrEquip(newCurrentLoad);
         setMinCurrEquip(newCurrentLoad);
     }, [searchedArmorWeapons, searchedHelmet, searchedChest, searchedGauntlets, searchedLegs]);
@@ -454,8 +505,9 @@ export default function FilterableArmorTable() {
             <div className="error">{errors}</div>
             <button className="all-button-style all-button-style-bg" onClick={handleClickCalculateArmor}>Calculate Best Armor</button>
             <br />
-            Display results up to 1000? or less depending on how long algorithm takes. display as sets of armor.
-            <br /> how to handle passives?
+            Display up to 250 sets of best matching armor.
+            <br />
+            <br/>
             <ArmorTable
                 preppedData={preppedData}
             />
