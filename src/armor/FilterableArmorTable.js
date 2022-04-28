@@ -105,9 +105,14 @@ export default function FilterableArmorTable() {
     const [currEquip, setCurrEquip] = useState(0);
     const [minCurrEquip, setMinCurrEquip] = useState(0);
     const [maxCurrEquip, setMaxCurrEquip] = useState(0);
+    const [loadRemaining, setLoadRemaining] = useState(0);
+
+    const [preppedData, setPreppedData] = useState([]);
+    const [errors, setErrors] = useState("");
 
     const [resistances, setResistances] = useState(startArmorResistances);
     const [resistancesMultiplier, setResistancesMultiplier] = useState(startArmorResistancesMultiplier);
+
 
     function handleChangeArmorFilter(event) {
         // console.log(event.target.value);
@@ -124,6 +129,12 @@ export default function FilterableArmorTable() {
 
 
     function handleClickCalculateArmor(event) {
+        if (rollTypeChoice === "") {
+            setErrors("Please select a roll type.");
+            return;
+        }
+        setErrors("");
+
         const equippedArmor = {
             Head: searchedHelmet !== null ? 0 : 1,
             Body: searchedChest !== null ? 0 : 1,
@@ -131,16 +142,89 @@ export default function FilterableArmorTable() {
             Leg: searchedLegs !== null ? 0 : 1,
         };
 
+        // temporary until  we get 4 select faster, don't allow 4 armor since 300 mil operations
+        if (equippedArmor.Head === 1 && equippedArmor.Body === 1 && equippedArmor.Arm === 1 && equippedArmor.Leg === 1) {
+            setErrors("Please select at least one equipped armor.");
+            return;
+        }
+        setErrors("");
+
+        if (loadRemaining <= 0) {
+            setErrors("The load remaining cannot be less than 0.");
+            return;
+        }
+        setErrors("");
+
         // console.log(resistancesMultiplier);
         const output = armorOptimizer(
             equippedArmor,
-            currEquip,
-            maxEquip,
-            rollTypeChoice,
+            loadRemaining,
             resistances,
             resistancesMultiplier
         );
-        console.log(output);
+
+        if (output === -1) {
+            setPreppedData([]);
+            setErrors("Incorrect input, unable to find an answer.");
+            return;
+        }
+        setErrors("");
+
+        // get pre status armor and add it here too.
+
+        const trueOutput = [];
+        for (const row of output) {
+            const newRow = {
+                helm_name: "-",
+                chest_name: "-",
+                gauntlet_name: "-",
+                leg_name: "-",
+                weight: 0,
+                physical_absorption: 0,
+                strike_absorption: 0,
+                slash_absorption: 0,
+                thrust_absorption: 0,
+                magic_absorption: 0,
+                fire_absorption: 0,
+                lightning_absorption: 0,
+                holy_absorption: 0,
+                immunity: 0,
+                robustness: 0,
+                focus: 0,
+                vitality: 0,
+                poise: 0,
+            }
+
+            for (const armor of row.armorSet) {
+                if (armor.equipment_type === "Head") {
+                    newRow.helm_name = armor.name;
+                } else if (armor.equipment_type === "Arm") {
+                    newRow.chest_name = armor.name;
+                } else if (armor.equipment_type === "Body") {
+                    newRow.gauntlet_name = armor.name;
+                } else if (armor.equipment_type === "Leg") {
+                    newRow.leg_name = armor.name;
+                }
+
+                newRow.weight += armor.weight;
+                newRow.physical_absorption += armor.physical_absorption;
+                newRow.strike_absorption += armor.strike_absorption;
+                newRow.slash_absorption += armor.slash_absorption;
+                newRow.thrust_absorption += armor.thrust_absorption;
+                newRow.magic_absorption += armor.magic_absorption;
+                newRow.fire_absorption += armor.fire_absorption;
+                newRow.lightning_absorption += armor.lightning_absorption;
+                newRow.holy_absorption += armor.holy_absorption;
+                newRow.immunity += armor.immunity;
+                newRow.robustness += armor.robustness;
+                newRow.focus += armor.focus;
+                newRow.vitality += armor.vitality;
+                newRow.poise += armor.poise;
+            }
+
+            trueOutput.push(newRow);
+        }
+        setPreppedData(trueOutput);
     };
 
     //
@@ -205,7 +289,7 @@ export default function FilterableArmorTable() {
 
         let newResistances = { ...resistancesMultiplier };
 
-        newResistances[newId] = newValue;
+        newResistances[newId] = parseInt(newValue);
 
         setResistancesMultiplier(newResistances);
     };
@@ -266,6 +350,13 @@ export default function FilterableArmorTable() {
         setMinCurrEquip(newCurrentLoad);
     }, [searchedArmorWeapons, searchedHelmet, searchedChest, searchedGauntlets, searchedLegs]);
 
+    useEffect(() => {
+        const loadLeft = (maxEquip * (rollTypeChoice / 100)) - currEquip;
+
+        setLoadRemaining(loadLeft);
+
+    }, [maxEquip, rollTypeChoice, currEquip]);
+
     return (
         <div className='extra-spacing'>
             <select name="armor-types" id="armor-types" defaultValue={0} onChange={handleChangeArmorFilter}>
@@ -274,6 +365,8 @@ export default function FilterableArmorTable() {
             </select>
             <br />
             OR
+            <br />
+            need to add reselect weapon for this
             <br />
             <WeaponSearchBar
                 handleSearchItemsChange={handleSearchItemsChange}
@@ -287,31 +380,6 @@ export default function FilterableArmorTable() {
                 <option key={0} value='0' disabled>Select a roll type...</option>
                 {Object.keys(rollTypeMapping).map((rollKey, index) => <option key={index + 1} value={rollTypeMapping[rollKey]}>{rollKey}</option>)}
             </select>
-            <br />
-            <br />
-            <label htmlFor="curr-equip">Current Equipment Load</label>
-            <input
-                type="number"
-                min={minCurrEquip}
-                max={maxEquip}
-                inputMode="numeric"
-                id="curr-equip"
-                name="curr-equip"
-                value={currEquip}
-                onChange={handleChangeCurrEquip}
-                onKeyDown={(evt) => ["e", "E", "+", "-",].includes(evt.key) && evt.preventDefault()}
-            />
-            <label htmlFor="max-equip">Max Equipment Load</label>
-            <input
-                type="number"
-                id="max-equip"
-                name="max-equip"
-                min={maxCurrEquip}
-                value={maxEquip}
-                onChange={handleChangeMaxEquip}
-            />
-            <br />
-            <br />
             <ArmorSearchBar
                 handleSearchItemsChange={handleSearchHelmetItemChange}
                 searchedArmor={searchedHelmet}
@@ -336,6 +404,41 @@ export default function FilterableArmorTable() {
                 options={Legs_Select.options}
                 placeholder="Select legs... Ignore to optimize."
             />
+
+            <br />
+            <br />
+            <label htmlFor="curr-equip">Current Equipment Load</label>
+            <input
+                type="number"
+                min={minCurrEquip}
+                max={maxEquip}
+                inputMode="numeric"
+                id="curr-equip"
+                name="curr-equip"
+                value={currEquip}
+                onChange={handleChangeCurrEquip}
+                onKeyDown={(evt) => ["e", "E", "+", "-",].includes(evt.key) && evt.preventDefault()}
+            />
+            <label htmlFor="max-equip">Max Equipment Load</label>
+            <input
+                type="number"
+                id="max-equip"
+                name="max-equip"
+                min={maxCurrEquip}
+                value={maxEquip}
+                onChange={handleChangeMaxEquip}
+            />
+            <br />
+            <label htmlFor="load-remaining">Load Remaining</label>
+            <input
+                type="number"
+                inputMode="numeric"
+                id="load-remaining"
+                name="load-remaining"
+                disabled
+                value={loadRemaining}
+            />
+            <br />
             <br />
             <br />
             {displayMins(armorResistances.damage_negation)}
@@ -348,12 +451,13 @@ export default function FilterableArmorTable() {
             {displayMultipliers(armorResistances.resistance)}
             <br />
             <br />
+            <div className="error">{errors}</div>
             <button className="all-button-style all-button-style-bg" onClick={handleClickCalculateArmor}>Calculate Best Armor</button>
             <br />
             Display results up to 1000? or less depending on how long algorithm takes. display as sets of armor.
             <br /> how to handle passives?
             <ArmorTable
-                armorTypeFilter={armorTypeFilter}
+                preppedData={preppedData}
             />
         </div>
     );

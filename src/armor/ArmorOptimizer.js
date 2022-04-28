@@ -1,17 +1,17 @@
 import Armor_Data from '../json/armor_data.json';
 
-import Helmets_Select from '../json/head_group.json';
-import Chest_Select from '../json/body_group.json';
-import Gauntlets_Select from '../json/arm_group.json';
-import Legs_Select from '../json/leg_group.json';
+import Max_Head from '../json/armor_max/max_head.json';
+import Max_Body from '../json/armor_max/max_body.json';
+import Max_Arm from '../json/armor_max/max_arm.json';
+import Max_Leg from '../json/armor_max/max_leg.json';
 
 import Heap from 'heap-js';
 
 // edge cases
 // equipmentload == max equipment load
 
-const resultComparator = (a, b) => b.robustness - a.robustness;
-const resultComparatorMin = (a, b) => a.robustness - b.robustness;
+const resultComparator = (a, b) => b.totalResistanceValueWeighted - a.totalResistanceValueWeighted;
+const resultComparatorMin = (a, b) => a.totalResistanceValueWeighted - b.totalResistanceValueWeighted;
 const resultComparatorMaxReal = (a, b) => b.robustness - a.robustness;
 const MAX_HEAP_LENGTH = 250;
 
@@ -92,7 +92,7 @@ const combineArmor = (iterateArmor1, iterateArmor2) => {
     return result;
 };
 
-const permuteArmor = function (equippedArmor, currWeight, maxWeight, rollMultipler, resistanceMinimum, resistanceMultiplier) {
+const permuteArmor = function (equippedArmor, loadRemaining, resistanceMinimum, resistanceMultiplier) {
     const Copy_Armor_Data = [...Armor_Data];
 
     // add none type, should be added into input data
@@ -102,10 +102,23 @@ const permuteArmor = function (equippedArmor, currWeight, maxWeight, rollMultipl
 
     const sortedWeight = Copy_Armor_Data.sort((a, b) => a.weight - b.weight);
 
+    console.log(resistanceMultiplier);
+    // prefind values
+    for (const row of sortedWeight) {
+        let totalResistanceValueWeighted = 0;
+        for (const resistance of armorResistances) {
+            const resistanceValueWeighted = row[resistance] / (Max_Head["max_" + resistance] + Max_Body["max_" + resistance] + Max_Arm["max_" + resistance] + Max_Leg["max_" + resistance]) * resistanceMultiplier[resistance + "_multiplier"]; // if using multiplier, need to normalize values
+
+            totalResistanceValueWeighted += resistanceValueWeighted;
+        }
+
+        row.totalResistanceValueWeighted = totalResistanceValueWeighted;
+
+    }
+
     // const splitDataWeight = groupBy(sortedWeight, "weight");
     const splitDataEquipmentType = groupBy(sortedWeight, "equipment_type");
-    //Helm.length = 168, Chest.length = 198, Hands.length = 90, Legs.length = 103
-
+    //Helm.length = 168, Chest.length = 198, Hands.length = 90, Legs.length = 103\
 
     // console.log(splitDataEquipmentType);
 
@@ -115,7 +128,7 @@ const permuteArmor = function (equippedArmor, currWeight, maxWeight, rollMultipl
     const resultMaxHeap = new Heap(resultComparatorMaxReal);
     resultMaxHeap.init();
 
-    const maxEquipWeight = (maxWeight * (rollMultipler / 100)) - currWeight;
+    const maxEquipWeight = loadRemaining;
     // no armor can be found
     if (maxEquipWeight <= 0) {
         return -1;
@@ -136,23 +149,28 @@ const permuteArmor = function (equippedArmor, currWeight, maxWeight, rollMultipl
         return -1;
     }
 
+    // TODO: if remaining weight is > armorsets, eliminiate armor from equation.  this is because the armor cannot be chosen anyways
+
     // this takes forever
     if (iterateArmor.length === 4) {
         const sortedIterateArmor = iterateArmor.sort((a, b) => a.length - b.length);
         const firstCombined = combineArmor(sortedIterateArmor[0], sortedIterateArmor[3]);
         const secondCombined = combineArmor(sortedIterateArmor[1], sortedIterateArmor[2]);
-        console.log(firstCombined);
+        // TODO: if remaining weight is > min weight of other set, eliminiate armor from equation.  this is because the armor cannot be chosen anyways
+        // console.log(firstCombined);
         iterateArmor = [groupBy(firstCombined, "robustness"), groupBy(secondCombined, "robustness")]; // try sorting each one by weight in each group so i can skip anything that doesnt meet weight constraint
         const ans = findArmorOptimizationDouble(iterateArmor, resultMaxHeap, maxEquipWeight);
         // return [];
         return ans;
     }
 
-    console.log(iterateArmor);
+    // console.log(iterateArmor);
     const armorSet = [];
     let currPosition = 0;
     findArmorOptimization(armorSet, iterateArmor, result, maxEquipWeight, currPosition);
+    console.log(result);
     return result.toArray().sort(resultComparator);
+    // return [];
 };
 const findArmorOptimizationDouble = (iterateArmor, resultMaxHeap, maxEquipWeight) => {
     const A = 0;
@@ -169,7 +187,7 @@ const findArmorOptimizationDouble = (iterateArmor, resultMaxHeap, maxEquipWeight
     const ans = [];
 
     // add first combination to heap
-    resultMaxHeap.push({first_key: keysA[iteratorA], second_key: keysB[iteratorB], robustness: parseInt(keysA[iteratorA]) + parseInt (keysB[iteratorB])});
+    resultMaxHeap.push({ first_key: keysA[iteratorA], second_key: keysB[iteratorB], robustness: parseInt(keysA[iteratorA]) + parseInt(keysB[iteratorB]) });
 
     // TODO: why isn't it showing 300 mil combinations????????
     // the reason is because im not comparing everything due to the step down... i wonder if this will cause problems?
@@ -193,8 +211,8 @@ const findArmorOptimizationDouble = (iterateArmor, resultMaxHeap, maxEquipWeight
             }
         }
 
-        resultMaxHeap.push({first_key: keysA[iteratorA+1], second_key: keysB[iteratorB], robustness: parseInt(keysA[iteratorA+1]) + parseInt (keysB[iteratorB])});
-        resultMaxHeap.push({first_key: keysA[iteratorA], second_key: keysB[iteratorB+1], robustness: parseInt(keysA[iteratorA]) + parseInt (keysB[iteratorB+1])});
+        resultMaxHeap.push({ first_key: keysA[iteratorA + 1], second_key: keysB[iteratorB], robustness: parseInt(keysA[iteratorA + 1]) + parseInt(keysB[iteratorB]) });
+        resultMaxHeap.push({ first_key: keysA[iteratorA], second_key: keysB[iteratorB + 1], robustness: parseInt(keysA[iteratorA]) + parseInt(keysB[iteratorB + 1]) });
     }
 
     return ans;
@@ -210,28 +228,28 @@ const findArmorOptimization = (armorSet, iterateArmor, result, maxEquipWeight, c
         armorSet.push(newArmorPiece);
 
         armorSetWeight += newArmorPiece.weight;
-        armorSetValue += newArmorPiece.robustness ? newArmorPiece.robustness : 0;
+        armorSetValue += newArmorPiece.totalResistanceValueWeighted ? newArmorPiece.totalResistanceValueWeighted : 0;
 
         if (currPosition < iterateArmor.length) {
             findArmorOptimization(armorSet, iterateArmor, result, maxEquipWeight, currPosition, armorSetWeight, armorSetValue);
         } else {
             if (armorSetWeight > maxEquipWeight) {
                 armorSetWeight -= newArmorPiece.weight;
-                armorSetValue -= newArmorPiece.robustness ? newArmorPiece.robustness : 0;
+                armorSetValue -= newArmorPiece.totalResistanceValueWeighted ? newArmorPiece.totalResistanceValueWeighted : 0;
                 armorSet.pop();
                 break;
             } else {
                 if (result.length < MAX_HEAP_LENGTH) {
-                    result.push({ armorSet: [...armorSet], robustness: armorSetValue });
+                    result.push({ armorSet: [...armorSet], totalResistanceValueWeighted: armorSetValue });
                 } else {
-                    if (result.peek().robustness < armorSetValue) {
-                        result.pushpop({ armorSet: [...armorSet], robustness: armorSetValue });
+                    if (result.peek().totalResistanceValueWeighted < armorSetValue) {
+                        result.pushpop({ armorSet: [...armorSet], totalResistanceValueWeighted: armorSetValue });
                     }
                 }
             }
         }
         armorSetWeight -= newArmorPiece.weight;
-        armorSetValue -= newArmorPiece.robustness ? newArmorPiece.robustness : 0;
+        armorSetValue -= newArmorPiece.totalResistanceValueWeighted ? newArmorPiece.totalResistanceValueWeighted : 0;
         armorSet.pop();
 
     }
