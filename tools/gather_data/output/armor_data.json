@@ -451,7 +451,7 @@
         "holy_absorption": 0.128,
         "immunity": 54,
         "robustness": 18,
-        "madness_resist": 57,
+        "focus": 57,
         "sleep_resist": 63,
         "vitality": 67,
         "poise": 2
@@ -7537,7 +7537,7 @@
         "lightning_absorption": 0.04700000000000004,
         "holy_absorption": 0.04700000000000004,
         "immunity": 24,
-        "bleed_resist": 11,
+        "robustness": 11,
         "frost_resist": 10,
         "focus": 39,
         "vitality": 35,
