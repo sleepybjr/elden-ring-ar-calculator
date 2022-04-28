@@ -258,7 +258,7 @@ export default function FilterableArmorTable() {
 
         let newResistances = { ...resistances };
 
-        newResistances[newId] = newValue;
+        newResistances[newId] = parseInt(newValue);
 
         setResistances(newResistances);
     };
@@ -366,7 +366,7 @@ export default function FilterableArmorTable() {
             <br />
             OR
             <br />
-            need to add reselect weapon for this
+            need to add reselect weapon for this, or just give 6 dropdowns
             <br />
             <WeaponSearchBar
                 handleSearchItemsChange={handleSearchItemsChange}

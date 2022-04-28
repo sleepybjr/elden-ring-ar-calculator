@@ -167,7 +167,23 @@ const permuteArmor = function (equippedArmor, loadRemaining, resistanceMinimum, 
     // console.log(iterateArmor);
     const armorSet = [];
     let currPosition = 0;
-    findArmorOptimization(armorSet, iterateArmor, result, maxEquipWeight, currPosition);
+    const currMinimums = {
+        "physical_absorption": 0,
+        "strike_absorption": 0,
+        "slash_absorption": 0,
+        "thrust_absorption": 0,
+        "magic_absorption": 0,
+        "fire_absorption": 0,
+        "lightning_absorption": 0,
+        "holy_absorption": 0,
+        "immunity": 0,
+        "robustness": 0,
+        "focus": 0,
+        "vitality": 0,
+        "poise": 0,
+    };
+    
+    findArmorOptimization(armorSet, iterateArmor, result, maxEquipWeight, currPosition, currMinimums, resistanceMinimum);
     console.log(result);
     return result.toArray().sort(resultComparator);
     // return [];
@@ -219,9 +235,10 @@ const findArmorOptimizationDouble = (iterateArmor, resultMaxHeap, maxEquipWeight
 }
 
 // works for 3 sets, but once it hits 4, it's incredibly slow.
-const findArmorOptimization = (armorSet, iterateArmor, result, maxEquipWeight, currPosition, armorSetWeight = 0, armorSetValue = 0) => {
+const findArmorOptimization = (armorSet, iterateArmor, result, maxEquipWeight, currPosition, currMinimums, resistanceMinimum, armorSetWeight = 0, armorSetValue = 0) => {
     const currentIterationArmor = iterateArmor[currPosition];
     currPosition += 1;
+    // console.log(currMinimums);
 
     for (var i = 0; i < currentIterationArmor.length; i++) {
         const newArmorPiece = currentIterationArmor[i];
@@ -229,27 +246,46 @@ const findArmorOptimization = (armorSet, iterateArmor, result, maxEquipWeight, c
 
         armorSetWeight += newArmorPiece.weight;
         armorSetValue += newArmorPiece.totalResistanceValueWeighted ? newArmorPiece.totalResistanceValueWeighted : 0;
+        for (const key of Object.keys(currMinimums)) {
+            currMinimums[key] += newArmorPiece[key];
+        }
+
 
         if (currPosition < iterateArmor.length) {
-            findArmorOptimization(armorSet, iterateArmor, result, maxEquipWeight, currPosition, armorSetWeight, armorSetValue);
+            findArmorOptimization(armorSet, iterateArmor, result, maxEquipWeight, currPosition, currMinimums, resistanceMinimum, armorSetWeight, armorSetValue);
         } else {
             if (armorSetWeight > maxEquipWeight) {
                 armorSetWeight -= newArmorPiece.weight;
                 armorSetValue -= newArmorPiece.totalResistanceValueWeighted ? newArmorPiece.totalResistanceValueWeighted : 0;
+                for (const key of Object.keys(currMinimums)) {
+                    currMinimums[key] -= newArmorPiece[key];
+                }
                 armorSet.pop();
                 break;
             } else {
-                if (result.length < MAX_HEAP_LENGTH) {
-                    result.push({ armorSet: [...armorSet], totalResistanceValueWeighted: armorSetValue });
-                } else {
-                    if (result.peek().totalResistanceValueWeighted < armorSetValue) {
-                        result.pushpop({ armorSet: [...armorSet], totalResistanceValueWeighted: armorSetValue });
+                let meetsMinimum = true;
+                for (const key of Object.keys(currMinimums)) {
+                    if (currMinimums[key] < resistanceMinimum[key]) {
+                        meetsMinimum = false;
+                        break;
+                    }
+                }
+                if (meetsMinimum === true) {
+                    if (result.length < MAX_HEAP_LENGTH) {
+                        result.push({ armorSet: [...armorSet], totalResistanceValueWeighted: armorSetValue });
+                    } else {
+                        if (result.peek().totalResistanceValueWeighted < armorSetValue) {
+                            result.pushpop({ armorSet: [...armorSet], totalResistanceValueWeighted: armorSetValue });
+                        }
                     }
                 }
             }
         }
         armorSetWeight -= newArmorPiece.weight;
         armorSetValue -= newArmorPiece.totalResistanceValueWeighted ? newArmorPiece.totalResistanceValueWeighted : 0;
+        for (const key of Object.keys(currMinimums)) {
+            currMinimums[key] -= newArmorPiece[key];
+        }
         armorSet.pop();
 
     }
