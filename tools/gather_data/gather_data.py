@@ -828,61 +828,249 @@ def getArmorData():
     for key, row in EquipParamProtector.items():
         if row['Can Drop'] == InputBoolean.TRUE.value:
             row_dict = OrderedDict()
-            row_dict["row_id"] = int(key)
-            row_dict["name"] = row['Row Name']
-            row_dict["equipment_type"] = getArmorType(row['Armor Category'])
-            row_dict["weight"] = float(row['Weight'])
-            row_dict["physical_absorption"] = 1 - float(row['Absorption - Physical'])
-            row_dict["strike_absorption"] = 1 - float(row['Absorption - Strike'])
-            row_dict["slash_absorption"] = 1 - float(row['Absorption - Slash'])
-            row_dict["thrust_absorption"] = 1 - float(row['Absorption - Thrust'])
-            row_dict["magic_absorption"] = 1 - float(row['Absorption - Magic'])
-            row_dict["fire_absorption"] = 1 - float(row['Absorption - Fire'])
-            row_dict["lightning_absorption"] = 1 - float(row['Absorption - Lightning'])
-            row_dict["holy_absorption"] = 1 - float(row['Absorption - Holy'])
-            if (int(row['Resist - Poison']) == int(row['Resist - Scarlet Rot'])):
-                row_dict["immunity"] = int(row['Resist - Poison'])
-            else:
-                row_dict["poison_resist"] = int(row['Resist - Poison'])
-                row_dict["rot_resist"] = int(row['Resist - Scarlet Rot'])
-            if (int(row['Resist - Hemorrhage']) == int(row['Resist - Frost'])):
-                row_dict["robustness"] = int(row['Resist - Hemorrhage'])
-            else:
-                row_dict["bleed_resist"] = int(row['Resist - Hemorrhage'])
-                row_dict["frost_resist"] = int(row['Resist - Frost'])
-            if (int(row['Resist - Madness']) == int(row['Resist - Sleep'])):
-                row_dict["focus"] = int(row['Resist - Madness'])
-            else:
-                row_dict["madness_resist"] = int(row['Resist - Madness'])
-                row_dict["sleep_resist"] = int(row['Resist - Sleep'])
-            row_dict["vitality"] = int(row['Resist - Blight'])
-            row_dict["poise"] = int(float(row['Poise']) * 1000.0)
-            
-            # if death bed dress
-            if (int(key) == 1930100):
-                if int(row['Resident SpEffect ID [1]']) != -1:
-                    row_dict["passive_1"] = getPassiveEffect(SpEffectParam[str(int(row['Resident SpEffect ID [1]']) + 2)])
-                    calcAbsorptions(row_dict, row_dict["passive_1"])
-                if int(row['Resident SpEffect ID [2]']) != -1:
-                    row_dict["passive_2"] = getPassiveEffect(SpEffectParam[str(int(row['Resident SpEffect ID [2]']) + 2)])
-                    calcAbsorptions(row_dict, row_dict["passive_2"])
-                if int(row['Resident SpEffect ID [3]']) != -1:
-                    row_dict["passive_3"] = getPassiveEffect(SpEffectParam[str(int(row['Resident SpEffect ID [3]']) + 2)])
-                    calcAbsorptions(row_dict, row_dict["passive_3"])
-            else:
-                if int(row['Resident SpEffect ID [1]']) != -1:
-                    row_dict["passive_1"] = getPassiveEffect(SpEffectParam[row['Resident SpEffect ID [1]']])
-                    calcAbsorptions(row_dict, row_dict["passive_1"])
-                if int(row['Resident SpEffect ID [2]']) != -1:
-                    row_dict["passive_2"] = getPassiveEffect(SpEffectParam[row['Resident SpEffect ID [2]']])
-                    calcAbsorptions(row_dict, row_dict["passive_2"])
-                if int(row['Resident SpEffect ID [3]']) != -1:
-                    row_dict["passive_3"] = getPassiveEffect(SpEffectParam[row['Resident SpEffect ID [3]']])
-                    calcAbsorptions(row_dict, row_dict["passive_3"])
-
+            extractArmor(row_dict, row, key)
             armor_data.append(row_dict)
     
     return armor_data
+
+
+##############################################
+# max_armor_data.json
+##############################################
+def getMaxArmorData():
+    max_head = OrderedDict()
+    max_head['label'] = "Head"
+    max_head['max_physical_absorption'] = 0.0
+    max_head["max_strike_absorption"] = 0.0
+    max_head["max_slash_absorption"] = 0.0
+    max_head["max_thrust_absorption"] = 0.0
+    max_head["max_magic_absorption"] = 0.0
+    max_head["max_fire_absorption"] = 0.0
+    max_head["max_lightning_absorption"] = 0.0
+    max_head["max_holy_absorption"] = 0.0
+    max_head["max_poison_resist"] = 0
+    max_head["max_rot_resist"] = 0
+    max_head["max_bleed_resist"] = 0
+    max_head["max_frost_resist"] = 0
+    max_head["max_madness_resist"] = 0
+    max_head["max_sleep_resist"] = 0
+    max_head["max_poise"] = 0
+    max_head["max_vitality"] = 0
+    max_body = OrderedDict()
+    max_body['label'] = "Body"
+    max_body['max_physical_absorption'] = 0.0
+    max_body["max_strike_absorption"] = 0.0
+    max_body["max_slash_absorption"] = 0.0
+    max_body["max_thrust_absorption"] = 0.0
+    max_body["max_magic_absorption"] = 0.0
+    max_body["max_fire_absorption"] = 0.0
+    max_body["max_lightning_absorption"] = 0.0
+    max_body["max_holy_absorption"] = 0.0
+    max_body["max_poison_resist"] = 0
+    max_body["max_rot_resist"] = 0
+    max_body["max_bleed_resist"] = 0
+    max_body["max_frost_resist"] = 0
+    max_body["max_madness_resist"] = 0
+    max_body["max_sleep_resist"] = 0
+    max_body["max_poise"] = 0
+    max_body["max_vitality"] = 0
+    max_arm = OrderedDict()
+    max_arm['label'] = "Arm"
+    max_arm['max_physical_absorption'] = 0.0
+    max_arm["max_strike_absorption"] = 0.0
+    max_arm["max_slash_absorption"] = 0.0
+    max_arm["max_thrust_absorption"] = 0.0
+    max_arm["max_magic_absorption"] = 0.0
+    max_arm["max_fire_absorption"] = 0.0
+    max_arm["max_lightning_absorption"] = 0.0
+    max_arm["max_holy_absorption"] = 0.0
+    max_arm["max_poison_resist"] = 0
+    max_arm["max_rot_resist"] = 0
+    max_arm["max_bleed_resist"] = 0
+    max_arm["max_frost_resist"] = 0
+    max_arm["max_madness_resist"] = 0
+    max_arm["max_sleep_resist"] = 0
+    max_arm["max_poise"] = 0
+    max_arm["max_vitality"] = 0
+    max_leg = OrderedDict()
+    max_leg['label'] = "Leg"
+    max_leg['max_physical_absorption'] = 0.0
+    max_leg["max_strike_absorption"] = 0.0
+    max_leg["max_slash_absorption"] = 0.0
+    max_leg["max_thrust_absorption"] = 0.0
+    max_leg["max_magic_absorption"] = 0.0
+    max_leg["max_fire_absorption"] = 0.0
+    max_leg["max_lightning_absorption"] = 0.0
+    max_leg["max_holy_absorption"] = 0.0
+    max_leg["max_poison_resist"] = 0
+    max_leg["max_rot_resist"] = 0
+    max_leg["max_bleed_resist"] = 0
+    max_leg["max_frost_resist"] = 0
+    max_leg["max_madness_resist"] = 0
+    max_leg["max_sleep_resist"] = 0
+    max_leg["max_poise"] = 0
+    max_leg["max_vitality"] = 0
+    for key, row in EquipParamProtector.items():
+        if row['Can Drop'] == InputBoolean.TRUE.value:
+            row_dict = OrderedDict()
+            extractArmor(row_dict, row, key)
+            if getArmorType(row['Armor Category']) == max_head['label']:
+                compareMaxArmor(row_dict, max_head)
+            elif getArmorType(row['Armor Category']) == max_body['label']:
+                compareMaxArmor(row_dict, max_body)
+            elif getArmorType(row['Armor Category']) == max_arm['label']:
+                compareMaxArmor(row_dict, max_arm)
+            elif getArmorType(row['Armor Category']) == max_leg['label']:
+                compareMaxArmor(row_dict, max_leg)
+
+    if (max_head["max_poison_resist"] == max_head["max_rot_resist"]):
+        max_head.pop("max_poison_resist")
+        max_head["max_immunity"] = max_head.pop("max_rot_resist")
+    if (max_head["max_bleed_resist"] == max_head["max_frost_resist"]):
+        max_head.pop("max_bleed_resist")
+        max_head["max_robustness"] = max_head.pop("max_frost_resist")
+    if (max_head["max_madness_resist"] == max_head["max_sleep_resist"]):
+        max_head.pop("max_madness_resist")
+        max_head["max_focus"] = max_head.pop("max_sleep_resist")
+
+    if (max_body["max_poison_resist"] == max_body["max_rot_resist"]):
+        max_body.pop("max_poison_resist")
+        max_body["max_immunity"] = max_body.pop("max_rot_resist")
+    if (max_body["max_bleed_resist"] == max_body["max_frost_resist"]):
+        max_body.pop("max_bleed_resist")
+        max_body["max_robustness"] = max_body.pop("max_frost_resist")
+    if (max_body["max_madness_resist"] == max_body["max_sleep_resist"]):
+        max_body.pop("max_madness_resist")
+        max_body["max_focus"] = max_body.pop("max_sleep_resist")
+
+    if (max_arm["max_poison_resist"] == max_arm["max_rot_resist"]):
+        max_arm.pop("max_poison_resist")
+        max_arm["max_immunity"] = max_arm.pop("max_rot_resist")
+    if (max_arm["max_bleed_resist"] == max_arm["max_frost_resist"]):
+        max_arm.pop("max_bleed_resist")
+        max_arm["max_robustness"] = max_arm.pop("max_frost_resist")
+    if (max_arm["max_madness_resist"] == max_arm["max_sleep_resist"]):
+        max_arm.pop("max_madness_resist")
+        max_arm["max_focus"] = max_arm.pop("max_sleep_resist")
+
+    if (max_leg["max_poison_resist"] == max_leg["max_rot_resist"]):
+        max_leg.pop("max_poison_resist")
+        max_leg["max_immunity"] = max_leg.pop("max_rot_resist")
+    if (max_leg["max_bleed_resist"] == max_leg["max_frost_resist"]):
+        max_leg.pop("max_bleed_resist")
+        max_leg["max_robustness"] = max_leg.pop("max_frost_resist")
+    if (max_leg["max_madness_resist"] == max_leg["max_sleep_resist"]):
+        max_leg.pop("max_madness_resist")
+        max_leg["max_focus"] = max_leg.pop("max_sleep_resist")
+
+    return max_head, max_body, max_arm, max_leg
+
+def extractArmor(row_dict, row, key):
+    row_dict["row_id"] = int(key)
+    row_dict["name"] = row['Row Name']
+    row_dict["equipment_type"] = getArmorType(row['Armor Category'])
+    row_dict["weight"] = float(row['Weight'])
+    row_dict["physical_absorption"] = 1 - float(row['Absorption - Physical'])
+    row_dict["strike_absorption"] = 1 - float(row['Absorption - Strike'])
+    row_dict["slash_absorption"] = 1 - float(row['Absorption - Slash'])
+    row_dict["thrust_absorption"] = 1 - float(row['Absorption - Thrust'])
+    row_dict["magic_absorption"] = 1 - float(row['Absorption - Magic'])
+    row_dict["fire_absorption"] = 1 - float(row['Absorption - Fire'])
+    row_dict["lightning_absorption"] = 1 - float(row['Absorption - Lightning'])
+    row_dict["holy_absorption"] = 1 - float(row['Absorption - Holy'])
+    if (int(row['Resist - Poison']) == int(row['Resist - Scarlet Rot'])):
+        row_dict["immunity"] = int(row['Resist - Poison'])
+    else:
+        row_dict["poison_resist"] = int(row['Resist - Poison'])
+        row_dict["rot_resist"] = int(row['Resist - Scarlet Rot'])
+    if (int(row['Resist - Hemorrhage']) == int(row['Resist - Frost'])):
+        row_dict["robustness"] = int(row['Resist - Hemorrhage'])
+    else:
+        row_dict["bleed_resist"] = int(row['Resist - Hemorrhage'])
+        row_dict["frost_resist"] = int(row['Resist - Frost'])
+    if (int(row['Resist - Madness']) == int(row['Resist - Sleep'])):
+        row_dict["focus"] = int(row['Resist - Madness'])
+    else:
+        row_dict["madness_resist"] = int(row['Resist - Madness'])
+        row_dict["sleep_resist"] = int(row['Resist - Sleep'])
+    row_dict["vitality"] = int(row['Resist - Blight'])
+    row_dict["poise"] = int(float(row['Poise']) * 1000.0)
+    
+    # if death bed dress
+    if (int(key) == 1930100):
+        if int(row['Resident SpEffect ID [1]']) != -1:
+            row_dict["passive_1"] = getPassiveEffect(SpEffectParam[str(int(row['Resident SpEffect ID [1]']) + 2)])
+            calcAbsorptions(row_dict, row_dict["passive_1"])
+        if int(row['Resident SpEffect ID [2]']) != -1:
+            row_dict["passive_2"] = getPassiveEffect(SpEffectParam[str(int(row['Resident SpEffect ID [2]']) + 2)])
+            calcAbsorptions(row_dict, row_dict["passive_2"])
+        if int(row['Resident SpEffect ID [3]']) != -1:
+            row_dict["passive_3"] = getPassiveEffect(SpEffectParam[str(int(row['Resident SpEffect ID [3]']) + 2)])
+            calcAbsorptions(row_dict, row_dict["passive_3"])
+    else:
+        if int(row['Resident SpEffect ID [1]']) != -1:
+            row_dict["passive_1"] = getPassiveEffect(SpEffectParam[row['Resident SpEffect ID [1]']])
+            calcAbsorptions(row_dict, row_dict["passive_1"])
+        if int(row['Resident SpEffect ID [2]']) != -1:
+            row_dict["passive_2"] = getPassiveEffect(SpEffectParam[row['Resident SpEffect ID [2]']])
+            calcAbsorptions(row_dict, row_dict["passive_2"])
+        if int(row['Resident SpEffect ID [3]']) != -1:
+            row_dict["passive_3"] = getPassiveEffect(SpEffectParam[row['Resident SpEffect ID [3]']])
+            calcAbsorptions(row_dict, row_dict["passive_3"])
+
+def compareMaxArmor(row_dict, max_armor):
+    if (max_armor['max_physical_absorption'] < row_dict["physical_absorption"]):
+        max_armor['max_physical_absorption'] = row_dict["physical_absorption"]
+    if (max_armor['max_strike_absorption'] < row_dict["strike_absorption"]):
+        max_armor['max_strike_absorption'] = row_dict["strike_absorption"]
+    if (max_armor['max_slash_absorption'] < row_dict["slash_absorption"]):
+        max_armor['max_slash_absorption'] = row_dict["slash_absorption"]
+    if (max_armor['max_thrust_absorption'] < row_dict["thrust_absorption"]):
+        max_armor['max_thrust_absorption'] = row_dict["thrust_absorption"]
+    if (max_armor['max_magic_absorption'] < row_dict["magic_absorption"]):
+        max_armor['max_magic_absorption'] = row_dict["magic_absorption"]
+    if (max_armor['max_fire_absorption'] < row_dict["fire_absorption"]):
+        max_armor['max_fire_absorption'] = row_dict["fire_absorption"]
+    if (max_armor['max_lightning_absorption'] < row_dict["lightning_absorption"]):
+        max_armor['max_lightning_absorption'] = row_dict["lightning_absorption"]
+    if (max_armor['max_holy_absorption'] < row_dict["holy_absorption"]):
+        max_armor['max_holy_absorption'] = row_dict["holy_absorption"]
+
+    if "immunity" in row_dict:
+        if (max_armor['max_poison_resist'] < row_dict["immunity"]):
+            max_armor["max_poison_resist"] = row_dict["immunity"]
+            max_armor["max_rot_resist"] = row_dict["immunity"]
+    else:
+        if (max_armor['max_poison_resist'] < row_dict["poison_resist"]):
+            max_armor["max_poison_resist"] = row_dict["poison_resist"]
+        if (max_armor['max_rot_resist'] < row_dict["rot_resist"]):
+            max_armor["max_rot_resist"] = row_dict["rot_resist"]
+    
+    if "robustness" in row_dict:
+        if (max_armor['max_bleed_resist'] < row_dict["robustness"]):
+            max_armor["max_bleed_resist"] = row_dict["robustness"]
+            max_armor["max_frost_resist"] = row_dict["robustness"]
+    else:
+        if (max_armor['max_bleed_resist'] < row_dict["bleed_resist"]):
+            max_armor["max_bleed_resist"] = row_dict["bleed_resist"]
+        if (max_armor['max_frost_resist'] < row_dict["frost_resist"]):
+            max_armor["max_frost_resist"] = row_dict["frost_resist"]
+
+    if "focus" in row_dict:
+        if (max_armor['max_madness_resist'] < row_dict["focus"]):
+            max_armor["max_madness_resist"] = row_dict["focus"]
+            max_armor["max_sleep_resist"] = row_dict["focus"]
+    else:
+        if (max_armor['max_madness_resist'] < row_dict["madness_resist"]):
+            max_armor["max_madness_resist"] = row_dict["madness_resist"]
+        if (max_armor['max_sleep_resist'] < row_dict["sleep_resist"]):
+            max_armor["max_sleep_resist"] = row_dict["sleep_resist"]
+    
+    if (max_armor["max_poise"] < row_dict["poise"]):
+        max_armor["max_poise"] = row_dict["poise"]
+
+    if (max_armor["max_vitality"] < row_dict["vitality"]):
+        max_armor["max_vitality"] = row_dict["vitality"]
 
 
 def calcAbsorptions(row_dict, passive):
@@ -902,7 +1090,6 @@ def calcAbsorptions(row_dict, passive):
         row_dict["lightning_absorption"] = calcAbsorption(row_dict["lightning_absorption"], passive.pop("absorption_lightning"))
     if "absorption_holy" in passive:
         row_dict["holy_absorption"] = calcAbsorption(row_dict["holy_absorption"], passive.pop("absorption_holy"))
-
     
 
 def calcAbsorption(absorption, absorption_passive):
@@ -1359,6 +1546,7 @@ calc_correct_id = getCalcCorrectId()
 weapon_groups = getWeaponGroups()
 physical_calculations = getPhysCalc()
 armor_data = getArmorData()
+max_head, max_body, max_arm, max_leg = getMaxArmorData()
 head_group, body_group, arm_group, leg_group = getArmorGroups()
 
 writeToFile('attackelementcorrectparam', attack_element_correct_param_data)
@@ -1370,6 +1558,10 @@ writeToFile('calc_correct_id', calc_correct_id)
 writeToFile('weapon_groups', weapon_groups)
 writeToFile('physical_calculations', physical_calculations)
 writeToFile('armor_data', armor_data)
+writeToFile('max_head', max_head)
+writeToFile('max_body', max_body)
+writeToFile('max_arm', max_arm)
+writeToFile('max_leg', max_leg)
 writeToFile('head_group', head_group)
 writeToFile('body_group', body_group)
 writeToFile('arm_group', arm_group)
