@@ -8,6 +8,7 @@
     "max_fire_absorption": 0.050000000000000044,
     "max_lightning_absorption": 0.03700000000000003,
     "max_holy_absorption": 0.03600000000000003,
+    "max_poise": 10,
     "max_vitality": 28,
     "max_immunity": 34,
     "max_robustness": 33,

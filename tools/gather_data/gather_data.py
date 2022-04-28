@@ -854,6 +854,7 @@ def getMaxArmorData():
     max_head["max_frost_resist"] = 0
     max_head["max_madness_resist"] = 0
     max_head["max_sleep_resist"] = 0
+    max_head["max_poise"] = 0
     max_head["max_vitality"] = 0
     max_body = OrderedDict()
     max_body['label'] = "Body"
@@ -871,6 +872,7 @@ def getMaxArmorData():
     max_body["max_frost_resist"] = 0
     max_body["max_madness_resist"] = 0
     max_body["max_sleep_resist"] = 0
+    max_body["max_poise"] = 0
     max_body["max_vitality"] = 0
     max_arm = OrderedDict()
     max_arm['label'] = "Arm"
@@ -888,6 +890,7 @@ def getMaxArmorData():
     max_arm["max_frost_resist"] = 0
     max_arm["max_madness_resist"] = 0
     max_arm["max_sleep_resist"] = 0
+    max_arm["max_poise"] = 0
     max_arm["max_vitality"] = 0
     max_leg = OrderedDict()
     max_leg['label'] = "Leg"
@@ -905,6 +908,7 @@ def getMaxArmorData():
     max_leg["max_frost_resist"] = 0
     max_leg["max_madness_resist"] = 0
     max_leg["max_sleep_resist"] = 0
+    max_leg["max_poise"] = 0
     max_leg["max_vitality"] = 0
     for key, row in EquipParamProtector.items():
         if row['Can Drop'] == InputBoolean.TRUE.value:
@@ -1062,6 +1066,9 @@ def compareMaxArmor(row_dict, max_armor):
         if (max_armor['max_sleep_resist'] < row_dict["sleep_resist"]):
             max_armor["max_sleep_resist"] = row_dict["sleep_resist"]
     
+    if (max_armor["max_poise"] < row_dict["poise"]):
+        max_armor["max_poise"] = row_dict["poise"]
+
     if (max_armor["max_vitality"] < row_dict["vitality"]):
         max_armor["max_vitality"] = row_dict["vitality"]
 
