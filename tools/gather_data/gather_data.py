@@ -862,21 +862,52 @@ def getArmorData():
             if (int(key) == 1930100):
                 if int(row['Resident SpEffect ID [1]']) != -1:
                     row_dict["passive_1"] = getPassiveEffect(SpEffectParam[str(int(row['Resident SpEffect ID [1]']) + 2)])
+                    calcAbsorptions(row_dict, row_dict["passive_1"])
                 if int(row['Resident SpEffect ID [2]']) != -1:
                     row_dict["passive_2"] = getPassiveEffect(SpEffectParam[str(int(row['Resident SpEffect ID [2]']) + 2)])
+                    calcAbsorptions(row_dict, row_dict["passive_2"])
                 if int(row['Resident SpEffect ID [3]']) != -1:
                     row_dict["passive_3"] = getPassiveEffect(SpEffectParam[str(int(row['Resident SpEffect ID [3]']) + 2)])
+                    calcAbsorptions(row_dict, row_dict["passive_3"])
             else:
                 if int(row['Resident SpEffect ID [1]']) != -1:
                     row_dict["passive_1"] = getPassiveEffect(SpEffectParam[row['Resident SpEffect ID [1]']])
+                    calcAbsorptions(row_dict, row_dict["passive_1"])
                 if int(row['Resident SpEffect ID [2]']) != -1:
                     row_dict["passive_2"] = getPassiveEffect(SpEffectParam[row['Resident SpEffect ID [2]']])
+                    calcAbsorptions(row_dict, row_dict["passive_2"])
                 if int(row['Resident SpEffect ID [3]']) != -1:
                     row_dict["passive_3"] = getPassiveEffect(SpEffectParam[row['Resident SpEffect ID [3]']])
+                    calcAbsorptions(row_dict, row_dict["passive_3"])
 
             armor_data.append(row_dict)
     
     return armor_data
+
+
+def calcAbsorptions(row_dict, passive):
+    if "absorption_standard" in passive:
+        row_dict["physical_absorption"] = calcAbsorption(row_dict["physical_absorption"], passive.pop("absorption_standard"))
+    if "absorption_strike" in passive:
+        row_dict["strike_absorption"] = calcAbsorption(row_dict["strike_absorption"], passive.pop("absorption_strike"))
+    if "absorption_slash" in passive:
+        row_dict["slash_absorption"] = calcAbsorption(row_dict["slash_absorption"], passive.pop("absorption_slash"))
+    if "absorption_thrust" in passive:
+        row_dict["thrust_absorption"] = calcAbsorption(row_dict["thrust_absorption"], passive.pop("absorption_thrust"))
+    if "absorption_magic" in passive:
+        row_dict["magic_absorption"] = calcAbsorption(row_dict["magic_absorption"], passive.pop("absorption_magic"))
+    if "absorption_fire" in passive:
+        row_dict["fire_absorption"] = calcAbsorption(row_dict["fire_absorption"], passive.pop("absorption_fire"))
+    if "absorption_lightning" in passive:
+        row_dict["lightning_absorption"] = calcAbsorption(row_dict["lightning_absorption"], passive.pop("absorption_lightning"))
+    if "absorption_holy" in passive:
+        row_dict["holy_absorption"] = calcAbsorption(row_dict["holy_absorption"], passive.pop("absorption_holy"))
+
+    
+
+def calcAbsorption(absorption, absorption_passive):
+    return -((1.0 - absorption) * absorption_passive) + 1.0
+
 
 State_Info_Effect = {
     # SpEffectParam - State Info
