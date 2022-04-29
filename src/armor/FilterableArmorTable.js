@@ -106,15 +106,12 @@ export default function FilterableArmorTable() {
         setSpinner(<FaSpinner className="icon_pulse" />);
         setErrors("");
 
-        console.log(searchedArmor);
         const equippedArmor = {
             Head: searchedArmor.hasOwnProperty("helmet") && searchedArmor.helmet !== null ? IS_WEARING : IS_NOT_WEARING,
             Body: searchedArmor.hasOwnProperty("chest") && searchedArmor.chest !== null ? IS_WEARING : IS_NOT_WEARING,
             Arm: searchedArmor.hasOwnProperty("gauntlets") && searchedArmor.gauntlets !== null ? IS_WEARING : IS_NOT_WEARING,
             Leg: searchedArmor.hasOwnProperty("legs") && searchedArmor.legs !== null ? IS_WEARING : IS_NOT_WEARING,
         };
-
-        console.log(equippedArmor);
 
         // temporary until  we get 4 select faster, don't allow 4 armor since 300 mil operations
         if (equippedArmor.Head === IS_NOT_WEARING && equippedArmor.Body === IS_NOT_WEARING && equippedArmor.Arm === IS_NOT_WEARING && equippedArmor.Leg === IS_NOT_WEARING) {
@@ -152,8 +149,6 @@ export default function FilterableArmorTable() {
             }
         }
 
-        // console.log(resistancesMultiplier);
-
         const output = armorOptimizer(
             equippedArmor,
             loadRemaining,
@@ -161,8 +156,6 @@ export default function FilterableArmorTable() {
             resistancesMultiplier,
             currEquippedArmor
         );
-
-        // console.log(output);
 
         if (output === -1 || output.length === 0) {
             setErrors("Incorrect input, unable to find an answer.");

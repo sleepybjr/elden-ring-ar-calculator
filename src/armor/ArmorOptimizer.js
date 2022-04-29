@@ -231,7 +231,6 @@ const findArmorOptimizationDouble = (iterateArmor, resultMaxHeap, maxEquipWeight
         // console.log(results);
         for (const result of results) {
             if (result.weight <= maxEquipWeight) {
-                console.log(result);
                 ans.push({ armorSet: { ...result } });
             }
         }
