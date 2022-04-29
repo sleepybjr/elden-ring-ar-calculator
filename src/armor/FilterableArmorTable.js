@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import ArmorTable from './ArmorTable';
 import SingleItemSearchBar from '../component/SingleItemSeachBar';
-import { getPhyCalcData } from '../weapons/FilterableWeaponTable'
+import { getPhyCalcData } from '../weapons/FilterableWeaponTable';
 
 
 import Weapons_Select from '.././json/weapon_groups';
@@ -73,34 +73,40 @@ const startArmorResistancesMultiplier = {
     poise_multiplier: 1,
 }
 
-const armorTypes = [
-    "Helm",
-    "Chest",
-    "Gauntlets",
-    "Legs",
+const armorTypes = {
+    helmet: Helmets_Select,
+    chest: Chest_Select,
+    gauntlets: Gauntlets_Select,
+    legs: Legs_Select,
+};
+
+const weaponHands = [
+    "LH1",
+    "LH2",
+    "LH3",
+    "RH1",
+    "RH2",
+    "RH3",
 ];
 
-const rollTypeMapping = {// eslint-disable-line no-unused-vars
-    "Light Rolls": 29.9,
-    "Normal Rolls": 69.9,
-    "Fat Rolls": 99.9,
-};
+// needed because javascript uses floats weird
+function roundNumber(number, decimals) {
+    return parseFloat(number.toFixed(decimals));
+}
+
+const NORMAL_ROLL_DEFAULT = 69.9;
+
+const IS_WEARING =  0;
+const IS_NOT_WEARING = 1;
 
 export default function FilterableArmorTable() {
     const levels = useSelector((state) => state.allLevels.levels);
 
-    const [rollTypeChoice, setRollTypeChoice] = useState(69.9);
+    const [rollTypeChoice, setRollTypeChoice] = useState(NORMAL_ROLL_DEFAULT);
 
-    const [searchedWeaponsLH1, setSearchedWeaponsLH1] = useState(null);
-    const [searchedWeaponsLH2, setSearchedWeaponsLH2] = useState(null);
-    const [searchedWeaponsLH3, setSearchedWeaponsLH3] = useState(null);
-    const [searchedWeaponsRH1, setSearchedWeaponsRH1] = useState(null);
-    const [searchedWeaponsRH2, setSearchedWeaponsRH2] = useState(null);
-    const [searchedWeaponsRH3, setSearchedWeaponsRH3] = useState(null);
-    const [searchedHelmet, setSearchedHelmet] = useState(null);
-    const [searchedChest, setSearchedChest] = useState(null);
-    const [searchedGauntlets, setSearchedGauntlets] = useState(null);
-    const [searchedLegs, setSearchedLegs] = useState(null);
+    const [searchedWeapons, setSearchedWeapons] = useState({});
+    const [searchedArmor, setSearchedArmor] = useState({});
+
     const [currEquippedArmor, setCurrEquippedArmor] = useState([]);
 
     const [maxEquip, setMaxEquip] = useState(0);
@@ -130,15 +136,18 @@ export default function FilterableArmorTable() {
         setSpinner(<FaSpinner className="icon_pulse" />);
         setErrors("");
 
+        console.log(searchedArmor);
         const equippedArmor = {
-            Head: searchedHelmet !== null ? 0 : 1,
-            Body: searchedChest !== null ? 0 : 1,
-            Arm: searchedGauntlets !== null ? 0 : 1,
-            Leg: searchedLegs !== null ? 0 : 1,
+            Head: searchedArmor.hasOwnProperty("helmet") && searchedArmor.helmet !== null ? IS_WEARING : IS_NOT_WEARING,
+            Body: searchedArmor.hasOwnProperty("chest") && searchedArmor.chest !== null ? IS_WEARING : IS_NOT_WEARING,
+            Arm: searchedArmor.hasOwnProperty("gauntlets") && searchedArmor.gauntlets !== null ? IS_WEARING : IS_NOT_WEARING,
+            Leg: searchedArmor.hasOwnProperty("legs") && searchedArmor.legs !== null ? IS_WEARING : IS_NOT_WEARING,
         };
 
+        console.log(equippedArmor);
+
         // temporary until  we get 4 select faster, don't allow 4 armor since 300 mil operations
-        if (equippedArmor.Head === 1 && equippedArmor.Body === 1 && equippedArmor.Arm === 1 && equippedArmor.Leg === 1) {
+        if (equippedArmor.Head === IS_NOT_WEARING && equippedArmor.Body === IS_NOT_WEARING && equippedArmor.Arm === IS_NOT_WEARING && equippedArmor.Leg === IS_NOT_WEARING) {
             setErrors("Please select at least one equipped armor.");
             setSpinner(null);
             return;
@@ -251,9 +260,9 @@ export default function FilterableArmorTable() {
             for (const armor of currEquippedArmor) {
                 if (armor.equipment_type === "Head") {
                     row.helm_name = armor.name;
-                } else if (armor.equipment_type === "Arm") {
-                    row.chest_name = armor.name;
                 } else if (armor.equipment_type === "Body") {
+                    row.chest_name = armor.name;
+                } else if (armor.equipment_type === "Arm") {
                     row.gauntlet_name = armor.name;
                 } else if (armor.equipment_type === "Leg") {
                     row.leg_name = armor.name;
@@ -284,36 +293,20 @@ export default function FilterableArmorTable() {
         setRollTypeChoice(value);
     };
 
-    function handleSearchWeaponItemsLH1Change(searchedWeapon) {
-        setSearchedWeaponsLH1(searchedWeapon);
-    };
-    function handleSearchWeaponItemsLH2Change(searchedWeapon) {
-        setSearchedWeaponsLH2(searchedWeapon);
-    };
-    function handleSearchWeaponItemsLH3Change(searchedWeapon) {
-        setSearchedWeaponsLH3(searchedWeapon);
-    };
-    function handleSearchWeaponItemsRH1Change(searchedWeapon) {
-        setSearchedWeaponsRH1(searchedWeapon);
-    };
-    function handleSearchWeaponItemsRH2Change(searchedWeapon) {
-        setSearchedWeaponsRH2(searchedWeapon);
-    };
-    function handleSearchWeaponItemsRH3Change(searchedWeapon) {
-        setSearchedWeaponsRH3(searchedWeapon);
+    function handleSearchWeaponItemsChange(searchedWeapon, weaponHand) {
+        const newSearchedWeapons = { ...searchedWeapons };
+
+        newSearchedWeapons[weaponHand] = searchedWeapon;
+
+        setSearchedWeapons(newSearchedWeapons);
     };
 
-    function handleSearchHelmetItemChange(searchedArmor) {
-        setSearchedHelmet(searchedArmor);
-    };
-    function handleSearchChestItemChange(searchedArmor) {
-        setSearchedChest(searchedArmor);
-    };
-    function handleSearchGauntletsItemChange(searchedArmor) {
-        setSearchedGauntlets(searchedArmor);
-    };
-    function handleSearchLegsItemChange(searchedArmor) {
-        setSearchedLegs(searchedArmor);
+    function handleSearchArmorItemsChange(armorPiece, armorType) {
+        const newSearchedArmor = { ...searchedArmor };
+
+        newSearchedArmor[armorType] = armorPiece;
+
+        setSearchedArmor(newSearchedArmor);
     };
 
     function handleResistanceChange(event) {
@@ -395,42 +388,37 @@ export default function FilterableArmorTable() {
     }, [levels.endurance]);
 
     useEffect(() => {
+        // count the amount of weapons
         const searchedWeaponsMap = {};
-        for (const weapon of [searchedWeaponsLH1, searchedWeaponsLH2, searchedWeaponsLH3, searchedWeaponsRH1, searchedWeaponsRH2, searchedWeaponsRH3]) {
-            if (weapon !== null) {
-                if (searchedWeaponsMap.hasOwnProperty(weapon.label))
-                    searchedWeaponsMap[weapon.label]++;
+        for (const hand of Object.keys(searchedWeapons)) {
+            const weaponInHand = searchedWeapons[hand];
+            if (weaponInHand !== null) {
+                if (searchedWeaponsMap.hasOwnProperty(weaponInHand.label))
+                    searchedWeaponsMap[weaponInHand.label]++;
                 else
-                    searchedWeaponsMap[weapon.label] = 1;
+                    searchedWeaponsMap[weaponInHand.label] = 1;
             }
         }
 
         let newCurrentLoad = 0;
 
+        // get weapon weight values from amount of weapons
         for (let element of Weapon_Reqs) {
             if (searchedWeaponsMap.hasOwnProperty(element.weaponname)) {
                 newCurrentLoad += (element.weight * searchedWeaponsMap[element.weaponname]);
-                delete searchedWeaponsMap[element.weaponname];
+                delete searchedWeaponsMap[element.weaponname]; // need to remove due to multiple weapon names
             }
         }
 
-        let newCurrEquippedArmor = [];
 
+        // get list of armor names that were searched
+        const valuesSearchedArmor = new Set(Object.entries(searchedArmor).flatMap(([key, value]) => value !== null ? value.label : []));
+
+        let newCurrEquippedArmor = [];
         for (let element of Armor_Data) {
-            if (searchedHelmet !== null && searchedHelmet.label === element.name) {
+            if (valuesSearchedArmor.has(element.name)) {
                 newCurrentLoad += element.weight;
-                newCurrEquippedArmor.push(element);
-            }
-            if (searchedChest !== null && searchedChest.label === element.name) {
-                newCurrentLoad += element.weight;
-                newCurrEquippedArmor.push(element);
-            }
-            if (searchedGauntlets !== null && searchedGauntlets.label === element.name) {
-                newCurrentLoad += element.weight;
-                newCurrEquippedArmor.push(element);
-            }
-            if (searchedLegs !== null && searchedLegs.label === element.name) {
-                newCurrentLoad += element.weight;
+                newCurrentLoad = roundNumber(newCurrentLoad, 1);
                 newCurrEquippedArmor.push(element);
             }
         }
@@ -438,11 +426,10 @@ export default function FilterableArmorTable() {
         setCurrEquippedArmor(newCurrEquippedArmor);
         setCurrEquip(newCurrentLoad);
         setMinCurrEquip(newCurrentLoad);
-    }, [searchedWeaponsLH1, searchedWeaponsLH2, searchedWeaponsLH3, searchedWeaponsRH1, searchedWeaponsRH2, searchedWeaponsRH3, searchedHelmet, searchedChest, searchedGauntlets, searchedLegs]);
+    }, [searchedWeapons, searchedArmor]);
 
     useEffect(() => {
-        const loadLeft = (maxEquip * (rollTypeChoice / 100)) - currEquip;
-
+        const loadLeft = roundNumber((maxEquip * (rollTypeChoice / 100)) - currEquip, 2);
         setLoadRemaining(loadLeft);
 
     }, [maxEquip, rollTypeChoice, currEquip]);
@@ -451,75 +438,39 @@ export default function FilterableArmorTable() {
         <div className='extra-spacing'>
             <br />
             <br />
-            <SingleItemSearchBar
-                handleSearchItemsChange={handleSearchWeaponItemsRH1Change}
-                searchedItems={searchedWeaponsRH1}
-                options={Weapons_Select}
-                placeholder="Select equipped RH1 weapon..."
-            />
-            <SingleItemSearchBar
-                handleSearchItemsChange={handleSearchWeaponItemsRH2Change}
-                searchedItems={searchedWeaponsRH2}
-                options={Weapons_Select}
-                placeholder="Select equipped RH2 weapon..."
-            />
-            <SingleItemSearchBar
-                handleSearchItemsChange={handleSearchWeaponItemsRH3Change}
-                searchedItems={searchedWeaponsRH3}
-                options={Weapons_Select}
-                placeholder="Select equipped RH3 weapon..."
-            />
-            <SingleItemSearchBar
-                handleSearchItemsChange={handleSearchWeaponItemsLH1Change}
-                searchedItems={searchedWeaponsLH1}
-                options={Weapons_Select}
-                placeholder="Select equipped LH1 weapon..."
-            />
-            <SingleItemSearchBar
-                handleSearchItemsChange={handleSearchWeaponItemsLH2Change}
-                searchedItems={searchedWeaponsLH2}
-                options={Weapons_Select}
-                placeholder="Select equipped LH2 weapon..."
-            />
-            <SingleItemSearchBar
-                handleSearchItemsChange={handleSearchWeaponItemsLH3Change}
-                searchedItems={searchedWeaponsLH3}
-                options={Weapons_Select}
-                placeholder="Select equipped LH3 weapon..."
-            />
+            {weaponHands.map((hand) => {
+                return (
+                    <SingleItemSearchBar
+                        key={hand}
+                        handleSearchItemsChange={(e) => handleSearchWeaponItemsChange(e, hand)}
+                        searchedItems={searchedWeapons[hand]}
+                        options={Weapons_Select}
+                        placeholder={"Select equipped " + hand + " weapon..."}
+                    />
+                )
+            })}
+
             <br />
             <br />
             <p className="search-bar">
                 Due to armor optimization being a <a target="_blank" rel="noopener noreferrer" href={"https://en.wikipedia.org/wiki/Knapsack_problem"}>Knapsack problem</a>, you
                 currently must select at least one piece of armor. <br />
                 There are over 300 million combinations to check when searching for a complete armor set, which takes hours to do.
-                We are currently looking into how to speed up search times for a full armor set search.
+                We are currently looking into how to speed up search times for a full armor set search.<br />
+                Ignore the field to optimize.
             </p>
 
-            <SingleItemSearchBar
-                handleSearchItemsChange={handleSearchHelmetItemChange}
-                searchedItems={searchedHelmet}
-                options={Helmets_Select.options}
-                placeholder="Select helmet... Ignore to optimize."
-            />
-            <SingleItemSearchBar
-                handleSearchItemsChange={handleSearchChestItemChange}
-                searchedItems={searchedChest}
-                options={Chest_Select.options}
-                placeholder="Select chest... Ignore to optimize."
-            />
-            <SingleItemSearchBar
-                handleSearchItemsChange={handleSearchGauntletsItemChange}
-                searchedItems={searchedGauntlets}
-                options={Gauntlets_Select.options}
-                placeholder="Select gauntlets... Ignore to optimize."
-            />
-            <SingleItemSearchBar
-                handleSearchItemsChange={handleSearchLegsItemChange}
-                searchedItems={searchedLegs}
-                options={Legs_Select.options}
-                placeholder="Select legs... Ignore to optimize."
-            />
+            {Object.keys(armorTypes).map((armorType) => {
+                return (
+                    <SingleItemSearchBar
+                        key={armorType}
+                        handleSearchItemsChange={(e) => handleSearchArmorItemsChange(e, armorType)}
+                        searchedItems={searchedArmor[armorType]}
+                        options={armorTypes[armorType].options}
+                        placeholder={"Select equipped " + armorType + "..."}
+                    />
+                )
+            })}
 
 
             <br />

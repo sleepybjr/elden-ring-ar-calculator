@@ -14,6 +14,7 @@ const resultComparator = (a, b) => b.totalResistanceValueWeighted - a.totalResis
 const resultComparatorMin = (a, b) => a.totalResistanceValueWeighted - b.totalResistanceValueWeighted;
 const resultComparatorMaxReal = (a, b) => b.robustness - a.robustness;
 const MAX_HEAP_LENGTH = 250;
+const IS_NOT_WEARING = 1;
 
 const armorResistances = [
     "physical_absorption",
@@ -139,7 +140,7 @@ const permuteArmor = function (equippedArmor, loadRemaining, resistanceMinimum, 
     // remove armor type that is already equipped
     let iterateArmor = [];
     for (const [key, value] of Object.entries(equippedArmor)) {
-        if (value === 1) {
+        if (value === IS_NOT_WEARING) {
             iterateArmor.push(splitDataEquipmentType[key])
         }
     }
