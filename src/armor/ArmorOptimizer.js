@@ -108,9 +108,17 @@ const permuteArmor = function (equippedArmor, loadRemaining, resistanceMinimum, 
     for (const row of sortedWeight) {
         let totalResistanceValueWeighted = 0;
         for (const resistance of armorResistances) {
-            const resistanceValueWeighted = row[resistance] / (Max_Head["max_" + resistance] + Max_Body["max_" + resistance] + Max_Arm["max_" + resistance] + Max_Leg["max_" + resistance]) * resistanceMultiplier[resistance + "_multiplier"]; // if using multiplier, need to normalize values
+            // if (resistance.includes('_absorption') {
+                // const resistanceValueWeighted = sistance] / (Max_Head["max_" + resistance] + Max_Body["max_" + resistance] + Max_Arm["max_" + resistance] + Max_Leg["max_" + resistance]) * resistanceMultiplier[resistance + "_multiplier"];
 
-            totalResistanceValueWeighted += resistanceValueWeighted;
+                // totalResistanceValueWeighted += resistanceValueWeighted;
+            // } else {
+                const resistanceValueWeighted = row[resistance] / (Max_Head["max_" + resistance] + Max_Body["max_" + resistance] + Max_Arm["max_" + resistance] + Max_Leg["max_" + resistance]) * resistanceMultiplier[resistance + "_multiplier"]; // if using multiplier, need to normalize values
+
+                totalResistanceValueWeighted += resistanceValueWeighted;
+            // }
+            // different formula need for abosroption
+
         }
 
         row.totalResistanceValueWeighted = totalResistanceValueWeighted;
@@ -121,7 +129,13 @@ const permuteArmor = function (equippedArmor, loadRemaining, resistanceMinimum, 
     const splitDataEquipmentType = groupBy(sortedWeight, "equipment_type");
     //Helm.length = 168, Chest.length = 198, Hands.length = 90, Legs.length = 103\
 
-    // console.log(splitDataEquipmentType);
+    // console.log(Object.keys(groupBy(splitDataEquipmentType.Arm, "weight")).length);
+    // console.log(Object.keys(groupBy(splitDataEquipmentType.Head, "weight")).length);
+    // console.log(Object.keys(groupBy(splitDataEquipmentType.Body, "weight")).length);
+    // console.log(Object.keys(groupBy(splitDataEquipmentType.Leg, "weight")).length);
+
+    // if i exclude items by weight, you get:
+    // arm: 29, head: 35, body: 64, leg: 28. 
 
     const result = new Heap(resultComparatorMin);
     result.init();

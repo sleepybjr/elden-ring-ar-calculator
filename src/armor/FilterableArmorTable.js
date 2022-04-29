@@ -199,16 +199,17 @@ export default function FilterableArmorTable() {
                 } else if (armor.equipment_type === "Leg") {
                     newRow.leg_name = armor.name;
                 }
+                
+                newRow['physical_absorption' + armor.equipment_type] = (1 - armor.physical_absorption);
+                newRow['strike_absorption' + armor.equipment_type] = (1 - armor.strike_absorption);
+                newRow['slash_absorption' + armor.equipment_type] = (1 - armor.slash_absorption);
+                newRow['thrust_absorption' + armor.equipment_type] = (1 - armor.thrust_absorption);
+                newRow['magic_absorption' + armor.equipment_type] = (1 - armor.magic_absorption);
+                newRow['fire_absorption' + armor.equipment_type] = (1 - armor.fire_absorption);
+                newRow['lightning_absorption' + armor.equipment_type] = (1 - armor.lightning_absorption);
+                newRow['holy_absorption' + armor.equipment_type] = (1 - armor.holy_absorption);
 
                 newRow.weight += armor.weight;
-                newRow.physical_absorption += armor.physical_absorption;
-                newRow.strike_absorption += armor.strike_absorption;
-                newRow.slash_absorption += armor.slash_absorption;
-                newRow.thrust_absorption += armor.thrust_absorption;
-                newRow.magic_absorption += armor.magic_absorption;
-                newRow.fire_absorption += armor.fire_absorption;
-                newRow.lightning_absorption += armor.lightning_absorption;
-                newRow.holy_absorption += armor.holy_absorption;
                 newRow.immunity += armor.immunity;
                 newRow.robustness += armor.robustness;
                 newRow.focus += armor.focus;
@@ -231,21 +232,34 @@ export default function FilterableArmorTable() {
                     row.leg_name = armor.name;
                 }
 
+                row['physical_absorption' + armor.equipment_type] = (1 - armor.physical_absorption);
+                row['strike_absorption' + armor.equipment_type] = (1 - armor.strike_absorption);
+                row['slash_absorption' + armor.equipment_type] = (1 - armor.slash_absorption);
+                row['thrust_absorption' + armor.equipment_type] = (1 - armor.thrust_absorption);
+                row['magic_absorption' + armor.equipment_type] = (1 - armor.magic_absorption);
+                row['fire_absorption' + armor.equipment_type] = (1 - armor.fire_absorption);
+                row['lightning_absorption' + armor.equipment_type] = (1 - armor.lightning_absorption);
+                row['holy_absorption' + armor.equipment_type] = (1 - armor.holy_absorption);
+
                 row.weight += armor.weight;
-                row.physical_absorption += armor.physical_absorption;
-                row.strike_absorption += armor.strike_absorption;
-                row.slash_absorption += armor.slash_absorption;
-                row.thrust_absorption += armor.thrust_absorption;
-                row.magic_absorption += armor.magic_absorption;
-                row.fire_absorption += armor.fire_absorption;
-                row.lightning_absorption += armor.lightning_absorption;
-                row.holy_absorption += armor.holy_absorption;
+
                 row.immunity += armor.immunity;
                 row.robustness += armor.robustness;
                 row.focus += armor.focus;
                 row.vitality += armor.vitality;
                 row.poise += armor.poise;
             }
+        }
+
+        for (const row of trueOutput) {
+            row.physical_absorption = 1 - row.physical_absorptionHead * row.physical_absorptionBody * row.physical_absorptionArm * row.physical_absorptionLeg;
+            row.strike_absorption = 1 - row.strike_absorptionHead * row.strike_absorptionBody * row.strike_absorptionArm * row.strike_absorptionLeg;
+            row.slash_absorption = 1 - row.slash_absorptionHead * row.slash_absorptionBody * row.slash_absorptionArm * row.slash_absorptionLeg;
+            row.thrust_absorption = 1 - row.thrust_absorptionHead * row.thrust_absorptionBody * row.thrust_absorptionArm * row.thrust_absorptionLeg;
+            row.magic_absorption = 1 - row.magic_absorptionHead * row.magic_absorptionBody * row.magic_absorptionArm * row.magic_absorptionLeg;
+            row.fire_absorption = 1 - row.fire_absorptionHead * row.fire_absorptionBody * row.fire_absorptionArm * row.fire_absorptionLeg;
+            row.lightning_absorption = 1 - row.lightning_absorptionHead * row.lightning_absorptionBody * row.lightning_absorptionArm * row.lightning_absorptionLeg;
+            row.holy_absorption = 1 - row.holy_absorptionHead * row.holy_absorptionBody * row.holy_absorptionArm * row.holy_absorptionLeg;
         }
 
         setSpinner(null);
