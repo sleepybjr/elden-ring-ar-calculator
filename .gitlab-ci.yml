@@ -1,5 +1,8 @@
 image: node
 
+variables:
+  PUBLIC_URL: "/elden-ring-ar-calculator"
+
 build:
   stage: build
   cache:
