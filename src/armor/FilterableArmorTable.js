@@ -85,13 +85,22 @@ export default function FilterableArmorTable() {
     const [spinner, setSpinner] = useState(null);
 
     function handleChangeCurrEquip(event) {
-        setCurrEquip(event.target.value);
+        const currEquipValue = event.target.value;
+        if (currEquipValue > 300) {
+            setCurrEquip(300);
+        } else {
+            setCurrEquip(currEquipValue);
+        }
     };
 
     function handleChangeMaxEquip(event) {
-        setMaxEquip(event.target.value);
+        const maxEquipValue = event.target.value;
+        if (maxEquipValue > 300) {
+            setMaxEquip(300);
+        } else {
+            setMaxEquip(maxEquipValue);
+        }
     };
-
 
     function handleClickCalculateArmor(event) {
         setSpinner(<FaSpinner className="icon_pulse" />);
@@ -372,36 +381,36 @@ export default function FilterableArmorTable() {
 
             <div className="large-spacing">
                 <div className="text-description-spacing">
-                    You can increase the current and max load manually.<br />
+                    You can increase the current and max weight manually.<br />
                     Selecting a new weapon or armor piece will reset changes.
                 </div>
                 <div className="tiny-spacing">
-                <label htmlFor="curr-equip">Current Equipment Load</label>
-                <input
-                    type="number"
-                    min={minCurrEquip}
-                    max={maxEquip}
-                    inputMode="numeric"
-                    id="curr-equip"
-                    name="curr-equip"
-                    value={currEquip}
-                    onChange={handleChangeCurrEquip}
-                    onKeyDown={(evt) => ["e", "E", "+", "-",].includes(evt.key) && evt.preventDefault()}
-                />
+                    <label htmlFor="curr-equip">Current Equipment Weight</label>
+                    <input
+                        type="number"
+                        min={minCurrEquip}
+                        max={maxEquip}
+                        inputMode="numeric"
+                        id="curr-equip"
+                        name="curr-equip"
+                        value={currEquip}
+                        onChange={handleChangeCurrEquip}
+                        onKeyDown={(evt) => ["e", "E", "+", "-",].includes(evt.key) && evt.preventDefault()}
+                    />
                 </div>
                 <div className="tiny-spacing">
-                <label htmlFor="max-equip">Max Equipment Load</label>
-                <input
-                    type="number"
-                    id="max-equip"
-                    name="max-equip"
-                    min={maxCurrEquip}
-                    value={maxEquip}
-                    onChange={handleChangeMaxEquip}
-                />
+                    <label htmlFor="max-equip">Max Equipment Weight</label>
+                    <input
+                        type="number"
+                        id="max-equip"
+                        name="max-equip"
+                        min={maxCurrEquip}
+                        value={maxEquip}
+                        onChange={handleChangeMaxEquip}
+                    />
                 </div>
                 <div className="tiny-spacing important-field">
-                    Load Remaining {loadRemaining}
+                    Weight Remaining {loadRemaining}
                 </div>
             </div>
 

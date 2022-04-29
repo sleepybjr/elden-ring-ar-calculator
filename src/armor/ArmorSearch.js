@@ -58,6 +58,8 @@ export default function ArmorSearch(props) {
                                 />
                             </div>
                         )
+                    } else {
+                        return null;
                     }
                 })}
             </div>

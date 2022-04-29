@@ -43,7 +43,7 @@ export default function DisplayMultipliers(props) {
         <div className="large-spacing">
             <div className="text-description-spacing">
                 Set multipliers to your importance of armor resistance.<br />
-                0 means to not use it the resistance at all, 100 is the maximum.
+                0 means to not use the resistance at all, 100 is the maximum.
             </div>
             <div>
                 {displayMultipliers(armorResistances.damage_negation)}
