@@ -1,8 +1,5 @@
 image: node
 
-variables:
-  PUBLIC_URL: "/elden-ring-ar-calculator"
-
 build:
   stage: build
   cache:
@@ -19,6 +16,8 @@ pages:
   stage: deploy
   dependencies: 
     - build
+  variables:
+    PUBLIC_URL: https://riggedjr.gitlab.io/elden-ring-ar-calculator
   script:
     - rm -rf public
     - cp build/index.html build/404.html

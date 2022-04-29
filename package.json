@@ -2,7 +2,7 @@
   "name": "elden-ring-ar-calculator",
   "version": "0.1.0",
   "private": true,
-  "homepage": ".",
+  "homepage": "/elden-ring-ar-calculator",
   "dependencies": {
     "-": "^0.0.1",
     "@reduxjs/toolkit": "^1.8.1",
