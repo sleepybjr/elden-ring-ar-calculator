@@ -986,12 +986,12 @@ def extractArmor(row_dict, row, key):
     if (int(row['Resist - Hemorrhage']) == int(row['Resist - Frost'])):
         row_dict["robustness"] = int(row['Resist - Hemorrhage'])
     else:
-        row_dict["bleed_resist"] = int(row['Resist - Hemorrhage'])
+        row_dict["robustness"] = int(row['Resist - Hemorrhage'])
         row_dict["frost_resist"] = int(row['Resist - Frost'])
     if (int(row['Resist - Madness']) == int(row['Resist - Sleep'])):
         row_dict["focus"] = int(row['Resist - Madness'])
     else:
-        row_dict["madness_resist"] = int(row['Resist - Madness'])
+        row_dict["focus"] = int(row['Resist - Madness'])
         row_dict["sleep_resist"] = int(row['Resist - Sleep'])
     row_dict["vitality"] = int(row['Resist - Blight'])
     row_dict["poise"] = int(float(row['Poise']) * 1000.0)
