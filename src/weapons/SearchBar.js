@@ -24,7 +24,8 @@ export default class SearchBar extends Component {
                     className='react-select-container'
                     classNamePrefix="react-select"
                     isMulti
-                    placeholder={"Search weapons... Select affinities using filter."}
+                    placeholder={this.props.placeholder}
+                    isOptionDisabled={(option) => this.props.maxLimit !== null ? this.props.searchedWeapons.length >= this.props.maxLimit : false}
                 />
             </div>
         );

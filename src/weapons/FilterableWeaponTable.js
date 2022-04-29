@@ -8,7 +8,7 @@ import SearchBar from './SearchBar';
 
 import Table_Data from '.././json/merged_json_data.json';
 import Attack_Element_Correct_Param from '.././json/attackelementcorrectparam.json';
-import Physical_Calculations from '.././json/physical_calculations.json';
+import Physical_Calculations from '../json/physical_calculations.json';
 
 const scalingValues = {
     // In MenuValueTableParam
@@ -43,9 +43,8 @@ function totalAR(val, maxUpgrade, weaponLevel, levels, twoHanded) {
         getHolyData(val, maxUpgrade, weaponLevel, levels, twoHanded);
 };
 
-function getPhyCalcData(physScale, level) {
+export function getPhyCalcData(physScale, level) {
     let physCalc = 0;
-
     for (const element of Physical_Calculations) {
         if (element.row_id === physScale) {
             if (level > element.stat_max_3) {
@@ -607,6 +606,7 @@ export default function FilterableWeaponTable() {
                 <SearchBar
                     handleSearchItemsChange={handleSearchItemsChange}
                     searchedWeapons={searchedWeapons}
+                    placeholder="Search weapons... Select affinities using filter."
                 />
 
             </div>

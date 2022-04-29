@@ -30,6 +30,7 @@ const tableHeaders = {
     final_holy: "Holy",
     final_total_ar: "Total AR",
     final_sorcery_scaling: "Sorcery",
+    critical: "Critical",
     type1: "Passive 1 (P1)",
     final_passive1: "P1 Damage",
     type2: "Passive 2 (P2)",
@@ -214,7 +215,7 @@ export default function WeaponTable(props) {
                 } else if (row.accessor === "affinity") {
                     row.filter = affinityTypeFilter;
                     row.width = 110;
-                } else if (new Set(['weight', 'final_physical', 'final_magic', 'final_fire', 'final_lightning', 'final_holy', 'final_total_ar', 'final_sorcery_scaling']).has(row.accessor)) {
+                } else if (new Set(['weight', 'critical', 'final_physical', 'final_magic', 'final_fire', 'final_lightning', 'final_holy', 'final_total_ar', 'final_sorcery_scaling']).has(row.accessor)) {
                     row.width = 90;
                 } else if (row.accessor === "type1" || row.accessor === "type2") {
                     row.Cell = ({ value }) => {
