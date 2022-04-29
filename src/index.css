@@ -259,6 +259,10 @@ tbody tr:hover {
   margin-bottom: 12px;
 }
 
+.tiny-spacing {
+  margin-top: 2px;
+}
+
 .small-spacing {
   margin-top: 6px;
 }
@@ -274,6 +278,10 @@ tbody tr:hover {
 .middle-spacing {
   margin-left: 10px;
   margin-right: 10px;
+}
+
+.text-description-spacing {
+  margin-bottom: 4px;
 }
 
 .top-label {
@@ -344,7 +352,7 @@ tbody tr:hover {
   margin: 0 auto;
   margin-top: 8px;
   padding-top: 5px;
-  max-width: 450px;
+  max-width: 480px;
   width: 90%;
 }
 
@@ -574,4 +582,18 @@ tbody tr:hover {
 .align-left {
   margin-left: 10px;
   text-align: left;
+}
+
+.important-field {
+  margin: auto;
+  margin-top: 12px;
+  height: 30px;
+  line-height: 30px;
+  max-width: 200px;
+  width: 80%;
+  border: 1px solid #000000;
+}
+
+.dark .important-field {
+  border: 1px solid #cccccc;
 }

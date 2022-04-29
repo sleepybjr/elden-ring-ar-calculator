@@ -15,26 +15,8 @@ import { FaSpinner } from 'react-icons/fa';
 import RollTypes from './RollTypes';
 import WeaponSearch from './WeaponSearch';
 import ArmorSearch from './ArmorSearch';
-
-const armorResistances = {
-    damage_negation: {
-        physical_absorption: "Physical",
-        strike_absorption: "Strike",
-        slash_absorption: "Slack",
-        thrust_absorption: "Thrust",
-        magic_absorption: "Magic",
-        fire_absorption: "Fire",
-        lightning_absorption: "Lightning",
-        holy_absorption: "Holy",
-    },
-    resistance: {
-        immunity: "Immunity",
-        robustness: "Robustness",
-        focus: "Focus",
-        vitality: "Vitality",
-        poise: "Poise",
-    }
-}
+import DisplayMultipliers from './DisplayMultipliers';
+import DisplayMinimums from './DisplayMinimums';
 
 const startArmorResistances = {
     physical_absorption: 0,
@@ -75,7 +57,7 @@ function roundNumber(number, decimals) {
 
 const NORMAL_ROLL_DEFAULT = 69.9;
 
-const IS_WEARING =  0;
+const IS_WEARING = 0;
 const IS_NOT_WEARING = 1;
 
 export default function FilterableArmorTable() {
@@ -97,8 +79,8 @@ export default function FilterableArmorTable() {
     const [preppedData, setPreppedData] = useState([]);
     const [errors, setErrors] = useState("");
 
-    const [resistances, setResistances] = useState(startArmorResistances);
-    const [resistancesMultiplier, setResistancesMultiplier] = useState(startArmorResistancesMultiplier);
+    const [resistances, setResistances] = useState({ ...startArmorResistances });
+    const [resistancesMultiplier, setResistancesMultiplier] = useState({ ...startArmorResistancesMultiplier });
 
     const [spinner, setSpinner] = useState(null);
 
@@ -304,24 +286,8 @@ export default function FilterableArmorTable() {
         setResistances(newResistances);
     };
 
-    const displayMins = (data) => {
-        return Object.keys(data).map((key) => {
-            return (
-                <div key={key}>
-                    <label htmlFor={key}>{data[key]} Minimum</label>
-                    <input
-                        type="number"
-                        inputMode="numeric"
-                        min={0}
-                        id={key}
-                        name={key}
-                        value={resistances[key]}
-                        onChange={handleResistanceChange}
-                        onKeyDown={(evt) => ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()}
-                    />
-                </div>
-            )
-        });
+    function resetResistanceClick() {
+        setResistances({ ...startArmorResistances });
     }
 
     function handleResistanceMultiplierChange(event) {
@@ -340,24 +306,8 @@ export default function FilterableArmorTable() {
         setResistancesMultiplier(newResistances);
     };
 
-    const displayMultipliers = (data) => {
-        return Object.keys(data).map((key) => {
-            return (
-                <div key={key + "_multiplier"}>
-                    <label htmlFor={key + "_multiplier"}>{data[key]} Multiplier</label>
-                    <input
-                        type="number"
-                        inputMode="numeric"
-                        min={0}
-                        id={key + "_multiplier"}
-                        name={key + "_multiplier"}
-                        value={resistancesMultiplier[key + "_multiplier"]}
-                        onChange={handleResistanceMultiplierChange}
-                        onKeyDown={(evt) => ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()}
-                    />
-                </div>
-            )
-        });
+    function resetResistanceMultiplierClick() {
+        setResistancesMultiplier({ ...startArmorResistancesMultiplier });
     }
 
     useEffect(() => {
@@ -419,78 +369,64 @@ export default function FilterableArmorTable() {
             <ArmorSearch handleSearchArmorItemsChange={handleSearchArmorItemsChange} searchedArmor={searchedArmor} />
             <RollTypes handleChangeRollTypes={handleChangeRollTypes} rollTypeChoice={rollTypeChoice} />
 
-            <br />
-            <p>
-                Currently working on talismans.<br />
-                You can increase the current and max load manually here to account for talismans.<br />
-            </p>
-            <label htmlFor="curr-equip">Current Equipment Load</label>
-            <input
-                type="number"
-                min={minCurrEquip}
-                max={maxEquip}
-                inputMode="numeric"
-                id="curr-equip"
-                name="curr-equip"
-                value={currEquip}
-                onChange={handleChangeCurrEquip}
-                onKeyDown={(evt) => ["e", "E", "+", "-",].includes(evt.key) && evt.preventDefault()}
+
+            <div className="large-spacing">
+                <div className="text-description-spacing">
+                    You can increase the current and max load manually.<br />
+                    Selecting a new weapon or armor piece will reset changes.
+                </div>
+                <div className="tiny-spacing">
+                <label htmlFor="curr-equip">Current Equipment Load</label>
+                <input
+                    type="number"
+                    min={minCurrEquip}
+                    max={maxEquip}
+                    inputMode="numeric"
+                    id="curr-equip"
+                    name="curr-equip"
+                    value={currEquip}
+                    onChange={handleChangeCurrEquip}
+                    onKeyDown={(evt) => ["e", "E", "+", "-",].includes(evt.key) && evt.preventDefault()}
+                />
+                </div>
+                <div className="tiny-spacing">
+                <label htmlFor="max-equip">Max Equipment Load</label>
+                <input
+                    type="number"
+                    id="max-equip"
+                    name="max-equip"
+                    min={maxCurrEquip}
+                    value={maxEquip}
+                    onChange={handleChangeMaxEquip}
+                />
+                </div>
+                <div className="tiny-spacing important-field">
+                    Load Remaining {loadRemaining}
+                </div>
+            </div>
+
+            <DisplayMinimums
+                handleResistanceChange={handleResistanceChange}
+                resistances={resistances}
+                resetResistanceClick={resetResistanceClick}
             />
-            <br />
-            <label htmlFor="max-equip">Max Equipment Load</label>
-            <input
-                type="number"
-                id="max-equip"
-                name="max-equip"
-                min={maxCurrEquip}
-                value={maxEquip}
-                onChange={handleChangeMaxEquip}
+
+            <DisplayMultipliers
+                handleResistanceMultiplierChange={handleResistanceMultiplierChange}
+                resistancesMultiplier={resistancesMultiplier}
+                resetResistanceMultiplierClick={resetResistanceMultiplierClick}
             />
-            <br />
-            <label htmlFor="load-remaining">Load Remaining</label>
-            <input
-                type="number"
-                inputMode="numeric"
-                id="load-remaining"
-                name="load-remaining"
-                disabled
-                value={loadRemaining}
-            />
-            <br />
-            <br />
-            <br />
-            <p>
-                Set these to the minimum amount of armor resistance.<br />
-                Default: 0<br />
-            </p>
-            {displayMins(armorResistances.damage_negation)}
-            <br />
-            {displayMins(armorResistances.resistance)}
-            add reset to default button
-            <br />
-            <br />
-            <p>
-                Set these to the importance of armor resistance.<br />
-                For example, 100 means important over everything else.<br />
-                Using 0 means to not use the resistance at all when optimizing.<br />
-                Default: 1<br />
-                Range: 0-100<br />
-            </p>
-            {displayMultipliers(armorResistances.damage_negation)}
-            <br />
-            {displayMultipliers(armorResistances.resistance)}
-            add reset to default button
-            <br />
-            <br />
-            <div className="error">{errors}</div>
-            <button className="all-button-style all-button-style-bg" onClick={handleClickCalculateArmor}>Calculate Best Armor</button><span>{spinner}</span>
-            <p>
-                Displays up to 1,000 sets of best matching armor.
-            </p>
-            <br />
-            <ArmorTable
-                preppedData={preppedData}
-            />
+
+            <div className="large-spacing spacing">
+                <div className="text-description-spacing">
+                    Displays up to 1,000 sets of best matching armor.
+                </div>
+                <div className="error">{errors}</div>
+                <button className="all-button-style all-button-style-bg" onClick={handleClickCalculateArmor}>Calculate Best Armor</button><span>{spinner}</span>
+
+            </div>
+
+            <ArmorTable preppedData={preppedData} />
         </div>
     );
 }
