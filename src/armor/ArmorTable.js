@@ -13,7 +13,7 @@ const tableHeaders = {
     chest_name: "Chest Name",
     gauntlet_name: "Gauntlets Name",
     leg_name: "Leg Name",
-    weight: "Weight",
+    poise: "Poise",
     physical_absorption: "Physical",
     strike_absorption: "Strike",
     slash_absorption: "Slash",
@@ -23,10 +23,10 @@ const tableHeaders = {
     lightning_absorption: "Lightning",
     holy_absorption: "Holy",
     immunity: "Immunity",
-    robustness: "Robustness",
+    robustness: "Robust",
     focus: "Focus",
     vitality: "Vitality",
-    poise: "Poise",
+    weight: "Weight",
 };
 
 function sortAlgorithm(rowA, rowB, columnId) {
@@ -61,7 +61,7 @@ export default function ArmorTable(props) {
 
     const defaultColumn = React.useMemo(
         () => ({
-            width: 150,
+            width: 90,
         }),
         []
     );
@@ -93,30 +93,48 @@ export default function ArmorTable(props) {
             newColumns.forEach((row) => {
                 // if (row.accessor === "name") {
                 if (new Set(['helm_name', 'chest_name', 'gauntlet_name', 'leg_name']).has(row.accessor)) {
-                    row.Cell = ({ row, value }) => {
-                        return (
-                            <a target="_blank" rel="noopener noreferrer" href={"https://eldenring.wiki.fextralife.com/" + row.original.name} >{value}</a>
-                        );
-                    };
-                    row.width = 300;
-                } else if (row.accessor === "equipment_type") {
-                    row.width = 180;
+                    if (row.accessor === "helm_name") {
+                        row.Cell = ({ row, value }) => {
+                            return (
+                                <a target="_blank" rel="noopener noreferrer" href={"https://eldenring.wiki.fextralife.com/" + row.original.helm_name} >{value}</a>
+                            );
+                        };
+                    } else if (row.accessor === "chest_name") {
+                        row.Cell = ({ row, value }) => {
+                            return (
+                                <a target="_blank" rel="noopener noreferrer" href={"https://eldenring.wiki.fextralife.com/" + row.original.chest_name} >{value}</a>
+                            );
+                        };
+                    } else if (row.accessor === "gauntlet_name") {
+                        row.Cell = ({ row, value }) => {
+                            return (
+                                <a target="_blank" rel="noopener noreferrer" href={"https://eldenring.wiki.fextralife.com/" + row.original.gauntlet_name} >{value}</a>
+                            );
+                        };
+                    } else if (row.accessor === "leg_name") {
+                        row.Cell = ({ row, value }) => {
+                            return (
+                                <a target="_blank" rel="noopener noreferrer" href={"https://eldenring.wiki.fextralife.com/" + row.original.leg_name} >{value}</a>
+                            );
+                        };
+                    }
+                    row.width = 262 / 2;
                 } else if (row.accessor === "weight") {
                     row.Cell = ({ value }) => {
                         return (
                             <>{Math.round(value * 10) / 10}</>
                         );
                     };
-                    row.width = 115;
+                    // row.width = 100;
                 } else if (new Set(['physical_absorption', 'strike_absorption', 'slash_absorption', 'thrust_absorption', 'magic_absorption', 'fire_absorption', 'lightning_absorption', 'holy_absorption']).has(row.accessor)) {
                     row.Cell = ({ value }) => {
                         return (
                             <>{value ? Math.round(value * 10000) / 100 : '-'}</>
                         );
                     };
-                    row.width = 115;
+                    // row.width = 100;
                 } else if (new Set(['immunity', 'robustness', 'focus', 'vitality', 'poise']).has(row.accessor)) {
-                    row.width = 115;
+                    // row.width = 100;
                 }
             });
 
@@ -206,7 +224,7 @@ export default function ArmorTable(props) {
                     <FixedSizeList
                         height={600}
                         itemCount={rows.length}
-                        itemSize={40}
+                        itemSize={40 * 2}
                         width={totalColumnsWidth + scrollBarSize}
                     >
                         {RenderRow}

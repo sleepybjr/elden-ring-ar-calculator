@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
 
-export default class SearchBar extends Component {
+export default class SingleItemSearchBar extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -17,7 +17,7 @@ export default class SearchBar extends Component {
         return (
             <div className='search-bar'>
                 <Select
-                    value={this.props.searchedArmor}
+                    value={this.props.searchedItems}
                     onChange={this.handleChange}
                     options={this.props.options}
                     className='react-select-container'

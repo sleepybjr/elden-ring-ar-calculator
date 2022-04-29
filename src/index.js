@@ -18,7 +18,7 @@ ReactDOM.render(
           <Route path="/" element={<App />}>
             <Route index element={<Home />} />
             <Route path="elden-ring-ar-calculator" element={<Weapons />} />
-            <Route path="armor" element={<Armor />} />
+            <Route path="armor-optimizer" element={<Armor />} />
             <Route
               path="*"
               element={

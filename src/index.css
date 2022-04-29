@@ -111,11 +111,9 @@ body.dark {
   background-color: #68696d;
 }
 
-.dark .react-select__multi-value__label {
-  color: #EFEFEF;
-}
-
-.dark .react-select__single-value {
+.dark .react-select__multi-value__label,
+.dark .react-select__input-container,
+.dark .react-select__single-value  {
   color: #EFEFEF;
 }
 
@@ -535,4 +533,18 @@ tbody tr:hover {
         -ms-user-select: none; /* Internet Explorer/Edge */
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
+}
+
+.icon_pulse {
+  animation: circle 1.2s steps(8) infinite;
+}
+
+@keyframes circle {
+  from {
+      transform: rotate(90deg);
+  }
+
+  to {
+      transform: rotate(450deg);
+  }
 }

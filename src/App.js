@@ -28,7 +28,7 @@ function App() {
         <div className="App">
             <Link to="/">Home</Link> |{" "}
             <Link to="/elden-ring-ar-calculator">Weapons</Link> |{" "}
-            <Link to="/armor">Armor</Link>
+            <Link to="/armor-optimizer">Armor Optimizer</Link>
             <InputStats />
             <Outlet />
             <div className='extra-spacing'>

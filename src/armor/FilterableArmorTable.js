@@ -2,38 +2,43 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import ArmorTable from './ArmorTable';
-import WeaponSearchBar from '../weapons/SearchBar';
-import ArmorSearchBar from './ArmorSearchBar';
+import SingleItemSearchBar from '../component/SingleItemSeachBar';
 import { getPhyCalcData } from '../weapons/FilterableWeaponTable'
+
+
+import Weapons_Select from '.././json/weapon_groups';
 import Weapon_Reqs from '../json/weapon_reqs.json';
 
 import Helmets_Select from '../json/head_group.json';
 import Chest_Select from '../json/body_group.json';
 import Gauntlets_Select from '../json/arm_group.json';
 import Legs_Select from '../json/leg_group.json';
-
 import Armor_Data from '../json/armor_data.json';
 
 import armorOptimizer from './ArmorOptimizer';
 
+import { FaSpinner } from 'react-icons/fa';
+
+import RollTypes from './RollTypes';
+
 const armorResistances = {
-    damage_negation: [
-        "physical_absorption",
-        "strike_absorption",
-        "slash_absorption",
-        "thrust_absorption",
-        "magic_absorption",
-        "fire_absorption",
-        "lightning_absorption",
-        "holy_absorption",
-    ],
-    resistance: [
-        "immunity",
-        "robustness",
-        "focus",
-        "vitality",
-        "poise",
-    ]
+    damage_negation: {
+        physical_absorption: "Physical",
+        strike_absorption: "Strike",
+        slash_absorption: "Slack",
+        thrust_absorption: "Thrust",
+        magic_absorption: "Magic",
+        fire_absorption: "Fire",
+        lightning_absorption: "Lightning",
+        holy_absorption: "Holy",
+    },
+    resistance: {
+        immunity: "Immunity",
+        robustness: "Robustness",
+        focus: "Focus",
+        vitality: "Vitality",
+        poise: "Poise",
+    }
 }
 
 const startArmorResistances = {
@@ -75,28 +80,23 @@ const armorTypes = [
     "Legs",
 ];
 
-const rollTypes = [
-    "Light Rolls",
-    "Normal Rolls",
-    "Fat Rolls",
-];
-
 const rollTypeMapping = {// eslint-disable-line no-unused-vars
     "Light Rolls": 29.9,
     "Normal Rolls": 69.9,
     "Fat Rolls": 99.9,
 };
 
-const MAX_LIMIT = 6;
-
 export default function FilterableArmorTable() {
     const levels = useSelector((state) => state.allLevels.levels);
 
-    const [armorTypeFilter, setArmorTypeFilter] = useState("");
+    const [rollTypeChoice, setRollTypeChoice] = useState(69.9);
 
-    const [rollTypeChoice, setRollTypeChoice] = useState("");// eslint-disable-line no-unused-vars
-
-    const [searchedArmorWeapons, setSearchedArmorWeapons] = useState([]);
+    const [searchedWeaponsLH1, setSearchedWeaponsLH1] = useState(null);
+    const [searchedWeaponsLH2, setSearchedWeaponsLH2] = useState(null);
+    const [searchedWeaponsLH3, setSearchedWeaponsLH3] = useState(null);
+    const [searchedWeaponsRH1, setSearchedWeaponsRH1] = useState(null);
+    const [searchedWeaponsRH2, setSearchedWeaponsRH2] = useState(null);
+    const [searchedWeaponsRH3, setSearchedWeaponsRH3] = useState(null);
     const [searchedHelmet, setSearchedHelmet] = useState(null);
     const [searchedChest, setSearchedChest] = useState(null);
     const [searchedGauntlets, setSearchedGauntlets] = useState(null);
@@ -115,11 +115,7 @@ export default function FilterableArmorTable() {
     const [resistances, setResistances] = useState(startArmorResistances);
     const [resistancesMultiplier, setResistancesMultiplier] = useState(startArmorResistancesMultiplier);
 
-
-    function handleChangeArmorFilter(event) {
-        // console.log(event.target.value);
-        setArmorTypeFilter(event.target.value);
-    };
+    const [spinner, setSpinner] = useState(null);
 
     function handleChangeCurrEquip(event) {
         setCurrEquip(event.target.value);
@@ -131,10 +127,7 @@ export default function FilterableArmorTable() {
 
 
     function handleClickCalculateArmor(event) {
-        if (rollTypeChoice === "") {
-            setErrors("Please select a roll type.");
-            return;
-        }
+        setSpinner(<FaSpinner className="icon_pulse" />);
         setErrors("");
 
         const equippedArmor = {
@@ -147,18 +140,24 @@ export default function FilterableArmorTable() {
         // temporary until  we get 4 select faster, don't allow 4 armor since 300 mil operations
         if (equippedArmor.Head === 1 && equippedArmor.Body === 1 && equippedArmor.Arm === 1 && equippedArmor.Leg === 1) {
             setErrors("Please select at least one equipped armor.");
+            setSpinner(null);
             return;
         }
-        setErrors("");
 
         if (loadRemaining <= 0) {
             setErrors("The load remaining cannot be less than 0.");
+            setSpinner(null);
             return;
         }
-        setErrors("");
-        
+
         const adjustedResistances = {}
         for (const key of Object.keys(resistances)) {
+            if (resistances[key] === "") {
+                setErrors("All minimums must have a value. Default: 0.");
+                setSpinner(null);
+                return;
+            }
+
             if (new Set(['physical_absorption', 'strike_absorption', 'slash_absorption', 'thrust_absorption', 'magic_absorption', 'fire_absorption', 'lightning_absorption', 'holy_absorption']).has(key)) {
                 adjustedResistances[key] = resistances[key] / 1000;
             } else {
@@ -166,7 +165,16 @@ export default function FilterableArmorTable() {
             }
         }
 
+        for (const key of Object.keys(resistancesMultiplier)) {
+            if (resistancesMultiplier[key] === "") {
+                setErrors("All multipliers must have a value. Default: 1.");
+                setSpinner(null);
+                return;
+            }
+        }
+
         // console.log(resistancesMultiplier);
+
         const output = armorOptimizer(
             equippedArmor,
             loadRemaining,
@@ -180,9 +188,9 @@ export default function FilterableArmorTable() {
         if (output === -1 || output.length === 0) {
             setErrors("Incorrect input, unable to find an answer.");
             setPreppedData([]);
+            setSpinner(null);
             return;
         }
-        setErrors("");
 
         // get pre status armor and add it here too.
 
@@ -212,9 +220,9 @@ export default function FilterableArmorTable() {
             for (const armor of row.armorSet) {
                 if (armor.equipment_type === "Head") {
                     newRow.helm_name = armor.name;
-                } else if (armor.equipment_type === "Arm") {
-                    newRow.chest_name = armor.name;
                 } else if (armor.equipment_type === "Body") {
+                    newRow.chest_name = armor.name;
+                } else if (armor.equipment_type === "Arm") {
                     newRow.gauntlet_name = armor.name;
                 } else if (armor.equipment_type === "Leg") {
                     newRow.leg_name = armor.name;
@@ -268,19 +276,31 @@ export default function FilterableArmorTable() {
             }
         }
 
+        setSpinner(null);
         setPreppedData(trueOutput);
     };
 
-    //
-    function handleChangeRollTypes(event) {
-        // console.log(event.target);
-        setRollTypeChoice(event.target.value);
+    function handleChangeRollTypes(value) {
+        setRollTypeChoice(value);
     };
 
-    function handleSearchItemsChange(searchedWeapons) {
-        if (searchedWeapons.length <= MAX_LIMIT) {
-            setSearchedArmorWeapons(searchedWeapons);
-        }
+    function handleSearchWeaponItemsLH1Change(searchedWeapon) {
+        setSearchedWeaponsLH1(searchedWeapon);
+    };
+    function handleSearchWeaponItemsLH2Change(searchedWeapon) {
+        setSearchedWeaponsLH2(searchedWeapon);
+    };
+    function handleSearchWeaponItemsLH3Change(searchedWeapon) {
+        setSearchedWeaponsLH3(searchedWeapon);
+    };
+    function handleSearchWeaponItemsRH1Change(searchedWeapon) {
+        setSearchedWeaponsRH1(searchedWeapon);
+    };
+    function handleSearchWeaponItemsRH2Change(searchedWeapon) {
+        setSearchedWeaponsRH2(searchedWeapon);
+    };
+    function handleSearchWeaponItemsRH3Change(searchedWeapon) {
+        setSearchedWeaponsRH3(searchedWeapon);
     };
 
     function handleSearchHelmetItemChange(searchedArmor) {
@@ -302,23 +322,28 @@ export default function FilterableArmorTable() {
 
         let newResistances = { ...resistances };
 
-        newResistances[newId] = newValue ? parseInt(newValue) : 0;
+        newResistances[newId] = newValue ? parseFloat(newValue) : "";
+
+        // need to limit length as well
+        if (newResistances[newId] > 300) {
+            newResistances[newId] = 300;
+        }
 
         setResistances(newResistances);
     };
 
     const displayMins = (data) => {
-        return data.map(value => {
+        return Object.keys(data).map((key) => {
             return (
-                <div key={value}>
-                    <label htmlFor={value}>Minimum {value}</label>
+                <div key={key}>
+                    <label htmlFor={key}>{data[key]} Minimum</label>
                     <input
                         type="number"
                         inputMode="numeric"
                         min={0}
-                        id={value}
-                        name={value}
-                        value={resistances[value]}
+                        id={key}
+                        name={key}
+                        value={resistances[key]}
                         onChange={handleResistanceChange}
                         onKeyDown={(evt) => ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()}
                     />
@@ -333,23 +358,28 @@ export default function FilterableArmorTable() {
 
         let newResistances = { ...resistancesMultiplier };
 
-        newResistances[newId] = newValue ? parseInt(newValue) : 1;
+        newResistances[newId] = newValue ? parseFloat(newValue) : "";
+
+        // need to limit length as well
+        if (newResistances[newId] > 100) {
+            newResistances[newId] = 100;
+        }
 
         setResistancesMultiplier(newResistances);
     };
 
     const displayMultipliers = (data) => {
-        return data.map(value => {
+        return Object.keys(data).map((key) => {
             return (
-                <div key={value + "_multiplier"}>
-                    <label htmlFor={value + "_multiplier"}>{value} Multiplier</label>
+                <div key={key + "_multiplier"}>
+                    <label htmlFor={key + "_multiplier"}>{data[key]} Multiplier</label>
                     <input
                         type="number"
                         inputMode="numeric"
-                        min={1}
-                        id={value + "_multiplier"}
-                        name={value + "_multiplier"}
-                        value={resistancesMultiplier[value + "_multiplier"]}
+                        min={0}
+                        id={key + "_multiplier"}
+                        name={key + "_multiplier"}
+                        value={resistancesMultiplier[key + "_multiplier"]}
                         onChange={handleResistanceMultiplierChange}
                         onKeyDown={(evt) => ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()}
                     />
@@ -365,13 +395,22 @@ export default function FilterableArmorTable() {
     }, [levels.endurance]);
 
     useEffect(() => {
-        const searchedArmorWeaponsSet = new Set(searchedArmorWeapons.map(row => row.label));
+        const searchedWeaponsMap = {};
+        for (const weapon of [searchedWeaponsLH1, searchedWeaponsLH2, searchedWeaponsLH3, searchedWeaponsRH1, searchedWeaponsRH2, searchedWeaponsRH3]) {
+            if (weapon !== null) {
+                if (searchedWeaponsMap.hasOwnProperty(weapon.label))
+                    searchedWeaponsMap[weapon.label]++;
+                else
+                    searchedWeaponsMap[weapon.label] = 1;
+            }
+        }
+
         let newCurrentLoad = 0;
 
         for (let element of Weapon_Reqs) {
-            if (searchedArmorWeaponsSet.has(element.weaponname)) {
-                newCurrentLoad += element.weight;
-                searchedArmorWeaponsSet.delete(element.weaponname);
+            if (searchedWeaponsMap.hasOwnProperty(element.weaponname)) {
+                newCurrentLoad += (element.weight * searchedWeaponsMap[element.weaponname]);
+                delete searchedWeaponsMap[element.weaponname];
             }
         }
 
@@ -399,7 +438,7 @@ export default function FilterableArmorTable() {
         setCurrEquippedArmor(newCurrEquippedArmor);
         setCurrEquip(newCurrentLoad);
         setMinCurrEquip(newCurrentLoad);
-    }, [searchedArmorWeapons, searchedHelmet, searchedChest, searchedGauntlets, searchedLegs]);
+    }, [searchedWeaponsLH1, searchedWeaponsLH2, searchedWeaponsLH3, searchedWeaponsRH1, searchedWeaponsRH2, searchedWeaponsRH3, searchedHelmet, searchedChest, searchedGauntlets, searchedLegs]);
 
     useEffect(() => {
         const loadLeft = (maxEquip * (rollTypeChoice / 100)) - currEquip;
@@ -410,54 +449,90 @@ export default function FilterableArmorTable() {
 
     return (
         <div className='extra-spacing'>
-            <select name="armor-types" id="armor-types" defaultValue={0} onChange={handleChangeArmorFilter}>
-                <option value='0' disabled>Select armor type...</option>
-                {armorTypes.map((value, index) => <option key={index + 1} value={value}>{value}</option>)}
-            </select>
             <br />
-            OR
             <br />
-            need to add reselect weapon for this, or just give 6 dropdowns
-            <br />
-            <WeaponSearchBar
-                handleSearchItemsChange={handleSearchItemsChange}
-                searchedWeapons={searchedArmorWeapons}
-                placeholder="Select equipped weapons..."
-                maxLimit={MAX_LIMIT}
+            <SingleItemSearchBar
+                handleSearchItemsChange={handleSearchWeaponItemsRH1Change}
+                searchedItems={searchedWeaponsRH1}
+                options={Weapons_Select}
+                placeholder="Select equipped RH1 weapon..."
+            />
+            <SingleItemSearchBar
+                handleSearchItemsChange={handleSearchWeaponItemsRH2Change}
+                searchedItems={searchedWeaponsRH2}
+                options={Weapons_Select}
+                placeholder="Select equipped RH2 weapon..."
+            />
+            <SingleItemSearchBar
+                handleSearchItemsChange={handleSearchWeaponItemsRH3Change}
+                searchedItems={searchedWeaponsRH3}
+                options={Weapons_Select}
+                placeholder="Select equipped RH3 weapon..."
+            />
+            <SingleItemSearchBar
+                handleSearchItemsChange={handleSearchWeaponItemsLH1Change}
+                searchedItems={searchedWeaponsLH1}
+                options={Weapons_Select}
+                placeholder="Select equipped LH1 weapon..."
+            />
+            <SingleItemSearchBar
+                handleSearchItemsChange={handleSearchWeaponItemsLH2Change}
+                searchedItems={searchedWeaponsLH2}
+                options={Weapons_Select}
+                placeholder="Select equipped LH2 weapon..."
+            />
+            <SingleItemSearchBar
+                handleSearchItemsChange={handleSearchWeaponItemsLH3Change}
+                searchedItems={searchedWeaponsLH3}
+                options={Weapons_Select}
+                placeholder="Select equipped LH3 weapon..."
             />
             <br />
+            <br />
+            <p className="search-bar">
+                Due to armor optimization being a <a target="_blank" rel="noopener noreferrer" href={"https://en.wikipedia.org/wiki/Knapsack_problem"}>Knapsack problem</a>, you
+                currently must select at least one piece of armor. <br />
+                There are over 300 million combinations to check when searching for a complete armor set, which takes hours to do.
+                We are currently looking into how to speed up search times for a full armor set search.
+            </p>
 
-            <select name="roll-types" id="roll-types" defaultValue={0} onChange={handleChangeRollTypes}>
-                <option key={0} value='0' disabled>Select a roll type...</option>
-                {Object.keys(rollTypeMapping).map((rollKey, index) => <option key={index + 1} value={rollTypeMapping[rollKey]}>{rollKey}</option>)}
-            </select>
-            <ArmorSearchBar
+            <SingleItemSearchBar
                 handleSearchItemsChange={handleSearchHelmetItemChange}
-                searchedArmor={searchedHelmet}
+                searchedItems={searchedHelmet}
                 options={Helmets_Select.options}
                 placeholder="Select helmet... Ignore to optimize."
             />
-            <ArmorSearchBar
+            <SingleItemSearchBar
                 handleSearchItemsChange={handleSearchChestItemChange}
-                searchedArmor={searchedChest}
+                searchedItems={searchedChest}
                 options={Chest_Select.options}
                 placeholder="Select chest... Ignore to optimize."
             />
-            <ArmorSearchBar
+            <SingleItemSearchBar
                 handleSearchItemsChange={handleSearchGauntletsItemChange}
-                searchedArmor={searchedGauntlets}
+                searchedItems={searchedGauntlets}
                 options={Gauntlets_Select.options}
                 placeholder="Select gauntlets... Ignore to optimize."
             />
-            <ArmorSearchBar
+            <SingleItemSearchBar
                 handleSearchItemsChange={handleSearchLegsItemChange}
-                searchedArmor={searchedLegs}
+                searchedItems={searchedLegs}
                 options={Legs_Select.options}
                 placeholder="Select legs... Ignore to optimize."
             />
 
+
             <br />
             <br />
+            <RollTypes handleChangeRollTypes={handleChangeRollTypes} rollTypeChoice={rollTypeChoice} />
+
+            <br />
+            <br />
+            <br />
+            <p>
+                Currently working on talismans.<br />
+                You can increase the current and max load manually here to account for talismans.<br />
+            </p>
             <label htmlFor="curr-equip">Current Equipment Load</label>
             <input
                 type="number"
@@ -470,6 +545,7 @@ export default function FilterableArmorTable() {
                 onChange={handleChangeCurrEquip}
                 onKeyDown={(evt) => ["e", "E", "+", "-",].includes(evt.key) && evt.preventDefault()}
             />
+            <br />
             <label htmlFor="max-equip">Max Equipment Load</label>
             <input
                 type="number"
@@ -492,22 +568,33 @@ export default function FilterableArmorTable() {
             <br />
             <br />
             <br />
+            <p>
+                Set these to the minimum amount of armor resistance.<br />
+                Default: 0<br />
+            </p>
             {displayMins(armorResistances.damage_negation)}
             <br />
             {displayMins(armorResistances.resistance)}
             <br />
             <br />
+            <p>
+                Set these to the importance of armor resistance.<br />
+                For example, 100 means important over everything else.<br />
+                Using 0 means to not use the resistance at all when optimizing.<br />
+                Default: 1<br />
+                Range: 0-100<br />
+            </p>
             {displayMultipliers(armorResistances.damage_negation)}
             <br />
             {displayMultipliers(armorResistances.resistance)}
             <br />
             <br />
             <div className="error">{errors}</div>
-            <button className="all-button-style all-button-style-bg" onClick={handleClickCalculateArmor}>Calculate Best Armor</button>
+            <button className="all-button-style all-button-style-bg" onClick={handleClickCalculateArmor}>Calculate Best Armor</button><span>{spinner}</span>
+            <p>
+                Displays up to 250 sets of best matching armor.
+            </p>
             <br />
-            Display up to 250 sets of best matching armor.
-            <br />
-            <br/>
             <ArmorTable
                 preppedData={preppedData}
             />
