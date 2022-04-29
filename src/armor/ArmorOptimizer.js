@@ -13,7 +13,7 @@ import Heap from 'heap-js';
 const resultComparator = (a, b) => b.totalResistanceValueWeighted - a.totalResistanceValueWeighted;
 const resultComparatorMin = (a, b) => a.totalResistanceValueWeighted - b.totalResistanceValueWeighted;
 const resultComparatorMaxReal = (a, b) => b.robustness - a.robustness;
-const MAX_HEAP_LENGTH = 250;
+const MAX_HEAP_LENGTH = 1000;
 const IS_NOT_WEARING = 1;
 
 const armorResistances = [
@@ -150,7 +150,7 @@ const permuteArmor = function (equippedArmor, loadRemaining, resistanceMinimum, 
         return -1;
     }
 
-    // TODO: if remaining weight is > armorsets, eliminiate armor from equation.  this is because the armor cannot be chosen anyways
+    // TODO: if remaining weight is > armorsets, eliminiate armor from equation.  this is because the armor cannot be chosen anyways (for optimization of 4)
 
     // this takes forever
     if (iterateArmor.length === 4) {
@@ -208,7 +208,6 @@ const findArmorOptimizationDouble = (iterateArmor, resultMaxHeap, maxEquipWeight
     let iteratorA = 0;
     let iteratorB = 0;
 
-    let count = 0;
     // console.log(iterateArmor)
 
     const ans = [];
@@ -229,7 +228,6 @@ const findArmorOptimizationDouble = (iterateArmor, resultMaxHeap, maxEquipWeight
 
         // make combinations of each armor set, 
         const results = combineArmor(armorSetsA, armorSetsB);
-        count += results.length;
         // console.log(results);
         for (const result of results) {
             if (result.weight <= maxEquipWeight) {

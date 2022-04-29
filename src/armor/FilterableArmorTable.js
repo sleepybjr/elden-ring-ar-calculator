@@ -2,17 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import ArmorTable from './ArmorTable';
-import SingleItemSearchBar from '../component/SingleItemSeachBar';
 import { getPhyCalcData } from '../weapons/FilterableWeaponTable';
 
-
-import Weapons_Select from '.././json/weapon_groups';
 import Weapon_Reqs from '../json/weapon_reqs.json';
 
-import Helmets_Select from '../json/head_group.json';
-import Chest_Select from '../json/body_group.json';
-import Gauntlets_Select from '../json/arm_group.json';
-import Legs_Select from '../json/leg_group.json';
 import Armor_Data from '../json/armor_data.json';
 
 import armorOptimizer from './ArmorOptimizer';
@@ -20,6 +13,8 @@ import armorOptimizer from './ArmorOptimizer';
 import { FaSpinner } from 'react-icons/fa';
 
 import RollTypes from './RollTypes';
+import WeaponSearch from './WeaponSearch';
+import ArmorSearch from './ArmorSearch';
 
 const armorResistances = {
     damage_negation: {
@@ -72,22 +67,6 @@ const startArmorResistancesMultiplier = {
     vitality_multiplier: 1,
     poise_multiplier: 1,
 }
-
-const armorTypes = {
-    helmet: Helmets_Select,
-    chest: Chest_Select,
-    gauntlets: Gauntlets_Select,
-    legs: Legs_Select,
-};
-
-const weaponHands = [
-    "LH1",
-    "LH2",
-    "LH3",
-    "RH1",
-    "RH2",
-    "RH3",
-];
 
 // needed because javascript uses floats weird
 function roundNumber(number, decimals) {
@@ -435,50 +414,11 @@ export default function FilterableArmorTable() {
     }, [maxEquip, rollTypeChoice, currEquip]);
 
     return (
-        <div className='extra-spacing'>
-            <br />
-            <br />
-            {weaponHands.map((hand) => {
-                return (
-                    <SingleItemSearchBar
-                        key={hand}
-                        handleSearchItemsChange={(e) => handleSearchWeaponItemsChange(e, hand)}
-                        searchedItems={searchedWeapons[hand]}
-                        options={Weapons_Select}
-                        placeholder={"Select equipped " + hand + " weapon..."}
-                    />
-                )
-            })}
-
-            <br />
-            <br />
-            <p className="search-bar">
-                Due to armor optimization being a <a target="_blank" rel="noopener noreferrer" href={"https://en.wikipedia.org/wiki/Knapsack_problem"}>Knapsack problem</a>, you
-                currently must select at least one piece of armor. <br />
-                There are over 300 million combinations to check when searching for a complete armor set, which takes hours to do.
-                We are currently looking into how to speed up search times for a full armor set search.<br />
-                Ignore the field to optimize.
-            </p>
-
-            {Object.keys(armorTypes).map((armorType) => {
-                return (
-                    <SingleItemSearchBar
-                        key={armorType}
-                        handleSearchItemsChange={(e) => handleSearchArmorItemsChange(e, armorType)}
-                        searchedItems={searchedArmor[armorType]}
-                        options={armorTypes[armorType].options}
-                        placeholder={"Select equipped " + armorType + "..."}
-                    />
-                )
-            })}
-
-
-            <br />
-            <br />
+        <div className='large-spacing'>
+            <WeaponSearch handleSearchWeaponItemsChange={handleSearchWeaponItemsChange} searchedWeapons={searchedWeapons} />
+            <ArmorSearch handleSearchArmorItemsChange={handleSearchArmorItemsChange} searchedArmor={searchedArmor} />
             <RollTypes handleChangeRollTypes={handleChangeRollTypes} rollTypeChoice={rollTypeChoice} />
 
-            <br />
-            <br />
             <br />
             <p>
                 Currently working on talismans.<br />
@@ -526,6 +466,7 @@ export default function FilterableArmorTable() {
             {displayMins(armorResistances.damage_negation)}
             <br />
             {displayMins(armorResistances.resistance)}
+            add reset to default button
             <br />
             <br />
             <p>
@@ -538,12 +479,13 @@ export default function FilterableArmorTable() {
             {displayMultipliers(armorResistances.damage_negation)}
             <br />
             {displayMultipliers(armorResistances.resistance)}
+            add reset to default button
             <br />
             <br />
             <div className="error">{errors}</div>
             <button className="all-button-style all-button-style-bg" onClick={handleClickCalculateArmor}>Calculate Best Armor</button><span>{spinner}</span>
             <p>
-                Displays up to 250 sets of best matching armor.
+                Displays up to 1,000 sets of best matching armor.
             </p>
             <br />
             <ArmorTable

@@ -113,7 +113,7 @@ body.dark {
 
 .dark .react-select__multi-value__label,
 .dark .react-select__input-container,
-.dark .react-select__single-value  {
+.dark .react-select__single-value {
   color: #EFEFEF;
 }
 
@@ -203,6 +203,18 @@ tbody td {
   border-bottom: 1px solid #4b4b4b;
 }
 
+.underline-shrunk {
+  margin: auto;
+  padding-top: 20px;
+  width: 500px;
+  max-width: 100%;
+  border-bottom: 2px solid #cccccc;
+}
+
+.dark .underline-shrunk {
+  border-bottom: 2px solid #4b4b4b;
+}
+
 tbody.no-padding td {
   padding: 0.1em;
   padding-top: 0.5em;
@@ -253,6 +265,10 @@ tbody tr:hover {
 
 .extra-spacing {
   margin-top: 9px;
+}
+
+.large-spacing {
+  margin-top: 23px;
 }
 
 .middle-spacing {
@@ -526,12 +542,18 @@ tbody tr:hover {
 }
 
 .noselect {
-  -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Old versions of Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
 }
 
@@ -541,10 +563,15 @@ tbody tr:hover {
 
 @keyframes circle {
   from {
-      transform: rotate(90deg);
+    transform: rotate(90deg);
   }
 
   to {
-      transform: rotate(450deg);
+    transform: rotate(450deg);
   }
+}
+
+.align-left {
+  margin-left: 10px;
+  text-align: left;
 }

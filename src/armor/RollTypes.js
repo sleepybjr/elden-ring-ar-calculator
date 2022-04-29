@@ -6,7 +6,7 @@ const rollTypeMapping = {
 
 export default function RollTypes(props) {
     return (
-        <div>
+        <div className="large-spacing">
             {Object.keys(rollTypeMapping).map((rollKey, index) =>
                 <div key={index}>
                     <input

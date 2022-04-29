@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 // import React, { useEffect, } from 'react';
 
 import { useTable, useBlockLayout, useSortBy } from 'react-table';
