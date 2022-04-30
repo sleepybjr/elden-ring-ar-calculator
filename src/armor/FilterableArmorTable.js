@@ -35,19 +35,19 @@ const startArmorResistances = {
 }
 
 const startArmorResistancesMultiplier = {
-    physical_absorption_multiplier: 1,
-    strike_absorption_multiplier: 1,
-    slash_absorption_multiplier: 1,
-    thrust_absorption_multiplier: 1,
-    magic_absorption_multiplier: 1,
-    fire_absorption_multiplier: 1,
-    lightning_absorption_multiplier: 1,
-    holy_absorption_multiplier: 1,
-    immunity_multiplier: 1,
-    robustness_multiplier: 1,
-    focus_multiplier: 1,
-    vitality_multiplier: 1,
-    poise_multiplier: 1,
+    physical_absorption: 1,
+    strike_absorption: 1,
+    slash_absorption: 1,
+    thrust_absorption: 1,
+    magic_absorption: 1,
+    fire_absorption: 1,
+    lightning_absorption: 1,
+    holy_absorption: 1,
+    immunity: 1,
+    robustness: 1,
+    focus: 1,
+    vitality: 1,
+    poise: 1,
 }
 
 // needed because javascript uses floats weird
@@ -105,6 +105,7 @@ export default function FilterableArmorTable() {
     function handleClickCalculateArmor(event) {
         setSpinner(<FaSpinner className="icon_pulse" />);
         setErrors("");
+        console.log("START-HANDLE");
 
         const equippedArmor = {
             Head: searchedArmor.hasOwnProperty("helmet") && searchedArmor.helmet !== null ? IS_WEARING : IS_NOT_WEARING,
@@ -149,6 +150,7 @@ export default function FilterableArmorTable() {
             }
         }
 
+        console.log("END-HANDLE");
         const output = armorOptimizer(
             equippedArmor,
             loadRemaining,
@@ -156,6 +158,7 @@ export default function FilterableArmorTable() {
             resistancesMultiplier,
             currEquippedArmor
         );
+        console.log("START-OUTPUT");
 
         if (output === -1 || output.length === 0) {
             setErrors("Incorrect input, unable to find an answer.");
@@ -261,6 +264,8 @@ export default function FilterableArmorTable() {
             row.lightning_absorption = 1 - row.lightning_absorptionHead * row.lightning_absorptionBody * row.lightning_absorptionArm * row.lightning_absorptionLeg;
             row.holy_absorption = 1 - row.holy_absorptionHead * row.holy_absorptionBody * row.holy_absorptionArm * row.holy_absorptionLeg;
         }
+        
+        console.log("END-OUTPUT");
 
         setSpinner(null);
         setPreppedData(trueOutput);

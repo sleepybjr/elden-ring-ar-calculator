@@ -30,7 +30,7 @@ export default function DisplayMultipliers(props) {
                         min={0}
                         id={key + "_multiplier"}
                         name={key + "_multiplier"}
-                        value={props.resistancesMultiplier[key + "_multiplier"]}
+                        value={props.resistancesMultiplier[key]}
                         onChange={props.handleResistanceMultiplierChange}
                         onKeyDown={(evt) => ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()}
                     />

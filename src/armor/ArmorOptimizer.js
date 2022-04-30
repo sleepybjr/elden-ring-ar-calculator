@@ -13,7 +13,7 @@ import Heap from 'heap-js';
 const resultComparator = (a, b) => b.totalResistanceValueWeighted - a.totalResistanceValueWeighted;
 const resultComparatorMin = (a, b) => a.totalResistanceValueWeighted - b.totalResistanceValueWeighted;
 const resultComparatorMaxReal = (a, b) => b.robustness - a.robustness;
-const MAX_HEAP_LENGTH = 250;
+const MAX_HEAP_LENGTH = 1000;
 const IS_NOT_WEARING = 1;
 
 const armorResistances = [
@@ -42,6 +42,14 @@ const armorAbsorptions = [
     "holy_absorption",
 ]
 
+const armorRegular = [
+    "immunity",
+    "robustness",
+    "focus",
+    "vitality",
+    "poise",
+]
+
 const fillNoneValue = (armorType) => {
     return {
         "name": "None",
@@ -61,7 +69,6 @@ const fillNoneValue = (armorType) => {
         "vitality": 0,
         "poise": 0,
     };
-
 }
 
 function groupBy(arr, property) {
@@ -71,39 +78,8 @@ function groupBy(arr, property) {
     }, {});
 }
 
-// why does this start duplicating? need to debug with fresher mind
-const combineArmor = (iterateArmor1, iterateArmor2) => {
-    const result = [];
-    const armorSet = [];
-    let armorSetWeight = 0;
-    let armorSetValue = 0;
-
-    for (const armor1 of iterateArmor1) {
-        armorSet.push({ ...armor1 });
-        armorSetWeight += armor1.weight;
-        armorSetValue += armor1.robustness ? armor1.robustness : 0;
-
-        for (const armor2 of iterateArmor2) {
-            armorSet.push({ ...armor2 });
-            armorSetWeight += armor2.weight;
-            armorSetValue += armor2.robustness ? armor2.robustness : 0;
-
-            result.push({ armorSet: [...armorSet], robustness: armorSetValue, weight: armorSetWeight });
-
-            armorSetWeight -= armor2.weight;
-            armorSetValue -= armor2.robustness ? armor2.robustness : 0;
-            armorSet.pop();
-
-        }
-        armorSetWeight -= armor1.weight;
-        armorSetValue -= armor1.robustness ? armor1.robustness : 0;
-        armorSet.pop();
-    }
-
-    return result;
-};
-
 const permuteArmor = function (equippedArmor, loadRemaining, resistanceMinimum, resistanceMultiplier, currEquippedArmor) {
+    console.log("START-PREPROCESSING");
     const Copy_Armor_Data = [...Armor_Data];
 
     // add none type, should be added into input data
@@ -113,13 +89,12 @@ const permuteArmor = function (equippedArmor, loadRemaining, resistanceMinimum, 
 
     const sortedWeight = Copy_Armor_Data.sort((a, b) => a.weight - b.weight);
 
+    // create max absorption so it doesnt need to be recalculated
     const maxAbsorption = {};
-    armorAbsorptions.forEach(absorption => maxAbsorption["max_" + absorption] = 1 - ((1 - Max_Head["max_" + absorption]) * (1 - Max_Body["max_" + absorption]) * (1 - Max_Arm["max_" + absorption]) * (1 - Max_Leg["max_" + absorption])));
+    armorAbsorptions.forEach(absorption => maxAbsorption[absorption] = 1 - ((1 - Max_Head["max_" + absorption]) * (1 - Max_Body["max_" + absorption]) * (1 - Max_Arm["max_" + absorption]) * (1 - Max_Leg["max_" + absorption])));
 
-    // console.log(resistanceMultiplier);
     // prefind values
     for (const row of sortedWeight) {
-        let totalResistanceValueWeighted = 0;
         let totalAbsorptionValueWeighted = 0;
         let totalRegularValueWeighted = 0;
         for (const resistance of armorResistances) {
@@ -129,16 +104,14 @@ const permuteArmor = function (equippedArmor, loadRemaining, resistanceMinimum, 
 
                 const fullAbsorption = 1 - (absorptionPreCalc);
 
-                const absorptionValueWeighted = fullAbsorption / maxAbsorption["max_" + resistance] * resistanceMultiplier[resistance + "_multiplier"];
+                const absorptionValueWeighted = fullAbsorption / maxAbsorption[resistance] * resistanceMultiplier[resistance];
 
                 totalAbsorptionValueWeighted += absorptionValueWeighted;
             } else {
-                const resistanceValueWeighted = row[resistance] / (Max_Head["max_" + resistance] + Max_Body["max_" + resistance] + Max_Arm["max_" + resistance] + Max_Leg["max_" + resistance]) * resistanceMultiplier[resistance + "_multiplier"]; // if using multiplier, need to normalize values
+                const resistanceValueWeighted = row[resistance] / (Max_Head["max_" + resistance] + Max_Body["max_" + resistance] + Max_Arm["max_" + resistance] + Max_Leg["max_" + resistance]) * resistanceMultiplier[resistance]; // if using multiplier, need to normalize values
 
                 totalRegularValueWeighted += resistanceValueWeighted;
             }
-            // different formula need for abosroption
-
         }
 
         row.totalRegularValueWeighted = totalRegularValueWeighted;
@@ -204,27 +177,34 @@ const permuteArmor = function (equippedArmor, loadRemaining, resistanceMinimum, 
     const armorSet = [];
     let currPosition = 0;
     const currMinimums = {
-        "physical_absorption": 0,
-        "strike_absorption": 0,
-        "slash_absorption": 0,
-        "thrust_absorption": 0,
-        "magic_absorption": 0,
-        "fire_absorption": 0,
-        "lightning_absorption": 0,
-        "holy_absorption": 0,
-        "preCalcphysical_absorption": 1,
-        "preCalcstrike_absorption": 1,
-        "preCalcslash_absorption": 1,
-        "preCalcthrust_absorption": 1,
-        "preCalcmagic_absorption": 1,
-        "preCalcfire_absorption": 1,
-        "preCalclightning_absorption": 1,
-        "preCalcholy_absorption": 1,
-        "immunity": 0,
-        "robustness": 0,
-        "focus": 0,
-        "vitality": 0,
-        "poise": 0,
+        damage_negation: {
+            "physical_absorption": 0,
+            "strike_absorption": 0,
+            "slash_absorption": 0,
+            "thrust_absorption": 0,
+            "magic_absorption": 0,
+            "fire_absorption": 0,
+            "lightning_absorption": 0,
+            "holy_absorption": 0,
+        },
+        resistance: {
+            "immunity": 0,
+            "robustness": 0,
+            "focus": 0,
+            "vitality": 0,
+            "poise": 0,
+        }
+    };
+
+    const preCalcAbsorptions = {
+        "physical_absorption": 1,
+        "strike_absorption": 1,
+        "slash_absorption": 1,
+        "thrust_absorption": 1,
+        "magic_absorption": 1,
+        "fire_absorption": 1,
+        "lightning_absorption": 1,
+        "holy_absorption": 1,
     };
 
     let armorSetWeight = 0;
@@ -232,18 +212,16 @@ const permuteArmor = function (equippedArmor, loadRemaining, resistanceMinimum, 
 
     // initialize values to selected armor pieces, should it be included in the total value? I dont think so.
     for (const element of currEquippedArmor) {
-        for (const key of Object.keys(currMinimums)) {
-            if (key.includes('_absorption') && !key.includes("preCalc")) {
-                currMinimums["preCalc" + key] *= (1 - element[key]);
-                currMinimums[key] = 1 - currMinimums["preCalc" + key];
-            } else if (key.includes("preCalc")) {
-            } else {
-                currMinimums[key] += element[key];
-            }
+        for (const key of Object.keys(currMinimums.damage_negation)) {
+            preCalcAbsorptions[key] *= (1 - element[key]);
+            currMinimums.damage_negation[key] = 1 - preCalcAbsorptions[key];
+        }
+
+        for (const key of Object.keys(currMinimums.resistance)) {
+            currMinimums.resistance[key] += element[key];
         }
     }
-
-    console.log(currMinimums);
+    console.log("END-PREPROCESSING");
 
     const armorSetAbsorption = {
         "physical_absorption": 1,
@@ -255,12 +233,239 @@ const permuteArmor = function (equippedArmor, loadRemaining, resistanceMinimum, 
         "lightning_absorption": 1,
         "holy_absorption": 1,
     }
-
-    findArmorOptimization(armorSet, iterateArmor, result, maxEquipWeight, currPosition, currMinimums, resistanceMinimum, armorSetWeight, armorSetValue, armorSetAbsorption, resistanceMultiplier, maxAbsorption);
+    console.log("START-OPTIMIZATION");
+    // findArmorOptimization(armorSet, iterateArmor, result, maxEquipWeight, currPosition, currMinimums, resistanceMinimum, armorSetWeight, armorSetValue, armorSetAbsorption, resistanceMultiplier, maxAbsorption);
+    findArmorOptimization2(armorSet, iterateArmor, result, maxEquipWeight, currPosition, currMinimums, resistanceMinimum, armorSetWeight, armorSetValue, armorSetAbsorption, resistanceMultiplier, maxAbsorption, preCalcAbsorptions);
+    console.log("END-OPTIMIZATION");
     // console.log(result);
     return result.toArray().sort(resultComparator);
     // return [];
 };
+
+// works for 3 sets, but once it hits 4, it's incredibly slow.
+// const findArmorOptimization = (armorSet, iterateArmor, result, maxEquipWeight, currPosition, currMinimums, resistanceMinimum, armorSetWeight, armorSetValue, armorSetAbsorption, resistanceMultiplier, maxAbsorption) => {
+//     const currentIterationArmor = iterateArmor[currPosition];
+//     currPosition += 1;
+//     // console.log(currPosition);
+
+//     // console.log("START-LOOP");
+//     for (var i = 0; i < currentIterationArmor.length; i++) {
+//         const newArmorPiece = currentIterationArmor[i];
+//         armorSet.push(newArmorPiece);
+
+//         armorSetWeight += newArmorPiece.weight;
+//         let absorptionValues = 0;
+//         for (const resistance of Object.keys(armorSetAbsorption)) {
+//             armorSetAbsorption[resistance] *= newArmorPiece['preCalc' + resistance];
+
+//             const fullAbsorption = 1 - (armorSetAbsorption[resistance]);
+
+//             const absorptionValueWeighted = fullAbsorption / maxAbsorption["max_" + resistance] * resistanceMultiplier[resistance + "_multiplier"];
+
+//             absorptionValues += absorptionValueWeighted;
+//         }
+
+//         armorSetValue += newArmorPiece.totalRegularValueWeighted ? (newArmorPiece.totalRegularValueWeighted + absorptionValues) : 0;
+//         for (const key of Object.keys(currMinimums)) {
+//             if (key.includes('_absorption') && !key.includes("preCalc")) {
+//                 currMinimums[key] = 1 - (armorSetAbsorption[key] * currMinimums["preCalc" + key]);
+//             } else if (key.includes("preCalc")) {
+//             } else {
+//                 currMinimums[key] += newArmorPiece[key];
+//             }
+//         }
+
+
+//         if (currPosition < iterateArmor.length) {
+//             findArmorOptimization(armorSet, iterateArmor, result, maxEquipWeight, currPosition, currMinimums, resistanceMinimum, armorSetWeight, armorSetValue, armorSetAbsorption, resistanceMultiplier, maxAbsorption);
+//         } else {
+//             if (armorSetWeight > maxEquipWeight) {
+//                 armorSetWeight -= newArmorPiece.weight;
+
+//                 for (const resistance of Object.keys(armorSetAbsorption)) {
+//                     armorSetAbsorption[resistance] /= newArmorPiece['preCalc' + resistance];
+//                 }
+
+//                 armorSetValue -= newArmorPiece.totalRegularValueWeighted ? (newArmorPiece.totalRegularValueWeighted + absorptionValues) : 0;
+//                 for (const key of Object.keys(currMinimums)) {
+//                     if (key.includes('_absorption') && !key.includes("preCalc")) {
+//                         currMinimums[key] = 1 - (armorSetAbsorption[key] * currMinimums["preCalc" + key]);
+//                     } else if (key.includes("preCalc")) {
+//                     } else {
+//                         currMinimums[key] -= newArmorPiece[key];
+//                     }
+//                 }
+//                 armorSet.pop();
+//                 break;
+//             } else {
+//                 let meetsMinimum = true;
+//                 for (const key of Object.keys(currMinimums)) {
+//                     if (!key.includes("preCalc") && currMinimums[key] < resistanceMinimum[key]) {
+//                         meetsMinimum = false;
+//                         break;
+//                     }
+//                 }
+//                 if (meetsMinimum === true) {
+//                     if (result.length < MAX_HEAP_LENGTH) {
+//                         result.push({ armorSet: [...armorSet], totalResistanceValueWeighted: armorSetValue });
+//                     } else {
+//                         if (result.peek().totalResistanceValueWeighted < armorSetValue) {
+//                             result.pushpop({ armorSet: [...armorSet], totalResistanceValueWeighted: armorSetValue });
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//         armorSetWeight -= newArmorPiece.weight;
+
+//         for (const resistance of Object.keys(armorSetAbsorption)) {
+//             armorSetAbsorption[resistance] /= newArmorPiece['preCalc' + resistance];
+//         }
+
+//         armorSetValue -= newArmorPiece.totalRegularValueWeighted ? (newArmorPiece.totalRegularValueWeighted + absorptionValues) : 0;
+//         for (const key of Object.keys(currMinimums)) {
+//             if (key.includes('_absorption') && !key.includes("preCalc")) {
+//                 currMinimums[key] = 1 - (armorSetAbsorption[key] * currMinimums["preCalc" + key]);
+//             } else if (key.includes("preCalc")) {
+//             } else {
+//                 currMinimums[key] -= newArmorPiece[key];
+//             }
+//         }
+//         armorSet.pop();
+
+//     }
+//     // console.log("END-LOOP");
+
+//     currPosition -= 1;
+// };
+
+const findArmorOptimization2 = (armorSet, iterateArmor, result, maxEquipWeight, currPosition, currMinimums, resistanceMinimum, armorSetWeight, armorSetValue, armorSetAbsorption, resistanceMultiplier, maxAbsorption, preCalcAbsorptions) => {
+    
+    
+    const startOptimization = () => {
+        const currentIterationArmor = iterateArmor[currPosition];
+        currPosition += 1;
+        // console.log(currPosition);
+
+        // console.log("START-LOOP");
+        for (var i = 0; i < currentIterationArmor.length; i++) {
+            const newArmorPiece = currentIterationArmor[i];
+            armorSet.push(newArmorPiece);
+
+            armorSetWeight += newArmorPiece.weight;
+            let absorptionValues = 0;
+            for (const resistance of armorAbsorptions) {
+                armorSetAbsorption[resistance] *= (1 - newArmorPiece[resistance]);
+                absorptionValues = (1 - (armorSetAbsorption[resistance])) / maxAbsorption[resistance] * resistanceMultiplier[resistance];
+                currMinimums.damage_negation[resistance] = 1 - (armorSetAbsorption[resistance] * preCalcAbsorptions[resistance]);
+            }
+
+            armorSetValue += (newArmorPiece.totalRegularValueWeighted + absorptionValues);
+    
+            for (const key of armorRegular) {
+                currMinimums.resistance[key] += newArmorPiece[key];
+            }
+
+            if (currPosition < iterateArmor.length) {
+                startOptimization();
+            } else {
+                if (armorSetWeight > maxEquipWeight) {
+                    armorSetWeight -= newArmorPiece.weight;
+
+                    for (const resistance of armorAbsorptions) {
+                        armorSetAbsorption[resistance] /= (1 - newArmorPiece[resistance]);
+                        currMinimums.damage_negation[resistance] = 1 - (armorSetAbsorption[resistance] * preCalcAbsorptions[resistance]);
+                    }
+
+                    armorSetValue -= (newArmorPiece.totalRegularValueWeighted + absorptionValues);
+            
+                    for (const key of armorRegular) {
+                        currMinimums.resistance[key] -= newArmorPiece[key];
+                    }
+
+                    armorSet.pop();
+                    break;
+                } else {
+                    let meetsMinimum = true;
+                    for (const key of armorAbsorptions) {
+                        if (currMinimums[key] < resistanceMinimum[key]) {
+                            meetsMinimum = false;
+                            break;
+                        }
+                    }
+            
+                    for (const key of armorRegular) {
+                        if (currMinimums[key] < resistanceMinimum[key]) {
+                            meetsMinimum = false;
+                            break;
+                        }
+                    }
+                    if (meetsMinimum === true) {
+                        if (result.length < MAX_HEAP_LENGTH) {
+                            result.push({ armorSet: [...armorSet], totalResistanceValueWeighted: armorSetValue });
+                        } else {
+                            if (result.peek().totalResistanceValueWeighted < armorSetValue) {
+                                result.pushpop({ armorSet: [...armorSet], totalResistanceValueWeighted: armorSetValue });
+                            }
+                        }
+                    }
+                }
+            }
+            armorSetWeight -= newArmorPiece.weight;
+            for (const resistance of armorAbsorptions) {
+                armorSetAbsorption[resistance] /= (1 - newArmorPiece[resistance]);
+                currMinimums.damage_negation[resistance] = 1 - (armorSetAbsorption[resistance] * preCalcAbsorptions[resistance]);
+            }
+
+            armorSetValue -= (newArmorPiece.totalRegularValueWeighted + absorptionValues);
+    
+            for (const key of armorRegular) {
+                currMinimums.resistance[key] -= newArmorPiece[key];
+            }
+
+            armorSet.pop();
+
+        }
+        // console.log("END-LOOP");
+
+        currPosition -= 1;
+    };
+
+    startOptimization();
+};
+
+// why does this start duplicating? need to debug with fresher mind
+const combineArmor = (iterateArmor1, iterateArmor2) => {
+    const result = [];
+    const armorSet = [];
+    let armorSetWeight = 0;
+    let armorSetValue = 0;
+
+    for (const armor1 of iterateArmor1) {
+        armorSet.push({ ...armor1 });
+        armorSetWeight += armor1.weight;
+        armorSetValue += armor1.robustness ? armor1.robustness : 0;
+
+        for (const armor2 of iterateArmor2) {
+            armorSet.push({ ...armor2 });
+            armorSetWeight += armor2.weight;
+            armorSetValue += armor2.robustness ? armor2.robustness : 0;
+
+            result.push({ armorSet: [...armorSet], robustness: armorSetValue, weight: armorSetWeight });
+
+            armorSetWeight -= armor2.weight;
+            armorSetValue -= armor2.robustness ? armor2.robustness : 0;
+            armorSet.pop();
+
+        }
+        armorSetWeight -= armor1.weight;
+        armorSetValue -= armor1.robustness ? armor1.robustness : 0;
+        armorSet.pop();
+    }
+
+    return result;
+};
+
 const findArmorOptimizationDouble = (iterateArmor, resultMaxHeap, maxEquipWeight) => {
     const A = 0;
     const B = 1;
@@ -303,113 +508,6 @@ const findArmorOptimizationDouble = (iterateArmor, resultMaxHeap, maxEquipWeight
 
     return ans;
 }
-
-// works for 3 sets, but once it hits 4, it's incredibly slow.
-const findArmorOptimization = (armorSet, iterateArmor, result, maxEquipWeight, currPosition, currMinimums, resistanceMinimum, armorSetWeight, armorSetValue, armorSetAbsorption, resistanceMultiplier, maxAbsorption) => {
-    const currentIterationArmor = iterateArmor[currPosition];
-    currPosition += 1;
-    // console.log(currMinimums);
-
-    for (var i = 0; i < currentIterationArmor.length; i++) {
-        const newArmorPiece = currentIterationArmor[i];
-        armorSet.push(newArmorPiece);
-
-        armorSetWeight += newArmorPiece.weight;
-        let absorptionValues = 0;
-        for (const resistance of Object.keys(armorSetAbsorption)) {
-            armorSetAbsorption[resistance] *= newArmorPiece['preCalc' + resistance];
-
-            const fullAbsorption = 1 - (armorSetAbsorption[resistance]);
-
-            const absorptionValueWeighted = fullAbsorption / maxAbsorption["max_" + resistance]  * resistanceMultiplier[resistance + "_multiplier"];
-
-            absorptionValues += absorptionValueWeighted;
-        }
-
-        armorSetValue += newArmorPiece.totalRegularValueWeighted ? newArmorPiece.totalRegularValueWeighted + absorptionValues : 0;
-        for (const key of Object.keys(currMinimums)) {
-            if (key.includes('_absorption') && !key.includes("preCalc")) {
-                currMinimums[key] = 1 - (armorSetAbsorption[key] * currMinimums["preCalc" + key]);
-            } else if (key.includes("preCalc")) {
-            } else {
-                currMinimums[key] += newArmorPiece[key];
-            }
-        }
-
-
-        if (currPosition < iterateArmor.length) {
-            findArmorOptimization(armorSet, iterateArmor, result, maxEquipWeight, currPosition, currMinimums, resistanceMinimum, armorSetWeight, armorSetValue, armorSetAbsorption, resistanceMultiplier, maxAbsorption);
-        } else {
-            if (armorSetWeight > maxEquipWeight) {
-                armorSetWeight -= newArmorPiece.weight;
-
-                absorptionValues = 0;
-                for (const resistance of Object.keys(armorSetAbsorption)) {
-                    armorSetAbsorption[resistance] /= newArmorPiece['preCalc' + resistance];
-
-                    const fullAbsorption = 1 - (armorSetAbsorption[resistance]);
-
-                    const absorptionValueWeighted = fullAbsorption / maxAbsorption["max_" + resistance]  * resistanceMultiplier[resistance + "_multiplier"];
-
-                    absorptionValues += absorptionValueWeighted;
-                }
-
-                armorSetValue -= newArmorPiece.totalRegularValueWeighted ? newArmorPiece.totalRegularValueWeighted + absorptionValues : 0;
-                for (const key of Object.keys(currMinimums)) {
-                    if (key.includes('_absorption') && !key.includes("preCalc")) {
-                        currMinimums[key] = 1 - (armorSetAbsorption[key] * currMinimums["preCalc" + key]);
-                    } else if (key.includes("preCalc")) {
-                    } else {
-                        currMinimums[key] -= newArmorPiece[key];
-                    }
-                }
-                armorSet.pop();
-                break;
-            } else {
-                let meetsMinimum = true;
-                for (const key of Object.keys(currMinimums)) {
-                    if (!key.includes("preCalc") && currMinimums[key] < resistanceMinimum[key]) {
-                        meetsMinimum = false;
-                        break;
-                    }
-                }
-                if (meetsMinimum === true) {
-                    if (result.length < MAX_HEAP_LENGTH) {
-                        result.push({ armorSet: [...armorSet], totalResistanceValueWeighted: armorSetValue });
-                    } else {
-                        if (result.peek().totalResistanceValueWeighted < armorSetValue) {
-                            result.pushpop({ armorSet: [...armorSet], totalResistanceValueWeighted: armorSetValue });
-                        }
-                    }
-                }
-            }
-        }
-        armorSetWeight -= newArmorPiece.weight;
-        absorptionValues = 0;
-        for (const resistance of Object.keys(armorSetAbsorption)) {
-            armorSetAbsorption[resistance] /= newArmorPiece['preCalc' + resistance];
-
-            const fullAbsorption = 1 - (armorSetAbsorption[resistance]);
-
-            const absorptionValueWeighted = fullAbsorption / maxAbsorption["max_" + resistance]  * resistanceMultiplier[resistance + "_multiplier"];
-
-            absorptionValues += absorptionValueWeighted;
-        }
-        armorSetValue -= newArmorPiece.totalRegularValueWeighted ? newArmorPiece.totalRegularValueWeighted + absorptionValues : 0;
-        for (const key of Object.keys(currMinimums)) {
-            if (key.includes('_absorption') && !key.includes("preCalc")) {
-                currMinimums[key] = 1 - (armorSetAbsorption[key] * currMinimums["preCalc" + key]);
-            } else if (key.includes("preCalc")) {
-            } else {
-                currMinimums[key] -= newArmorPiece[key];
-            }
-        }
-        armorSet.pop();
-
-    }
-
-    currPosition -= 1;
-};
 
 export default function armorOptimizer(equippedArmor, loadRemaining, resistanceMinimum, resistanceMultiplier, currEquippedArmor) {
     return permuteArmor(equippedArmor, loadRemaining, resistanceMinimum, resistanceMultiplier, currEquippedArmor);
