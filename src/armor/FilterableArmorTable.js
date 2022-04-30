@@ -127,7 +127,7 @@ export default function FilterableArmorTable() {
             return;
         }
 
-        const adjustedResistances = {}
+        const adjustedResistances = {damage_negation: {}, resistance: {}}
         for (const key of Object.keys(resistances)) {
             if (resistances[key] === "") {
                 setErrors("All minimums must have a value. Default: 0.");
@@ -136,9 +136,9 @@ export default function FilterableArmorTable() {
             }
 
             if (new Set(['physical_absorption', 'strike_absorption', 'slash_absorption', 'thrust_absorption', 'magic_absorption', 'fire_absorption', 'lightning_absorption', 'holy_absorption']).has(key)) {
-                adjustedResistances[key] = resistances[key] / 100;
+                adjustedResistances.damage_negation[key] = resistances[key] / 100;
             } else {
-                adjustedResistances[key] = resistances[key];
+                adjustedResistances.resistance[key] = resistances[key];
             }
         }
 
