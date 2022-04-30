@@ -135,7 +135,7 @@ export default function FilterableArmorTable() {
             }
 
             if (new Set(['physical_absorption', 'strike_absorption', 'slash_absorption', 'thrust_absorption', 'magic_absorption', 'fire_absorption', 'lightning_absorption', 'holy_absorption']).has(key)) {
-                adjustedResistances[key] = resistances[key] / 1000;
+                adjustedResistances[key] = resistances[key] / 100;
             } else {
                 adjustedResistances[key] = resistances[key];
             }
