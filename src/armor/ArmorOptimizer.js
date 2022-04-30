@@ -79,7 +79,6 @@ function groupBy(arr, property) {
 }
 
 const permuteArmor = function (equippedArmor, loadRemaining, resistanceMinimum, resistanceMultiplier, currEquippedArmor) {
-    console.log("START-PREPROCESSING");
     const Copy_Armor_Data = [...Armor_Data];
 
     // add none type, should be added into input data
@@ -221,7 +220,6 @@ const permuteArmor = function (equippedArmor, loadRemaining, resistanceMinimum, 
             currMinimums.resistance[key] += element[key];
         }
     }
-    console.log("END-PREPROCESSING");
 
     const armorSetAbsorption = {
         "physical_absorption": 1,
@@ -233,10 +231,9 @@ const permuteArmor = function (equippedArmor, loadRemaining, resistanceMinimum, 
         "lightning_absorption": 1,
         "holy_absorption": 1,
     }
-    console.log("START-OPTIMIZATION");
     // findArmorOptimization(armorSet, iterateArmor, result, maxEquipWeight, currPosition, currMinimums, resistanceMinimum, armorSetWeight, armorSetValue, armorSetAbsorption, resistanceMultiplier, maxAbsorption);
     findArmorOptimization2(armorSet, iterateArmor, result, maxEquipWeight, currPosition, currMinimums, resistanceMinimum, armorSetWeight, armorSetValue, armorSetAbsorption, resistanceMultiplier, maxAbsorption, preCalcAbsorptions);
-    console.log("END-OPTIMIZATION");
+
     // console.log(result);
     return result.toArray().sort(resultComparator);
     // return [];

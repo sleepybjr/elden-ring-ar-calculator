@@ -105,7 +105,6 @@ export default function FilterableArmorTable() {
     function handleClickCalculateArmor(event) {
         setSpinner(<FaSpinner className="icon_pulse" />);
         setErrors("");
-        console.log("START-HANDLE");
 
         const equippedArmor = {
             Head: searchedArmor.hasOwnProperty("helmet") && searchedArmor.helmet !== null ? IS_WEARING : IS_NOT_WEARING,
@@ -150,7 +149,6 @@ export default function FilterableArmorTable() {
             }
         }
 
-        console.log("END-HANDLE");
         const output = armorOptimizer(
             equippedArmor,
             loadRemaining,
@@ -158,7 +156,6 @@ export default function FilterableArmorTable() {
             resistancesMultiplier,
             currEquippedArmor
         );
-        console.log("START-OUTPUT");
 
         if (output === -1 || output.length === 0) {
             setErrors("Incorrect input, unable to find an answer.");
@@ -264,8 +261,6 @@ export default function FilterableArmorTable() {
             row.lightning_absorption = 1 - row.lightning_absorptionHead * row.lightning_absorptionBody * row.lightning_absorptionArm * row.lightning_absorptionLeg;
             row.holy_absorption = 1 - row.holy_absorptionHead * row.holy_absorptionBody * row.holy_absorptionArm * row.holy_absorptionLeg;
         }
-        
-        console.log("END-OUTPUT");
 
         setSpinner(null);
         setPreppedData(trueOutput);
