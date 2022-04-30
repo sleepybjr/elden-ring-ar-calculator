@@ -348,23 +348,27 @@ const findArmorOptimization2 = (armorSet, iterateArmor, result, maxEquipWeight, 
         // console.log(currPosition);
 
         // console.log("START-LOOP");
-        for (var i = 0; i < currentIterationArmor.length; i++) {
+        for (let i = 0; i < currentIterationArmor.length; i++) {
             const newArmorPiece = currentIterationArmor[i];
             armorSet.push(newArmorPiece);
 
             armorSetWeight += newArmorPiece.weight;
+
+            // i really only need this calculated at the end
             let absorptionValues = 0;
-            for (const resistance of armorAbsorptions) {
-                armorSetAbsorption[resistance] *= (1 - newArmorPiece[resistance]);
-                absorptionValues = (1 - (armorSetAbsorption[resistance])) / maxAbsorption[resistance] * resistanceMultiplier[resistance];
-                currMinimums.damage_negation[resistance] = 1 - (armorSetAbsorption[resistance] * preCalcAbsorptions[resistance]);
+            
+            for (let j = 0; j < armorAbsorptions.length; j++) {
+                armorSetAbsorption[armorAbsorptions[j]] *= (1 - newArmorPiece[armorAbsorptions[j]]);
+                absorptionValues = (1 - (armorSetAbsorption[armorAbsorptions[j]])) / maxAbsorption[armorAbsorptions[j]] * resistanceMultiplier[armorAbsorptions[j]];
+                currMinimums.damage_negation[armorAbsorptions[j]] = 1 - (armorSetAbsorption[armorAbsorptions[j]] * preCalcAbsorptions[armorAbsorptions[j]]);
             }
 
             armorSetValue += (newArmorPiece.totalRegularValueWeighted + absorptionValues);
     
-            for (const key of armorRegular) {
-                currMinimums.resistance[key] += newArmorPiece[key];
+            for (let j = 0; j < armorRegular.length; j++) {
+                currMinimums.resistance[armorRegular[j]] += newArmorPiece[armorRegular[j]];
             }
+            // i really only need this calculated at the end
 
             if (currPosition < iterateArmor.length) {
                 startOptimization();
@@ -372,34 +376,29 @@ const findArmorOptimization2 = (armorSet, iterateArmor, result, maxEquipWeight, 
                 if (armorSetWeight > maxEquipWeight) {
                     armorSetWeight -= newArmorPiece.weight;
 
-                    for (const resistance of armorAbsorptions) {
-                        armorSetAbsorption[resistance] /= (1 - newArmorPiece[resistance]);
-                        currMinimums.damage_negation[resistance] = 1 - (armorSetAbsorption[resistance] * preCalcAbsorptions[resistance]);
+                    for (let j = 0; j < armorAbsorptions.length; j++) {
+                        armorSetAbsorption[armorAbsorptions[j]] /= (1 - newArmorPiece[armorAbsorptions[j]]);
+                        currMinimums.damage_negation[armorAbsorptions[j]] = 1 - (armorSetAbsorption[armorAbsorptions[j]] * preCalcAbsorptions[armorAbsorptions[j]]);
                     }
 
                     armorSetValue -= (newArmorPiece.totalRegularValueWeighted + absorptionValues);
             
-                    for (const key of armorRegular) {
-                        currMinimums.resistance[key] -= newArmorPiece[key];
+                    for (let j = 0; j < armorRegular.length; j++) {
+                        currMinimums.resistance[armorRegular[j]] -= newArmorPiece[armorRegular[j]];
                     }
 
                     armorSet.pop();
                     break;
                 } else {
                     let meetsMinimum = true;
-                    for (const key of armorAbsorptions) {
-                        if (currMinimums[key] < resistanceMinimum[key]) {
+                    
+                    for (let j = 0; j < armorResistances.length; j++) {
+                        if (currMinimums[armorResistances[j]] < resistanceMinimum[armorResistances[j]]) {
                             meetsMinimum = false;
                             break;
                         }
                     }
-            
-                    for (const key of armorRegular) {
-                        if (currMinimums[key] < resistanceMinimum[key]) {
-                            meetsMinimum = false;
-                            break;
-                        }
-                    }
+
                     if (meetsMinimum === true) {
                         if (result.length < MAX_HEAP_LENGTH) {
                             result.push({ armorSet: [...armorSet], totalResistanceValueWeighted: armorSetValue });
@@ -412,15 +411,15 @@ const findArmorOptimization2 = (armorSet, iterateArmor, result, maxEquipWeight, 
                 }
             }
             armorSetWeight -= newArmorPiece.weight;
-            for (const resistance of armorAbsorptions) {
-                armorSetAbsorption[resistance] /= (1 - newArmorPiece[resistance]);
-                currMinimums.damage_negation[resistance] = 1 - (armorSetAbsorption[resistance] * preCalcAbsorptions[resistance]);
+            for (let j = 0; j < armorAbsorptions.length; j++) {
+                armorSetAbsorption[armorAbsorptions[j]] /= (1 - newArmorPiece[armorAbsorptions[j]]);
+                currMinimums.damage_negation[armorAbsorptions[j]] = 1 - (armorSetAbsorption[armorAbsorptions[j]] * preCalcAbsorptions[armorAbsorptions[j]]);
             }
 
             armorSetValue -= (newArmorPiece.totalRegularValueWeighted + absorptionValues);
     
-            for (const key of armorRegular) {
-                currMinimums.resistance[key] -= newArmorPiece[key];
+            for (let j = 0; j < armorRegular.length; j++) {
+                currMinimums.resistance[armorRegular[j]] -= newArmorPiece[armorRegular[j]];
             }
 
             armorSet.pop();
