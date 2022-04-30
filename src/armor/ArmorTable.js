@@ -129,7 +129,7 @@ export default function ArmorTable(props) {
                 } else if (new Set(['physical_absorption', 'strike_absorption', 'slash_absorption', 'thrust_absorption', 'magic_absorption', 'fire_absorption', 'lightning_absorption', 'holy_absorption']).has(row.accessor)) {
                     row.Cell = ({ value }) => {
                         return (
-                            <>{value ? Math.round(value * 10000) / 100 : '-'}</>
+                            <>{value ? Math.round(value * 100000) / 1000 : '-'}</>
                         );
                     };
                     // row.width = 100;
