@@ -120,6 +120,71 @@ export default function FilterableArmorTable() {
             return;
         }
 
+        if (equippedArmor.Head === IS_WEARING && equippedArmor.Body === IS_WEARING && equippedArmor.Arm === IS_WEARING && equippedArmor.Leg === IS_WEARING) {
+            const singleArmorRow = {
+                helm_name: "-",
+                chest_name: "-",
+                gauntlet_name: "-",
+                leg_name: "-",
+                weight: 0,
+                physical_absorption: 0,
+                strike_absorption: 0,
+                slash_absorption: 0,
+                thrust_absorption: 0,
+                magic_absorption: 0,
+                fire_absorption: 0,
+                lightning_absorption: 0,
+                holy_absorption: 0,
+                immunity: 0,
+                robustness: 0,
+                focus: 0,
+                vitality: 0,
+                poise: 0,
+            }
+            
+            for (const armor of currEquippedArmor) {
+                if (armor.equipment_type === "Head") {
+                    singleArmorRow.helm_name = armor.name;
+                } else if (armor.equipment_type === "Body") {
+                    singleArmorRow.chest_name = armor.name;
+                } else if (armor.equipment_type === "Arm") {
+                    singleArmorRow.gauntlet_name = armor.name;
+                } else if (armor.equipment_type === "Leg") {
+                    singleArmorRow.leg_name = armor.name;
+                }
+
+                singleArmorRow['physical_absorption' + armor.equipment_type] = (1 - armor.physical_absorption);
+                singleArmorRow['strike_absorption' + armor.equipment_type] = (1 - armor.strike_absorption);
+                singleArmorRow['slash_absorption' + armor.equipment_type] = (1 - armor.slash_absorption);
+                singleArmorRow['thrust_absorption' + armor.equipment_type] = (1 - armor.thrust_absorption);
+                singleArmorRow['magic_absorption' + armor.equipment_type] = (1 - armor.magic_absorption);
+                singleArmorRow['fire_absorption' + armor.equipment_type] = (1 - armor.fire_absorption);
+                singleArmorRow['lightning_absorption' + armor.equipment_type] = (1 - armor.lightning_absorption);
+                singleArmorRow['holy_absorption' + armor.equipment_type] = (1 - armor.holy_absorption);
+
+                singleArmorRow.weight += armor.weight;
+
+                singleArmorRow.immunity += armor.immunity;
+                singleArmorRow.robustness += armor.robustness;
+                singleArmorRow.focus += armor.focus;
+                singleArmorRow.vitality += armor.vitality;
+                singleArmorRow.poise += armor.poise;
+            }
+            
+            singleArmorRow.physical_absorption = 1 - singleArmorRow.physical_absorptionHead * singleArmorRow.physical_absorptionBody * singleArmorRow.physical_absorptionArm * singleArmorRow.physical_absorptionLeg;
+            singleArmorRow.strike_absorption = 1 - singleArmorRow.strike_absorptionHead * singleArmorRow.strike_absorptionBody * singleArmorRow.strike_absorptionArm * singleArmorRow.strike_absorptionLeg;
+            singleArmorRow.slash_absorption = 1 - singleArmorRow.slash_absorptionHead * singleArmorRow.slash_absorptionBody * singleArmorRow.slash_absorptionArm * singleArmorRow.slash_absorptionLeg;
+            singleArmorRow.thrust_absorption = 1 - singleArmorRow.thrust_absorptionHead * singleArmorRow.thrust_absorptionBody * singleArmorRow.thrust_absorptionArm * singleArmorRow.thrust_absorptionLeg;
+            singleArmorRow.magic_absorption = 1 - singleArmorRow.magic_absorptionHead * singleArmorRow.magic_absorptionBody * singleArmorRow.magic_absorptionArm * singleArmorRow.magic_absorptionLeg;
+            singleArmorRow.fire_absorption = 1 - singleArmorRow.fire_absorptionHead * singleArmorRow.fire_absorptionBody * singleArmorRow.fire_absorptionArm * singleArmorRow.fire_absorptionLeg;
+            singleArmorRow.lightning_absorption = 1 - singleArmorRow.lightning_absorptionHead * singleArmorRow.lightning_absorptionBody * singleArmorRow.lightning_absorptionArm * singleArmorRow.lightning_absorptionLeg;
+            singleArmorRow.holy_absorption = 1 - singleArmorRow.holy_absorptionHead * singleArmorRow.holy_absorptionBody * singleArmorRow.holy_absorptionArm * singleArmorRow.holy_absorptionLeg;
+
+            setSpinner(null);
+            setPreppedData([singleArmorRow]);
+            return;
+        }
+
         if (loadRemaining <= 0) {
             setErrors("The load remaining cannot be less than 0.");
             setSpinner(null);
