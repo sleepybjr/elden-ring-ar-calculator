@@ -1141,6 +1141,23 @@ def getTalismanData():
     return accessory_data
 
 
+##############################################
+# talisman_groups.json
+##############################################
+
+def getTalismanGroups():
+    accessory_groups = OrderedDict()
+    accessory_groups['label'] = "Talismans"
+    accessory_groups['options'] = []
+    i = 1
+    for key, row in EquipParamAccessory.items():
+        if row['Is Droppable'] == InputBoolean.TRUE.value:
+            accessory_groups["options"].append({'label': row['Row Name'], 'value': i})
+            i+=1
+
+    return accessory_groups
+
+
 # Avg Accumulator Value for attacks. Could potentially switch for weapons in subsequent patches
 # Look at AtkParam_Pc to see if the TargetSpEffect [0] for each weapon changes the ID of SpEffect ID 
 # used to know if using different Id for acummulator
@@ -1732,9 +1749,11 @@ def getPassiveEffect(specialEffect, specialEffectId, passiveFromArmor):
             absorption_percent_enemy_dict[-(float(specialEffect['Absorption %: Physical']) - 1.0) * 100] += ", Physical"
         else:
             if float(specialEffect['Absorption %: Physical']) < 1.0:
-                absorption_percent_enemy_dict[-(float(specialEffect['Absorption %: Physical']) - 1.0) * 100] = "Increase the Absorption from non-player enemy attacks for Physical"
+                absorption_percent_enemy_dict[-(float(specialEffect['Absorption %: Physical']) - 1.0) * 100] = \
+                    "Increase the Absorption from non-player enemy attacks for Physical"
             else:
-                absorption_percent_enemy_dict[-(float(specialEffect['Absorption %: Physical']) - 1.0) * 100] = "Decrease the Absorption from non-player enemy attacks for Physical"
+                absorption_percent_enemy_dict[-(float(specialEffect['Absorption %: Physical']) - 1.0) * 100] = \
+                    "Decrease the Absorption from non-player enemy attacks for Physical"
     if (float(specialEffect['Absorption %: Magic']) != 1.0):
         row_dict["absorption_percent_magic"] = -(float(specialEffect['Absorption %: Magic']) - 1.0)
         if (-(float(specialEffect['Absorption %: Magic']) - 1.0) * 100 in absorption_percent_enemy_dict):
@@ -1759,9 +1778,11 @@ def getPassiveEffect(specialEffect, specialEffectId, passiveFromArmor):
             absorption_percent_enemy_dict[-(float(specialEffect['Absorption %: Lightning']) - 1.0) * 100] += ", Lightning"
         else:
             if float(specialEffect['Absorption %: Lightning']) < 1.0:
-                absorption_percent_enemy_dict[-(float(specialEffect['Absorption %: Lightning']) - 1.0) * 100] = "Increase the Absorption from non-player enemy attacks for Lightning"
+                absorption_percent_enemy_dict[-(float(specialEffect['Absorption %: Lightning']) - 1.0) * 100] = \
+                    "Increase the Absorption from non-player enemy attacks for Lightning"
             else:
-                absorption_percent_enemy_dict[-(float(specialEffect['Absorption %: Lightning']) - 1.0) * 100] = "Decrease the Absorption from non-player enemy attacks for Lightning"
+                absorption_percent_enemy_dict[-(float(specialEffect['Absorption %: Lightning']) - 1.0) * 100] = \
+                    "Decrease the Absorption from non-player enemy attacks for Lightning"
     if (float(specialEffect['Absorption %: Holy']) != 1.0):
         row_dict["absorption_percent_holy"] = -(float(specialEffect['Absorption %: Holy']) - 1.0)
         if (-(float(specialEffect['Absorption %: Holy']) - 1.0) * 100 in absorption_percent_enemy_dict):
@@ -2608,7 +2629,8 @@ def getPassiveEffect(specialEffect, specialEffectId, passiveFromArmor):
     if (float(specialEffect['Trigger Interval']) != 0.0):
         row_dict["trigger_interval"] = float(specialEffect['Trigger Interval'])
         if not(checkStringAllStates("Trigger", row_dict)):
-            if (descriptionArray != [] and float(specialEffect['Duration']) == -1.0) and float(specialEffect['Trigger Interval']) != 0.06 and float(specialEffect['Trigger Interval']) != 0.01:
+            if (descriptionArray != [] and float(specialEffect['Duration']) == -1.0) and float(specialEffect['Trigger Interval']) != 0.06 and \
+                float(specialEffect['Trigger Interval']) != 0.01:
                 if (float(specialEffect['Trigger Interval']) == 1.0):
                     descriptionArray.append("Effect is triggered every second")
                 else:
@@ -2657,7 +2679,8 @@ def getPassiveEffect(specialEffect, specialEffectId, passiveFromArmor):
         row_dict["accumulator_over_value"] = int(specialEffect['Accumulator - Over Value'])
         descriptionArray.append("Activate the following effect when consecutively attacking an enemy approximately " + 
             str(math.ceil((int(specialEffect['Accumulator - Over Value']) / accumulatorIncrementValue))) + " times" )
-        row_dict["accumulator_over_effect"] = getPassiveEffect(SpEffectParam[specialEffect['Accumulator - Over Value - SpEffect ID']], specialEffect['Accumulator - Over Value - SpEffect ID'], False)
+        row_dict["accumulator_over_effect"] = getPassiveEffect(SpEffectParam[specialEffect['Accumulator - Over Value - SpEffect ID']], \
+            specialEffect['Accumulator - Over Value - SpEffect ID'], False)
         if (row_dict["accumulator_over_effect"]["description"] != ""):
             for value in row_dict["accumulator_over_effect"]["description"]:
                 descriptionArray.append(value)
@@ -2666,7 +2689,8 @@ def getPassiveEffect(specialEffect, specialEffectId, passiveFromArmor):
     if (float(specialEffect['Duration']) != -1.0):
         row_dict["duration"] = float(specialEffect['Duration'])
         if not(checkStringAllStates("Trigger", row_dict)):
-            if (descriptionArray != [] and (float(specialEffect['Trigger Interval']) == 0.0 or float(row_dict['trigger_interval']) < float(row_dict["duration"])) and float(specialEffect['Duration']) != 0.1 and not(checkStringState("Poison", row_dict)) and not(checkStringState("Scarlet Rot", row_dict))):
+            if (descriptionArray != [] and (float(specialEffect['Trigger Interval']) == 0.0 or float(row_dict['trigger_interval']) < float(row_dict["duration"])) and \
+                    float(specialEffect['Duration']) != 0.1 and not(checkStringState("Poison", row_dict)) and not(checkStringState("Scarlet Rot", row_dict))):
                 if (float(specialEffect['Duration']) > 0.0):
                     if (float(specialEffect['Duration']) == 1.0):
                         descriptionArray.append("Effect lasts for " + str(round(abs((float(specialEffect['Duration']))), 2)) + " second")
@@ -2692,7 +2716,8 @@ def checkStringState(state, row_dict):
     return state in row_dict["state_info"]
 
 def checkStringAllStates(state, row_dict):
-    return state in row_dict["state_info"] or state in row_dict["trigger_on_state_info_1"] or state in row_dict["trigger_on_state_info_2"] or state in row_dict["trigger_on_state_info_3"]
+    return state in row_dict["state_info"] or state in row_dict["trigger_on_state_info_1"] or state in row_dict["trigger_on_state_info_2"] or \
+        state in row_dict["trigger_on_state_info_3"]
 
 def getPassiveEffectVfx(row_dict, specialEffectId, descriptionArray):
     if specialEffectId  in SpEffectVfxParam:
@@ -2743,6 +2768,7 @@ weapon_groups = getWeaponGroups()
 physical_calculations = getPhysCalc()
 armor_data = getArmorData()
 talisman_data = getTalismanData()
+talisman_groups = getTalismanGroups()
 max_head, max_body, max_arm, max_leg = getMaxArmorData()
 head_group, body_group, arm_group, leg_group = getArmorGroups()
 
@@ -2756,6 +2782,7 @@ writeToFile('weapon_groups', weapon_groups)
 writeToFile('physical_calculations', physical_calculations)
 writeToFile('armor_data', armor_data)
 writeToFile('talisman_data', talisman_data)
+writeToFile('talisman_groups', talisman_groups)
 writeToFile('max_head', max_head)
 writeToFile('max_body', max_body)
 writeToFile('max_arm', max_arm)
