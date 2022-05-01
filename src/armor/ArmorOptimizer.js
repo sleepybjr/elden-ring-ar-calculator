@@ -14,6 +14,7 @@ const resultComparator = (a, b) => b.totalResistanceValueWeighted - a.totalResis
 const resultComparatorMin = (a, b) => a.totalResistanceValueWeighted - b.totalResistanceValueWeighted;
 const resultComparatorMaxReal = (a, b) => b.robustness - a.robustness;
 const MAX_HEAP_LENGTH = 1000;
+// const MAX_HEAP_LENGTH_FIRST = 100;
 const IS_NOT_WEARING = 1;
 
 const armorResistances = [
@@ -118,14 +119,8 @@ const permuteArmor = function (equippedArmor, loadRemaining, resistanceMinimum, 
 
     }
 
-    // const splitDataWeight = groupBy(sortedWeight, "weight");
     const splitDataEquipmentType = groupBy(sortedWeight, "equipment_type");
-    //Helm.length = 168, Chest.length = 198, Hands.length = 90, Legs.length = 103\
-
-    // console.log(Object.keys(groupBy(splitDataEquipmentType.Arm, "weight")).length);
-    // console.log(Object.keys(groupBy(splitDataEquipmentType.Head, "weight")).length);
-    // console.log(Object.keys(groupBy(splitDataEquipmentType.Body, "weight")).length);
-    // console.log(Object.keys(groupBy(splitDataEquipmentType.Leg, "weight")).length);
+    //Helm.length = 168, Chest.length = 198, Hands.length = 90, Legs.length = 103
 
     // if i exclude items by weight, you get:
     // arm: 29, head: 35, body: 64, leg: 28. 
@@ -157,22 +152,9 @@ const permuteArmor = function (equippedArmor, loadRemaining, resistanceMinimum, 
         return -1;
     }
 
-    // TODO: if remaining weight is > armorsets, eliminiate armor from equation.  this is because the armor cannot be chosen anyways (for optimization of 4)
+    // TODO: if remaining weight is > armorsets, eliminiate armor from equation.  this is because the armor cannot be chosen anyways (for optimization)
 
-    // this takes forever
-    if (iterateArmor.length === 4) {
-        const sortedIterateArmor = iterateArmor.sort((a, b) => a.length - b.length);
-        const firstCombined = combineArmor(sortedIterateArmor[0], sortedIterateArmor[3]);
-        const secondCombined = combineArmor(sortedIterateArmor[1], sortedIterateArmor[2]);
-        // TODO: if remaining weight is > min weight of other set, eliminiate armor from equation.  this is because the armor cannot be chosen anyways
-        // console.log(firstCombined);
-        iterateArmor = [groupBy(firstCombined, "robustness"), groupBy(secondCombined, "robustness")]; // try sorting each one by weight in each group so i can skip anything that doesnt meet weight constraint
-        const ans = findArmorOptimizationDouble(iterateArmor, resultMaxHeap, maxEquipWeight);
-        // return [];
-        return ans;
-    }
-
-    // console.log(iterateArmor);
+    
     const armorSet = [];
     let currPosition = 0;
     const currMinimums = {
@@ -195,6 +177,20 @@ const permuteArmor = function (equippedArmor, loadRemaining, resistanceMinimum, 
         }
     };
 
+    let armorSetWeight = 0;
+    let armorSetValue = 0;
+
+    const armorSetAbsorption = {
+        "physical_absorption": 1,
+        "strike_absorption": 1,
+        "slash_absorption": 1,
+        "thrust_absorption": 1,
+        "magic_absorption": 1,
+        "fire_absorption": 1,
+        "lightning_absorption": 1,
+        "holy_absorption": 1,
+    }
+
     const preCalcAbsorptions = {
         "physical_absorption": 1,
         "strike_absorption": 1,
@@ -206,8 +202,124 @@ const permuteArmor = function (equippedArmor, loadRemaining, resistanceMinimum, 
         "holy_absorption": 1,
     };
 
-    let armorSetWeight = 0;
-    let armorSetValue = 0;
+    // this takes forever
+    if (iterateArmor.length === 4) {
+        // first remove all duplicates from weight using scale
+        const uniqueWeights = [];
+        for (const equipTypeKey of Object.keys(splitDataEquipmentType)) {
+            const newList = [];
+            const armorList = groupBy(splitDataEquipmentType[equipTypeKey], "weight");
+
+            // console.log(armorList);
+
+            for (const weightKey of Object.keys(armorList)) {
+                if (armorList[weightKey].length > 1) {
+                    // this means there are multiple weights, pick the best one?
+			        let maxArmorPiece = armorList[weightKey].reduce(function(prev, current) { return (prev.totalResistanceValueWeighted > current.totalResistanceValueWeighted) ? prev : current });
+                    newList.push(maxArmorPiece);
+                } else {
+                    newList.push(armorList[weightKey][0]);
+                }
+            }
+
+            uniqueWeights.push(newList);
+        }
+
+        // then run normal algorithm
+        findArmorOptimization2(armorSet, uniqueWeights, result, maxEquipWeight, currPosition, currMinimums, resistanceMinimum, armorSetWeight, armorSetValue, armorSetAbsorption, resistanceMultiplier, maxAbsorption, preCalcAbsorptions, MAX_HEAP_LENGTH);
+
+        return result.toArray().sort(resultComparator);
+
+        //****************************** */
+        // below is code to recalculate the armor to make calculation even better by readding options that were skipped
+        // not perfect, needs to be refined
+        //****************************** */
+        // const weights = {
+        //     Head: new Set(),
+        //     Arm: new Set(),
+        //     Body: new Set(),
+        //     Leg: new Set(),
+        // }
+
+        // // re-add weight back??
+        // for (const row of result.toArray()) {
+        //     for (const armor of row.armorSet) {
+        //         weights[armor.equipment_type].add(armor.weight);
+        //     }
+        // }
+
+        // const uniqueWeights2 = [];
+        // for (const equipTypeKey of Object.keys(splitDataEquipmentType)) {
+        //     const newList = [];
+        //     const armorList = groupBy(splitDataEquipmentType[equipTypeKey], "weight");
+
+        //     // console.log(armorList);
+
+        //     for (const weightKey of Object.keys(armorList)) {
+        //         if (weights[equipTypeKey].has(parseFloat(weightKey))) {
+        //             newList.push(...armorList[weightKey]);
+        //         }
+        //     }
+        //     uniqueWeights2.push(newList);
+        // }
+
+        // console.log(uniqueWeights2);
+
+        // const armorSet2 = [];
+        // let currPosition2 = 0;
+        // const currMinimums2 = {
+        //     damage_negation: {
+        //         "physical_absorption": 0,
+        //         "strike_absorption": 0,
+        //         "slash_absorption": 0,
+        //         "thrust_absorption": 0,
+        //         "magic_absorption": 0,
+        //         "fire_absorption": 0,
+        //         "lightning_absorption": 0,
+        //         "holy_absorption": 0,
+        //     },
+        //     resistance: {
+        //         "immunity": 0,
+        //         "robustness": 0,
+        //         "focus": 0,
+        //         "vitality": 0,
+        //         "poise": 0,
+        //     }
+        // };
+    
+        // let armorSetWeight2 = 0;
+        // let armorSetValue2 = 0;
+    
+        // const armorSetAbsorption2 = {
+        //     "physical_absorption": 1,
+        //     "strike_absorption": 1,
+        //     "slash_absorption": 1,
+        //     "thrust_absorption": 1,
+        //     "magic_absorption": 1,
+        //     "fire_absorption": 1,
+        //     "lightning_absorption": 1,
+        //     "holy_absorption": 1,
+        // }
+    
+        // const preCalcAbsorptions2 = {
+        //     "physical_absorption": 1,
+        //     "strike_absorption": 1,
+        //     "slash_absorption": 1,
+        //     "thrust_absorption": 1,
+        //     "magic_absorption": 1,
+        //     "fire_absorption": 1,
+        //     "lightning_absorption": 1,
+        //     "holy_absorption": 1,
+        // };
+        // const result2 = new Heap(resultComparatorMin);
+        // result2.init();
+        
+        // then run algorithm again?
+        // need to see how many combinations there are after re-adding all the weight
+
+        // findArmorOptimization2(armorSet2, uniqueWeights2, result2, maxEquipWeight, currPosition2, currMinimums2, resistanceMinimum, armorSetWeight2, armorSetValue2, armorSetAbsorption2, resistanceMultiplier, maxAbsorption, preCalcAbsorptions2, MAX_HEAP_LENGTH);
+        // return result2.toArray().sort(resultComparator);
+    }
 
     // initialize values to selected armor pieces, should it be included in the total value? I dont think so.
     for (const element of currEquippedArmor) {
@@ -220,26 +332,15 @@ const permuteArmor = function (equippedArmor, loadRemaining, resistanceMinimum, 
             currMinimums.resistance[key] += element[key];
         }
     }
-
-    const armorSetAbsorption = {
-        "physical_absorption": 1,
-        "strike_absorption": 1,
-        "slash_absorption": 1,
-        "thrust_absorption": 1,
-        "magic_absorption": 1,
-        "fire_absorption": 1,
-        "lightning_absorption": 1,
-        "holy_absorption": 1,
-    }
     // findArmorOptimization(armorSet, iterateArmor, result, maxEquipWeight, currPosition, currMinimums, resistanceMinimum, armorSetWeight, armorSetValue, armorSetAbsorption, resistanceMultiplier, maxAbsorption);
-    findArmorOptimization2(armorSet, iterateArmor, result, maxEquipWeight, currPosition, currMinimums, resistanceMinimum, armorSetWeight, armorSetValue, armorSetAbsorption, resistanceMultiplier, maxAbsorption, preCalcAbsorptions);
+    findArmorOptimization2(armorSet, iterateArmor, result, maxEquipWeight, currPosition, currMinimums, resistanceMinimum, armorSetWeight, armorSetValue, armorSetAbsorption, resistanceMultiplier, maxAbsorption, preCalcAbsorptions, MAX_HEAP_LENGTH);
 
     // console.log(result);
     return result.toArray().sort(resultComparator);
     // return [];
 };
 
-const findArmorOptimization2 = (armorSet, iterateArmor, result, maxEquipWeight, currPosition, currMinimums, resistanceMinimum, armorSetWeight, armorSetValue, armorSetAbsorption, resistanceMultiplier, maxAbsorption, preCalcAbsorptions) => {
+const findArmorOptimization2 = (armorSet, iterateArmor, result, maxEquipWeight, currPosition, currMinimums, resistanceMinimum, armorSetWeight, armorSetValue, armorSetAbsorption, resistanceMultiplier, maxAbsorption, preCalcAbsorptions, heapLength) => {
     
     const startOptimization = () => {
         const currentIterationArmor = iterateArmor[currPosition];
@@ -308,7 +409,7 @@ const findArmorOptimization2 = (armorSet, iterateArmor, result, maxEquipWeight, 
                     }
 
                     if (meetsMinimum === true) {
-                        if (result.length < MAX_HEAP_LENGTH) {
+                        if (result.length < heapLength) {
                             result.push({ armorSet: [...armorSet], totalResistanceValueWeighted: armorSetValue });
                         } else {
                             if (result.peek().totalResistanceValueWeighted < armorSetValue) {
@@ -341,81 +442,6 @@ const findArmorOptimization2 = (armorSet, iterateArmor, result, maxEquipWeight, 
 
     startOptimization();
 };
-
-// why does this start duplicating? need to debug with fresher mind
-const combineArmor = (iterateArmor1, iterateArmor2) => {
-    const result = [];
-    const armorSet = [];
-    let armorSetWeight = 0;
-    let armorSetValue = 0;
-
-    for (const armor1 of iterateArmor1) {
-        armorSet.push({ ...armor1 });
-        armorSetWeight += armor1.weight;
-        armorSetValue += armor1.robustness ? armor1.robustness : 0;
-
-        for (const armor2 of iterateArmor2) {
-            armorSet.push({ ...armor2 });
-            armorSetWeight += armor2.weight;
-            armorSetValue += armor2.robustness ? armor2.robustness : 0;
-
-            result.push({ armorSet: [...armorSet], robustness: armorSetValue, weight: armorSetWeight });
-
-            armorSetWeight -= armor2.weight;
-            armorSetValue -= armor2.robustness ? armor2.robustness : 0;
-            armorSet.pop();
-
-        }
-        armorSetWeight -= armor1.weight;
-        armorSetValue -= armor1.robustness ? armor1.robustness : 0;
-        armorSet.pop();
-    }
-
-    return result;
-};
-
-const findArmorOptimizationDouble = (iterateArmor, resultMaxHeap, maxEquipWeight) => {
-    const A = 0;
-    const B = 1;
-    const keysA = Object.keys(iterateArmor[A]).reverse();
-    const keysB = Object.keys(iterateArmor[B]).reverse();
-
-    let iteratorA = 0;
-    let iteratorB = 0;
-
-    // console.log(iterateArmor)
-
-    const ans = [];
-
-    // add first combination to heap
-    resultMaxHeap.push({ first_key: keysA[iteratorA], second_key: keysB[iteratorB], robustness: parseInt(keysA[iteratorA]) + parseInt(keysB[iteratorB]) });
-
-    // TODO: why isn't it showing 300 mil combinations????????
-    // the reason is because im not comparing everything due to the step down... i wonder if this will cause problems?
-    // example: 0 legs / guantlets and 132 chest / head isnt checked. far apart variables are ignored.
-    // while (ans.length < MAX_HEAP_LENGTH || (iteratorA < keysA.length && iteratorB < keysB.length)) { // this works and gets all solutions
-    while (ans.length < MAX_HEAP_LENGTH && (iteratorA < keysA.length && iteratorB < keysB.length)) { // this gets up to heap length
-
-        const maxValue = resultMaxHeap.pop();
-
-        const armorSetsA = iterateArmor[A][maxValue.first_key];
-        const armorSetsB = iterateArmor[B][maxValue.second_key];
-
-        // make combinations of each armor set, 
-        const results = combineArmor(armorSetsA, armorSetsB);
-        // console.log(results);
-        for (const result of results) {
-            if (result.weight <= maxEquipWeight) {
-                ans.push({ armorSet: { ...result } });
-            }
-        }
-
-        resultMaxHeap.push({ first_key: keysA[iteratorA + 1], second_key: keysB[iteratorB], robustness: parseInt(keysA[iteratorA + 1]) + parseInt(keysB[iteratorB]) });
-        resultMaxHeap.push({ first_key: keysA[iteratorA], second_key: keysB[iteratorB + 1], robustness: parseInt(keysA[iteratorA]) + parseInt(keysB[iteratorB + 1]) });
-    }
-
-    return ans;
-}
 
 export default function armorOptimizer(equippedArmor, loadRemaining, resistanceMinimum, resistanceMultiplier, currEquippedArmor) {
     return permuteArmor(equippedArmor, loadRemaining, resistanceMinimum, resistanceMultiplier, currEquippedArmor);

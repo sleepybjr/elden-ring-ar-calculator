@@ -113,12 +113,6 @@ export default function FilterableArmorTable() {
             Leg: searchedArmor.hasOwnProperty("legs") && searchedArmor.legs !== null ? IS_WEARING : IS_NOT_WEARING,
         };
 
-        // temporary until  we get 4 select faster, don't allow 4 armor since 300 mil operations
-        if (equippedArmor.Head === IS_NOT_WEARING && equippedArmor.Body === IS_NOT_WEARING && equippedArmor.Arm === IS_NOT_WEARING && equippedArmor.Leg === IS_NOT_WEARING) {
-            setErrors("Please select at least one equipped armor.");
-            setSpinner(null);
-            return;
-        }
 
         if (equippedArmor.Head === IS_WEARING && equippedArmor.Body === IS_WEARING && equippedArmor.Arm === IS_WEARING && equippedArmor.Leg === IS_WEARING) {
             const singleArmorRow = {

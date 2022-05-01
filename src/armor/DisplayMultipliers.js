@@ -2,7 +2,7 @@ const armorResistances = {
     damage_negation: {
         physical_absorption: "Physical",
         strike_absorption: "Strike",
-        slash_absorption: "Slack",
+        slash_absorption: "Slash",
         thrust_absorption: "Thrust",
         magic_absorption: "Magic",
         fire_absorption: "Fire",
