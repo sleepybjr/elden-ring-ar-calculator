@@ -373,7 +373,7 @@ export default function FilterableArmorTable() {
 
     function handleResistanceMultiplierChange(event) {
         const newValue = event.target.value;
-        const newId = event.target.id;
+        const newId = event.target.id.replace('_multiplier','');
 
         let newResistances = { ...resistancesMultiplier };
 
