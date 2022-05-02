@@ -1124,6 +1124,7 @@ def getTalismanData():
             row_dict = OrderedDict()
             row_dict["name"] = row['Row Name']
             row_dict["weight"] = float(row['Weight'])
+            row_dict["accessory_group"] = int(row['Accessory Group'])
             row_dict["passive_1"] = getPassiveEffect(SpEffectParam[row['SpEffect ID [0]']], row['SpEffect ID [0]'],  False)
             # Millicent's Prosthesis
             if (int(row['SpEffect ID [0]']) == 312500):
