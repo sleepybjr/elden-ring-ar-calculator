@@ -2,9 +2,10 @@
     {
         "name": "Crimson Amber Medallion",
         "weight": 0.3,
+        "accessory_group": 1000,
         "passive_1": {
             "name": "Crimson Amber Medallion",
-            "max_hp_%": 0.06000000000000005,
+            "max_hp_percent": 0.06000000000000005,
             "description": [
                 "Increase Max HP by 6.0%"
             ]
@@ -13,9 +14,10 @@
     {
         "name": "Crimson Amber Medallion +1",
         "weight": 0.3,
+        "accessory_group": 1000,
         "passive_1": {
             "name": "Crimson Amber Medallion +1",
-            "max_hp_%": 0.07000000000000006,
+            "max_hp_percent": 0.07000000000000006,
             "description": [
                 "Increase Max HP by 7.0%"
             ]
@@ -24,9 +26,10 @@
     {
         "name": "Crimson Amber Medallion +2",
         "weight": 0.3,
+        "accessory_group": 1000,
         "passive_1": {
             "name": "Crimson Amber Medallion +2",
-            "max_hp_%": 0.08000000000000007,
+            "max_hp_percent": 0.08000000000000007,
             "description": [
                 "Increase Max HP by 8.0%"
             ]
@@ -35,9 +38,10 @@
     {
         "name": "Cerulean Amber Medallion",
         "weight": 0.3,
+        "accessory_group": 1010,
         "passive_1": {
             "name": "Cerulean Amber Medallion",
-            "max_fp_%": 0.07000000000000006,
+            "max_fp_percent": 0.07000000000000006,
             "description": [
                 "Increase Max FP by 7.0%"
             ]
@@ -46,9 +50,10 @@
     {
         "name": "Cerulean Amber Medallion +1",
         "weight": 0.3,
+        "accessory_group": 1010,
         "passive_1": {
             "name": "Cerulean Amber Medallion +1",
-            "max_fp_%": 0.09000000000000008,
+            "max_fp_percent": 0.09000000000000008,
             "description": [
                 "Increase Max FP by 9.0%"
             ]
@@ -57,9 +62,10 @@
     {
         "name": "Cerulean Amber Medallion +2",
         "weight": 0.3,
+        "accessory_group": 1010,
         "passive_1": {
             "name": "Cerulean Amber Medallion +2",
-            "max_fp_%": 0.1100000000000001,
+            "max_fp_percent": 0.1100000000000001,
             "description": [
                 "Increase Max FP by 11.0%"
             ]
@@ -68,9 +74,10 @@
     {
         "name": "Viridian Amber Medallion",
         "weight": 0.3,
+        "accessory_group": 1020,
         "passive_1": {
             "name": "Viridian Amber Medallion",
-            "max_stamina_%": 0.1100000000000001,
+            "max_stamina_percent": 0.1100000000000001,
             "description": [
                 "Increase Max Stamina by 11.0%"
             ]
@@ -79,9 +86,10 @@
     {
         "name": "Viridian Amber Medallion +1",
         "weight": 0.3,
+        "accessory_group": 1020,
         "passive_1": {
             "name": "Viridian Amber Medallion +1",
-            "max_stamina_%": 0.1299999999999999,
+            "max_stamina_percent": 0.1299999999999999,
             "description": [
                 "Increase Max Stamina by 13.0%"
             ]
@@ -90,9 +98,10 @@
     {
         "name": "Viridian Amber Medallion +2",
         "weight": 0.3,
+        "accessory_group": 1020,
         "passive_1": {
             "name": "Viridian Amber Medallion +2",
-            "max_stamina_%": 0.1499999999999999,
+            "max_stamina_percent": 0.1499999999999999,
             "description": [
                 "Increase Max Stamina by 15.0%"
             ]
@@ -101,9 +110,10 @@
     {
         "name": "Arsenal Charm",
         "weight": 1.5,
+        "accessory_group": 1030,
         "passive_1": {
             "name": "Arsenal Charm",
-            "equip_load_%": 0.1499999999999999,
+            "equip_load_percent": 0.1499999999999999,
             "description": [
                 "Increase Equip Load by 15.0%"
             ]
@@ -112,9 +122,10 @@
     {
         "name": "Arsenal Charm +1",
         "weight": 1.5,
+        "accessory_group": 1030,
         "passive_1": {
             "name": "Arsenal Charm +1",
-            "equip_load_%": 0.16999999999999993,
+            "equip_load_percent": 0.16999999999999993,
             "description": [
                 "Increase Equip Load by 17.0%"
             ]
@@ -123,9 +134,10 @@
     {
         "name": "Great-Jar's Arsenal",
         "weight": 1.5,
+        "accessory_group": 1030,
         "passive_1": {
             "name": "Great-Jar's Arsenal",
-            "equip_load_%": 0.18999999999999995,
+            "equip_load_percent": 0.18999999999999995,
             "description": [
                 "Increase Equip Load by 19.0%"
             ]
@@ -134,11 +146,12 @@
     {
         "name": "Erdtree's Favor",
         "weight": 1.5,
+        "accessory_group": 1040,
         "passive_1": {
             "name": "Erdtree's Favor",
-            "max_hp_%": 0.030000000000000027,
-            "max_stamina_%": 0.07000000000000006,
-            "equip_load_%": 0.050000000000000044,
+            "max_hp_percent": 0.030000000000000027,
+            "max_stamina_percent": 0.07000000000000006,
+            "equip_load_percent": 0.050000000000000044,
             "trigger_interval": 0.06,
             "cycle_special_effect": {
                 "name": "Erdtree's Favor [Cycle]",
@@ -159,11 +172,12 @@
     {
         "name": "Erdtree's Favor +1",
         "weight": 1.5,
+        "accessory_group": 1040,
         "passive_1": {
             "name": "Erdtree's Favor +1",
-            "max_hp_%": 0.03499999999999992,
-            "max_stamina_%": 0.08499999999999996,
-            "equip_load_%": 0.06499999999999995,
+            "max_hp_percent": 0.03499999999999992,
+            "max_stamina_percent": 0.08499999999999996,
+            "equip_load_percent": 0.06499999999999995,
             "cycle_special_effect": {
                 "name": "Erdtree's Favor +1 [Cycle]",
                 "trigger_interval": 0.06,
@@ -183,11 +197,12 @@
     {
         "name": "Erdtree's Favor +2",
         "weight": 1.5,
+        "accessory_group": 1040,
         "passive_1": {
             "name": "Erdtree's Favor +2",
-            "max_hp_%": 0.040000000000000036,
-            "max_stamina_%": 0.10000000000000009,
-            "equip_load_%": 0.08000000000000007,
+            "max_hp_percent": 0.040000000000000036,
+            "max_stamina_percent": 0.10000000000000009,
+            "equip_load_percent": 0.08000000000000007,
             "cycle_special_effect": {
                 "name": "Erdtree's Favor +2 [Cycle]",
                 "trigger_interval": 0.06,
@@ -207,6 +222,7 @@
     {
         "name": "Radagon's Scarseal",
         "weight": 0.8,
+        "accessory_group": 1050,
         "passive_1": {
             "name": "Radagon's Scarseal",
             "absorption_standard": -0.10000000000000009,
@@ -233,6 +249,7 @@
     {
         "name": "Radagon's Soreseal",
         "weight": 0.8,
+        "accessory_group": 1050,
         "passive_1": {
             "name": "Radagon's Soreseal",
             "absorption_standard": -0.1499999999999999,
@@ -259,6 +276,7 @@
     {
         "name": "Starscourge Heirloom",
         "weight": 0.8,
+        "accessory_group": 1060,
         "passive_1": {
             "name": "Starscourge Heirloom",
             "strength": 5,
@@ -270,6 +288,7 @@
     {
         "name": "Prosthesis-Wearer Heirloom",
         "weight": 0.8,
+        "accessory_group": 1070,
         "passive_1": {
             "name": "Prosthesis-Wearer Heirloom",
             "dexterity": 5,
@@ -281,6 +300,7 @@
     {
         "name": "Stargazer Heirloom",
         "weight": 0.6,
+        "accessory_group": 1080,
         "passive_1": {
             "name": "Stargazer Heirloom",
             "intelligence": 5,
@@ -292,6 +312,7 @@
     {
         "name": "Two Fingers Heirloom",
         "weight": 0.6,
+        "accessory_group": 1090,
         "passive_1": {
             "name": "Two Fingers Heirloom",
             "faith": 5,
@@ -303,6 +324,7 @@
     {
         "name": "Silver Scarab",
         "weight": 1.2,
+        "accessory_group": 1100,
         "passive_1": {
             "name": "Silver Scarab",
             "state_info": "Modify Item Discovery",
@@ -315,10 +337,11 @@
     {
         "name": "Gold Scarab",
         "weight": 1.2,
+        "accessory_group": 1110,
         "passive_1": {
             "name": "Gold Scarab",
             "state_info": "Modify Rune Gain",
-            "rune_gain_%": 0.19999999999999996,
+            "rune_gain_percent": 0.19999999999999996,
             "description": [
                 "Increase Runes Gained by 20.0%"
             ]
@@ -327,6 +350,7 @@
     {
         "name": "Moon of Nokstella",
         "weight": 0.8,
+        "accessory_group": 1140,
         "passive_1": {
             "name": "Moon of Nokstella",
             "memory_slot": 2,
@@ -338,6 +362,7 @@
     {
         "name": "Green Turtle Talisman",
         "weight": 0.7,
+        "accessory_group": 1150,
         "passive_1": {
             "name": "Green Turtle Talisman",
             "state_info": "Green Blossom VFX",
@@ -350,6 +375,7 @@
     {
         "name": "Stalwart Horn Charm",
         "weight": 0.6,
+        "accessory_group": 1160,
         "passive_1": {
             "name": "Stalwart Horn Charm",
             "robustness": 90,
@@ -361,6 +387,7 @@
     {
         "name": "Stalwart Horn Charm +1",
         "weight": 0.6,
+        "accessory_group": 1160,
         "passive_1": {
             "name": "Stalwart Horn Charm +1",
             "robustness": 140,
@@ -372,6 +399,7 @@
     {
         "name": "Immunizing Horn Charm",
         "weight": 0.6,
+        "accessory_group": 1170,
         "passive_1": {
             "name": "Immunizing Horn Charm",
             "immunity": 90,
@@ -383,6 +411,7 @@
     {
         "name": "Immunizing Horn Charm +1",
         "weight": 0.6,
+        "accessory_group": 1170,
         "passive_1": {
             "name": "Immunizing Horn Charm +1",
             "immunity": 140,
@@ -394,6 +423,7 @@
     {
         "name": "Clarifying Horn Charm",
         "weight": 0.6,
+        "accessory_group": 1180,
         "passive_1": {
             "name": "Clarifying Horn Charm",
             "focus": 90,
@@ -405,6 +435,7 @@
     {
         "name": "Clarifying Horn Charm +1",
         "weight": 0.6,
+        "accessory_group": 1180,
         "passive_1": {
             "name": "Clarifying Horn Charm +1",
             "focus": 140,
@@ -416,6 +447,7 @@
     {
         "name": "Prince of Death's Pustule",
         "weight": 0.6,
+        "accessory_group": 1190,
         "passive_1": {
             "name": "Prince of Death's Pustule",
             "vitality": 90,
@@ -427,6 +459,7 @@
     {
         "name": "Prince of Death's Cyst",
         "weight": 0.6,
+        "accessory_group": 1190,
         "passive_1": {
             "name": "Prince of Death's Cyst",
             "vitality": 140,
@@ -438,6 +471,7 @@
     {
         "name": "Mottled Necklace",
         "weight": 0.9,
+        "accessory_group": 1200,
         "passive_1": {
             "name": "Mottled Necklace",
             "immunity": 40,
@@ -453,6 +487,7 @@
     {
         "name": "Mottled Necklace +1",
         "weight": 0.9,
+        "accessory_group": 1200,
         "passive_1": {
             "name": "Mottled Necklace +1",
             "immunity": 60,
@@ -468,9 +503,10 @@
     {
         "name": "Bull-Goat's Talisman",
         "weight": 0.5,
+        "accessory_group": 1210,
         "passive_1": {
             "name": "Bull-Goat's Talisman",
-            "poise_%": 0.25,
+            "poise_percent": 0.25,
             "description": [
                 "Increase Poise by 25.0%"
             ]
@@ -479,6 +515,7 @@
     {
         "name": "Marika's Scarseal",
         "weight": 0.8,
+        "accessory_group": 1220,
         "passive_1": {
             "name": "Marika's Scarseal",
             "absorption_standard": -0.10000000000000009,
@@ -505,6 +542,7 @@
     {
         "name": "Marika's Soreseal",
         "weight": 0.8,
+        "accessory_group": 1220,
         "passive_1": {
             "name": "Marika's Soreseal",
             "absorption_standard": -0.1499999999999999,
@@ -531,6 +569,7 @@
     {
         "name": "Warrior Jar Shard",
         "weight": 0.9,
+        "accessory_group": 1230,
         "passive_1": {
             "name": "Warrior Jar Shard",
             "attack_percent_physical": 0.10000000000000009,
@@ -550,6 +589,7 @@
     {
         "name": "Shard of Alexander",
         "weight": 0.9,
+        "accessory_group": 1230,
         "passive_1": {
             "name": "Shard of Alexander",
             "attack_percent_physical": 0.1499999999999999,
@@ -569,6 +609,7 @@
     {
         "name": "Millicent's Prosthesis",
         "weight": 1.6,
+        "accessory_group": 1250,
         "passive_1": {
             "name": "Millicent's Prosthesis",
             "dexterity": 5,
@@ -707,6 +748,7 @@
     {
         "name": "Magic Scorpion Charm",
         "weight": 0.8,
+        "accessory_group": 2000,
         "passive_1": {
             "name": "Magic Scorpion Charm",
             "damage_percent_magic": 0.1200000000000001,
@@ -728,6 +770,7 @@
     {
         "name": "Lightning Scorpion Charm",
         "weight": 0.8,
+        "accessory_group": 2010,
         "passive_1": {
             "name": "Lightning Scorpion Charm",
             "damage_percent_lightning": 0.1200000000000001,
@@ -749,6 +792,7 @@
     {
         "name": "Fire Scorpion Charm",
         "weight": 0.8,
+        "accessory_group": 2020,
         "passive_1": {
             "name": "Fire Scorpion Charm",
             "damage_percent_fire": 0.1200000000000001,
@@ -770,6 +814,7 @@
     {
         "name": "Sacred Scorpion Charm",
         "weight": 0.8,
+        "accessory_group": 2030,
         "passive_1": {
             "name": "Sacred Scorpion Charm",
             "damage_percent_holy": 0.1200000000000001,
@@ -791,6 +836,7 @@
     {
         "name": "Red-Feathered Branchsword",
         "weight": 1.4,
+        "accessory_group": 2040,
         "passive_1": {
             "name": "Red-Feathered Branchsword",
             "state_info": "Increase Damage",
@@ -804,7 +850,7 @@
             "pvp_damage_percent_fire": 0.19999999999999996,
             "pvp_damage_percent_lightning": 0.19999999999999996,
             "pvp_damage_percent_holy": 0.19999999999999996,
-            "trigger_below_hp_%": 20,
+            "trigger_below_hp_percent": 20,
             "affects_sorcery": "True",
             "affects_incantation": "True",
             "description": [
@@ -819,6 +865,7 @@
     {
         "name": "Ritual Sword Talisman",
         "weight": 0.9,
+        "accessory_group": 2050,
         "passive_1": {
             "name": "Ritual Sword Talisman",
             "damage_percent_physical": 0.10000000000000009,
@@ -831,7 +878,7 @@
             "pvp_damage_percent_fire": 0.10000000000000009,
             "pvp_damage_percent_lightning": 0.10000000000000009,
             "pvp_damage_percent_holy": 0.10000000000000009,
-            "trigger_above_hp_%": 100,
+            "trigger_above_hp_percent": 100,
             "affects_sorcery": "True",
             "affects_incantation": "True",
             "description": [
@@ -846,6 +893,7 @@
     {
         "name": "Spear Talisman",
         "weight": 0.5,
+        "accessory_group": 2060,
         "passive_1": {
             "name": "Spear Talisman",
             "state_info": "Enhance Thrusting Counter Attacks",
@@ -863,9 +911,10 @@
     {
         "name": "Hammer Talisman",
         "weight": 0.9,
+        "accessory_group": 2070,
         "passive_1": {
             "name": "Hammer Talisman",
-            "guard_break_%": 0.19999999999999996,
+            "guard_break_percent": 0.19999999999999996,
             "description": [
                 "Increase Guard Break by 20.0%"
             ]
@@ -874,6 +923,7 @@
     {
         "name": "Winged Sword Insignia",
         "weight": 1.4,
+        "accessory_group": 2080,
         "passive_1": {
             "name": "Winged Sword Insignia",
             "state_info": "Conditional 1",
@@ -1005,6 +1055,7 @@
     {
         "name": "Rotten Winged Sword Insignia",
         "weight": 1.4,
+        "accessory_group": 2080,
         "passive_1": {
             "name": "Rotten Winged Sword Insignia",
             "state_info": "Conditional 1",
@@ -1136,6 +1187,7 @@
     {
         "name": "Dagger Talisman",
         "weight": 1.1,
+        "accessory_group": 2090,
         "passive_1": {
             "name": "Dagger Talisman",
             "state_info": "Enhance Critical Attacks",
@@ -1153,6 +1205,7 @@
     {
         "name": "Arrow's Reach Talisman",
         "weight": 0.7,
+        "accessory_group": 2100,
         "passive_1": {
             "name": "Arrow's Reach Talisman",
             "state_info": "Bow Distance Change",
@@ -1165,6 +1218,7 @@
     {
         "name": "Blue Dancer Charm",
         "weight": 0.9,
+        "accessory_group": 2110,
         "passive_1": {
             "name": "Blue Dancer Charm",
             "state_info": "Scale Attack Power with Equip Load",
@@ -1182,6 +1236,7 @@
     {
         "name": "Twinblade Talisman",
         "weight": 0.7,
+        "accessory_group": 2120,
         "passive_1": {
             "name": "Twinblade Talisman",
             "attack_percent_physical": 0.19999999999999996,
@@ -1199,6 +1254,7 @@
     {
         "name": "Axe Talisman",
         "weight": 0.8,
+        "accessory_group": 2130,
         "passive_1": {
             "name": "Axe Talisman",
             "attack_percent_physical": 0.10000000000000009,
@@ -1216,6 +1272,7 @@
     {
         "name": "Lance Talisman",
         "weight": 0.7,
+        "accessory_group": 2140,
         "passive_1": {
             "name": "Lance Talisman",
             "attack_percent_physical": 0.1499999999999999,
@@ -1233,6 +1290,7 @@
     {
         "name": "Arrow's Sting Talisman",
         "weight": 0.7,
+        "accessory_group": 2150,
         "passive_1": {
             "name": "Arrow's Sting Talisman",
             "attack_percent_physical": 0.10000000000000009,
@@ -1254,6 +1312,7 @@
     {
         "name": "Lord of Blood's Exultation",
         "weight": 0.9,
+        "accessory_group": 2160,
         "passive_1": {
             "name": "Lord of Blood's Exultation",
             "trigger_on_state_info_1": "Trigger in Presence of Blood Loss",
@@ -1286,6 +1345,7 @@
     {
         "name": "Kindred of Rot's Exultation",
         "weight": 0.9,
+        "accessory_group": 2170,
         "passive_1": {
             "name": "Kindred of Rot's Exultation",
             "trigger_on_state_info_1": "Trigger in Presence of Rot",
@@ -1318,6 +1378,7 @@
     {
         "name": "Claw Talisman",
         "weight": 0.7,
+        "accessory_group": 2180,
         "passive_1": {
             "name": "Claw Talisman",
             "attack_percent_physical": 0.1499999999999999,
@@ -1335,6 +1396,7 @@
     {
         "name": "Roar Medallion",
         "weight": 0.7,
+        "accessory_group": 2190,
         "passive_1": {
             "name": "Roar Medallion",
             "attack_percent_physical": 0.1499999999999999,
@@ -1358,6 +1420,7 @@
     {
         "name": "Curved Sword Talisman",
         "weight": 0.7,
+        "accessory_group": 2200,
         "passive_1": {
             "name": "Curved Sword Talisman",
             "attack_percent_physical": 0.19999999999999996,
@@ -1375,6 +1438,7 @@
     {
         "name": "Companion Jar",
         "weight": 0.6,
+        "accessory_group": 2210,
         "passive_1": {
             "name": "Companion Jar",
             "attack_percent_physical": 0.19999999999999996,
@@ -1392,6 +1456,7 @@
     {
         "name": "Perfumer's Talisman",
         "weight": 0.6,
+        "accessory_group": 2220,
         "passive_1": {
             "name": "Perfumer's Talisman",
             "attack_percent_physical": 0.19999999999999996,
@@ -1409,6 +1474,7 @@
     {
         "name": "Graven-School Talisman",
         "weight": 0.7,
+        "accessory_group": 3000,
         "passive_1": {
             "name": "Graven-School Talisman",
             "state_info": "Spell Power Boost",
@@ -1427,6 +1493,7 @@
     {
         "name": "Graven-Mass Talisman",
         "weight": 1.0,
+        "accessory_group": 3001,
         "passive_1": {
             "name": "Graven-Mass Talisman",
             "state_info": "Spell Power Boost",
@@ -1445,6 +1512,7 @@
     {
         "name": "Faithful's Canvas Talisman",
         "weight": 0.7,
+        "accessory_group": 3040,
         "passive_1": {
             "name": "Faithful's Canvas Talisman",
             "state_info": "Spell Power Boost",
@@ -1463,6 +1531,7 @@
     {
         "name": "Flock's Canvas Talisman",
         "weight": 1.0,
+        "accessory_group": 3050,
         "passive_1": {
             "name": "Flock's Canvas Talisman",
             "state_info": "Spell Power Boost",
@@ -1481,6 +1550,7 @@
     {
         "name": "Old Lord's Talisman",
         "weight": 0.5,
+        "accessory_group": 3060,
         "passive_1": {
             "name": "Old Lord's Talisman",
             "state_info": "Modify Effect Duration",
@@ -1493,6 +1563,7 @@
     {
         "name": "Radagon Icon",
         "weight": 0.7,
+        "accessory_group": 3070,
         "passive_1": {
             "name": "Radagon Icon",
             "cast_speed": 30,
@@ -1504,11 +1575,12 @@
     {
         "name": "Primal Glintstone Blade",
         "weight": 0.6,
+        "accessory_group": 3080,
         "passive_1": {
             "name": "Primal Glintstone Blade",
-            "max_hp_%": -0.15000000000000002,
-            "sorcery_fp_cost_%": -0.25,
-            "incantation_fp_cost_%": -0.25,
+            "max_hp_percent": -0.15000000000000002,
+            "sorcery_fp_cost_percent": -0.25,
+            "incantation_fp_cost_percent": -0.25,
             "trigger_interval": 0.06,
             "cycle_special_effect": {
                 "name": "Primal Glintstone Blade [Cycle]",
@@ -1524,6 +1596,7 @@
     {
         "name": "Godfrey Icon",
         "weight": 0.8,
+        "accessory_group": 3090,
         "passive_1": {
             "name": "Godfrey Icon",
             "attack_percent_physical": 0.1499999999999999,
@@ -1547,6 +1620,7 @@
     {
         "name": "Dragoncrest Shield Talisman",
         "weight": 0.8,
+        "accessory_group": 4000,
         "passive_1": {
             "name": "Dragoncrest Shield Talisman",
             "absorption_percent_physical": 0.09999999999999998,
@@ -1560,6 +1634,7 @@
     {
         "name": "Dragoncrest Shield Talisman +1",
         "weight": 0.8,
+        "accessory_group": 4000,
         "passive_1": {
             "name": "Dragoncrest Shield Talisman +1",
             "absorption_percent_physical": 0.13,
@@ -1573,6 +1648,7 @@
     {
         "name": "Dragoncrest Shield Talisman +2",
         "weight": 0.8,
+        "accessory_group": 4000,
         "passive_1": {
             "name": "Dragoncrest Shield Talisman +2",
             "absorption_percent_physical": 0.17000000000000004,
@@ -1586,6 +1662,7 @@
     {
         "name": "Dragoncrest Greatshield Talisman",
         "weight": 0.8,
+        "accessory_group": 4000,
         "passive_1": {
             "name": "Dragoncrest Greatshield Talisman",
             "absorption_percent_physical": 0.19999999999999996,
@@ -1599,6 +1676,7 @@
     {
         "name": "Spelldrake Talisman",
         "weight": 0.6,
+        "accessory_group": 4010,
         "passive_1": {
             "name": "Spelldrake Talisman",
             "absorption_percent_magic": 0.13,
@@ -1612,6 +1690,7 @@
     {
         "name": "Spelldrake Talisman +1",
         "weight": 0.6,
+        "accessory_group": 4010,
         "passive_1": {
             "name": "Spelldrake Talisman +1",
             "absorption_percent_magic": 0.17000000000000004,
@@ -1625,6 +1704,7 @@
     {
         "name": "Spelldrake Talisman +2",
         "weight": 0.6,
+        "accessory_group": 4010,
         "passive_1": {
             "name": "Spelldrake Talisman +2",
             "absorption_percent_magic": 0.19999999999999996,
@@ -1638,6 +1718,7 @@
     {
         "name": "Flamedrake Talisman",
         "weight": 0.6,
+        "accessory_group": 4020,
         "passive_1": {
             "name": "Flamedrake Talisman",
             "absorption_percent_fire": 0.13,
@@ -1651,6 +1732,7 @@
     {
         "name": "Flamedrake Talisman +1",
         "weight": 0.6,
+        "accessory_group": 4020,
         "passive_1": {
             "name": "Flamedrake Talisman +1",
             "absorption_percent_fire": 0.17000000000000004,
@@ -1664,6 +1746,7 @@
     {
         "name": "Flamedrake Talisman +2",
         "weight": 0.6,
+        "accessory_group": 4020,
         "passive_1": {
             "name": "Flamedrake Talisman +2",
             "absorption_percent_fire": 0.19999999999999996,
@@ -1677,6 +1760,7 @@
     {
         "name": "Boltdrake Talisman",
         "weight": 0.6,
+        "accessory_group": 4030,
         "passive_1": {
             "name": "Boltdrake Talisman",
             "absorption_percent_lightning": 0.13,
@@ -1690,6 +1774,7 @@
     {
         "name": "Boltdrake Talisman +1",
         "weight": 0.6,
+        "accessory_group": 4030,
         "passive_1": {
             "name": "Boltdrake Talisman +1",
             "absorption_percent_lightning": 0.17000000000000004,
@@ -1703,6 +1788,7 @@
     {
         "name": "Boltdrake Talisman +2",
         "weight": 0.6,
+        "accessory_group": 4030,
         "passive_1": {
             "name": "Boltdrake Talisman +2",
             "absorption_percent_lightning": 0.19999999999999996,
@@ -1716,6 +1802,7 @@
     {
         "name": "Haligdrake Talisman",
         "weight": 0.6,
+        "accessory_group": 4040,
         "passive_1": {
             "name": "Haligdrake Talisman",
             "absorption_percent_holy": 0.13,
@@ -1729,6 +1816,7 @@
     {
         "name": "Haligdrake Talisman +1",
         "weight": 0.6,
+        "accessory_group": 4040,
         "passive_1": {
             "name": "Haligdrake Talisman +1",
             "absorption_percent_holy": 0.17000000000000004,
@@ -1742,6 +1830,7 @@
     {
         "name": "Haligdrake Talisman +2",
         "weight": 0.6,
+        "accessory_group": 4040,
         "passive_1": {
             "name": "Haligdrake Talisman +2",
             "absorption_percent_holy": 0.19999999999999996,
@@ -1755,6 +1844,7 @@
     {
         "name": "Pearldrake Talisman",
         "weight": 0.9,
+        "accessory_group": 4050,
         "passive_1": {
             "name": "Pearldrake Talisman",
             "absorption_percent_magic": 0.050000000000000044,
@@ -1774,6 +1864,7 @@
     {
         "name": "Pearldrake Talisman +1",
         "weight": 0.9,
+        "accessory_group": 4050,
         "passive_1": {
             "name": "Pearldrake Talisman +1",
             "absorption_percent_magic": 0.06999999999999995,
@@ -1793,6 +1884,7 @@
     {
         "name": "Pearldrake Talisman +2",
         "weight": 0.9,
+        "accessory_group": 4050,
         "passive_1": {
             "name": "Pearldrake Talisman +2",
             "absorption_percent_magic": 0.08999999999999997,
@@ -1812,6 +1904,7 @@
     {
         "name": "Crucible Scale Talisman",
         "weight": 1.1,
+        "accessory_group": 4060,
         "passive_1": {
             "name": "Crucible Scale Talisman",
             "state_info": "Trigger during Critical Hits",
@@ -1832,6 +1925,7 @@
     {
         "name": "Crucible Feather Talisman",
         "weight": 0.8,
+        "accessory_group": 4070,
         "passive_1": {
             "name": "Crucible Feather Talisman",
             "state_info": "Extend Roll Invinsibility",
@@ -1857,6 +1951,7 @@
     {
         "name": "Blue-Feathered Branchsword",
         "weight": 1.1,
+        "accessory_group": 4080,
         "passive_1": {
             "name": "Blue-Feathered Branchsword",
             "state_info": "Increase Defence",
@@ -1870,7 +1965,7 @@
             "pvp_absorption_percent_fire": 0.5,
             "pvp_absorptione_percent_lightning": 0.5,
             "pvp_absorption_percent_holy": 0.5,
-            "trigger_below_hp_%": 20,
+            "trigger_below_hp_percent": 20,
             "description": [
                 "Increase the Absorption from non-player enemy attacks for Physical, Magic, Fire, Lightning, Holy types by 50.0%",
                 "Increase the Absorption from player attacks for Physical, Magic, Fire, Lightning, Holy types by 50.0%",
@@ -1881,6 +1976,7 @@
     {
         "name": "Ritual Shield Talisman",
         "weight": 0.9,
+        "accessory_group": 4090,
         "passive_1": {
             "name": "Ritual Shield Talisman",
             "absorption_percent_physical": 0.30000000000000004,
@@ -1893,7 +1989,7 @@
             "pvp_absorption_percent_fire": 0.30000000000000004,
             "pvp_absorptione_percent_lightning": 0.30000000000000004,
             "pvp_absorption_percent_holy": 0.30000000000000004,
-            "trigger_above_hp_%": 100,
+            "trigger_above_hp_percent": 100,
             "description": [
                 "Increase the Absorption from non-player enemy attacks for Physical, Magic, Fire, Lightning, Holy types by 30.0%",
                 "Increase the Absorption from player attacks for Physical, Magic, Fire, Lightning, Holy types by 30.0%",
@@ -1904,6 +2000,7 @@
     {
         "name": "Greatshield Talisman",
         "weight": 0.9,
+        "accessory_group": 4100,
         "passive_1": {
             "name": "Greatshield Talisman",
             "state_info": "Left Hand Buff VFX",
@@ -1915,6 +2012,7 @@
     {
         "name": "Crucible Knot Talisman",
         "weight": 0.5,
+        "accessory_group": 4110,
         "passive_1": {
             "name": "Crucible Knot Talisman",
             "state_info": "Reduce Headshot Impact",
@@ -1926,9 +2024,10 @@
     {
         "name": "Crimson Seed Talisman",
         "weight": 0.8,
+        "accessory_group": 5000,
         "passive_1": {
             "name": "Crimson Seed Talisman",
-            "hp_restore_correction_%": 0.19999999999999996,
+            "hp_restore_correction_percent": 0.19999999999999996,
             "description": [
                 "Increase HP Restore from Flask of Crimson Tears by 20.0%"
             ]
@@ -1937,9 +2036,10 @@
     {
         "name": "Cerulean Seed Talisman",
         "weight": 0.8,
+        "accessory_group": 5010,
         "passive_1": {
             "name": "Cerulean Seed Talisman",
-            "fp_restore_correction_%": 0.19999999999999996,
+            "fp_restore_correction_percent": 0.19999999999999996,
             "description": [
                 "Increase FP Restore from Flask of Cerulean Tears by 20.0%"
             ]
@@ -1948,6 +2048,7 @@
     {
         "name": "Blessed Dew Talisman",
         "weight": 0.6,
+        "accessory_group": 5020,
         "passive_1": {
             "name": "Blessed Dew Talisman",
             "change_hp": 2,
@@ -1961,13 +2062,14 @@
     {
         "name": "Taker's Cameo",
         "weight": 1.0,
+        "accessory_group": 5030,
         "passive_1": {
             "name": "Taker's Cameo",
             "state_info": "Apply Kill Effect",
             "kill_special_effect": {
                 "name": "Taker's Cameo [Kill]",
                 "change_hp": 30,
-                "change_hp_%": 3.0,
+                "change_hp_percent": 3.0,
                 "trigger_interval": 1.0,
                 "duration": 0.0
             },
@@ -1981,6 +2083,7 @@
     {
         "name": "Godskin Swaddling Cloth",
         "weight": 0.9,
+        "accessory_group": 5040,
         "passive_1": {
             "name": "Godskin Swaddling Cloth",
             "state_info": "Conditional 2",
@@ -1990,7 +2093,7 @@
                 "name": "Godskin Swaddling Cloth [Conditional]",
                 "state_info": "Conditional 2",
                 "change_hp": 30,
-                "change_hp_%": 3.0,
+                "change_hp_percent": 3.0,
                 "trigger_interval": 4.0,
                 "duration": 1.0
             },
@@ -2004,6 +2107,7 @@
     {
         "name": "Assassin's Crimson Dagger",
         "weight": 0.8,
+        "accessory_group": 5050,
         "passive_1": {
             "name": "Assassin's Crimson Dagger",
             "state_info": "Trigger on Critical Hit (HP)",
@@ -2014,7 +2118,7 @@
                     "name": "Assassin's Crimson Dagger [Triggered]",
                     "trigger_on_state_info_1": "Trigger on Critical Hit (HP)",
                     "change_hp": 85,
-                    "change_hp_%": 10.0,
+                    "change_hp_percent": 10.0,
                     "trigger_interval": 4.0,
                     "duration": 1.0
                 },
@@ -2030,6 +2134,7 @@
     {
         "name": "Assassin's Cerulean Dagger",
         "weight": 0.8,
+        "accessory_group": 5060,
         "passive_1": {
             "name": "Assassin's Cerulean Dagger",
             "state_info": "Trigger on Critical Hit (FP)",
@@ -2054,10 +2159,11 @@
     {
         "name": "Crepus's Vial",
         "weight": 0.7,
+        "accessory_group": 6000,
         "passive_1": {
             "name": "Crepus's Vial",
             "state_info": "Modify Enemy listen Reduction",
-            "enemy_listen_adjustment_%": -1.0,
+            "enemy_listen_adjustment_percent": -1.0,
             "silent_footsteps": "True",
             "description": [
                 "Decrease sound emmitted to all enemies by 100.0%",
@@ -2068,6 +2174,7 @@
     {
         "name": "Concealing Veil",
         "weight": 0.9,
+        "accessory_group": 6010,
         "passive_1": {
             "name": "Concealing Veil",
             "trigger_on_state_info_1": "Trigger on Crouch",
@@ -2085,9 +2192,10 @@
     {
         "name": "Carian Filigreed Crest",
         "weight": 0.8,
+        "accessory_group": 6020,
         "passive_1": {
             "name": "Carian Filigreed Crest",
-            "skill_fp_cost_%": -0.25,
+            "skill_fp_cost_percent": -0.25,
             "description": [
                 "Decrease FP Cost for Skill by 25.0%"
             ]
@@ -2096,9 +2204,10 @@
     {
         "name": "Longtail Cat Talisman",
         "weight": 0.6,
+        "accessory_group": 6040,
         "passive_1": {
             "name": "Longtail Cat Talisman",
-            "fall_damage_%": -1.0,
+            "fall_damage_percent": -1.0,
             "description": [
                 "Decrease Fall Damage taken by 100.0%"
             ]
@@ -2107,9 +2216,10 @@
     {
         "name": "Shabriri's Woe",
         "weight": 0.6,
+        "accessory_group": 6050,
         "passive_1": {
             "name": "Shabriri's Woe",
-            "target_priority_%": 0.1,
+            "target_priority_percent": 0.1,
             "description": [
                 "Increase attraction of enemies by 10.0%"
             ]
@@ -2118,6 +2228,7 @@
     {
         "name": "Daedicar's Woe",
         "weight": 0.8,
+        "accessory_group": 6060,
         "passive_1": {
             "name": "Daedicar's Woe",
             "absorption_standard": -1.0,
@@ -2136,6 +2247,7 @@
     {
         "name": "Sacrificial Twig",
         "weight": 1.0,
+        "accessory_group": 6070,
         "passive_1": {
             "name": "Sacrificial Twig",
             "state_info": "Destroy Accessory but Save Runes",
@@ -2147,6 +2259,7 @@
     {
         "name": "Furled Finger's Trick-Mirror",
         "weight": 0.7,
+        "accessory_group": 6080,
         "passive_1": {
             "name": "Furled Finger's Trick-Mirror",
             "phantom_overwrite_type": 2,
@@ -2158,6 +2271,7 @@
     {
         "name": "Host's Trick-Mirror",
         "weight": 0.7,
+        "accessory_group": 6080,
         "passive_1": {
             "name": "Host's Trick-Mirror",
             "phantom_overwrite_type": 2,
@@ -2170,6 +2284,7 @@
     {
         "name": "Ancestral Spirit's Horn",
         "weight": 1.2,
+        "accessory_group": 6110,
         "passive_1": {
             "name": "Ancestral Spirit's Horn",
             "state_info": "Apply Kill Effect",

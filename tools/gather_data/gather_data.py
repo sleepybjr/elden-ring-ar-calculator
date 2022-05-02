@@ -627,14 +627,14 @@ def getWeaponPassive():
                     elif type == "Restore HP on Hit" or type == "Restore HP on Kill":
                         if type == "Restore HP on Hit":
                             if float(SpEffectParam[str(row_id)]["Change HP %"]) != 0:
-                                row_dict["restore_hp_hit_%"] = -float(
+                                row_dict["restore_hp_hit_percent"] = -float(
                                     SpEffectParam[str(row_id)]["Change HP %"])
                             if int(SpEffectParam[str(row_id)]["Change HP +"]) != 0:
                                 row_dict["restore_hp_hit"] = -int(
                                     SpEffectParam[str(row_id)]["Change HP +"])
                         else:
                             if float(SpEffectParam[str(row_id+1)]["Change HP %"]) != 0:
-                                row_dict["restore_hp_kill_%"] = -float(
+                                row_dict["restore_hp_kill_percent"] = -float(
                                     SpEffectParam[str(row_id+1)]["Change HP %"])
                             if int(SpEffectParam[str(row_id+1)]["Change HP +"]) != 0:
                                 row_dict["restore_hp_kill"] = -int(
@@ -642,14 +642,14 @@ def getWeaponPassive():
                     elif type == "Restore FP on Hit" or type == "Restore FP on Kill":
                         if type == "Restore FP on Hit":
                             if float(SpEffectParam[str(row_id)]["Change FP %"]) != 0:
-                                row_dict["restore_fp_hit_%"] = -float(
+                                row_dict["restore_fp_hit_percent"] = -float(
                                     SpEffectParam[str(row_id)]["Change FP %"])
                             if int(SpEffectParam[str(row_id)]["Change FP +"]) != 0:
                                 row_dict["restore_fp_hit"] = -int(
                                     SpEffectParam[str(row_id)]["Change FP +"])
                         else:
                             if float(SpEffectParam[str(row_id+1)]["Change FP %"]) != 0:
-                                row_dict["restore_fp_kill_%"] = -float(
+                                row_dict["restore_fp_kill_percent"] = -float(
                                     SpEffectParam[str(row_id+1)]["Change FP %"])
                             if int(SpEffectParam[str(row_id+1)]["Change FP +"]) != 0:
                                 row_dict["restore_fp_kill"] = -int(
@@ -1124,6 +1124,7 @@ def getTalismanData():
             row_dict = OrderedDict()
             row_dict["name"] = row['Row Name']
             row_dict["weight"] = float(row['Weight'])
+            row_dict["accessory_group"] = int(row['Accessory Group'])
             row_dict["passive_1"] = getPassiveEffect(SpEffectParam[row['SpEffect ID [0]']], row['SpEffect ID [0]'],  False)
             # Millicent's Prosthesis
             if (int(row['SpEffect ID [0]']) == 312500):
@@ -2219,13 +2220,13 @@ def getPassiveEffect(specialEffect, specialEffectId, passiveFromArmor):
             descriptionArray.append("Decrease status damage Blight by " + str(round(abs((float(specialEffect['Status Damage %: Blight']) - 1.0) * 100), 2)) + "%")
 
     if (float(specialEffect['Target Priority']) != 0.0):
-        row_dict["target_priority_%"] = float(specialEffect['Target Priority'])
+        row_dict["target_priority_percent"] = float(specialEffect['Target Priority'])
         if (float(specialEffect['Target Priority']) > 0.0):
             descriptionArray.append("Increase attraction of enemies by " + str(round(abs(float(specialEffect['Target Priority']) * 100.0), 2)) + "%")
         else:
             descriptionArray.append("Decrease attraction of enemies by " + str(round(abs(float(specialEffect['Target Priority']) * 100.0), 2)) + "%")
     if (float(specialEffect['Enemy Listen Adjustment']) != 1.0):
-        row_dict["enemy_listen_adjustment_%"] = float(specialEffect['Enemy Listen Adjustment']) - 1.0
+        row_dict["enemy_listen_adjustment_percent"] = float(specialEffect['Enemy Listen Adjustment']) - 1.0
         if (float(specialEffect['Enemy Listen Adjustment']) > 1.0):
             descriptionArray.append("Increase sound emmitted to all enemies by " + str(round(abs((float(specialEffect['Enemy Listen Adjustment']) - 1.0) * 100.0), 2)) + "%")
         else:
@@ -2235,21 +2236,21 @@ def getPassiveEffect(specialEffect, specialEffectId, passiveFromArmor):
             descriptionArray.append("Increase Max HP by " + str(round(abs((float(specialEffect['Max HP']) - 1.0) * 100.0), 2)) + "%")
         else:
             descriptionArray.append("Decrease Max HP by " + str(round(abs((float(specialEffect['Max HP']) - 1.0) * 100.0), 2)) + "%")
-        row_dict["max_hp_%"] = float(specialEffect['Max HP']) - 1.0
+        row_dict["max_hp_percent"] = float(specialEffect['Max HP']) - 1.0
     if (float(specialEffect['Max FP']) != 1.0):
-        row_dict["max_fp_%"] = float(specialEffect['Max FP']) - 1.0
+        row_dict["max_fp_percent"] = float(specialEffect['Max FP']) - 1.0
         if (float(specialEffect['Max FP']) > 1.0):
             descriptionArray.append("Increase Max FP by " + str(round(abs((float(specialEffect['Max FP']) - 1.0) * 100.0), 2)) + "%")
         else:
             descriptionArray.append("Decrease Max FP by " + str(round(abs((float(specialEffect['Max FP']) - 1.0) * 100.0), 2)) + "%")
     if (float(specialEffect['Max Stamina']) != 1.0):
-        row_dict["max_stamina_%"] = float(specialEffect['Max Stamina']) - 1.0
+        row_dict["max_stamina_percent"] = float(specialEffect['Max Stamina']) - 1.0
         if (float(specialEffect['Max Stamina']) > 1.0):
             descriptionArray.append("Increase Max Stamina by " + str(round(abs((float(specialEffect['Max Stamina']) - 1.0) * 100.0), 2)) + "%")
         else:
             descriptionArray.append("Decrease Max Stamina by " + str(round(abs((float(specialEffect['Max Stamina']) - 1.0) * 100.0), 2)) + "%")
     if (float(specialEffect['Poise %']) != 1.0):
-        row_dict["poise_%"] = -(float(specialEffect['Poise %']) - 1.0)
+        row_dict["poise_percent"] = -(float(specialEffect['Poise %']) - 1.0)
         if (-(float(specialEffect['Poise %']) - 1.0) > 0.0):
             descriptionArray.append("Increase Poise by " + str(round(abs((float(specialEffect['Poise %']) - 1.0) * 100.0), 2)) + "%")
         else:
@@ -2261,19 +2262,19 @@ def getPassiveEffect(specialEffect, specialEffectId, passiveFromArmor):
         else:
             descriptionArray.append("Subtract Poise by " + str(round(abs(float(specialEffect['Poise +'])), 2)))
     if (float(specialEffect['Fall Damage %']) != 1.0):
-        row_dict["fall_damage_%"] = float(specialEffect['Fall Damage %']) - 1.0
+        row_dict["fall_damage_percent"] = float(specialEffect['Fall Damage %']) - 1.0
         if (float(specialEffect['Fall Damage %']) > 1.0):
             descriptionArray.append("Increase Fall Damage taken by " + str(round(abs((float(specialEffect['Fall Damage %']) - 1.0) * 100.0), 2)) + "%")
         else:
             descriptionArray.append("Decrease Fall Damage taken by " + str(round(abs((float(specialEffect['Fall Damage %']) - 1.0) * 100.0), 2)) + "%")
     if (float(specialEffect['Equip Load %']) != 1.0):
-        row_dict["equip_load_%"] = float(specialEffect['Equip Load %']) - 1.0
+        row_dict["equip_load_percent"] = float(specialEffect['Equip Load %']) - 1.0
         if (float(specialEffect['Equip Load %']) > 1.0):
             descriptionArray.append("Increase Equip Load by " + str(round(abs((float(specialEffect['Equip Load %']) - 1.0) * 100.0), 2)) + "%")
         else:
             descriptionArray.append("Decrease Equip Load by " + str(round(abs((float(specialEffect['Equip Load %']) - 1.0) * 100.0), 2)) + "%")
     if (float(specialEffect['Effect Duration %']) != 1.0):
-        row_dict["effect_duration_%"] = float(specialEffect['Effect Duration %']) - 1.0
+        row_dict["effect_duration_percent"] = float(specialEffect['Effect Duration %']) - 1.0
         if (float(specialEffect['Effect Duration %']) > 1.0):
             descriptionArray.append("Increase Effect Duration by " + str(round(abs((float(specialEffect['Effect Duration %']) - 1.0) * 100.0), 2)) + "%")
         else:
@@ -2295,13 +2296,13 @@ def getPassiveEffect(specialEffect, specialEffectId, passiveFromArmor):
             descriptionArray.append("Extend Special Effect Duration by " + 
                 str(round(abs((float(specialEffect['Contract SpEffect Duration %']) - 1.0) * 100.0), 2)) + "%")
     if (float(specialEffect['Guard Stability %']) != 1.0):
-        row_dict["guard_stability_%"] = float(specialEffect['Guard Stability %']) - 1.0
+        row_dict["guard_stability_percent"] = float(specialEffect['Guard Stability %']) - 1.0
         if (float(specialEffect['Guard Stability %']) > 1.0):
             descriptionArray.append("Increase Guard Stability by " + str(round(abs((float(specialEffect['Guard Stability %']) - 1.0) * 100.0), 2)) + "%")
         else:
             descriptionArray.append("Decrease Guard Stability by " + str(round(abs((float(specialEffect['Guard Stability %']) - 1.0) * 100.0), 2)) + "%")
     if (float(specialEffect['Attack %: Stamina']) != 1.0):
-        row_dict["guard_break_%"] = float(specialEffect['Attack %: Stamina']) - 1.0
+        row_dict["guard_break_percent"] = float(specialEffect['Attack %: Stamina']) - 1.0
         if (float(specialEffect['Attack %: Stamina']) > 1.0):
             descriptionArray.append("Increase Guard Break by " + str(round(abs((float(specialEffect['Attack %: Stamina']) - 1.0) * 100.0), 2)) + "%")
         else:
@@ -2313,7 +2314,7 @@ def getPassiveEffect(specialEffect, specialEffectId, passiveFromArmor):
         else:
             descriptionArray.append("Subtract Rune by " + str(round(abs(int(specialEffect['Rune Gain +'])), 2)))
     if (float(specialEffect['Rune Gain %']) != 1.0):
-        row_dict["rune_gain_%"] = float(specialEffect['Rune Gain %']) - 1.0
+        row_dict["rune_gain_percent"] = float(specialEffect['Rune Gain %']) - 1.0
         if (float(specialEffect['Rune Gain %']) > 1.0):
             descriptionArray.append("Increase Runes Gained by " + str(round(abs((float(specialEffect['Rune Gain %']) - 1.0) * 100.0), 2)) + "%")
         else:
@@ -2325,7 +2326,7 @@ def getPassiveEffect(specialEffect, specialEffectId, passiveFromArmor):
         else:
             descriptionArray.append("Add Item Discovery by " + str(round(abs(int(float(specialEffect['Item Discovery %']) * 100.0)), 2)))
     if (float(specialEffect['HP Flask - HP Restore Correction']) != 1.0):
-        row_dict["hp_restore_correction_%"] = float(specialEffect['HP Flask - HP Restore Correction']) - 1.0
+        row_dict["hp_restore_correction_percent"] = float(specialEffect['HP Flask - HP Restore Correction']) - 1.0
         if (float(specialEffect['HP Flask - HP Restore Correction']) > 1.0):
             descriptionArray.append("Increase HP Restore from Flask of Crimson Tears by " + 
                 str(round(abs((float(specialEffect['HP Flask - HP Restore Correction']) - 1.0) * 100.0), 2)) + "%")
@@ -2333,7 +2334,7 @@ def getPassiveEffect(specialEffect, specialEffectId, passiveFromArmor):
             descriptionArray.append("Decrease HP Restore from Flask of Crimson Tears by " + 
                 str(round(abs((float(specialEffect['HP Flask - HP Restore Correction']) - 1.0) * 100.0), 2)) + "%")
     if (float(specialEffect['FP Flask - HP Restore Correction']) != 1.0):
-        row_dict["fp_restore_correction_%"] = float(specialEffect['FP Flask - HP Restore Correction']) - 1.0
+        row_dict["fp_restore_correction_percent"] = float(specialEffect['FP Flask - HP Restore Correction']) - 1.0
         if (float(specialEffect['FP Flask - HP Restore Correction']) > 1.0):
             descriptionArray.append("Increase FP Restore from Flask of Cerulean Tears by " + 
                 str(round(abs((float(specialEffect['FP Flask - HP Restore Correction']) - 1.0) * 100.0), 2)) + "%")
@@ -2341,19 +2342,19 @@ def getPassiveEffect(specialEffect, specialEffectId, passiveFromArmor):
             descriptionArray.append("Decrease FP Restore from Flask of Cerulean Tears by " + 
                 str(round(abs((float(specialEffect['FP Flask - HP Restore Correction']) - 1.0) * 100.0), 2)) + "%")
     if (float(specialEffect['Skill FP Cost %']) != 1.0):
-        row_dict["skill_fp_cost_%"] = float(specialEffect['Skill FP Cost %']) - 1.0
+        row_dict["skill_fp_cost_percent"] = float(specialEffect['Skill FP Cost %']) - 1.0
         if (float(specialEffect['Skill FP Cost %']) > 1.0):
             descriptionArray.append("Increase FP Cost for Skill by " + str(round(abs((float(specialEffect['Skill FP Cost %']) - 1.0) * 100.0), 2)) + "%")
         else:
             descriptionArray.append("Decrease FP Cost for Skill by " + str(round(abs((float(specialEffect['Skill FP Cost %']) - 1.0) * 100.0), 2)) + "%")
     if (float(specialEffect['Sorcery FP Cost %']) != 1.0):
-        row_dict["sorcery_fp_cost_%"] = float(specialEffect['Sorcery FP Cost %']) - 1.0
+        row_dict["sorcery_fp_cost_percent"] = float(specialEffect['Sorcery FP Cost %']) - 1.0
         if (float(specialEffect['Sorcery FP Cost %']) > 1.0):
             descriptionArray.append("Increase FP Cost for Sorcery by " + str(round(abs((float(specialEffect['Sorcery FP Cost %']) - 1.0) * 100.0), 2)) + "%")
         else:
             descriptionArray.append("Decrease FP Cost for Sorcery by " + str(round(abs((float(specialEffect['Sorcery FP Cost %']) - 1.0) * 100.0), 2)) + "%")
     if (float(specialEffect['Incantation FP Cost %']) != 1.0):
-        row_dict["incantation_fp_cost_%"] = float(specialEffect['Incantation FP Cost %']) - 1.0  
+        row_dict["incantation_fp_cost_percent"] = float(specialEffect['Incantation FP Cost %']) - 1.0  
         if (float(specialEffect['Incantation FP Cost %']) > 1.0):
             descriptionArray.append("Increase FP Cost for Incantation by " + 
                 str(round(abs((float(specialEffect['Incantation FP Cost %']) - 1.0) * 100.0), 2)) + "%")
@@ -2383,31 +2384,31 @@ def getPassiveEffect(specialEffect, specialEffectId, passiveFromArmor):
     # Doesn't need description yet as I don't see any passives that currently use this yet.
     # Will add description if used though
     if (float(specialEffect['Enemy Sight Adjustment']) != 1.0):
-        row_dict["enemy_sight_adjustment_%"] = float(specialEffect['Enemy Sight Adjustment']) - 1.0
+        row_dict["enemy_sight_adjustment_percent"] = float(specialEffect['Enemy Sight Adjustment']) - 1.0
     if (float(specialEffect['Sight Search - Enemy Addition']) != 0.0):
-        row_dict["sight_search_enemy_addition_%"] = float(specialEffect['Sight Search - Enemy Addition'])
+        row_dict["sight_search_enemy_addition_percent"] = float(specialEffect['Sight Search - Enemy Addition'])
     if (float(specialEffect['Listen Search - Enemy Addition']) != 0.0):
-        row_dict["listen_search_enemy_addition_%"] = float(specialEffect['Listen Search - Enemy Addition'])
+        row_dict["listen_search_enemy_addition_percent"] = float(specialEffect['Listen Search - Enemy Addition'])
     if (float(specialEffect['Listen Search Correction']) != 1.0):
-        row_dict["listen_search_correction_%"] = float(specialEffect['Listen Search Correction']) - 1.0
+        row_dict["listen_search_correction_percent"] = float(specialEffect['Listen Search Correction']) - 1.0
     if (float(specialEffect['Listen Search Addition']) != 0.0):
-        row_dict["listen_search_addition_%"] = float(specialEffect['Listen Search Addition'])
+        row_dict["listen_search_addition_percent"] = float(specialEffect['Listen Search Addition'])
     if (float(specialEffect['Sight Search Addition']) != 0.0):
-        row_dict["sight_search_addition_%"] = float(specialEffect['Sight Search Addition'])
+        row_dict["sight_search_addition_percent"] = float(specialEffect['Sight Search Addition'])
     if (float(specialEffect['No Guard Damage %']) != 1.0):
-        row_dict["no_guard_damage_%"] = float(specialEffect['No Guard Damage %']) - 1.0
+        row_dict["no_guard_damage_percent"] = float(specialEffect['No Guard Damage %']) - 1.0
     if (float(specialEffect['Vital Spot Change %']) != -1.0):
-        row_dict["vital_spot_change_%"] = float(specialEffect['Vital Spot Change %'])
+        row_dict["vital_spot_change_percent"] = float(specialEffect['Vital Spot Change %'])
     if (float(specialEffect['Normal Spot Change %']) != -1.0):
-        row_dict["normal_spot_change_%"] = float(specialEffect['Normal Spot Change %'])
+        row_dict["normal_spot_change_percent"] = float(specialEffect['Normal Spot Change %'])
     if (float(specialEffect['Look-At Target Position Offset']) != 0.0):
         row_dict["look_at_target_position_offset"] = float(specialEffect['Look-At Target Position Offset'])
     if (float(specialEffect['Poise Recovery Time %']) != 1.0):
-        row_dict["poise_recovery_time_%"] = float(specialEffect['Poise Recovery Time %']) - 1.0
+        row_dict["poise_recovery_time_percent"] = float(specialEffect['Poise Recovery Time %']) - 1.0
     if (float(specialEffect['Regain Correction %']) != 1.0):
-        row_dict["regain_correction_%"] = float(specialEffect['Regain Correction %']) - 1.0
+        row_dict["regain_correction_percent"] = float(specialEffect['Regain Correction %']) - 1.0
     if (float(specialEffect['Poise Damage %']) != 1.0):
-        row_dict["poise_damage_%"] = float(specialEffect['Poise Damage %']) - 1.0
+        row_dict["poise_damage_percent"] = float(specialEffect['Poise Damage %']) - 1.0
 
     if (int(specialEffect['Vigor']) != 0):
         row_dict["vigor"] = int(specialEffect['Vigor'])
@@ -2497,7 +2498,7 @@ def getPassiveEffect(specialEffect, specialEffectId, passiveFromArmor):
             else:
                 descriptionArray.append("Subtract " + str(abs(int(specialEffect['Change Stamina +']))) + " Stamina points")
     if (float(specialEffect['Change HP %']) != 0):
-        row_dict["change_hp_%"] = -float(specialEffect['Change HP %'])
+        row_dict["change_hp_percent"] = -float(specialEffect['Change HP %'])
         if (checkStringState("HP/FP/Stamina Recovery", row_dict)):
             if (-float(specialEffect['Change HP %']) > 0.0):
                 descriptionArray.append("Regen HP by " + str(round(abs((float(specialEffect['Change HP %']))), 2)) + "% per second")
@@ -2510,7 +2511,7 @@ def getPassiveEffect(specialEffect, specialEffectId, passiveFromArmor):
                 else:
                     descriptionArray.append("Subtract " + str(round(abs((float(specialEffect['Change HP %']))), 2)) + "% HP")
     if (float(specialEffect['Change FP %']) != 0):
-        row_dict["change_fp_%"] = -float(specialEffect['Change FP %'])
+        row_dict["change_fp_percent"] = -float(specialEffect['Change FP %'])
         if (checkStringState("HP/FP/Stamina Recovery", row_dict)):
             if (-float(specialEffect['Change FP %']) > 0.0):
                 descriptionArray.append("Regen FP by " + str(round(abs((float(specialEffect['Change FP %']))), 2)) + "% per second")
@@ -2522,7 +2523,7 @@ def getPassiveEffect(specialEffect, specialEffectId, passiveFromArmor):
             else:
                 descriptionArray.append("Subtract " + str(round(abs((float(specialEffect['Change FP %']))), 2)) + "% FP")
     if (float(specialEffect['Change Stamina %']) != 0):
-        row_dict["change_stamina_%"] = -float(specialEffect['Change Stamina %'])
+        row_dict["change_stamina_percent"] = -float(specialEffect['Change Stamina %'])
         if (checkStringState("HP/FP/Stamina Recovery", row_dict)):
             if (-float(specialEffect['Change Stamina %']) > 0.0):
                 descriptionArray.append("Regen Stamina by " + str(round(abs((float(specialEffect['Change Stamina %']))), 2)) + "% per second")
@@ -2598,10 +2599,10 @@ def getPassiveEffect(specialEffect, specialEffectId, passiveFromArmor):
         descriptionArray.append("Only Apply to Critical Attacks")
 
     if (int(specialEffect['Trigger at HP Below %']) != -1):
-        row_dict["trigger_below_hp_%"] = int(specialEffect['Trigger at HP Below %'])
+        row_dict["trigger_below_hp_percent"] = int(specialEffect['Trigger at HP Below %'])
         descriptionArray.append("Trigger Effect when HP is below or equal to " + str(int(specialEffect['Trigger at HP Below %'])) + "%")
     if (int(specialEffect['Trigger on HP Above %']) != -1):
-        row_dict["trigger_above_hp_%"] = int(specialEffect['Trigger on HP Above %'])
+        row_dict["trigger_above_hp_percent"] = int(specialEffect['Trigger on HP Above %'])
         descriptionArray.append("Trigger Effect when HP is above or equal to " + str(int(specialEffect['Trigger on HP Above %'])) + "%")
 
 
