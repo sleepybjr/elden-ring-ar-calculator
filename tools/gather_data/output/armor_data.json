@@ -1237,7 +1237,7 @@
         "poise": 14,
         "passive_1": {
             "name": "",
-            "enemy_listen_adjustment_%": -1.0,
+            "enemy_listen_adjustment_percentage": -1.0,
             "silent_footsteps": "True",
             "trigger_effect_for_opponent": "True",
             "description": [
@@ -2640,7 +2640,7 @@
         "poise": 8,
         "passive_1": {
             "name": "",
-            "target_priority_%": 0.03,
+            "target_priority_percentage": 0.03,
             "description": [
                 "Increase attraction of enemies by 3.0%"
             ]
@@ -2685,7 +2685,7 @@
         "poise": 11,
         "passive_1": {
             "name": "",
-            "target_priority_%": 0.03,
+            "target_priority_percentage": 0.03,
             "description": [
                 "Increase attraction of enemies by 3.0%"
             ]
@@ -2711,7 +2711,7 @@
         "poise": 1,
         "passive_1": {
             "name": "",
-            "target_priority_%": 0.04,
+            "target_priority_percentage": 0.04,
             "description": [
                 "Increase attraction of enemies by 4.0%"
             ]
@@ -2813,7 +2813,7 @@
         "poise": 5,
         "passive_1": {
             "name": "",
-            "hp_restore_correction_%": 0.10000000000000009,
+            "hp_restore_correction_percentage": 0.10000000000000009,
             "description": [
                 "Increase HP Restore from Flask of Crimson Tears by 10.0%"
             ]
@@ -4438,7 +4438,7 @@
             "attack_percent_lightning": 0.10000000000000009,
             "attack_percent_holy": 0.10000000000000009,
             "coditional_weapon_effect_1": "Olivinus Spell",
-            "sorcery_fp_cost_%": 0.1499999999999999,
+            "sorcery_fp_cost_percentage": 0.1499999999999999,
             "affects_sorcery": "True",
             "description": [
                 "Increase the Calculated Attack of Physical, Magic, Fire, Lightning, Holy types by 10.0%",
@@ -4546,7 +4546,7 @@
             "attack_percent_lightning": 0.10000000000000009,
             "attack_percent_holy": 0.10000000000000009,
             "coditional_weapon_effect_1": "Karolos Spell",
-            "sorcery_fp_cost_%": 0.1499999999999999,
+            "sorcery_fp_cost_percentage": 0.1499999999999999,
             "affects_sorcery": "True",
             "description": [
                 "Increase the Calculated Attack of Physical, Magic, Fire, Lightning, Holy types by 10.0%",
@@ -5514,7 +5514,7 @@
             "name": "",
             "state_info": "HP/FP/Stamina Recovery",
             "change_hp": 2,
-            "trigger_below_hp_%": 18,
+            "trigger_below_hp_percentage": 18,
             "trigger_interval": 1.0,
             "description": [
                 "Regen HP by 2 points per second",
@@ -5545,7 +5545,7 @@
             "name": "",
             "state_info": "HP/FP/Stamina Recovery",
             "change_hp": 2,
-            "trigger_below_hp_%": 18,
+            "trigger_below_hp_percentage": 18,
             "trigger_interval": 1.0,
             "description": [
                 "Regen HP by 2 points per second",
@@ -5576,7 +5576,7 @@
             "name": "",
             "state_info": "HP/FP/Stamina Recovery",
             "change_hp": 2,
-            "trigger_below_hp_%": 18,
+            "trigger_below_hp_percentage": 18,
             "trigger_interval": 1.0,
             "description": [
                 "Regen HP by 2 points per second",
@@ -5607,7 +5607,7 @@
             "name": "",
             "state_info": "HP/FP/Stamina Recovery",
             "change_hp": 2,
-            "trigger_below_hp_%": 18,
+            "trigger_below_hp_percentage": 18,
             "trigger_interval": 1.0,
             "description": [
                 "Regen HP by 2 points per second",
@@ -6613,8 +6613,8 @@
         },
         "passive_3": {
             "name": "",
-            "max_hp_%": -0.08999999999999997,
-            "max_stamina_%": -0.08999999999999997,
+            "max_hp_percentage": -0.08999999999999997,
+            "max_stamina_percentage": -0.08999999999999997,
             "intelligence": 6,
             "trigger_interval": 0.06,
             "cycle_special_effect": {
@@ -6715,7 +6715,7 @@
         },
         "passive_3": {
             "name": "",
-            "max_hp_%": -0.08999999999999997,
+            "max_hp_percentage": -0.08999999999999997,
             "intelligence": 3,
             "trigger_interval": 0.06,
             "cycle_special_effect": {
@@ -6758,7 +6758,7 @@
         },
         "passive_3": {
             "name": "",
-            "max_hp_%": -0.18000000000000005,
+            "max_hp_percentage": -0.18000000000000005,
             "dexterity": 3,
             "intelligence": 3,
             "trigger_interval": 0.06,
@@ -6808,7 +6808,7 @@
         },
         "passive_3": {
             "name": "",
-            "max_stamina_%": -0.08999999999999997,
+            "max_stamina_percentage": -0.08999999999999997,
             "intelligence": 3,
             "trigger_interval": 0.06,
             "cycle_special_effect": {
@@ -6851,7 +6851,7 @@
         },
         "passive_3": {
             "name": "",
-            "max_stamina_%": -0.18000000000000005,
+            "max_stamina_percentage": -0.18000000000000005,
             "intelligence": 3,
             "arcane": 3,
             "trigger_interval": 0.06,
@@ -7584,7 +7584,7 @@
         "poise": 2,
         "passive_1": {
             "name": "",
-            "max_stamina_%": -0.08999999999999997,
+            "max_stamina_percentage": -0.08999999999999997,
             "mind": 3,
             "trigger_interval": 0.06,
             "cycle_special_effect": {
@@ -8523,7 +8523,7 @@
         "poise": 2,
         "passive_1": {
             "name": "",
-            "max_fp_%": -0.08999999999999997,
+            "max_fp_percentage": -0.08999999999999997,
             "endurance": 2,
             "intelligence": 2,
             "trigger_interval": 0.06,
@@ -8634,7 +8634,7 @@
         "poise": 2,
         "passive_1": {
             "name": "",
-            "max_fp_%": -0.08999999999999997,
+            "max_fp_percentage": -0.08999999999999997,
             "strength": 2,
             "intelligence": 2,
             "trigger_interval": 0.06,
@@ -9022,7 +9022,7 @@
         "poise": 3,
         "passive_1": {
             "name": "",
-            "hp_restore_correction_%": -0.09999999999999998,
+            "hp_restore_correction_percentage": -0.09999999999999998,
             "arcane": 4,
             "trigger_interval": 0.06,
             "cycle_special_effect": {
@@ -9808,7 +9808,7 @@
         "poise": 2,
         "passive_1": {
             "name": "",
-            "max_hp_%": -0.08999999999999997,
+            "max_hp_percentage": -0.08999999999999997,
             "intelligence": 2,
             "faith": 2,
             "cycle_special_effect": {
@@ -11276,7 +11276,7 @@
         "poise": 2,
         "passive_1": {
             "name": "",
-            "skill_fp_cost_%": -0.15000000000000002,
+            "skill_fp_cost_percentage": -0.15000000000000002,
             "trigger_interval": 0.06,
             "cycle_special_effect": {
                 "name": "",
@@ -11307,7 +11307,7 @@
         "poise": 2,
         "passive_1": {
             "name": "",
-            "incantation_fp_cost_%": -0.15000000000000002,
+            "incantation_fp_cost_percentage": -0.15000000000000002,
             "trigger_interval": 0.06,
             "cycle_special_effect": {
                 "name": "",
@@ -11338,7 +11338,7 @@
         "poise": 2,
         "passive_1": {
             "name": "",
-            "sorcery_fp_cost_%": -0.15000000000000002,
+            "sorcery_fp_cost_percentage": -0.15000000000000002,
             "trigger_interval": 0.06,
             "cycle_special_effect": {
                 "name": "",
@@ -11369,7 +11369,7 @@
         "poise": 2,
         "passive_1": {
             "name": "",
-            "hp_restore_correction_%": 0.10000000000000009,
+            "hp_restore_correction_percentage": 0.10000000000000009,
             "trigger_interval": 0.06,
             "cycle_special_effect": {
                 "name": "",
@@ -11400,7 +11400,7 @@
         "poise": 2,
         "passive_1": {
             "name": "",
-            "fp_restore_correction_%": 0.10000000000000009,
+            "fp_restore_correction_percentage": 0.10000000000000009,
             "trigger_interval": 0.06,
             "cycle_special_effect": {
                 "name": "",
@@ -11635,7 +11635,7 @@
         "poise": 8,
         "passive_1": {
             "name": "",
-            "target_priority_%": 0.03,
+            "target_priority_percentage": 0.03,
             "description": [
                 "Increase attraction of enemies by 3.0%"
             ]
@@ -11680,7 +11680,7 @@
         "poise": 10,
         "passive_1": {
             "name": "",
-            "target_priority_%": 0.03,
+            "target_priority_percentage": 0.03,
             "description": [
                 "Increase attraction of enemies by 3.0%"
             ]
@@ -11706,7 +11706,7 @@
         "poise": 1,
         "passive_1": {
             "name": "",
-            "target_priority_%": 0.04,
+            "target_priority_percentage": 0.04,
             "description": [
                 "Increase attraction of enemies by 4.0%"
             ]
