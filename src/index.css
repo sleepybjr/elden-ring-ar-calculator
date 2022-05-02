@@ -54,6 +54,11 @@ body.dark {
   color: #EFEFEF;
 }
 
+.dark .all-button-style-bg:disabled,
+.dark .all-button-style-bg:disabled:hover {
+  background-color: #424242;
+}
+
 .dark thead button:hover,
 .dark thead button.ascending,
 .dark thead button.descending,
@@ -312,6 +317,12 @@ tbody tr:hover {
   border-radius: 10px;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
+}
+
+.all-button-style-bg:disabled,
+.all-button-style-bg:disabled:hover {
+  background-color: #d3d3d3;
+  cursor: not-allowed;
 }
 
 .all-button-style:hover {
@@ -596,4 +607,15 @@ tbody tr:hover {
 
 .dark .important-field {
   border: 1px solid #cccccc;
+}
+
+.in-progress {
+  position: relative;
+  display: inline-block;
+}
+
+.in-progress span {
+  position: absolute;
+  top: 3px;
+  right: -22px;
 }
