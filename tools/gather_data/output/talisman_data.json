@@ -4,7 +4,7 @@
         "weight": 0.3,
         "passive_1": {
             "name": "Crimson Amber Medallion",
-            "max_hp_%": 0.06000000000000005,
+            "max_hp_percent": 0.06000000000000005,
             "description": [
                 "Increase Max HP by 6.0%"
             ]
@@ -15,7 +15,7 @@
         "weight": 0.3,
         "passive_1": {
             "name": "Crimson Amber Medallion +1",
-            "max_hp_%": 0.07000000000000006,
+            "max_hp_percent": 0.07000000000000006,
             "description": [
                 "Increase Max HP by 7.0%"
             ]
@@ -26,7 +26,7 @@
         "weight": 0.3,
         "passive_1": {
             "name": "Crimson Amber Medallion +2",
-            "max_hp_%": 0.08000000000000007,
+            "max_hp_percent": 0.08000000000000007,
             "description": [
                 "Increase Max HP by 8.0%"
             ]
@@ -37,7 +37,7 @@
         "weight": 0.3,
         "passive_1": {
             "name": "Cerulean Amber Medallion",
-            "max_fp_%": 0.07000000000000006,
+            "max_fp_percent": 0.07000000000000006,
             "description": [
                 "Increase Max FP by 7.0%"
             ]
@@ -48,7 +48,7 @@
         "weight": 0.3,
         "passive_1": {
             "name": "Cerulean Amber Medallion +1",
-            "max_fp_%": 0.09000000000000008,
+            "max_fp_percent": 0.09000000000000008,
             "description": [
                 "Increase Max FP by 9.0%"
             ]
@@ -59,7 +59,7 @@
         "weight": 0.3,
         "passive_1": {
             "name": "Cerulean Amber Medallion +2",
-            "max_fp_%": 0.1100000000000001,
+            "max_fp_percent": 0.1100000000000001,
             "description": [
                 "Increase Max FP by 11.0%"
             ]
@@ -70,7 +70,7 @@
         "weight": 0.3,
         "passive_1": {
             "name": "Viridian Amber Medallion",
-            "max_stamina_%": 0.1100000000000001,
+            "max_stamina_percent": 0.1100000000000001,
             "description": [
                 "Increase Max Stamina by 11.0%"
             ]
@@ -81,7 +81,7 @@
         "weight": 0.3,
         "passive_1": {
             "name": "Viridian Amber Medallion +1",
-            "max_stamina_%": 0.1299999999999999,
+            "max_stamina_percent": 0.1299999999999999,
             "description": [
                 "Increase Max Stamina by 13.0%"
             ]
@@ -92,7 +92,7 @@
         "weight": 0.3,
         "passive_1": {
             "name": "Viridian Amber Medallion +2",
-            "max_stamina_%": 0.1499999999999999,
+            "max_stamina_percent": 0.1499999999999999,
             "description": [
                 "Increase Max Stamina by 15.0%"
             ]
@@ -103,7 +103,7 @@
         "weight": 1.5,
         "passive_1": {
             "name": "Arsenal Charm",
-            "equip_load_%": 0.1499999999999999,
+            "equip_load_percent": 0.1499999999999999,
             "description": [
                 "Increase Equip Load by 15.0%"
             ]
@@ -114,7 +114,7 @@
         "weight": 1.5,
         "passive_1": {
             "name": "Arsenal Charm +1",
-            "equip_load_%": 0.16999999999999993,
+            "equip_load_percent": 0.16999999999999993,
             "description": [
                 "Increase Equip Load by 17.0%"
             ]
@@ -125,7 +125,7 @@
         "weight": 1.5,
         "passive_1": {
             "name": "Great-Jar's Arsenal",
-            "equip_load_%": 0.18999999999999995,
+            "equip_load_percent": 0.18999999999999995,
             "description": [
                 "Increase Equip Load by 19.0%"
             ]
@@ -136,9 +136,9 @@
         "weight": 1.5,
         "passive_1": {
             "name": "Erdtree's Favor",
-            "max_hp_%": 0.030000000000000027,
-            "max_stamina_%": 0.07000000000000006,
-            "equip_load_%": 0.050000000000000044,
+            "max_hp_percent": 0.030000000000000027,
+            "max_stamina_percent": 0.07000000000000006,
+            "equip_load_percent": 0.050000000000000044,
             "trigger_interval": 0.06,
             "cycle_special_effect": {
                 "name": "Erdtree's Favor [Cycle]",
@@ -161,9 +161,9 @@
         "weight": 1.5,
         "passive_1": {
             "name": "Erdtree's Favor +1",
-            "max_hp_%": 0.03499999999999992,
-            "max_stamina_%": 0.08499999999999996,
-            "equip_load_%": 0.06499999999999995,
+            "max_hp_percent": 0.03499999999999992,
+            "max_stamina_percent": 0.08499999999999996,
+            "equip_load_percent": 0.06499999999999995,
             "cycle_special_effect": {
                 "name": "Erdtree's Favor +1 [Cycle]",
                 "trigger_interval": 0.06,
@@ -185,9 +185,9 @@
         "weight": 1.5,
         "passive_1": {
             "name": "Erdtree's Favor +2",
-            "max_hp_%": 0.040000000000000036,
-            "max_stamina_%": 0.10000000000000009,
-            "equip_load_%": 0.08000000000000007,
+            "max_hp_percent": 0.040000000000000036,
+            "max_stamina_percent": 0.10000000000000009,
+            "equip_load_percent": 0.08000000000000007,
             "cycle_special_effect": {
                 "name": "Erdtree's Favor +2 [Cycle]",
                 "trigger_interval": 0.06,
@@ -318,7 +318,7 @@
         "passive_1": {
             "name": "Gold Scarab",
             "state_info": "Modify Rune Gain",
-            "rune_gain_%": 0.19999999999999996,
+            "rune_gain_percent": 0.19999999999999996,
             "description": [
                 "Increase Runes Gained by 20.0%"
             ]
@@ -470,7 +470,7 @@
         "weight": 0.5,
         "passive_1": {
             "name": "Bull-Goat's Talisman",
-            "poise_%": 0.25,
+            "poise_percent": 0.25,
             "description": [
                 "Increase Poise by 25.0%"
             ]
@@ -804,7 +804,7 @@
             "pvp_damage_percent_fire": 0.19999999999999996,
             "pvp_damage_percent_lightning": 0.19999999999999996,
             "pvp_damage_percent_holy": 0.19999999999999996,
-            "trigger_below_hp_%": 20,
+            "trigger_below_hp_percent": 20,
             "affects_sorcery": "True",
             "affects_incantation": "True",
             "description": [
@@ -831,7 +831,7 @@
             "pvp_damage_percent_fire": 0.10000000000000009,
             "pvp_damage_percent_lightning": 0.10000000000000009,
             "pvp_damage_percent_holy": 0.10000000000000009,
-            "trigger_above_hp_%": 100,
+            "trigger_above_hp_percent": 100,
             "affects_sorcery": "True",
             "affects_incantation": "True",
             "description": [
@@ -865,7 +865,7 @@
         "weight": 0.9,
         "passive_1": {
             "name": "Hammer Talisman",
-            "guard_break_%": 0.19999999999999996,
+            "guard_break_percent": 0.19999999999999996,
             "description": [
                 "Increase Guard Break by 20.0%"
             ]
@@ -1506,9 +1506,9 @@
         "weight": 0.6,
         "passive_1": {
             "name": "Primal Glintstone Blade",
-            "max_hp_%": -0.15000000000000002,
-            "sorcery_fp_cost_%": -0.25,
-            "incantation_fp_cost_%": -0.25,
+            "max_hp_percent": -0.15000000000000002,
+            "sorcery_fp_cost_percent": -0.25,
+            "incantation_fp_cost_percent": -0.25,
             "trigger_interval": 0.06,
             "cycle_special_effect": {
                 "name": "Primal Glintstone Blade [Cycle]",
@@ -1870,7 +1870,7 @@
             "pvp_absorption_percent_fire": 0.5,
             "pvp_absorptione_percent_lightning": 0.5,
             "pvp_absorption_percent_holy": 0.5,
-            "trigger_below_hp_%": 20,
+            "trigger_below_hp_percent": 20,
             "description": [
                 "Increase the Absorption from non-player enemy attacks for Physical, Magic, Fire, Lightning, Holy types by 50.0%",
                 "Increase the Absorption from player attacks for Physical, Magic, Fire, Lightning, Holy types by 50.0%",
@@ -1893,7 +1893,7 @@
             "pvp_absorption_percent_fire": 0.30000000000000004,
             "pvp_absorptione_percent_lightning": 0.30000000000000004,
             "pvp_absorption_percent_holy": 0.30000000000000004,
-            "trigger_above_hp_%": 100,
+            "trigger_above_hp_percent": 100,
             "description": [
                 "Increase the Absorption from non-player enemy attacks for Physical, Magic, Fire, Lightning, Holy types by 30.0%",
                 "Increase the Absorption from player attacks for Physical, Magic, Fire, Lightning, Holy types by 30.0%",
@@ -1928,7 +1928,7 @@
         "weight": 0.8,
         "passive_1": {
             "name": "Crimson Seed Talisman",
-            "hp_restore_correction_%": 0.19999999999999996,
+            "hp_restore_correction_percent": 0.19999999999999996,
             "description": [
                 "Increase HP Restore from Flask of Crimson Tears by 20.0%"
             ]
@@ -1939,7 +1939,7 @@
         "weight": 0.8,
         "passive_1": {
             "name": "Cerulean Seed Talisman",
-            "fp_restore_correction_%": 0.19999999999999996,
+            "fp_restore_correction_percent": 0.19999999999999996,
             "description": [
                 "Increase FP Restore from Flask of Cerulean Tears by 20.0%"
             ]
@@ -1967,7 +1967,7 @@
             "kill_special_effect": {
                 "name": "Taker's Cameo [Kill]",
                 "change_hp": 30,
-                "change_hp_%": 3.0,
+                "change_hp_percent": 3.0,
                 "trigger_interval": 1.0,
                 "duration": 0.0
             },
@@ -1990,7 +1990,7 @@
                 "name": "Godskin Swaddling Cloth [Conditional]",
                 "state_info": "Conditional 2",
                 "change_hp": 30,
-                "change_hp_%": 3.0,
+                "change_hp_percent": 3.0,
                 "trigger_interval": 4.0,
                 "duration": 1.0
             },
@@ -2014,7 +2014,7 @@
                     "name": "Assassin's Crimson Dagger [Triggered]",
                     "trigger_on_state_info_1": "Trigger on Critical Hit (HP)",
                     "change_hp": 85,
-                    "change_hp_%": 10.0,
+                    "change_hp_percent": 10.0,
                     "trigger_interval": 4.0,
                     "duration": 1.0
                 },
@@ -2057,7 +2057,7 @@
         "passive_1": {
             "name": "Crepus's Vial",
             "state_info": "Modify Enemy listen Reduction",
-            "enemy_listen_adjustment_%": -1.0,
+            "enemy_listen_adjustment_percent": -1.0,
             "silent_footsteps": "True",
             "description": [
                 "Decrease sound emmitted to all enemies by 100.0%",
@@ -2087,7 +2087,7 @@
         "weight": 0.8,
         "passive_1": {
             "name": "Carian Filigreed Crest",
-            "skill_fp_cost_%": -0.25,
+            "skill_fp_cost_percent": -0.25,
             "description": [
                 "Decrease FP Cost for Skill by 25.0%"
             ]
@@ -2098,7 +2098,7 @@
         "weight": 0.6,
         "passive_1": {
             "name": "Longtail Cat Talisman",
-            "fall_damage_%": -1.0,
+            "fall_damage_percent": -1.0,
             "description": [
                 "Decrease Fall Damage taken by 100.0%"
             ]
@@ -2109,7 +2109,7 @@
         "weight": 0.6,
         "passive_1": {
             "name": "Shabriri's Woe",
-            "target_priority_%": 0.1,
+            "target_priority_percent": 0.1,
             "description": [
                 "Increase attraction of enemies by 10.0%"
             ]

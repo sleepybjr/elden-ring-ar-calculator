@@ -14,7 +14,6 @@ SpEffectParam
 
 from collections import OrderedDict
 import csv
-import math
 from passives import getPassiveEffect
 from passives import SpEffectParam
 import pprint
