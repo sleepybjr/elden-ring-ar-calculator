@@ -1,5 +1,437 @@
 [
     {
+        "name": "Unarmed",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Throwing Dagger",
+        "physical": 3,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 201700
+    },
+    {
+        "name": "Bone Dart",
+        "physical": 3,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 201710
+    },
+    {
+        "name": "Poisonbone Dart",
+        "physical": 3,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 201720
+    },
+    {
+        "name": "Kukri",
+        "physical": 3,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 201730
+    },
+    {
+        "name": "Crystal Dart",
+        "physical": 3,
+        "magic": 7,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 201740
+    },
+    {
+        "name": "Fan Daggers",
+        "physical": 3,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 201750
+    },
+    {
+        "name": "Ruin Fragment",
+        "physical": 3,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 201760
+    },
+    {
+        "name": "Explosive Stone",
+        "physical": 0,
+        "magic": 0,
+        "fire": 4,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 201830
+    },
+    {
+        "name": "Explosive Stone Clump",
+        "physical": 0,
+        "magic": 0,
+        "fire": 4,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 201831
+    },
+    {
+        "name": "Poisoned Stone",
+        "physical": 3,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 201840
+    },
+    {
+        "name": "Poisoned Stone Clump",
+        "physical": 3,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 201841
+    },
+    {
+        "name": "Ancestral Infant's Head",
+        "physical": 0,
+        "magic": 7,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 203000
+    },
+    {
+        "name": "Omen Bairn",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 4,
+        "attackelementcorrectId": 203010
+    },
+    {
+        "name": "Regal Omen Bairn",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 4,
+        "attackelementcorrectId": 203011
+    },
+    {
+        "name": "Miranda's Prayer",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 4,
+        "attackelementcorrectId": 203020
+    },
+    {
+        "name": "Cuckoo Glintstone",
+        "physical": 0,
+        "magic": 7,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 203030
+    },
+    {
+        "name": "Glintstone Scrap",
+        "physical": 0,
+        "magic": 7,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 203050
+    },
+    {
+        "name": "Large Glintstone Scrap",
+        "physical": 0,
+        "magic": 7,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 203051
+    },
+    {
+        "name": "Gravity Stone Fan",
+        "physical": 0,
+        "magic": 7,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 203060
+    },
+    {
+        "name": "Gravity Stone Chunk",
+        "physical": 0,
+        "magic": 7,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 203070
+    },
+    {
+        "name": "Wraith Calling Bell",
+        "physical": 0,
+        "magic": 7,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 203080
+    },
+    {
+        "name": "Spark Aromatic",
+        "physical": 0,
+        "magic": 0,
+        "fire": 4,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 203510
+    },
+    {
+        "name": "Poison Spraymist",
+        "physical": 3,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 203580
+    },
+    {
+        "name": "Acid Spraymist",
+        "physical": 3,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 203610
+    },
+    {
+        "name": "Fire Pot",
+        "physical": 0,
+        "magic": 0,
+        "fire": 4,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 200300
+    },
+    {
+        "name": "Redmane Fire Pot",
+        "physical": 0,
+        "magic": 0,
+        "fire": 4,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 200301
+    },
+    {
+        "name": "Giantsflame Fire Pot",
+        "physical": 0,
+        "magic": 0,
+        "fire": 4,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 200302
+    },
+    {
+        "name": "Lightning Pot",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 4,
+        "holy": 0,
+        "attackelementcorrectId": 200320
+    },
+    {
+        "name": "Ancient Dragonbolt Pot",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 4,
+        "holy": 0,
+        "attackelementcorrectId": 200321
+    },
+    {
+        "name": "Fetid Pot",
+        "physical": 3,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 200330
+    },
+    {
+        "name": "Swarm Pot",
+        "physical": 3,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 200340
+    },
+    {
+        "name": "Holy Water Pot",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 4,
+        "attackelementcorrectId": 200350
+    },
+    {
+        "name": "Sacred Order Pot",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 4,
+        "attackelementcorrectId": 200351
+    },
+    {
+        "name": "Poison Pot",
+        "physical": 3,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 200370
+    },
+    {
+        "name": "Roped Fire Pot",
+        "physical": 0,
+        "magic": 0,
+        "fire": 4,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 200400
+    },
+    {
+        "name": "Roped Lightning Pot",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 4,
+        "holy": 0,
+        "attackelementcorrectId": 200420
+    },
+    {
+        "name": "Roped Fetid Pot",
+        "physical": 3,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 200430
+    },
+    {
+        "name": "Roped Poison Pot",
+        "physical": 3,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 200440
+    },
+    {
+        "name": "Roped Magic Pot",
+        "physical": 0,
+        "magic": 7,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 200460
+    },
+    {
+        "name": "Roped Fly Pot",
+        "physical": 3,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 200470
+    },
+    {
+        "name": "Roped Volcano Pot",
+        "physical": 0,
+        "magic": 0,
+        "fire": 4,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 200490
+    },
+    {
+        "name": "Roped Holy Water Pot",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 4,
+        "attackelementcorrectId": 200510
+    },
+    {
+        "name": "Volcano Pot",
+        "physical": 0,
+        "magic": 0,
+        "fire": 4,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 200600
+    },
+    {
+        "name": "Sleep Pot",
+        "physical": 3,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 200640
+    },
+    {
+        "name": "Rancor Pot",
+        "physical": 0,
+        "magic": 7,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 200650
+    },
+    {
+        "name": "Magic Pot",
+        "physical": 0,
+        "magic": 7,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 200660
+    },
+    {
+        "name": "Academy Magic Pot",
+        "physical": 0,
+        "magic": 7,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 200661
+    },
+    {
         "name": "Dagger",
         "physical": 0,
         "magic": 0,
@@ -24445,6 +24877,573 @@
     },
     {
         "name": "Jar Cannon",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Arrow",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Fire Arrow",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Serpent Arrow",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Bone Arrow (Fletched)",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "St. Trina's Arrow",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Shattershard Arrow (Fletched)",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Rainbow Stone Arrow (Fletched)",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Golden Arrow",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Dwelling Arrow",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Bone Arrow",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Firebone Arrow (Fletched)",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Firebone Arrow",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Poisonbone Arrow (Fletched)",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Poisonbone Arrow",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Sleepbone Arrow (Fletched)",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Sleepbone Arrow",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Stormwing Bone Arrow",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Lightningbone Arrow (Fletched)",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Lightningbone Arrow",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Rainbow Stone Arrow",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Shattershard Arrow",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Spiritflame Arrow",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Magicbone Arrow (Fletched)",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Magicbone Arrow",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Haligbone Arrow (Fletched)",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Haligbone Arrow",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Bloodbone Arrow (Fletched)",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Bloodbone Arrow",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Coldbone Arrow (Fletched)",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Coldbone Arrow",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Rotbone Arrow (Fletched)",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Rotbone Arrow",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Great Arrow",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Golem's Great Arrow",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Golden Great Arrow",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Golem's Magic Arrow",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Radahn's Spear",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Bone Great Arrow (Fletched)",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Bone Great Arrow",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Bolt",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Lightning Bolt",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Perfumer's Bolt",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Black-Key Bolt",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Burred Bolt",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Meteor Bolt",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Explosive Bolt",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Golden Bolt",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Lordsworn's Bolt",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Bone Bolt",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Firebone Bolt",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Lightningbone Bolt",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Magicbone Bolt",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Haligbone Bolt",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Poisonbone Bolt",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Bloodbone Bolt",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Coldbone Bolt",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Rotbone Bolt",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Sleepbone Bolt",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Flaming Bolt",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Ballista Bolt",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Lightning Greatbolt",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Explosive Greatbolt",
+        "physical": 0,
+        "magic": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "attackelementcorrectId": 10000
+    },
+    {
+        "name": "Bone Ballista Bolt",
         "physical": 0,
         "magic": 0,
         "fire": 0,
