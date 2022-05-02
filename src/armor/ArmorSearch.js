@@ -21,12 +21,13 @@ export default function ArmorSearch(props) {
             <div className="build-collapsible">
                 <Collapsible trigger="Armor Information">
                     <p className="align-left">
-                        Due to armor optimization being a <a target="_blank" rel="noopener noreferrer" href={"https://en.wikipedia.org/wiki/Knapsack_problem"}>Knapsack problem</a>, you
-                        currently <b>must select at least one piece of armor</b>.
+                        There are over 300 million combinations to check when searching for a complete armor set (all four pieces of armor), which can take hours to do.
                         <br />
                         <br />
-                        There are over 300 million combinations to check when searching for a complete armor set, which takes hours to do.
-                        We are currently looking into how to speed up search times for a full armor set search.
+                        We are reducing the combinations by picking the "optimal" armor piece by weight based on multipliers. For example, there are twenty helmets at 5.1 
+                        weight. Rather than using all twenty helmets, we pick the best helmet based on your multipliers and helmet stats, then use that while searching for 
+                        optimizations. For example, if all multipliers are set to 1, this would use the Greathood helmet. We are still looking into more ways to get 
+                        better optimized equipment.
                         <br />
                         <br />
                         An armor type that is not selected will be optimized (helmet, chest, gauntlets, legs).
