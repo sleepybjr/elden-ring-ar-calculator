@@ -8,11 +8,14 @@ import Weapon_Reqs from '../json/weapon_reqs.json';
 
 import Armor_Data from '../json/armor_data.json';
 
+import Talisman_Data from '../json/talismans/talisman_data.json';
+
 import { FaSpinner } from 'react-icons/fa';
 
 import RollTypes from './RollTypes';
 import WeaponSearch from './WeaponSearch';
 import ArmorSearch from './ArmorSearch';
+import TalismanSearch from './TalismanSearch';
 import DisplayMultipliers from './DisplayMultipliers';
 import DisplayMinimums from './DisplayMinimums';
 
@@ -58,6 +61,8 @@ const NORMAL_ROLL_DEFAULT = 69.9;
 const IS_WEARING = 0;
 const IS_NOT_WEARING = 1;
 
+const MAX_LEVEL = 99;
+
 // const worker = new Worker(new URL('./worker.js', import.meta.url)); // renders twice but only in strict mode
 
 export default function FilterableArmorTable() {
@@ -70,14 +75,17 @@ export default function FilterableArmorTable() {
 
     const [searchedWeapons, setSearchedWeapons] = useState({});
     const [searchedArmor, setSearchedArmor] = useState({});
+    const [searchedTalismans, setSearchedTalismans] = useState([]);
 
     const [currEquippedArmor, setCurrEquippedArmor] = useState([]);
 
     const [maxEquip, setMaxEquip] = useState(0);
+    const [maxMultiplier, setMaxMultiplier] = useState(1);
+    const [levelModifier, setLevelModifier] = useState(0);
     const [currEquip, setCurrEquip] = useState(0);
-    const [minCurrEquip, setMinCurrEquip] = useState(0);
-    const [maxCurrEquip, setMaxCurrEquip] = useState(0);
     const [loadRemaining, setLoadRemaining] = useState(0);
+
+    const [vykes, setVykes] = useState(false);
 
     const [preppedData, setPreppedData] = useState([]);
     const [errors, setErrors] = useState("");
@@ -87,24 +95,6 @@ export default function FilterableArmorTable() {
 
     const [spinner, setSpinner] = useState(null);
     const [disabledButton, setDisabledButton] = useState(false);
-
-    function handleChangeCurrEquip(event) {
-        const currEquipValue = event.target.value;
-        if (currEquipValue > 300) {
-            setCurrEquip(300);
-        } else {
-            setCurrEquip(currEquipValue);
-        }
-    };
-
-    function handleChangeMaxEquip(event) {
-        const maxEquipValue = event.target.value;
-        if (maxEquipValue > 300) {
-            setMaxEquip(300);
-        } else {
-            setMaxEquip(maxEquipValue);
-        }
-    };
 
     useEffect(() => {
         worker.onmessage = ({ data: { output, equippedArmor } }) => {
@@ -372,6 +362,10 @@ export default function FilterableArmorTable() {
         setSearchedArmor(newSearchedArmor);
     };
 
+    function handleSearchTalismansItemsChange(searchedTalisman) {
+        setSearchedTalismans(searchedTalisman);
+    };
+
     function handleResistanceChange(event) {
         const newValue = event.target.value;
         const newId = event.target.id;
@@ -413,10 +407,15 @@ export default function FilterableArmorTable() {
     }
 
     useEffect(() => {
-        const newMaxLoad = getPhyCalcData(220, levels.endurance);
-        setMaxEquip(newMaxLoad);
-        setMaxCurrEquip(newMaxLoad);
-    }, [levels.endurance]);
+        // i thought levels are strings, not ints
+        let currentEnduranceLevel = parseInt(levels.endurance) + levelModifier;
+        if (currentEnduranceLevel > MAX_LEVEL) {
+            currentEnduranceLevel = MAX_LEVEL;
+        }
+
+        const newMaxLoad = getPhyCalcData(220, currentEnduranceLevel);
+        setMaxEquip(newMaxLoad * maxMultiplier);
+    }, [levels.endurance, maxMultiplier, levelModifier]);
 
     useEffect(() => {
         // count the amount of weapons
@@ -431,6 +430,11 @@ export default function FilterableArmorTable() {
             }
         }
 
+        const searchedTalismansSet = new Set();
+        for (const talisman of searchedTalismans) {
+            searchedTalismansSet.add(talisman.label);
+        }
+
         let newCurrentLoad = 0;
 
         // get weapon weight values from amount of weapons
@@ -441,6 +445,12 @@ export default function FilterableArmorTable() {
             }
         }
 
+        for (let element of Talisman_Data) {
+            if (searchedTalismansSet.has(element.name)) {
+                newCurrentLoad += element.weight;
+                newCurrentLoad = roundNumber(newCurrentLoad, 1);
+            }
+        }
 
         // get list of armor names that were searched
         const valuesSearchedArmor = new Set(Object.entries(searchedArmor).flatMap(([key, value]) => value !== null ? value.label : []));
@@ -456,8 +466,35 @@ export default function FilterableArmorTable() {
 
         setCurrEquippedArmor(newCurrEquippedArmor);
         setCurrEquip(newCurrentLoad);
-        setMinCurrEquip(newCurrentLoad);
-    }, [searchedWeapons, searchedArmor]);
+    }, [searchedWeapons, searchedArmor, searchedTalismans]);
+
+    useEffect(() => {
+        const searchedTalismansSet = new Set();
+        for (const talisman of searchedTalismans) {
+            searchedTalismansSet.add(talisman.label);
+        }
+
+        let currentMultiplier = 1;
+        let currentLevelModifier = 0
+
+        for (let element of Talisman_Data) {
+            if (searchedTalismansSet.has(element.name)) {
+                if (element.passive_1.equip_load_percent !== undefined) {
+                    currentMultiplier *= (1 + element.passive_1.equip_load_percent);
+                }
+                if (element.passive_1.endurance !== undefined) {
+                    currentLevelModifier += element.passive_1.endurance;
+                }
+            }
+        }
+
+        if (vykes === true) {
+            currentMultiplier *= 1.15; // amount of armor increase from vykes dragonbolt
+        }
+
+        setLevelModifier(currentLevelModifier);
+        setMaxMultiplier(currentMultiplier);
+    }, [searchedTalismans, vykes]);
 
     useEffect(() => {
         const loadLeft = roundNumber((maxEquip * (rollTypeChoice / 100)) - currEquip, 2);
@@ -469,26 +506,22 @@ export default function FilterableArmorTable() {
         <div className='large-spacing'>
             <WeaponSearch handleSearchWeaponItemsChange={handleSearchWeaponItemsChange} searchedWeapons={searchedWeapons} />
             <ArmorSearch handleSearchArmorItemsChange={handleSearchArmorItemsChange} searchedArmor={searchedArmor} />
+            <TalismanSearch handleSearchTalismansItemsChange={handleSearchTalismansItemsChange} searchedTalismans={searchedTalismans} />
+            <div className="small-spacing">
+                <label htmlFor="vykes">Vyke's Dragonbolt</label>
+                <input type="checkbox" id="vykes" name="vykes" checked={vykes} onChange={() => setVykes(!vykes)} />
+            </div>
             <RollTypes handleChangeRollTypes={handleChangeRollTypes} rollTypeChoice={rollTypeChoice} />
 
-
             <div className="large-spacing">
-                <div className="text-description-spacing">
-                    You can increase the current and max weight manually.<br />
-                    Selecting a new weapon or armor piece will reset changes.
-                </div>
                 <div className="tiny-spacing">
                     <label htmlFor="curr-equip">Current Equipment Weight</label>
                     <input
                         type="number"
-                        min={minCurrEquip}
-                        max={maxEquip}
-                        inputMode="numeric"
                         id="curr-equip"
                         name="curr-equip"
                         value={currEquip}
-                        onChange={handleChangeCurrEquip}
-                        onKeyDown={(evt) => ["e", "E", "+", "-",].includes(evt.key) && evt.preventDefault()}
+                        disabled={true}
                     />
                 </div>
                 <div className="tiny-spacing">
@@ -497,9 +530,8 @@ export default function FilterableArmorTable() {
                         type="number"
                         id="max-equip"
                         name="max-equip"
-                        min={maxCurrEquip}
                         value={maxEquip}
-                        onChange={handleChangeMaxEquip}
+                        disabled={true}
                     />
                 </div>
                 <div className="tiny-spacing important-field">

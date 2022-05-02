@@ -1,0 +1,465 @@
+{
+    "label": "Talismans",
+    "options": [
+        {
+            "label": "Crimson Amber Medallion",
+            "value": 1
+        },
+        {
+            "label": "Crimson Amber Medallion +1",
+            "value": 2
+        },
+        {
+            "label": "Crimson Amber Medallion +2",
+            "value": 3
+        },
+        {
+            "label": "Cerulean Amber Medallion",
+            "value": 4
+        },
+        {
+            "label": "Cerulean Amber Medallion +1",
+            "value": 5
+        },
+        {
+            "label": "Cerulean Amber Medallion +2",
+            "value": 6
+        },
+        {
+            "label": "Viridian Amber Medallion",
+            "value": 7
+        },
+        {
+            "label": "Viridian Amber Medallion +1",
+            "value": 8
+        },
+        {
+            "label": "Viridian Amber Medallion +2",
+            "value": 9
+        },
+        {
+            "label": "Arsenal Charm",
+            "value": 10
+        },
+        {
+            "label": "Arsenal Charm +1",
+            "value": 11
+        },
+        {
+            "label": "Great-Jar's Arsenal",
+            "value": 12
+        },
+        {
+            "label": "Erdtree's Favor",
+            "value": 13
+        },
+        {
+            "label": "Erdtree's Favor +1",
+            "value": 14
+        },
+        {
+            "label": "Erdtree's Favor +2",
+            "value": 15
+        },
+        {
+            "label": "Radagon's Scarseal",
+            "value": 16
+        },
+        {
+            "label": "Radagon's Soreseal",
+            "value": 17
+        },
+        {
+            "label": "Starscourge Heirloom",
+            "value": 18
+        },
+        {
+            "label": "Prosthesis-Wearer Heirloom",
+            "value": 19
+        },
+        {
+            "label": "Stargazer Heirloom",
+            "value": 20
+        },
+        {
+            "label": "Two Fingers Heirloom",
+            "value": 21
+        },
+        {
+            "label": "Silver Scarab",
+            "value": 22
+        },
+        {
+            "label": "Gold Scarab",
+            "value": 23
+        },
+        {
+            "label": "Moon of Nokstella",
+            "value": 24
+        },
+        {
+            "label": "Green Turtle Talisman",
+            "value": 25
+        },
+        {
+            "label": "Stalwart Horn Charm",
+            "value": 26
+        },
+        {
+            "label": "Stalwart Horn Charm +1",
+            "value": 27
+        },
+        {
+            "label": "Immunizing Horn Charm",
+            "value": 28
+        },
+        {
+            "label": "Immunizing Horn Charm +1",
+            "value": 29
+        },
+        {
+            "label": "Clarifying Horn Charm",
+            "value": 30
+        },
+        {
+            "label": "Clarifying Horn Charm +1",
+            "value": 31
+        },
+        {
+            "label": "Prince of Death's Pustule",
+            "value": 32
+        },
+        {
+            "label": "Prince of Death's Cyst",
+            "value": 33
+        },
+        {
+            "label": "Mottled Necklace",
+            "value": 34
+        },
+        {
+            "label": "Mottled Necklace +1",
+            "value": 35
+        },
+        {
+            "label": "Bull-Goat's Talisman",
+            "value": 36
+        },
+        {
+            "label": "Marika's Scarseal",
+            "value": 37
+        },
+        {
+            "label": "Marika's Soreseal",
+            "value": 38
+        },
+        {
+            "label": "Warrior Jar Shard",
+            "value": 39
+        },
+        {
+            "label": "Shard of Alexander",
+            "value": 40
+        },
+        {
+            "label": "Millicent's Prosthesis",
+            "value": 41
+        },
+        {
+            "label": "Magic Scorpion Charm",
+            "value": 42
+        },
+        {
+            "label": "Lightning Scorpion Charm",
+            "value": 43
+        },
+        {
+            "label": "Fire Scorpion Charm",
+            "value": 44
+        },
+        {
+            "label": "Sacred Scorpion Charm",
+            "value": 45
+        },
+        {
+            "label": "Red-Feathered Branchsword",
+            "value": 46
+        },
+        {
+            "label": "Ritual Sword Talisman",
+            "value": 47
+        },
+        {
+            "label": "Spear Talisman",
+            "value": 48
+        },
+        {
+            "label": "Hammer Talisman",
+            "value": 49
+        },
+        {
+            "label": "Winged Sword Insignia",
+            "value": 50
+        },
+        {
+            "label": "Rotten Winged Sword Insignia",
+            "value": 51
+        },
+        {
+            "label": "Dagger Talisman",
+            "value": 52
+        },
+        {
+            "label": "Arrow's Reach Talisman",
+            "value": 53
+        },
+        {
+            "label": "Blue Dancer Charm",
+            "value": 54
+        },
+        {
+            "label": "Twinblade Talisman",
+            "value": 55
+        },
+        {
+            "label": "Axe Talisman",
+            "value": 56
+        },
+        {
+            "label": "Lance Talisman",
+            "value": 57
+        },
+        {
+            "label": "Arrow's Sting Talisman",
+            "value": 58
+        },
+        {
+            "label": "Lord of Blood's Exultation",
+            "value": 59
+        },
+        {
+            "label": "Kindred of Rot's Exultation",
+            "value": 60
+        },
+        {
+            "label": "Claw Talisman",
+            "value": 61
+        },
+        {
+            "label": "Roar Medallion",
+            "value": 62
+        },
+        {
+            "label": "Curved Sword Talisman",
+            "value": 63
+        },
+        {
+            "label": "Companion Jar",
+            "value": 64
+        },
+        {
+            "label": "Perfumer's Talisman",
+            "value": 65
+        },
+        {
+            "label": "Graven-School Talisman",
+            "value": 66
+        },
+        {
+            "label": "Graven-Mass Talisman",
+            "value": 67
+        },
+        {
+            "label": "Faithful's Canvas Talisman",
+            "value": 68
+        },
+        {
+            "label": "Flock's Canvas Talisman",
+            "value": 69
+        },
+        {
+            "label": "Old Lord's Talisman",
+            "value": 70
+        },
+        {
+            "label": "Radagon Icon",
+            "value": 71
+        },
+        {
+            "label": "Primal Glintstone Blade",
+            "value": 72
+        },
+        {
+            "label": "Godfrey Icon",
+            "value": 73
+        },
+        {
+            "label": "Dragoncrest Shield Talisman",
+            "value": 74
+        },
+        {
+            "label": "Dragoncrest Shield Talisman +1",
+            "value": 75
+        },
+        {
+            "label": "Dragoncrest Shield Talisman +2",
+            "value": 76
+        },
+        {
+            "label": "Dragoncrest Greatshield Talisman",
+            "value": 77
+        },
+        {
+            "label": "Spelldrake Talisman",
+            "value": 78
+        },
+        {
+            "label": "Spelldrake Talisman +1",
+            "value": 79
+        },
+        {
+            "label": "Spelldrake Talisman +2",
+            "value": 80
+        },
+        {
+            "label": "Flamedrake Talisman",
+            "value": 81
+        },
+        {
+            "label": "Flamedrake Talisman +1",
+            "value": 82
+        },
+        {
+            "label": "Flamedrake Talisman +2",
+            "value": 83
+        },
+        {
+            "label": "Boltdrake Talisman",
+            "value": 84
+        },
+        {
+            "label": "Boltdrake Talisman +1",
+            "value": 85
+        },
+        {
+            "label": "Boltdrake Talisman +2",
+            "value": 86
+        },
+        {
+            "label": "Haligdrake Talisman",
+            "value": 87
+        },
+        {
+            "label": "Haligdrake Talisman +1",
+            "value": 88
+        },
+        {
+            "label": "Haligdrake Talisman +2",
+            "value": 89
+        },
+        {
+            "label": "Pearldrake Talisman",
+            "value": 90
+        },
+        {
+            "label": "Pearldrake Talisman +1",
+            "value": 91
+        },
+        {
+            "label": "Pearldrake Talisman +2",
+            "value": 92
+        },
+        {
+            "label": "Crucible Scale Talisman",
+            "value": 93
+        },
+        {
+            "label": "Crucible Feather Talisman",
+            "value": 94
+        },
+        {
+            "label": "Blue-Feathered Branchsword",
+            "value": 95
+        },
+        {
+            "label": "Ritual Shield Talisman",
+            "value": 96
+        },
+        {
+            "label": "Greatshield Talisman",
+            "value": 97
+        },
+        {
+            "label": "Crucible Knot Talisman",
+            "value": 98
+        },
+        {
+            "label": "Crimson Seed Talisman",
+            "value": 99
+        },
+        {
+            "label": "Cerulean Seed Talisman",
+            "value": 100
+        },
+        {
+            "label": "Blessed Dew Talisman",
+            "value": 101
+        },
+        {
+            "label": "Taker's Cameo",
+            "value": 102
+        },
+        {
+            "label": "Godskin Swaddling Cloth",
+            "value": 103
+        },
+        {
+            "label": "Assassin's Crimson Dagger",
+            "value": 104
+        },
+        {
+            "label": "Assassin's Cerulean Dagger",
+            "value": 105
+        },
+        {
+            "label": "Crepus's Vial",
+            "value": 106
+        },
+        {
+            "label": "Concealing Veil",
+            "value": 107
+        },
+        {
+            "label": "Carian Filigreed Crest",
+            "value": 108
+        },
+        {
+            "label": "Longtail Cat Talisman",
+            "value": 109
+        },
+        {
+            "label": "Shabriri's Woe",
+            "value": 110
+        },
+        {
+            "label": "Daedicar's Woe",
+            "value": 111
+        },
+        {
+            "label": "Sacrificial Twig",
+            "value": 112
+        },
+        {
+            "label": "Furled Finger's Trick-Mirror",
+            "value": 113
+        },
+        {
+            "label": "Host's Trick-Mirror",
+            "value": 114
+        },
+        {
+            "label": "Ancestral Spirit's Horn",
+            "value": 115
+        }
+    ]
+}

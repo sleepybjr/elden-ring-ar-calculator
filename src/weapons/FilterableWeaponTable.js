@@ -4,11 +4,12 @@ import { useSelector } from 'react-redux';
 import FilterBar from './FilterBar';
 import WeaponTable from './WeaponTable';
 import ExtraFilters from './ExtraFilters';
-import SearchBar from './SearchBar';
+import SearchBar from '../component/SearchBar';
 
 import Table_Data from '.././json/merged_json_data.json';
 import Attack_Element_Correct_Param from '.././json/attackelementcorrectparam.json';
 import Physical_Calculations from '../json/physical_calculations.json';
+import Weapon_Groups from '.././json/weapon_groups.json';
 
 const scalingValues = {
     // In MenuValueTableParam
@@ -605,7 +606,8 @@ export default function FilterableWeaponTable() {
 
                 <SearchBar
                     handleSearchItemsChange={handleSearchItemsChange}
-                    searchedWeapons={searchedWeapons}
+                    searchedItems={searchedWeapons}
+                    options={Weapon_Groups}
                     placeholder="Search weapons... Select affinities using filter."
                 />
 
