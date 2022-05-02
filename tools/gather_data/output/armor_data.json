@@ -571,14 +571,18 @@
         "poise": 0,
         "passive_1": {
             "name": "",
-            "state_info": "None",
-            "coditional_weapon_effect_1": "Thorn Spell",
             "attack_percent_physical": 0.06000000000000005,
             "attack_percent_magic": 0.06000000000000005,
             "attack_percent_fire": 0.06000000000000005,
             "attack_percent_lightning": 0.06000000000000005,
             "attack_percent_holy": 0.06000000000000005,
-            "trigger_effect_for_self": "True"
+            "coditional_weapon_effect_1": "Thorn Spell",
+            "affects_sorcery": "True",
+            "description": [
+                "Increase the Calculated Attack of Physical, Magic, Fire, Lightning, Holy types by 6.0%",
+                "Damage Effect Only Applies for Thorn Spells",
+                "Affect Sorceries"
+            ]
         }
     },
     {
@@ -601,14 +605,18 @@
         "poise": 1,
         "passive_1": {
             "name": "",
-            "state_info": "None",
-            "coditional_weapon_effect_1": "Thorn Spell",
             "attack_percent_physical": 0.06000000000000005,
             "attack_percent_magic": 0.06000000000000005,
             "attack_percent_fire": 0.06000000000000005,
             "attack_percent_lightning": 0.06000000000000005,
             "attack_percent_holy": 0.06000000000000005,
-            "trigger_effect_for_self": "True"
+            "coditional_weapon_effect_1": "Thorn Spell",
+            "affects_sorcery": "True",
+            "description": [
+                "Increase the Calculated Attack of Physical, Magic, Fire, Lightning, Holy types by 6.0%",
+                "Damage Effect Only Applies for Thorn Spells",
+                "Affect Sorceries"
+            ]
         }
     },
     {
@@ -631,14 +639,18 @@
         "poise": 0,
         "passive_1": {
             "name": "",
-            "state_info": "None",
-            "coditional_weapon_effect_1": "Thorn Spell",
             "attack_percent_physical": 0.06000000000000005,
             "attack_percent_magic": 0.06000000000000005,
             "attack_percent_fire": 0.06000000000000005,
             "attack_percent_lightning": 0.06000000000000005,
             "attack_percent_holy": 0.06000000000000005,
-            "trigger_effect_for_self": "True"
+            "coditional_weapon_effect_1": "Thorn Spell",
+            "affects_sorcery": "True",
+            "description": [
+                "Increase the Calculated Attack of Physical, Magic, Fire, Lightning, Holy types by 6.0%",
+                "Damage Effect Only Applies for Thorn Spells",
+                "Affect Sorceries"
+            ]
         }
     },
     {
@@ -680,14 +692,18 @@
         "poise": 0,
         "passive_1": {
             "name": "",
-            "state_info": "None",
-            "coditional_weapon_effect_1": "Thorn Spell",
             "attack_percent_physical": 0.06000000000000005,
             "attack_percent_magic": 0.06000000000000005,
             "attack_percent_fire": 0.06000000000000005,
             "attack_percent_lightning": 0.06000000000000005,
             "attack_percent_holy": 0.06000000000000005,
-            "trigger_effect_for_self": "True"
+            "coditional_weapon_effect_1": "Thorn Spell",
+            "affects_sorcery": "True",
+            "description": [
+                "Increase the Calculated Attack of Physical, Magic, Fire, Lightning, Holy types by 6.0%",
+                "Damage Effect Only Applies for Thorn Spells",
+                "Affect Sorceries"
+            ]
         }
     },
     {
@@ -729,11 +745,14 @@
         "poise": 0,
         "passive_1": {
             "name": "",
-            "state_info": "None",
+            "attack_percent_magic": 0.020000000000000018,
             "coditional_weapon_effect_1": "Skill Attack",
             "coditional_weapon_effect_2": "Charged Skill Attack",
-            "attack_percent_magic": 0.020000000000000018,
-            "trigger_effect_for_self": "True"
+            "description": [
+                "Increase the Calculated Attack of Magic types by 2.0%",
+                "Damage Effect Only Applies for Skill Attacks",
+                "Damage Effect Only Applies for Charged Skill Attacks"
+            ]
         }
     },
     {
@@ -756,11 +775,14 @@
         "poise": 1,
         "passive_1": {
             "name": "",
-            "state_info": "None",
+            "attack_percent_magic": 0.020000000000000018,
             "coditional_weapon_effect_1": "Skill Attack",
             "coditional_weapon_effect_2": "Charged Skill Attack",
-            "attack_percent_magic": 0.020000000000000018,
-            "trigger_effect_for_self": "True"
+            "description": [
+                "Increase the Calculated Attack of Magic types by 2.0%",
+                "Damage Effect Only Applies for Skill Attacks",
+                "Damage Effect Only Applies for Charged Skill Attacks"
+            ]
         }
     },
     {
@@ -783,11 +805,14 @@
         "poise": 0,
         "passive_1": {
             "name": "",
-            "state_info": "None",
+            "attack_percent_magic": 0.020000000000000018,
             "coditional_weapon_effect_1": "Skill Attack",
             "coditional_weapon_effect_2": "Charged Skill Attack",
-            "attack_percent_magic": 0.020000000000000018,
-            "trigger_effect_for_self": "True"
+            "description": [
+                "Increase the Calculated Attack of Magic types by 2.0%",
+                "Damage Effect Only Applies for Skill Attacks",
+                "Damage Effect Only Applies for Charged Skill Attacks"
+            ]
         }
     },
     {
@@ -810,11 +835,14 @@
         "poise": 1,
         "passive_1": {
             "name": "",
-            "state_info": "None",
+            "attack_percent_magic": 0.020000000000000018,
             "coditional_weapon_effect_1": "Skill Attack",
             "coditional_weapon_effect_2": "Charged Skill Attack",
-            "attack_percent_magic": 0.020000000000000018,
-            "trigger_effect_for_self": "True"
+            "description": [
+                "Increase the Calculated Attack of Magic types by 2.0%",
+                "Damage Effect Only Applies for Skill Attacks",
+                "Damage Effect Only Applies for Charged Skill Attacks"
+            ]
         }
     },
     {
@@ -837,11 +865,14 @@
         "poise": 0,
         "passive_1": {
             "name": "",
-            "state_info": "None",
+            "attack_percent_magic": 0.020000000000000018,
             "coditional_weapon_effect_1": "Skill Attack",
             "coditional_weapon_effect_2": "Charged Skill Attack",
-            "attack_percent_magic": 0.020000000000000018,
-            "trigger_effect_for_self": "True"
+            "description": [
+                "Increase the Calculated Attack of Magic types by 2.0%",
+                "Damage Effect Only Applies for Skill Attacks",
+                "Damage Effect Only Applies for Charged Skill Attacks"
+            ]
         }
     },
     {
@@ -1206,10 +1237,13 @@
         "poise": 14,
         "passive_1": {
             "name": "",
-            "state_info": "None",
             "enemy_listen_adjustment_%": -1.0,
+            "silent_footsteps": "True",
             "trigger_effect_for_opponent": "True",
-            "trigger_effect_for_self": "True"
+            "description": [
+                "Decrease sound emmitted to all enemies by 100.0%",
+                "Silence Footsteps"
+            ]
         }
     },
     {
@@ -1482,8 +1516,10 @@
             "state_info": "Trigger on Roll (Head)",
             "damage_physical": 18,
             "trigger_effect_for_opponent": "True",
-            "trigger_effect_for_friendly": "True",
-            "trigger_effect_for_self": "True"
+            "description": [
+                "Add Attack Power for Physical types by 18",
+                "Trigger Effect on Roll"
+            ]
         }
     },
     {
@@ -1509,8 +1545,10 @@
             "state_info": "Trigger on Roll (Body)",
             "damage_physical": 25,
             "trigger_effect_for_opponent": "True",
-            "trigger_effect_for_friendly": "True",
-            "trigger_effect_for_self": "True"
+            "description": [
+                "Add Attack Power for Physical types by 25",
+                "Trigger Effect on Roll"
+            ]
         }
     },
     {
@@ -1536,8 +1574,10 @@
             "state_info": "Trigger on Roll (Arm)",
             "damage_physical": 18,
             "trigger_effect_for_opponent": "True",
-            "trigger_effect_for_friendly": "True",
-            "trigger_effect_for_self": "True"
+            "description": [
+                "Add Attack Power for Physical types by 18",
+                "Trigger Effect on Roll"
+            ]
         }
     },
     {
@@ -1563,8 +1603,10 @@
             "state_info": "Trigger on Roll (Leg)",
             "damage_physical": 18,
             "trigger_effect_for_opponent": "True",
-            "trigger_effect_for_friendly": "True",
-            "trigger_effect_for_self": "True"
+            "description": [
+                "Add Attack Power for Physical types by 18",
+                "Trigger Effect on Roll"
+            ]
         }
     },
     {
@@ -1590,8 +1632,10 @@
             "state_info": "Trigger on Roll (Body)",
             "damage_physical": 25,
             "trigger_effect_for_opponent": "True",
-            "trigger_effect_for_friendly": "True",
-            "trigger_effect_for_self": "True"
+            "description": [
+                "Add Attack Power for Physical types by 25",
+                "Trigger Effect on Roll"
+            ]
         }
     },
     {
@@ -2526,14 +2570,16 @@
         "poise": 2,
         "passive_1": {
             "name": "",
-            "state_info": "None",
-            "coditional_weapon_effect_1": "Vapor Attack",
             "attack_percent_physical": 0.19999999999999996,
             "attack_percent_magic": 0.19999999999999996,
             "attack_percent_fire": 0.19999999999999996,
             "attack_percent_lightning": 0.19999999999999996,
             "attack_percent_holy": 0.19999999999999996,
-            "trigger_effect_for_self": "True"
+            "coditional_weapon_effect_1": "Vapor Attack",
+            "description": [
+                "Increase the Calculated Attack of Physical, Magic, Fire, Lightning, Holy types by 20.0%",
+                "Damage Effect Only Applies for Vapor Attacks"
+            ]
         }
     },
     {
@@ -2594,9 +2640,10 @@
         "poise": 8,
         "passive_1": {
             "name": "",
-            "state_info": "None",
             "target_priority_%": 0.03,
-            "trigger_effect_for_self": "True"
+            "description": [
+                "Increase attraction of enemies by 3.0%"
+            ]
         }
     },
     {
@@ -2616,16 +2663,7 @@
         "robustness": 25,
         "focus": 42,
         "vitality": 42,
-        "poise": 2,
-        "passive_1": {
-            "name": "",
-            "state_info": "None",
-            "duration": 0.0,
-            "fall_damage_%": -1.0,
-            "equip_load_%": -1.0,
-            "effect_duration_%": -1.0,
-            "rune_gain_%": -1.0
-        }
+        "poise": 2
     },
     {
         "row_id": 310300,
@@ -2647,9 +2685,10 @@
         "poise": 11,
         "passive_1": {
             "name": "",
-            "state_info": "None",
             "target_priority_%": 0.03,
-            "trigger_effect_for_self": "True"
+            "description": [
+                "Increase attraction of enemies by 3.0%"
+            ]
         }
     },
     {
@@ -2672,9 +2711,10 @@
         "poise": 1,
         "passive_1": {
             "name": "",
-            "state_info": "None",
             "target_priority_%": 0.04,
-            "trigger_effect_for_self": "True"
+            "description": [
+                "Increase attraction of enemies by 4.0%"
+            ]
         }
     },
     {
@@ -2773,9 +2813,10 @@
         "poise": 5,
         "passive_1": {
             "name": "",
-            "state_info": "None",
             "hp_restore_correction_%": 0.10000000000000009,
-            "trigger_effect_for_self": "True"
+            "description": [
+                "Increase HP Restore from Flask of Crimson Tears by 10.0%"
+            ]
         }
     },
     {
@@ -3521,7 +3562,9 @@
         "passive_1": {
             "name": "",
             "state_info": "Reduce Headshot Impact",
-            "trigger_effect_for_self": "True"
+            "description": [
+                "Reduce Headshot Impact"
+            ]
         }
     },
     {
@@ -3772,9 +3815,10 @@
         "poise": 1,
         "passive_1": {
             "name": "",
-            "state_info": "None",
             "intelligence": 3,
-            "trigger_effect_for_self": "True"
+            "description": [
+                "Increase Intelligence by 3"
+            ]
         }
     },
     {
@@ -3949,14 +3993,18 @@
         "poise": 5,
         "passive_1": {
             "name": "",
-            "state_info": "None",
-            "coditional_weapon_effect_1": "Godslayer Spell",
             "attack_percent_physical": 0.19999999999999996,
             "attack_percent_magic": 0.19999999999999996,
             "attack_percent_fire": 0.19999999999999996,
             "attack_percent_lightning": 0.19999999999999996,
             "attack_percent_holy": 0.19999999999999996,
-            "trigger_effect_for_self": "True"
+            "coditional_weapon_effect_1": "Godslayer Spell",
+            "affects_incantation": "True",
+            "description": [
+                "Increase the Calculated Attack of Physical, Magic, Fire, Lightning, Holy types by 20.0%",
+                "Damage Effect Only Applies for Godslayer Spells",
+                "Affect Incantations"
+            ]
         }
     },
     {
@@ -4112,14 +4160,18 @@
         "poise": 9,
         "passive_1": {
             "name": "",
-            "state_info": "None",
-            "coditional_weapon_effect_1": "Primordial Crucible Spell",
             "attack_percent_physical": 0.040000000000000036,
             "attack_percent_magic": 0.040000000000000036,
             "attack_percent_fire": 0.040000000000000036,
             "attack_percent_lightning": 0.040000000000000036,
             "attack_percent_holy": 0.040000000000000036,
-            "trigger_effect_for_self": "True"
+            "coditional_weapon_effect_1": "Primordial Crucible Spell",
+            "affects_incantation": "True",
+            "description": [
+                "Increase the Calculated Attack of Physical, Magic, Fire, Lightning, Holy types by 4.0%",
+                "Damage Effect Only Applies for Primordial Crucible Spells",
+                "Affect Incantations"
+            ]
         }
     },
     {
@@ -4142,14 +4194,18 @@
         "poise": 27,
         "passive_1": {
             "name": "",
-            "state_info": "None",
-            "coditional_weapon_effect_1": "Primordial Crucible Spell",
             "attack_percent_physical": 0.040000000000000036,
             "attack_percent_magic": 0.040000000000000036,
             "attack_percent_fire": 0.040000000000000036,
             "attack_percent_lightning": 0.040000000000000036,
             "attack_percent_holy": 0.040000000000000036,
-            "trigger_effect_for_self": "True"
+            "coditional_weapon_effect_1": "Primordial Crucible Spell",
+            "affects_incantation": "True",
+            "description": [
+                "Increase the Calculated Attack of Physical, Magic, Fire, Lightning, Holy types by 4.0%",
+                "Damage Effect Only Applies for Primordial Crucible Spells",
+                "Affect Incantations"
+            ]
         }
     },
     {
@@ -4172,14 +4228,18 @@
         "poise": 6,
         "passive_1": {
             "name": "",
-            "state_info": "None",
-            "coditional_weapon_effect_1": "Primordial Crucible Spell",
             "attack_percent_physical": 0.040000000000000036,
             "attack_percent_magic": 0.040000000000000036,
             "attack_percent_fire": 0.040000000000000036,
             "attack_percent_lightning": 0.040000000000000036,
             "attack_percent_holy": 0.040000000000000036,
-            "trigger_effect_for_self": "True"
+            "coditional_weapon_effect_1": "Primordial Crucible Spell",
+            "affects_incantation": "True",
+            "description": [
+                "Increase the Calculated Attack of Physical, Magic, Fire, Lightning, Holy types by 4.0%",
+                "Damage Effect Only Applies for Primordial Crucible Spells",
+                "Affect Incantations"
+            ]
         }
     },
     {
@@ -4202,14 +4262,18 @@
         "poise": 16,
         "passive_1": {
             "name": "",
-            "state_info": "None",
-            "coditional_weapon_effect_1": "Primordial Crucible Spell",
             "attack_percent_physical": 0.040000000000000036,
             "attack_percent_magic": 0.040000000000000036,
             "attack_percent_fire": 0.040000000000000036,
             "attack_percent_lightning": 0.040000000000000036,
             "attack_percent_holy": 0.040000000000000036,
-            "trigger_effect_for_self": "True"
+            "coditional_weapon_effect_1": "Primordial Crucible Spell",
+            "affects_incantation": "True",
+            "description": [
+                "Increase the Calculated Attack of Physical, Magic, Fire, Lightning, Holy types by 4.0%",
+                "Damage Effect Only Applies for Primordial Crucible Spells",
+                "Affect Incantations"
+            ]
         }
     },
     {
@@ -4232,14 +4296,18 @@
         "poise": 9,
         "passive_1": {
             "name": "",
-            "state_info": "None",
-            "coditional_weapon_effect_1": "Primordial Crucible Spell",
             "attack_percent_physical": 0.040000000000000036,
             "attack_percent_magic": 0.040000000000000036,
             "attack_percent_fire": 0.040000000000000036,
             "attack_percent_lightning": 0.040000000000000036,
             "attack_percent_holy": 0.040000000000000036,
-            "trigger_effect_for_self": "True"
+            "coditional_weapon_effect_1": "Primordial Crucible Spell",
+            "affects_incantation": "True",
+            "description": [
+                "Increase the Calculated Attack of Physical, Magic, Fire, Lightning, Holy types by 4.0%",
+                "Damage Effect Only Applies for Primordial Crucible Spells",
+                "Affect Incantations"
+            ]
         }
     },
     {
@@ -4262,14 +4330,18 @@
         "poise": 27,
         "passive_1": {
             "name": "",
-            "state_info": "None",
-            "coditional_weapon_effect_1": "Primordial Crucible Spell",
             "attack_percent_physical": 0.040000000000000036,
             "attack_percent_magic": 0.040000000000000036,
             "attack_percent_fire": 0.040000000000000036,
             "attack_percent_lightning": 0.040000000000000036,
             "attack_percent_holy": 0.040000000000000036,
-            "trigger_effect_for_self": "True"
+            "coditional_weapon_effect_1": "Primordial Crucible Spell",
+            "affects_incantation": "True",
+            "description": [
+                "Increase the Calculated Attack of Physical, Magic, Fire, Lightning, Holy types by 4.0%",
+                "Damage Effect Only Applies for Primordial Crucible Spells",
+                "Affect Incantations"
+            ]
         }
     },
     {
@@ -4292,14 +4364,18 @@
         "poise": 23,
         "passive_1": {
             "name": "",
-            "state_info": "None",
-            "coditional_weapon_effect_1": "Primordial Crucible Spell",
             "attack_percent_physical": 0.040000000000000036,
             "attack_percent_magic": 0.040000000000000036,
             "attack_percent_fire": 0.040000000000000036,
             "attack_percent_lightning": 0.040000000000000036,
             "attack_percent_holy": 0.040000000000000036,
-            "trigger_effect_for_self": "True"
+            "coditional_weapon_effect_1": "Primordial Crucible Spell",
+            "affects_incantation": "True",
+            "description": [
+                "Increase the Calculated Attack of Physical, Magic, Fire, Lightning, Holy types by 4.0%",
+                "Damage Effect Only Applies for Primordial Crucible Spells",
+                "Affect Incantations"
+            ]
         }
     },
     {
@@ -4322,14 +4398,18 @@
         "poise": 23,
         "passive_1": {
             "name": "",
-            "state_info": "None",
-            "coditional_weapon_effect_1": "Primordial Crucible Spell",
             "attack_percent_physical": 0.040000000000000036,
             "attack_percent_magic": 0.040000000000000036,
             "attack_percent_fire": 0.040000000000000036,
             "attack_percent_lightning": 0.040000000000000036,
             "attack_percent_holy": 0.040000000000000036,
-            "trigger_effect_for_self": "True"
+            "coditional_weapon_effect_1": "Primordial Crucible Spell",
+            "affects_incantation": "True",
+            "description": [
+                "Increase the Calculated Attack of Physical, Magic, Fire, Lightning, Holy types by 4.0%",
+                "Damage Effect Only Applies for Primordial Crucible Spells",
+                "Affect Incantations"
+            ]
         }
     },
     {
@@ -4352,26 +4432,35 @@
         "poise": 2,
         "passive_1": {
             "name": "",
-            "state_info": "None",
-            "coditional_weapon_effect_1": "Olivinus Spell",
             "attack_percent_physical": 0.10000000000000009,
             "attack_percent_magic": 0.10000000000000009,
             "attack_percent_fire": 0.10000000000000009,
             "attack_percent_lightning": 0.10000000000000009,
             "attack_percent_holy": 0.10000000000000009,
+            "coditional_weapon_effect_1": "Olivinus Spell",
             "sorcery_fp_cost_%": 0.1499999999999999,
-            "trigger_effect_for_self": "True"
+            "affects_sorcery": "True",
+            "description": [
+                "Increase the Calculated Attack of Physical, Magic, Fire, Lightning, Holy types by 10.0%",
+                "Damage Effect Only Applies for Olivinus Spells",
+                "Increase FP Cost for Sorcery by 15.0%",
+                "Affect Sorceries"
+            ]
         },
         "passive_2": {
             "name": "",
-            "state_info": "None",
-            "coditional_weapon_effect_1": "Lusat Spell",
             "attack_percent_physical": 0.1499999999999999,
             "attack_percent_magic": 0.1499999999999999,
             "attack_percent_fire": 0.1499999999999999,
             "attack_percent_lightning": 0.1499999999999999,
             "attack_percent_holy": 0.1499999999999999,
-            "trigger_effect_for_self": "True"
+            "coditional_weapon_effect_1": "Lusat Spell",
+            "affects_sorcery": "True",
+            "description": [
+                "Increase the Calculated Attack of Physical, Magic, Fire, Lightning, Holy types by 15.0%",
+                "Damage Effect Only Applies for Lusat Spells",
+                "Affect Sorceries"
+            ]
         }
     },
     {
@@ -4451,26 +4540,35 @@
         "poise": 2,
         "passive_1": {
             "name": "",
-            "state_info": "None",
-            "coditional_weapon_effect_1": "Karolos Spell",
             "attack_percent_physical": 0.10000000000000009,
             "attack_percent_magic": 0.10000000000000009,
             "attack_percent_fire": 0.10000000000000009,
             "attack_percent_lightning": 0.10000000000000009,
             "attack_percent_holy": 0.10000000000000009,
+            "coditional_weapon_effect_1": "Karolos Spell",
             "sorcery_fp_cost_%": 0.1499999999999999,
-            "trigger_effect_for_self": "True"
+            "affects_sorcery": "True",
+            "description": [
+                "Increase the Calculated Attack of Physical, Magic, Fire, Lightning, Holy types by 10.0%",
+                "Damage Effect Only Applies for Karolos Spells",
+                "Increase FP Cost for Sorcery by 15.0%",
+                "Affect Sorceries"
+            ]
         },
         "passive_2": {
             "name": "",
-            "state_info": "None",
-            "coditional_weapon_effect_1": "Azur Spell",
             "attack_percent_physical": 0.1499999999999999,
             "attack_percent_magic": 0.1499999999999999,
             "attack_percent_fire": 0.1499999999999999,
             "attack_percent_lightning": 0.1499999999999999,
             "attack_percent_holy": 0.1499999999999999,
-            "trigger_effect_for_self": "True"
+            "coditional_weapon_effect_1": "Azur Spell",
+            "affects_sorcery": "True",
+            "description": [
+                "Increase the Calculated Attack of Physical, Magic, Fire, Lightning, Holy types by 15.0%",
+                "Damage Effect Only Applies for Azur Spells",
+                "Affect Sorceries"
+            ]
         }
     },
     {
@@ -5291,13 +5389,9 @@
         "poise": 2,
         "passive_1": {
             "name": "",
-            "state_info": "None",
-            "trigger_effect_for_self": "True",
             "trigger_on_state_info_1": "Trigger in Presence of Blood Loss",
             "cycle_special_effect": {
                 "name": "",
-                "state_info": "None",
-                "duration": 20.0,
                 "damage_percent_physical": 0.10000000000000009,
                 "damage_percent_magic": 0.10000000000000009,
                 "damage_percent_fire": 0.10000000000000009,
@@ -5308,8 +5402,18 @@
                 "pvp_damage_percent_fire": 0.10000000000000009,
                 "pvp_damage_percent_lightning": 0.10000000000000009,
                 "pvp_damage_percent_holy": 0.10000000000000009,
-                "trigger_effect_for_self": "True"
-            }
+                "affects_sorcery": "True",
+                "affects_incantation": "True",
+                "duration": 20.0
+            },
+            "description": [
+                "Trigger in Presence of Blood Loss",
+                "Increase the Damage against non-player enemies for Physical, Magic, Fire, Lightning, Holy types by 10.0%",
+                "Increase the Damage against players for Physical, Magic, Fire, Lightning, Holy types by 10.0%",
+                "Affect Sorceries",
+                "Affect Incantations",
+                "Effect lasts for 20.0 seconds"
+            ]
         }
     },
     {
@@ -5409,9 +5513,14 @@
         "passive_1": {
             "name": "",
             "state_info": "HP/FP/Stamina Recovery",
-            "trigger_below_hp_%": 18,
             "change_hp": 2,
-            "trigger_effect_for_self": "True"
+            "trigger_below_hp_%": 18,
+            "trigger_interval": 1.0,
+            "description": [
+                "Regen HP by 2 points per second",
+                "Trigger Effect when HP is below or equal to 18%",
+                "Effect is triggered every second"
+            ]
         }
     },
     {
@@ -5435,9 +5544,14 @@
         "passive_1": {
             "name": "",
             "state_info": "HP/FP/Stamina Recovery",
-            "trigger_below_hp_%": 18,
             "change_hp": 2,
-            "trigger_effect_for_self": "True"
+            "trigger_below_hp_%": 18,
+            "trigger_interval": 1.0,
+            "description": [
+                "Regen HP by 2 points per second",
+                "Trigger Effect when HP is below or equal to 18%",
+                "Effect is triggered every second"
+            ]
         }
     },
     {
@@ -5461,9 +5575,14 @@
         "passive_1": {
             "name": "",
             "state_info": "HP/FP/Stamina Recovery",
-            "trigger_below_hp_%": 18,
             "change_hp": 2,
-            "trigger_effect_for_self": "True"
+            "trigger_below_hp_%": 18,
+            "trigger_interval": 1.0,
+            "description": [
+                "Regen HP by 2 points per second",
+                "Trigger Effect when HP is below or equal to 18%",
+                "Effect is triggered every second"
+            ]
         }
     },
     {
@@ -5487,9 +5606,14 @@
         "passive_1": {
             "name": "",
             "state_info": "HP/FP/Stamina Recovery",
-            "trigger_below_hp_%": 18,
             "change_hp": 2,
-            "trigger_effect_for_self": "True"
+            "trigger_below_hp_%": 18,
+            "trigger_interval": 1.0,
+            "description": [
+                "Regen HP by 2 points per second",
+                "Trigger Effect when HP is below or equal to 18%",
+                "Effect is triggered every second"
+            ]
         }
     },
     {
@@ -5683,9 +5807,10 @@
         "poise": 0,
         "passive_1": {
             "name": "",
-            "state_info": "None",
             "vigor": 1,
-            "trigger_effect_for_self": "True"
+            "description": [
+                "Increase Vigor by 1"
+            ]
         }
     },
     {
@@ -5765,9 +5890,10 @@
         "poise": 0,
         "passive_1": {
             "name": "",
-            "state_info": "None",
             "mind": 1,
-            "trigger_effect_for_self": "True"
+            "description": [
+                "Increase Mind by 1"
+            ]
         }
     },
     {
@@ -6303,9 +6429,10 @@
         "poise": 2,
         "passive_1": {
             "name": "",
-            "state_info": "None",
             "faith": 1,
-            "trigger_effect_for_self": "True"
+            "description": [
+                "Increase Faith by 1"
+            ]
         }
     },
     {
@@ -6366,9 +6493,10 @@
         "poise": 0,
         "passive_1": {
             "name": "",
-            "state_info": "None",
             "faith": 1,
-            "trigger_effect_for_self": "True"
+            "description": [
+                "Increase Faith by 1"
+            ]
         }
     },
     {
@@ -6391,9 +6519,10 @@
         "poise": 2,
         "passive_1": {
             "name": "",
-            "state_info": "None",
             "faith": 1,
-            "trigger_effect_for_self": "True"
+            "description": [
+                "Increase Faith by 1"
+            ]
         }
     },
     {
@@ -6416,9 +6545,10 @@
         "poise": 0,
         "passive_1": {
             "name": "",
-            "state_info": "None",
             "faith": 1,
-            "trigger_effect_for_self": "True"
+            "description": [
+                "Increase Faith by 1"
+            ]
         }
     },
     {
@@ -6441,14 +6571,16 @@
         "poise": 2,
         "passive_1": {
             "name": "",
-            "state_info": "None",
-            "coditional_weapon_effect_1": "Unknown Attack",
             "attack_percent_physical": 0.1499999999999999,
             "attack_percent_magic": 0.1499999999999999,
             "attack_percent_fire": 0.1499999999999999,
             "attack_percent_lightning": 0.1499999999999999,
             "attack_percent_holy": 0.1499999999999999,
-            "trigger_effect_for_self": "True"
+            "coditional_weapon_effect_1": "Unknown Attack",
+            "description": [
+                "Increase the Calculated Attack of Physical, Magic, Fire, Lightning, Holy types by 15.0%",
+                "Damage Effect Only Applies for Unknown Attacks"
+            ]
         }
     },
     {
@@ -6472,28 +6604,28 @@
         "passive_1": {
             "name": "",
             "state_info": "Unknown",
-            "trigger_effect_for_self": "True"
+            "description": []
         },
         "passive_2": {
             "name": "",
-            "state_info": "None",
             "trigger_effect_for_opponent": "True",
-            "trigger_effect_for_friendly": "True",
-            "trigger_effect_for_self": "True"
+            "description": []
         },
         "passive_3": {
             "name": "",
-            "state_info": "None",
-            "intelligence": 6,
             "max_hp_%": -0.08999999999999997,
             "max_stamina_%": -0.08999999999999997,
-            "trigger_effect_for_self": "True",
+            "intelligence": 6,
+            "trigger_interval": 0.06,
             "cycle_special_effect": {
                 "name": "",
-                "state_info": "None",
-                "duration": 0.1,
-                "trigger_effect_for_self": "True"
-            }
+                "duration": 0.1
+            },
+            "description": [
+                "Decrease Max HP by 9.0%",
+                "Decrease Max Stamina by 9.0%",
+                "Increase Intelligence by 6"
+            ]
         }
     },
     {
@@ -6574,27 +6706,26 @@
         "passive_1": {
             "name": "",
             "state_info": "Unknown",
-            "trigger_effect_for_self": "True"
+            "description": []
         },
         "passive_2": {
             "name": "",
-            "state_info": "None",
             "trigger_effect_for_opponent": "True",
-            "trigger_effect_for_friendly": "True",
-            "trigger_effect_for_self": "True"
+            "description": []
         },
         "passive_3": {
             "name": "",
-            "state_info": "None",
-            "intelligence": 3,
             "max_hp_%": -0.08999999999999997,
-            "trigger_effect_for_self": "True",
+            "intelligence": 3,
+            "trigger_interval": 0.06,
             "cycle_special_effect": {
                 "name": "",
-                "state_info": "None",
-                "duration": 0.1,
-                "trigger_effect_for_self": "True"
-            }
+                "duration": 0.1
+            },
+            "description": [
+                "Decrease Max HP by 9.0%",
+                "Increase Intelligence by 3"
+            ]
         }
     },
     {
@@ -6618,34 +6749,33 @@
         "passive_1": {
             "name": "",
             "state_info": "Unknown",
-            "trigger_effect_for_self": "True"
+            "description": []
         },
         "passive_2": {
             "name": "",
-            "state_info": "None",
             "trigger_effect_for_opponent": "True",
-            "trigger_effect_for_friendly": "True",
-            "trigger_effect_for_self": "True"
+            "description": []
         },
         "passive_3": {
             "name": "",
-            "state_info": "None",
+            "max_hp_%": -0.18000000000000005,
             "dexterity": 3,
             "intelligence": 3,
-            "max_hp_%": -0.18000000000000005,
-            "trigger_effect_for_self": "True",
+            "trigger_interval": 0.06,
             "cycle_special_effect": {
                 "name": "",
-                "state_info": "None",
-                "duration": 0.1,
-                "trigger_effect_for_self": "True",
+                "trigger_interval": 0.06,
                 "cycle_special_effect": {
                     "name": "",
-                    "state_info": "None",
-                    "duration": 0.1,
-                    "trigger_effect_for_self": "True"
-                }
-            }
+                    "duration": 0.1
+                },
+                "duration": 0.1
+            },
+            "description": [
+                "Decrease Max HP by 18.0%",
+                "Increase Dexterity by 3",
+                "Increase Intelligence by 3"
+            ]
         }
     },
     {
@@ -6669,27 +6799,26 @@
         "passive_1": {
             "name": "",
             "state_info": "Unknown",
-            "trigger_effect_for_self": "True"
+            "description": []
         },
         "passive_2": {
             "name": "",
-            "state_info": "None",
             "trigger_effect_for_opponent": "True",
-            "trigger_effect_for_friendly": "True",
-            "trigger_effect_for_self": "True"
+            "description": []
         },
         "passive_3": {
             "name": "",
-            "state_info": "None",
-            "intelligence": 3,
             "max_stamina_%": -0.08999999999999997,
-            "trigger_effect_for_self": "True",
+            "intelligence": 3,
+            "trigger_interval": 0.06,
             "cycle_special_effect": {
                 "name": "",
-                "state_info": "None",
-                "duration": 0.1,
-                "trigger_effect_for_self": "True"
-            }
+                "duration": 0.1
+            },
+            "description": [
+                "Decrease Max Stamina by 9.0%",
+                "Increase Intelligence by 3"
+            ]
         }
     },
     {
@@ -6713,28 +6842,28 @@
         "passive_1": {
             "name": "",
             "state_info": "Unknown",
-            "trigger_effect_for_self": "True"
+            "description": []
         },
         "passive_2": {
             "name": "",
-            "state_info": "None",
             "trigger_effect_for_opponent": "True",
-            "trigger_effect_for_friendly": "True",
-            "trigger_effect_for_self": "True"
+            "description": []
         },
         "passive_3": {
             "name": "",
-            "state_info": "None",
+            "max_stamina_%": -0.18000000000000005,
             "intelligence": 3,
             "arcane": 3,
-            "max_stamina_%": -0.18000000000000005,
-            "trigger_effect_for_self": "True",
+            "trigger_interval": 0.06,
             "cycle_special_effect": {
                 "name": "",
-                "state_info": "None",
-                "duration": 0.1,
-                "trigger_effect_for_self": "True"
-            }
+                "duration": 0.1
+            },
+            "description": [
+                "Decrease Max Stamina by 18.0%",
+                "Increase Intelligence by 3",
+                "Increase Arcane by 3"
+            ]
         }
     },
     {
@@ -7004,16 +7133,17 @@
         "poise": 2,
         "passive_1": {
             "name": "",
-            "state_info": "None",
+            "focus": -50,
             "dexterity": 3,
-            "resist_focus": -50,
-            "trigger_effect_for_self": "True",
+            "trigger_interval": 0.06,
             "cycle_special_effect": {
                 "name": "",
-                "state_info": "None",
-                "duration": 0.1,
-                "trigger_effect_for_self": "True"
-            }
+                "duration": 0.1
+            },
+            "description": [
+                "Subtract 50 Focus",
+                "Increase Dexterity by 3"
+            ]
         }
     },
     {
@@ -7454,16 +7584,17 @@
         "poise": 2,
         "passive_1": {
             "name": "",
-            "state_info": "None",
-            "mind": 3,
             "max_stamina_%": -0.08999999999999997,
-            "trigger_effect_for_self": "True",
+            "mind": 3,
+            "trigger_interval": 0.06,
             "cycle_special_effect": {
                 "name": "",
-                "state_info": "None",
-                "duration": 0.1,
-                "trigger_effect_for_self": "True"
-            }
+                "duration": 0.1
+            },
+            "description": [
+                "Decrease Max Stamina by 9.0%",
+                "Increase Mind by 3"
+            ]
         }
     },
     {
@@ -7544,9 +7675,10 @@
         "poise": 1,
         "passive_1": {
             "name": "",
-            "state_info": "None",
             "arcane": 3,
-            "trigger_effect_for_self": "True"
+            "description": [
+                "Increase Arcane by 3"
+            ]
         }
     },
     {
@@ -7607,14 +7739,16 @@
         "poise": 5,
         "passive_1": {
             "name": "",
-            "state_info": "None",
-            "coditional_weapon_effect_1": "Jump Attack",
             "attack_percent_physical": 0.10000000000000009,
             "attack_percent_magic": 0.10000000000000009,
             "attack_percent_fire": 0.10000000000000009,
             "attack_percent_lightning": 0.10000000000000009,
             "attack_percent_holy": 0.10000000000000009,
-            "trigger_effect_for_self": "True"
+            "coditional_weapon_effect_1": "Jump Attack",
+            "description": [
+                "Increase the Calculated Attack of Physical, Magic, Fire, Lightning, Holy types by 10.0%",
+                "Damage Effect Only Applies for Jump Attacks"
+            ]
         }
     },
     {
@@ -7884,9 +8018,10 @@
         "poise": 2,
         "passive_1": {
             "name": "",
-            "state_info": "None",
             "dexterity": 1,
-            "trigger_effect_for_self": "True"
+            "description": [
+                "Increase Dexterity by 1"
+            ]
         }
     },
     {
@@ -7947,9 +8082,10 @@
         "poise": 1,
         "passive_1": {
             "name": "",
-            "state_info": "None",
             "faith": 1,
-            "trigger_effect_for_self": "True"
+            "description": [
+                "Increase Faith by 1"
+            ]
         }
     },
     {
@@ -8010,9 +8146,10 @@
         "poise": 1,
         "passive_1": {
             "name": "",
-            "state_info": "None",
             "arcane": 1,
-            "trigger_effect_for_self": "True"
+            "description": [
+                "Increase Arcane by 1"
+            ]
         }
     },
     {
@@ -8111,25 +8248,29 @@
         "poise": 13,
         "passive_1": {
             "name": "",
-            "state_info": "None",
-            "coditional_weapon_effect_1": "Unknown Attack",
             "attack_percent_physical": 0.050000000000000044,
             "attack_percent_magic": 0.050000000000000044,
             "attack_percent_fire": 0.050000000000000044,
             "attack_percent_lightning": 0.050000000000000044,
             "attack_percent_holy": 0.050000000000000044,
-            "trigger_effect_for_self": "True"
+            "coditional_weapon_effect_1": "Unknown Attack",
+            "description": [
+                "Increase the Calculated Attack of Physical, Magic, Fire, Lightning, Holy types by 5.0%",
+                "Damage Effect Only Applies for Unknown Attacks"
+            ]
         },
         "passive_2": {
             "name": "",
-            "state_info": "None",
-            "coditional_weapon_effect_1": "Wraith Attack",
             "attack_percent_physical": 0.050000000000000044,
             "attack_percent_magic": 0.050000000000000044,
             "attack_percent_fire": 0.050000000000000044,
             "attack_percent_lightning": 0.050000000000000044,
             "attack_percent_holy": 0.050000000000000044,
-            "trigger_effect_for_self": "True"
+            "coditional_weapon_effect_1": "Wraith Attack",
+            "description": [
+                "Increase the Calculated Attack of Physical, Magic, Fire, Lightning, Holy types by 5.0%",
+                "Damage Effect Only Applies for Wraith Attacks"
+            ]
         }
     },
     {
@@ -8152,25 +8293,29 @@
         "poise": 40,
         "passive_1": {
             "name": "",
-            "state_info": "None",
-            "coditional_weapon_effect_1": "Unknown Attack",
             "attack_percent_physical": 0.050000000000000044,
             "attack_percent_magic": 0.050000000000000044,
             "attack_percent_fire": 0.050000000000000044,
             "attack_percent_lightning": 0.050000000000000044,
             "attack_percent_holy": 0.050000000000000044,
-            "trigger_effect_for_self": "True"
+            "coditional_weapon_effect_1": "Unknown Attack",
+            "description": [
+                "Increase the Calculated Attack of Physical, Magic, Fire, Lightning, Holy types by 5.0%",
+                "Damage Effect Only Applies for Unknown Attacks"
+            ]
         },
         "passive_2": {
             "name": "",
-            "state_info": "None",
-            "coditional_weapon_effect_1": "Wraith Attack",
             "attack_percent_physical": 0.050000000000000044,
             "attack_percent_magic": 0.050000000000000044,
             "attack_percent_fire": 0.050000000000000044,
             "attack_percent_lightning": 0.050000000000000044,
             "attack_percent_holy": 0.050000000000000044,
-            "trigger_effect_for_self": "True"
+            "coditional_weapon_effect_1": "Wraith Attack",
+            "description": [
+                "Increase the Calculated Attack of Physical, Magic, Fire, Lightning, Holy types by 5.0%",
+                "Damage Effect Only Applies for Wraith Attacks"
+            ]
         }
     },
     {
@@ -8193,25 +8338,29 @@
         "poise": 9,
         "passive_1": {
             "name": "",
-            "state_info": "None",
-            "coditional_weapon_effect_1": "Unknown Attack",
             "attack_percent_physical": 0.050000000000000044,
             "attack_percent_magic": 0.050000000000000044,
             "attack_percent_fire": 0.050000000000000044,
             "attack_percent_lightning": 0.050000000000000044,
             "attack_percent_holy": 0.050000000000000044,
-            "trigger_effect_for_self": "True"
+            "coditional_weapon_effect_1": "Unknown Attack",
+            "description": [
+                "Increase the Calculated Attack of Physical, Magic, Fire, Lightning, Holy types by 5.0%",
+                "Damage Effect Only Applies for Unknown Attacks"
+            ]
         },
         "passive_2": {
             "name": "",
-            "state_info": "None",
-            "coditional_weapon_effect_1": "Wraith Attack",
             "attack_percent_physical": 0.050000000000000044,
             "attack_percent_magic": 0.050000000000000044,
             "attack_percent_fire": 0.050000000000000044,
             "attack_percent_lightning": 0.050000000000000044,
             "attack_percent_holy": 0.050000000000000044,
-            "trigger_effect_for_self": "True"
+            "coditional_weapon_effect_1": "Wraith Attack",
+            "description": [
+                "Increase the Calculated Attack of Physical, Magic, Fire, Lightning, Holy types by 5.0%",
+                "Damage Effect Only Applies for Wraith Attacks"
+            ]
         }
     },
     {
@@ -8234,25 +8383,29 @@
         "poise": 24,
         "passive_1": {
             "name": "",
-            "state_info": "None",
-            "coditional_weapon_effect_1": "Unknown Attack",
             "attack_percent_physical": 0.050000000000000044,
             "attack_percent_magic": 0.050000000000000044,
             "attack_percent_fire": 0.050000000000000044,
             "attack_percent_lightning": 0.050000000000000044,
             "attack_percent_holy": 0.050000000000000044,
-            "trigger_effect_for_self": "True"
+            "coditional_weapon_effect_1": "Unknown Attack",
+            "description": [
+                "Increase the Calculated Attack of Physical, Magic, Fire, Lightning, Holy types by 5.0%",
+                "Damage Effect Only Applies for Unknown Attacks"
+            ]
         },
         "passive_2": {
             "name": "",
-            "state_info": "None",
-            "coditional_weapon_effect_1": "Wraith Attack",
             "attack_percent_physical": 0.050000000000000044,
             "attack_percent_magic": 0.050000000000000044,
             "attack_percent_fire": 0.050000000000000044,
             "attack_percent_lightning": 0.050000000000000044,
             "attack_percent_holy": 0.050000000000000044,
-            "trigger_effect_for_self": "True"
+            "coditional_weapon_effect_1": "Wraith Attack",
+            "description": [
+                "Increase the Calculated Attack of Physical, Magic, Fire, Lightning, Holy types by 5.0%",
+                "Damage Effect Only Applies for Wraith Attacks"
+            ]
         }
     },
     {
@@ -8370,17 +8523,19 @@
         "poise": 2,
         "passive_1": {
             "name": "",
-            "state_info": "None",
+            "max_fp_%": -0.08999999999999997,
             "endurance": 2,
             "intelligence": 2,
-            "max_fp_%": -0.08999999999999997,
-            "trigger_effect_for_self": "True",
+            "trigger_interval": 0.06,
             "cycle_special_effect": {
                 "name": "",
-                "state_info": "None",
-                "duration": 0.1,
-                "trigger_effect_for_self": "True"
-            }
+                "duration": 0.1
+            },
+            "description": [
+                "Decrease Max FP by 9.0%",
+                "Increase Endurance by 2",
+                "Increase Intelligence by 2"
+            ]
         }
     },
     {
@@ -8479,17 +8634,19 @@
         "poise": 2,
         "passive_1": {
             "name": "",
-            "state_info": "None",
+            "max_fp_%": -0.08999999999999997,
             "strength": 2,
             "intelligence": 2,
-            "max_fp_%": -0.08999999999999997,
-            "trigger_effect_for_self": "True",
+            "trigger_interval": 0.06,
             "cycle_special_effect": {
                 "name": "",
-                "state_info": "None",
-                "duration": 0.1,
-                "trigger_effect_for_self": "True"
-            }
+                "duration": 0.1
+            },
+            "description": [
+                "Decrease Max FP by 9.0%",
+                "Increase Strength by 2",
+                "Increase Intelligence by 2"
+            ]
         }
     },
     {
@@ -8569,14 +8726,18 @@
         "poise": 1,
         "passive_1": {
             "name": "",
-            "state_info": "None",
-            "coditional_weapon_effect_1": "Ranni Spell",
             "attack_percent_physical": 0.10000000000000009,
             "attack_percent_magic": 0.10000000000000009,
             "attack_percent_fire": 0.10000000000000009,
             "attack_percent_lightning": 0.10000000000000009,
             "attack_percent_holy": 0.10000000000000009,
-            "trigger_effect_for_self": "True"
+            "coditional_weapon_effect_1": "Ranni Spell",
+            "affects_sorcery": "True",
+            "description": [
+                "Increase the Calculated Attack of Physical, Magic, Fire, Lightning, Holy types by 10.0%",
+                "Damage Effect Only Applies for Ranni Spells",
+                "Affect Sorceries"
+            ]
         }
     },
     {
@@ -8751,14 +8912,18 @@
         "poise": 1,
         "passive_1": {
             "name": "",
-            "state_info": "None",
-            "coditional_weapon_effect_1": "Golden Order Spell",
             "attack_percent_physical": 0.10000000000000009,
             "attack_percent_magic": 0.10000000000000009,
             "attack_percent_fire": 0.10000000000000009,
             "attack_percent_lightning": 0.10000000000000009,
             "attack_percent_holy": 0.10000000000000009,
-            "trigger_effect_for_self": "True"
+            "coditional_weapon_effect_1": "Golden Order Spell",
+            "affects_incantation": "True",
+            "description": [
+                "Increase the Calculated Attack of Physical, Magic, Fire, Lightning, Holy types by 10.0%",
+                "Damage Effect Only Applies for Golden Order Spells",
+                "Affect Incantations"
+            ]
         }
     },
     {
@@ -8857,16 +9022,17 @@
         "poise": 3,
         "passive_1": {
             "name": "",
-            "state_info": "None",
-            "arcane": 4,
             "hp_restore_correction_%": -0.09999999999999998,
-            "trigger_effect_for_self": "True",
+            "arcane": 4,
+            "trigger_interval": 0.06,
             "cycle_special_effect": {
                 "name": "",
-                "state_info": "None",
-                "duration": 0.1,
-                "trigger_effect_for_self": "True"
-            }
+                "duration": 0.1
+            },
+            "description": [
+                "Decrease HP Restore from Flask of Crimson Tears by 10.0%",
+                "Increase Arcane by 4"
+            ]
         }
     },
     {
@@ -8984,9 +9150,10 @@
         "poise": 8,
         "passive_1": {
             "name": "",
-            "state_info": "None",
             "intelligence": 2,
-            "trigger_effect_for_self": "True"
+            "description": [
+                "Increase Intelligence by 2"
+            ]
         }
     },
     {
@@ -9009,9 +9176,10 @@
         "poise": 8,
         "passive_1": {
             "name": "",
-            "state_info": "None",
             "strength": 2,
-            "trigger_effect_for_self": "True"
+            "description": [
+                "Increase Strength by 2"
+            ]
         }
     },
     {
@@ -9034,9 +9202,10 @@
         "poise": 8,
         "passive_1": {
             "name": "",
-            "state_info": "None",
             "dexterity": 2,
-            "trigger_effect_for_self": "True"
+            "description": [
+                "Increase Dexterity by 2"
+            ]
         }
     },
     {
@@ -9059,9 +9228,10 @@
         "poise": 8,
         "passive_1": {
             "name": "",
-            "state_info": "None",
             "faith": 2,
-            "trigger_effect_for_self": "True"
+            "description": [
+                "Increase Faith by 2"
+            ]
         }
     },
     {
@@ -9084,9 +9254,10 @@
         "poise": 8,
         "passive_1": {
             "name": "",
-            "state_info": "None",
             "endurance": 2,
-            "trigger_effect_for_self": "True"
+            "description": [
+                "Increase Endurance by 2"
+            ]
         }
     },
     {
@@ -9109,9 +9280,10 @@
         "poise": 8,
         "passive_1": {
             "name": "",
-            "state_info": "None",
             "arcane": 2,
-            "trigger_effect_for_self": "True"
+            "description": [
+                "Increase Arcane by 2"
+            ]
         }
     },
     {
@@ -9134,16 +9306,17 @@
         "poise": 3,
         "passive_1": {
             "name": "",
-            "state_info": "None",
-            "arcane": 8,
             "power_percent_physical": -0.050000000000000044,
-            "trigger_effect_for_self": "True",
+            "arcane": 8,
+            "trigger_interval": 0.06,
             "cycle_special_effect": {
                 "name": "",
-                "state_info": "None",
-                "duration": 0.1,
-                "trigger_effect_for_self": "True"
-            }
+                "duration": 0.1
+            },
+            "description": [
+                "Decrease the Attack Power of Physical types by 5.0%",
+                "Increase Arcane by 8"
+            ]
         }
     },
     {
@@ -9318,14 +9491,16 @@
         "poise": 8,
         "passive_1": {
             "name": "",
-            "state_info": "None",
-            "coditional_weapon_effect_1": "Pot Item Attack",
             "attack_percent_physical": 0.1499999999999999,
             "attack_percent_magic": 0.1499999999999999,
             "attack_percent_fire": 0.1499999999999999,
             "attack_percent_lightning": 0.1499999999999999,
             "attack_percent_holy": 0.1499999999999999,
-            "trigger_effect_for_self": "True"
+            "coditional_weapon_effect_1": "Pot Item Attack",
+            "description": [
+                "Increase the Calculated Attack of Physical, Magic, Fire, Lightning, Holy types by 15.0%",
+                "Damage Effect Only Applies for Pot Item Attacks"
+            ]
         }
     },
     {
@@ -9633,17 +9808,18 @@
         "poise": 2,
         "passive_1": {
             "name": "",
-            "state_info": "None",
+            "max_hp_%": -0.08999999999999997,
             "intelligence": 2,
             "faith": 2,
-            "max_hp_%": -0.08999999999999997,
-            "trigger_effect_for_self": "True",
             "cycle_special_effect": {
                 "name": "",
-                "state_info": "None",
-                "duration": 0.1,
-                "trigger_effect_for_self": "True"
-            }
+                "duration": 0.1
+            },
+            "description": [
+                "Decrease Max HP by 9.0%",
+                "Increase Intelligence by 2",
+                "Increase Faith by 2"
+            ]
         }
     },
     {
@@ -10027,9 +10203,10 @@
         "poise": 4,
         "passive_1": {
             "name": "",
-            "state_info": "None",
             "faith": 1,
-            "trigger_effect_for_self": "True"
+            "description": [
+                "Increase Faith by 1"
+            ]
         }
     },
     {
@@ -10660,9 +10837,10 @@
         "poise": 5,
         "passive_1": {
             "name": "",
-            "state_info": "None",
             "faith": 2,
-            "trigger_effect_for_self": "True"
+            "description": [
+                "Increase Faith by 2"
+            ]
         }
     },
     {
@@ -10970,9 +11148,10 @@
         "poise": 2,
         "passive_1": {
             "name": "",
-            "state_info": "None",
             "faith": 1,
-            "trigger_effect_for_self": "True"
+            "description": [
+                "Increase Faith by 1"
+            ]
         }
     },
     {
@@ -11014,9 +11193,10 @@
         "poise": 2,
         "passive_1": {
             "name": "",
-            "state_info": "None",
             "strength": 2,
-            "trigger_effect_for_self": "True"
+            "description": [
+                "Increase Strength by 2"
+            ]
         }
     },
     {
@@ -11096,15 +11276,15 @@
         "poise": 2,
         "passive_1": {
             "name": "",
-            "state_info": "None",
             "skill_fp_cost_%": -0.15000000000000002,
-            "trigger_effect_for_self": "True",
+            "trigger_interval": 0.06,
             "cycle_special_effect": {
                 "name": "",
-                "state_info": "None",
-                "duration": 0.1,
-                "trigger_effect_for_self": "True"
-            }
+                "duration": 0.1
+            },
+            "description": [
+                "Decrease FP Cost for Skill by 15.0%"
+            ]
         }
     },
     {
@@ -11127,15 +11307,15 @@
         "poise": 2,
         "passive_1": {
             "name": "",
-            "state_info": "None",
             "incantation_fp_cost_%": -0.15000000000000002,
-            "trigger_effect_for_self": "True",
+            "trigger_interval": 0.06,
             "cycle_special_effect": {
                 "name": "",
-                "state_info": "None",
-                "duration": 0.1,
-                "trigger_effect_for_self": "True"
-            }
+                "duration": 0.1
+            },
+            "description": [
+                "Decrease FP Cost for Incantation by 15.0%"
+            ]
         }
     },
     {
@@ -11158,15 +11338,15 @@
         "poise": 2,
         "passive_1": {
             "name": "",
-            "state_info": "None",
             "sorcery_fp_cost_%": -0.15000000000000002,
-            "trigger_effect_for_self": "True",
+            "trigger_interval": 0.06,
             "cycle_special_effect": {
                 "name": "",
-                "state_info": "None",
-                "duration": 0.1,
-                "trigger_effect_for_self": "True"
-            }
+                "duration": 0.1
+            },
+            "description": [
+                "Decrease FP Cost for Sorcery by 15.0%"
+            ]
         }
     },
     {
@@ -11189,15 +11369,15 @@
         "poise": 2,
         "passive_1": {
             "name": "",
-            "state_info": "None",
             "hp_restore_correction_%": 0.10000000000000009,
-            "trigger_effect_for_self": "True",
+            "trigger_interval": 0.06,
             "cycle_special_effect": {
                 "name": "",
-                "state_info": "None",
-                "duration": 0.1,
-                "trigger_effect_for_self": "True"
-            }
+                "duration": 0.1
+            },
+            "description": [
+                "Increase HP Restore from Flask of Crimson Tears by 10.0%"
+            ]
         }
     },
     {
@@ -11220,15 +11400,15 @@
         "poise": 2,
         "passive_1": {
             "name": "",
-            "state_info": "None",
             "fp_restore_correction_%": 0.10000000000000009,
-            "trigger_effect_for_self": "True",
+            "trigger_interval": 0.06,
             "cycle_special_effect": {
                 "name": "",
-                "state_info": "None",
-                "duration": 0.1,
-                "trigger_effect_for_self": "True"
-            }
+                "duration": 0.1
+            },
+            "description": [
+                "Increase FP Restore from Flask of Cerulean Tears by 10.0%"
+            ]
         }
     },
     {
@@ -11252,9 +11432,16 @@
         "passive_1": {
             "name": "",
             "state_info": "HP/FP/Stamina Recovery",
-            "duration": 1.1,
             "change_hp": 2,
-            "trigger_effect_for_friendly": "True"
+            "trigger_effect_for_self": "False",
+            "trigger_effect_for_friendly": "True",
+            "trigger_interval": 1.0,
+            "duration": 1.1,
+            "description": [
+                "Regen HP by 2 points per second",
+                "Effect is not Triggered on Self but on Friendlies",
+                "Effect lasts for 1.1 seconds"
+            ]
         }
     },
     {
@@ -11448,9 +11635,10 @@
         "poise": 8,
         "passive_1": {
             "name": "",
-            "state_info": "None",
             "target_priority_%": 0.03,
-            "trigger_effect_for_self": "True"
+            "description": [
+                "Increase attraction of enemies by 3.0%"
+            ]
         }
     },
     {
@@ -11492,9 +11680,10 @@
         "poise": 10,
         "passive_1": {
             "name": "",
-            "state_info": "None",
             "target_priority_%": 0.03,
-            "trigger_effect_for_self": "True"
+            "description": [
+                "Increase attraction of enemies by 3.0%"
+            ]
         }
     },
     {
@@ -11517,9 +11706,10 @@
         "poise": 1,
         "passive_1": {
             "name": "",
-            "state_info": "None",
             "target_priority_%": 0.04,
-            "trigger_effect_for_self": "True"
+            "description": [
+                "Increase attraction of enemies by 4.0%"
+            ]
         }
     },
     {
@@ -11542,13 +11732,9 @@
         "poise": 9,
         "passive_1": {
             "name": "",
-            "state_info": "None",
-            "trigger_effect_for_self": "True",
             "trigger_on_state_info_1": "Trigger in Presence of Rot",
             "cycle_special_effect": {
                 "name": "",
-                "state_info": "None",
-                "duration": 20.0,
                 "damage_percent_physical": 0.10000000000000009,
                 "damage_percent_magic": 0.10000000000000009,
                 "damage_percent_fire": 0.10000000000000009,
@@ -11559,8 +11745,18 @@
                 "pvp_damage_percent_fire": 0.10000000000000009,
                 "pvp_damage_percent_lightning": 0.10000000000000009,
                 "pvp_damage_percent_holy": 0.10000000000000009,
-                "trigger_effect_for_self": "True"
-            }
+                "affects_sorcery": "True",
+                "affects_incantation": "True",
+                "duration": 20.0
+            },
+            "description": [
+                "Trigger in Presence of Rot",
+                "Increase the Damage against non-player enemies for Physical, Magic, Fire, Lightning, Holy types by 10.0%",
+                "Increase the Damage against players for Physical, Magic, Fire, Lightning, Holy types by 10.0%",
+                "Affect Sorceries",
+                "Affect Incantations",
+                "Effect lasts for 20.0 seconds"
+            ]
         }
     },
     {
@@ -11583,13 +11779,10 @@
         "poise": 1,
         "passive_1": {
             "name": "",
-            "state_info": "None",
-            "trigger_effect_for_self": "True",
             "trigger_on_state_info_1": "Madness",
+            "trigger_interval": 0.01,
             "cycle_special_effect": {
                 "name": "",
-                "state_info": "None",
-                "duration": 60.0,
                 "damage_percent_physical": 0.10000000000000009,
                 "damage_percent_magic": 0.10000000000000009,
                 "damage_percent_fire": 0.10000000000000009,
@@ -11600,8 +11793,18 @@
                 "pvp_damage_percent_fire": 0.10000000000000009,
                 "pvp_damage_percent_lightning": 0.10000000000000009,
                 "pvp_damage_percent_holy": 0.10000000000000009,
-                "trigger_effect_for_self": "True"
-            }
+                "affects_sorcery": "True",
+                "affects_incantation": "True",
+                "duration": 60.0
+            },
+            "description": [
+                "Trigger in Presence of Madness",
+                "Increase the Damage against non-player enemies for Physical, Magic, Fire, Lightning, Holy types by 10.0%",
+                "Increase the Damage against players for Physical, Magic, Fire, Lightning, Holy types by 10.0%",
+                "Affect Sorceries",
+                "Affect Incantations",
+                "Effect lasts for 60.0 seconds"
+            ]
         }
     },
     {
