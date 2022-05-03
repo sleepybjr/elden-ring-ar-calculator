@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { handleWeaponLevelChange, handleLevelChange, handleTwoHandedChange, handleAllWeaponLevelChange, calculateTotalLevel} from './allLevelsSlice';
+import { handleWeaponLevelChange, handleLevelChange, handleTwoHandedChange, handleAllWeaponLevelChange, calculateTotalLevel } from './allLevelsSlice';
 
 import Levels from './Levels';
 import WeaponLevels from './WeaponLevels';
@@ -19,7 +19,7 @@ export default function InputStats() {
         const windowUrl = window.location.search;
         const params = new URLSearchParams(windowUrl);
 
-        let newLevels = { };
+        let newLevels = {};
 
         const strength = params.get('str');
         const dexterity = params.get('dex');
@@ -62,7 +62,7 @@ export default function InputStats() {
 
         newLevels.total_level = calculateTotalLevel(newLevels);
 
-        let newWeaponLevels = { };
+        let newWeaponLevels = {};
 
         if (somber !== null) {
             newWeaponLevels.somber = somber;
@@ -80,7 +80,7 @@ export default function InputStats() {
         dispatch(handleTwoHandedChange(newTwoHanded));
 
         window.history.pushState(null, "", window.location.href.split("?")[0]);
-      }, [dispatch]);
+    }, [dispatch]);
 
     function handleLoadSave(save) {
         // i can filter out what actually gets loaded here
@@ -104,16 +104,18 @@ export default function InputStats() {
             />
 
             <WeaponLevels
-            handleWeaponLevelChange={(inputWeaponLevel, isSomber) => dispatch(handleWeaponLevelChange({inputWeaponLevel, isSomber}))}
-            weaponLevels={weaponLevels}
+                handleWeaponLevelChange={(inputWeaponLevel, isSomber) => dispatch(handleWeaponLevelChange({ inputWeaponLevel, isSomber }))}
+                weaponLevels={weaponLevels}
             />
-            
+
             <Saves
                 handleLoadSave={handleLoadSave}
                 levels={levels}
                 weaponLevels={weaponLevels}
                 twoHanded={twoHanded}
             />
+
+            <div className="underline-shrunk"></div>
         </div>
     );
 }

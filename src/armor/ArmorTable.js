@@ -1,282 +1,236 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+// import React, { useEffect, } from 'react';
 
-const data = [
-    {
-        "fullarmorname": "Helmet",
-        "armor_type": "Helm",
-        "vs_strength": 15,
-        "vs_slash": 25,
-        "vs_pierce": 5,
-        "magic": 9,
-        "fire": 0,
-        "lightning": 0,
-        "holy": 0,
-        "immunity": 8,
-        "robustness": 1.5,
-        "focus": 1.5,
-        "vitality": 3,
-        "poise": 7,
-        "weight": 3.5,
-        "passive_1": 3,
-        "passive_2": 3,
-        "passive_3": 3,
-    },
-    {
-        "fullarmorname": "Apple Helmet",
-        "armor_type": "Helm",
-        "vs_strength": 15,
-        "vs_slash": 25,
-        "vs_pierce": 5,
-        "magic": 9,
-        "fire": 0,
-        "lightning": 0,
-        "holy": 0,
-        "immunity": 8,
-        "robustness": 1.5,
-        "focus": 1.5,
-        "vitality": 3,
-        "poise": 7,
-        "weight": 3.5,
-        "passive_1": 3,
-        "passive_2": 3,
-        "passive_3": 3,
-    },
-    {
-        "fullarmorname": "Chest",
-        "armor_type": "Chest",
-        "vs_strength": 15,
-        "vs_slash": 25,
-        "vs_pierce": 5,
-        "magic": 9,
-        "fire": 0,
-        "lightning": 0,
-        "holy": 0,
-        "immunity": 8,
-        "robustness": 1.5,
-        "focus": 1.5,
-        "vitality": 3,
-        "poise": 7,
-        "weight": 3.5,
-        "passive_1": 3,
-        "passive_2": 3,
-        "passive_3": 3,
-    },
-];
+import { useTable, useBlockLayout, useSortBy } from 'react-table';
+import { FixedSizeList } from 'react-window';
 
-export default function ArmorTable(props) {
-    const [column, setColumn] = useState(null);
-    const [direction, setDirection] = useState(null);
-    const [sortedData, setSortedData] = useState([]);
+import { FaSortDown, FaSortUp } from 'react-icons/fa';
 
-    function onSort(sortedColumn) {
-        let newDirection = null;
-        if (sortedColumn === column) {
-            if (direction === null) {
-                newDirection = 'asc';
-            } else if (direction === 'asc') {
-                newDirection = 'desc';
-            } else {
-                newDirection = null;
-            }
-        } else {
-            newDirection = 'asc';
+const tableHeaders = {
+    // name: "Armor Name",
+    // equipment_type: "Armor Type",
+    helm_name: "Helmet Name",
+    chest_name: "Chest Name",
+    gauntlet_name: "Gauntlets Name",
+    leg_name: "Leg Name",
+    poise: "Poise",
+    physical_absorption: "Physical",
+    strike_absorption: "Strike",
+    slash_absorption: "Slash",
+    thrust_absorption: "Thrust",
+    magic_absorption: "Magic",
+    fire_absorption: "Fire",
+    lightning_absorption: "Lightning",
+    holy_absorption: "Holy",
+    immunity: "Immunity",
+    robustness: "Robust",
+    focus: "Focus",
+    vitality: "Vitality",
+    weight: "Weight",
+};
+
+function sortAlgorithm(rowA, rowB, columnId) {
+    if (new Set(['helm_name', 'chest_name', 'gauntlet_name', 'leg_name']).has(columnId)) {
+
+        const nameA = rowA.original[columnId] ? rowA.original[columnId].toUpperCase() : 'Ω';
+        const nameB = rowB.original[columnId] ? rowB.original[columnId].toUpperCase() : 'Ω';
+        if (nameA < nameB) {
+            return -1;
+        }
+        if (nameA > nameB) {
+            return 1;
         }
 
-        setColumn(sortedColumn);
-        setDirection(newDirection);
-    };
+        return 0;
+    } else {
+        return rowB.original[columnId] - rowA.original[columnId];
+    }
+};
 
-    useEffect(() => {
-        let startData = data;
-        let finalData = startData.filter((row) => row.armor_type === props.armorTypeFilter);
+const scrollbarWidth = () => {
+    const scrollDiv = document.createElement('div');
+    scrollDiv.setAttribute('style', 'width: 100px; height: 100px; overflow: scroll; position:absolute; top:-9999px;');
+    document.body.appendChild(scrollDiv);
+    const scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+    document.body.removeChild(scrollDiv);
+    return scrollbarWidth;
+}
 
-        if (direction !== null) {
-            finalData = data.sort((a, b) => {
-                if (new Set(['fullarmorname', 'armor_type']).has(column)) {
+export default function ArmorTable(props) {
+    const skipPageResetRef = React.useRef();
 
-                    const nameA = a[column] ? a[column].toUpperCase() : 'Ω';
-                    const nameB = b[column] ? b[column].toUpperCase() : 'Ω';
-                    if (nameA < nameB) {
-                        return -1;
+    const defaultColumn = React.useMemo(
+        () => ({
+            width: 90,
+        }),
+        []
+    );
+
+    const scrollBarSize = React.useMemo(() => scrollbarWidth(), []);
+
+    React.useEffect(() => {
+        // After the table has updated, always remove the flag
+        skipPageResetRef.current = false
+    });
+
+    const data = React.useMemo(
+        () => {
+            skipPageResetRef.current = true;
+            return props.preppedData;
+        },
+        [props.preppedData]
+    );
+
+    const columns = React.useMemo(
+        () => {
+            let newColumns = Object.keys(tableHeaders).map(key => {
+                return {
+                    Header: tableHeaders[key],
+                    accessor: key,
+                    sortType: sortAlgorithm,
+                }
+            });
+            newColumns.forEach((row) => {
+                // if (row.accessor === "name") {
+                if (new Set(['helm_name', 'chest_name', 'gauntlet_name', 'leg_name']).has(row.accessor)) {
+                    if (row.accessor === "helm_name") {
+                        row.Cell = ({ row, value }) => {
+                            return (
+                                <a target="_blank" rel="noopener noreferrer" href={"https://eldenring.wiki.fextralife.com/" + row.original.helm_name} >{value}</a>
+                            );
+                        };
+                    } else if (row.accessor === "chest_name") {
+                        row.Cell = ({ row, value }) => {
+                            return (
+                                <a target="_blank" rel="noopener noreferrer" href={"https://eldenring.wiki.fextralife.com/" + row.original.chest_name} >{value}</a>
+                            );
+                        };
+                    } else if (row.accessor === "gauntlet_name") {
+                        row.Cell = ({ row, value }) => {
+                            return (
+                                <a target="_blank" rel="noopener noreferrer" href={"https://eldenring.wiki.fextralife.com/" + row.original.gauntlet_name} >{value}</a>
+                            );
+                        };
+                    } else if (row.accessor === "leg_name") {
+                        row.Cell = ({ row, value }) => {
+                            return (
+                                <a target="_blank" rel="noopener noreferrer" href={"https://eldenring.wiki.fextralife.com/" + row.original.leg_name} >{value}</a>
+                            );
+                        };
                     }
-                    if (nameA > nameB) {
-                        return 1;
-                    }
-
-                    return 0;
-                } else {
-                    return b[column] - a[column];
+                    row.width = 262 / 2;
+                } else if (row.accessor === "weight") {
+                    row.Cell = ({ value }) => {
+                        return (
+                            <>{Math.round(value * 10) / 10}</>
+                        );
+                    };
+                    // row.width = 100;
+                } else if (new Set(['physical_absorption', 'strike_absorption', 'slash_absorption', 'thrust_absorption', 'magic_absorption', 'fire_absorption', 'lightning_absorption', 'holy_absorption']).has(row.accessor)) {
+                    row.Cell = ({ value }) => {
+                        return (
+                            <>{value ? Math.round(value * 100000) / 1000 : '-'}</>
+                        );
+                    };
+                    // row.width = 100;
+                } else if (new Set(['immunity', 'robustness', 'focus', 'vitality', 'poise']).has(row.accessor)) {
+                    // row.width = 100;
                 }
             });
 
-            if (direction === 'desc') {
-                finalData.reverse();
-            }
-        }
-        
-        setSortedData(finalData);
-    }, [column, direction, props.armorTypeFilter]);
+            return newColumns;
+        },
+        []
+    );
 
-    return (
-        <div className='extra-spacing'>
-            <table>
-                <thead>
-                    <tr>
-                        <th>
-                            <button type="button"
-                                className={'fullarmorname' === column ? direction === "asc" ? "ascending" : direction === "desc" ? "descending" : "" : ""}
-                                onClick={() => onSort('fullarmorname')}>
-                                Armor Name
-                            </button>
-                        </th>
-                        <th>
-                            <button type="button"
-                                className={'armor_type' === column ? direction === "asc" ? "ascending" : direction === "desc" ? "descending" : "" : ""}
-                                onClick={() => onSort('armor_type')}>
-                                Armor Type
-                            </button>
-                        </th>
-                        <th>
-                            <button type="button"
-                                className={'vs_strength' === column ? direction === "asc" ? "ascending" : direction === "desc" ? "descending" : "" : ""}
-                                onClick={() => onSort('vs_strength')}>
-                                VS Strength
-                            </button>
-                        </th>
-                        <th>
-                            <button type="button"
-                                className={'vs_slash' === column ? direction === "asc" ? "ascending" : direction === "desc" ? "descending" : "" : ""}
-                                onClick={() => onSort('vs_slash')}>
-                                VS Slash
-                            </button>
-                        </th>
-                        <th>
-                            <button type="button"
-                                className={'vs_pierce' === column ? direction === "asc" ? "ascending" : direction === "desc" ? "descending" : "" : ""}
-                                onClick={() => onSort('vs_pierce')}>
-                                VS Pierce
-                            </button>
-                        </th>
-                        <th>
-                            <button type="button"
-                                className={'magic' === column ? direction === "asc" ? "ascending" : direction === "desc" ? "descending" : "" : ""}
-                                onClick={() => onSort('magic')}>
-                                Magic
-                            </button>
-                        </th>
-                        <th>
-                            <button type="button"
-                                className={'fire' === column ? direction === "asc" ? "ascending" : direction === "desc" ? "descending" : "" : ""}
-                                onClick={() => onSort('fire')}>
-                                Fire
-                            </button>
-                        </th>
-                        <th>
-                            <button type="button"
-                                className={'lightning' === column ? direction === "asc" ? "ascending" : direction === "desc" ? "descending" : "" : ""}
-                                onClick={() => onSort('lightning')}>
-                                Lightning
-                            </button>
-                        </th>
-                        <th>
-                            <button type="button"
-                                className={'holy' === column ? direction === "asc" ? "ascending" : direction === "desc" ? "descending" : "" : ""}
-                                onClick={() => onSort('holy')}>
-                                Holy
-                            </button>
-                        </th>
-                        <th>
-                            <button type="button"
-                                className={'immunity' === column ? direction === "asc" ? "ascending" : direction === "desc" ? "descending" : "" : ""}
-                                onClick={() => onSort('immunity')}>
-                                Immunity
-                            </button>
-                        </th>
-                        <th>
-                            <button type="button"
-                                className={'robustness' === column ? direction === "asc" ? "ascending" : direction === "desc" ? "descending" : "" : ""}
-                                onClick={() => onSort('robustness')}>
-                                Robustness
-                            </button>
-                        </th>
-                        <th>
-                            <button type="button"
-                                className={'focus' === column ? direction === "asc" ? "ascending" : direction === "desc" ? "descending" : "" : ""}
-                                onClick={() => onSort('focus')}>
-                                Focus
-                            </button>
-                        </th>
-                        <th>
-                            <button type="button"
-                                className={'vitality' === column ? direction === "asc" ? "ascending" : direction === "desc" ? "descending" : "" : ""}
-                                onClick={() => onSort('vitality')}>
-                                Vitality
-                            </button>
-                        </th>
-                        <th>
-                            <button type="button"
-                                className={'poise' === column ? direction === "asc" ? "ascending" : direction === "desc" ? "descending" : "" : ""}
-                                onClick={() => onSort('poise')}>
-                                Poise
-                            </button>
-                        </th>
-                        <th>
-                            <button type="button"
-                                className={'weight' === column ? direction === "asc" ? "ascending" : direction === "desc" ? "descending" : "" : ""}
-                                onClick={() => onSort('weight')}>
-                                Weight
-                            </button>
-                        </th>
-                        <th>
-                            <button type="button"
-                                className={'passive_1' === column ? direction === "asc" ? "ascending" : direction === "desc" ? "descending" : "" : ""}
-                                onClick={() => onSort('passive_1')}>
-                                Passive 1
-                            </button>
-                        </th>
-                        <th>
-                            <button type="button"
-                                className={'passive_2' === column ? direction === "asc" ? "ascending" : direction === "desc" ? "descending" : "" : ""}
-                                onClick={() => onSort('passive_2')}>
-                                Passive 2
-                            </button>
-                        </th>
-                        <th>
-                            <button type="button"
-                                className={'passive_3' === column ? direction === "asc" ? "ascending" : direction === "desc" ? "descending" : "" : ""}
-                                onClick={() => onSort('passive_3')}>
-                                Passive 3
-                            </button>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {sortedData.map((val, key) => {
+
+    const {
+        getTableProps,
+        getTableBodyProps,
+        headerGroups,
+        rows,
+        totalColumnsWidth,
+        prepareRow,
+    } = useTable({
+        columns,
+        data,
+        defaultColumn,
+        autoResetPage: !skipPageResetRef.current,
+        autoResetExpanded: !skipPageResetRef.current,
+        autoResetGroupBy: !skipPageResetRef.current,
+        autoResetSelectedRows: !skipPageResetRef.current,
+        autoResetSortBy: !skipPageResetRef.current,
+        autoResetFilters: !skipPageResetRef.current,
+        autoResetRowState: !skipPageResetRef.current,
+    },
+        useBlockLayout,
+        useSortBy
+    );
+
+
+    const RenderRow = React.useCallback(
+        ({ index, style }) => {
+            const row = rows[index]
+            prepareRow(row)
+            return (
+                <div
+                    {...row.getRowProps({
+                        style,
+                    })}
+                    className="tr"
+                >
+                    {row.cells.map(cell => {
                         return (
-                            <tr key={key}>
-                                <td>{val.fullarmorname}</td>
-                                <td>{val.armor_type}</td>
-                                <td>{val.vs_strength}</td>
-                                <td>{val.vs_slash}</td>
-                                <td>{val.vs_pierce}</td>
-                                <td>{val.magic}</td>
-                                <td>{val.fire}</td>
-                                <td>{val.lightning}</td>
-                                <td>{val.holy}</td>
-                                <td>{val.immunity}</td>
-                                <td>{val.robustness}</td>
-                                <td>{val.focus}</td>
-                                <td>{val.vitality}</td>
-                                <td>{val.poise}</td>
-                                <td>{val.weight}</td>
-                                <td>{val.passive_1}</td>
-                                <td>{val.passive_2}</td>
-                                <td>{val.passive_3}</td>
-                            </tr>
+                            <div {...cell.getCellProps()} className="td">
+                                {cell.render('Cell')}
+                            </div>
                         )
                     })}
-                </tbody>
-            </table>
+                </div>
+            )
+        },
+        [prepareRow, rows]
+    );
+
+    return (
+        <div>
+            <div {...getTableProps()} className="table">
+                <div className="thead">
+                    {headerGroups.map(headerGroup => (
+                        <div {...headerGroup.getHeaderGroupProps()} className="tr">
+                            {headerGroup.headers.map(column => (
+                                <div>
+                                    <div {...column.getHeaderProps(column.getSortByToggleProps())} className={column.isSorted ? "th sorted noselect" : "th noselect"}>
+                                        {column.render('Header')}
+
+                                        <span className="sortspan">
+                                            {column.isSorted
+                                                ? column.isSortedDesc
+                                                    ? <FaSortDown />
+                                                    : <FaSortUp />
+                                                : ""}
+                                        </span>
+
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    ))}
+                </div>
+
+                <div {...getTableBodyProps()}
+
+                    className="tbody">
+                    <FixedSizeList
+                        height={600}
+                        itemCount={rows.length}
+                        itemSize={40 * 2}
+                        width={totalColumnsWidth + scrollBarSize}
+                    >
+                        {RenderRow}
+                    </FixedSizeList>
+                </div>
+            </div>
         </div>
     );
 }

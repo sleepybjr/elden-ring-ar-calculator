@@ -13,12 +13,12 @@ import store from './app/store';
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Routes>
           <Route path="/" element={<App />}>
             <Route index element={<Home />} />
             <Route path="elden-ring-ar-calculator" element={<Weapons />} />
-            <Route path="armor" element={<Armor />} />
+            <Route path="armor-optimizer" element={<Armor />} />
             <Route
               path="*"
               element={

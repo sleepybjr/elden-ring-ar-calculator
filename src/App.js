@@ -7,33 +7,16 @@ import DarkModeToggle from './component/DarkModeToggle';
 import { Link, Outlet } from "react-router-dom";
 import InputStats from './levels/InputStats';
 
-// TODO: add better/modern styling
-// make multiselect boxes better and intuitive for multiselect
-// slow if all weapons are loaded, optimize our json
-// if no input for a field, get warning: Received NaN for the `children` attribute. If this is expected, cast the value to a string.
-// add rune gain and hp regain passive
-// add throwables and fists?
-// searching a weapon and then selecting the class will make it appear twice
-// add tracking on sort to see if i can remove anything from table
-// load last used settings
-// refactor to use react hooks / functional components rather than class components
-// blue highlight in selects (class and weapon / affinity filter) are browser specific and i cant change the color
-
-// save table state across routes
-// remove selection from build
-// react-window use for table, should i switch to react table?
-
 function App() {
     return (
         <div className="App">
             <Link to="/">Home</Link> |{" "}
-            <Link to="/elden-ring-ar-calculator">Weapons</Link>
-             {/* |{" "} */}
-            {/* <Link to="/armor">Armor</Link> */}
+            <Link to="/elden-ring-ar-calculator">Weapons</Link> |{" "}
+            <Link to="/armor-optimizer">Armor Optimizer</Link>
             <InputStats />
             <Outlet />
             <div className='extra-spacing'>
-                <div>Elden Ring Version: v1.04.0 | Calculator Version 1.4.0</div>
+                <div>Elden Ring Version: v1.04.1 | Calculator Version 1.5.2</div>
                 <ContentPopup
                     buttonName='Privacy Policy'
                     content={

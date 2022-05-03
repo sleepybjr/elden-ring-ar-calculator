@@ -781,14 +781,14 @@ def getWeaponPassive():
                     elif type == "Restore HP on Hit" or type == "Restore HP on Kill":
                         if type == "Restore HP on Hit":
                             if float(SpEffectParam[str(row_id)]["Change HP %"]) != 0:
-                                row_dict["restore_hp_hit_%"] = -float(
+                                row_dict["restore_hp_hit_percent"] = -float(
                                     SpEffectParam[str(row_id)]["Change HP %"])
                             if int(SpEffectParam[str(row_id)]["Change HP +"]) != 0:
                                 row_dict["restore_hp_hit"] = -int(
                                     SpEffectParam[str(row_id)]["Change HP +"])
                         else:
                             if float(SpEffectParam[str(row_id+1)]["Change HP %"]) != 0:
-                                row_dict["restore_hp_kill_%"] = -float(
+                                row_dict["restore_hp_kill_percent"] = -float(
                                     SpEffectParam[str(row_id+1)]["Change HP %"])
                             if int(SpEffectParam[str(row_id+1)]["Change HP +"]) != 0:
                                 row_dict["restore_hp_kill"] = -int(
@@ -796,14 +796,14 @@ def getWeaponPassive():
                     elif type == "Restore FP on Hit" or type == "Restore FP on Kill":
                         if type == "Restore FP on Hit":
                             if float(SpEffectParam[str(row_id)]["Change FP %"]) != 0:
-                                row_dict["restore_fp_hit_%"] = -float(
+                                row_dict["restore_fp_hit_percent"] = -float(
                                     SpEffectParam[str(row_id)]["Change FP %"])
                             if int(SpEffectParam[str(row_id)]["Change FP +"]) != 0:
                                 row_dict["restore_fp_hit"] = -int(
                                     SpEffectParam[str(row_id)]["Change FP +"])
                         else:
                             if float(SpEffectParam[str(row_id+1)]["Change FP %"]) != 0:
-                                row_dict["restore_fp_kill_%"] = -float(
+                                row_dict["restore_fp_kill_percent"] = -float(
                                     SpEffectParam[str(row_id+1)]["Change FP %"])
                             if int(SpEffectParam[str(row_id+1)]["Change FP +"]) != 0:
                                 row_dict["restore_fp_kill"] = -int(
@@ -1284,6 +1284,7 @@ def getTalismanData():
             row_dict = OrderedDict()
             row_dict["name"] = row['Row Name']
             row_dict["weight"] = float(row['Weight'])
+            row_dict["accessory_group"] = int(row['Accessory Group'])
             row_dict["passive_1"] = getPassiveEffect(SpEffectParam[row['SpEffect ID [0]']], row['SpEffect ID [0]'],  False)
             # Millicent's Prosthesis
             if (int(row['SpEffect ID [0]']) == 312500):
