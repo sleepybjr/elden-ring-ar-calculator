@@ -31,10 +31,14 @@ const tableHeaders = {
     final_total_ar: "Total AR",
     final_sorcery_scaling: "Sorcery",
     critical: "Critical",
-    type1: "Passive 1 (P1)",
-    final_passive1: "P1 Damage",
-    type2: "Passive 2 (P2)",
-    final_passive2: "P2 Damage",
+    scarlet_rot: "Scarlet Rot",
+    madness: "Madness",
+    sleep: "Sleep",
+    frost: "Frost",
+    poison: "Poison",
+    blood: "Blood",
+    rune_gain_hit: "Rune Gain",
+    restore_hp_hit_percent: "Restore HP",
     str_scaling_letter: "STR Scaling",
     dex_scaling_letter: "DEX Scaling",
     int_scaling_letter: "INT Scaling",
@@ -50,7 +54,7 @@ const tableHeaders = {
 };
 
 function sortAlgorithm(rowA, rowB, columnId) {
-    if (new Set(['fullweaponname', 'weaponType', 'affinity', 'type1', 'type2']).has(columnId)) {
+    if (new Set(['fullweaponname', 'weaponType', 'affinity']).has(columnId)) {
         let sortedColumn = columnId;
 
         if ('fullweaponname' === columnId) {
@@ -65,11 +69,6 @@ function sortAlgorithm(rowA, rowB, columnId) {
 
         if (nameA > nameB) {
             return 1;
-        }
-
-        if (new Set(['type1', 'type2']).has(columnId)) {
-            const second_sort = columnId === 'type1' ? 'final_passive1' : 'final_passive2';
-            return rowB.original[second_sort] - rowA.original[second_sort];
         }
 
         return 0;
@@ -217,17 +216,17 @@ export default function WeaponTable(props) {
                     row.width = 110;
                 } else if (new Set(['weight', 'critical', 'final_physical', 'final_magic', 'final_fire', 'final_lightning', 'final_holy', 'final_total_ar', 'final_sorcery_scaling']).has(row.accessor)) {
                     row.width = 90;
-                } else if (row.accessor === "type1" || row.accessor === "type2") {
-                    row.Cell = ({ value }) => {
-                        return (
-                            <>{value ? value : '-'}</>
-                        );
-                    };
-                    row.width = 125;
-                } else if (row.accessor === "final_passive1" || row.accessor === "final_passive2") {
+                } else if (new Set(['scarlet_rot', 'madness', 'sleep', 'frost', 'poison', 'blood', 'rune_gain_hit']).has(row.accessor)) {
                     row.Cell = ({ value }) => {
                         return (
                             <>{value !== 0 ? value : '-'}</>
+                        );
+                    };
+                    row.width = 110;
+                } else if (row.accessor === "restore_hp_hit_percent") {
+                    row.Cell = ({ value }) => {
+                        return (
+                            <>{value !== 0 ? value + '%' : '-'}</>
                         );
                     };
                     row.width = 110;

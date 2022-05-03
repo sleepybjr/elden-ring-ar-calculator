@@ -4,9 +4,9 @@ import { useSelector } from 'react-redux';
 import ArmorTable from './ArmorTable';
 import { getPhyCalcData } from '../weapons/FilterableWeaponTable';
 
-import Weapon_Reqs from '../json/weapon_reqs.json';
+import Weapon_Reqs from '../json/weapons/weapon_reqs.json';
 
-import Armor_Data from '../json/armor_data.json';
+import Armor_Data from '../json/armor/armor_data.json';
 
 import Talisman_Data from '../json/talismans/talisman_data.json';
 

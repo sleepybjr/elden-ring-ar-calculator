@@ -16,7 +16,7 @@ function App() {
             <InputStats />
             <Outlet />
             <div className='extra-spacing'>
-                <div>Elden Ring Version: v1.04.1 | Calculator Version 1.5.1</div>
+                <div>Elden Ring Version: v1.04.1 | Calculator Version 1.5.2</div>
                 <ContentPopup
                     buttonName='Privacy Policy'
                     content={

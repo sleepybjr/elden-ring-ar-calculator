@@ -1,6 +1,6 @@
 import SingleItemSearchBar from '../component/SingleItemSeachBar';
 
-import Weapons_Select from '.././json/weapon_groups.json';
+import Weapons_Select from '../json/weapons/weapon_groups.json';
 
 const weaponHands = [
     "LH1",
