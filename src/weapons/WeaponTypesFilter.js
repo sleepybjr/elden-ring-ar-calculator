@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 
 const weaponTypes = [
+    "Unarmed",
+    "Reusable Items",
     "Dagger",
     "Straight Sword",
     "Curved Sword",
@@ -35,6 +37,10 @@ const weaponTypes = [
     "Greatbow",
     "Crossbow",
     "Ballista",
+    "Arrow",
+    "Greatarrow",
+    "Bolt",
+    "Greatbolt",
 ];
 
 export default class WeaponTypesFilter extends Component {

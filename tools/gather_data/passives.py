@@ -1580,6 +1580,17 @@ def getPassiveEffect(specialEffect, specialEffectId, passiveFromArmor):
                     descriptionArray.append("Effect is triggered every second")
                 else:
                     descriptionArray.append("Effect is triggered every " + str(round(abs((float(specialEffect['Trigger Interval']))), 2)) + " seconds")
+            elif (checkStringState("Poison", row_dict)):
+                if (float(specialEffect['Trigger Interval']) == 1.0):
+                    descriptionArray.append("Poison damage is triggered every second")
+                else:
+                    descriptionArray.append("Poison damage is triggered every " + str(round(abs((float(specialEffect['Trigger Interval']))), 2)) + " seconds")          
+            elif (checkStringState("Scarlet Rot", row_dict)):
+                if (float(specialEffect['Trigger Interval']) == 1.0):
+                    descriptionArray.append("Scarlet Rot damage is triggered every second")
+                else:
+                    descriptionArray.append("Scarlet Rot damage is triggered every " + str(round(abs((float(specialEffect['Trigger Interval']))), 2)) + " seconds")          
+
 
     if checkStringState("Trigger on Critical Hit", row_dict):
         descriptionArray.append("When Enemy Takes a Critical Hit")
