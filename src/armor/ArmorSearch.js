@@ -1,10 +1,10 @@
 import SingleItemSearchBar from '../component/SingleItemSeachBar';
 import Collapsible from 'react-collapsible';
 
-import Helmets_Select from '../json/head_group.json';
-import Chest_Select from '../json/body_group.json';
-import Gauntlets_Select from '../json/arm_group.json';
-import Legs_Select from '../json/leg_group.json';
+import Helmets_Select from '../json/armor/head_group.json';
+import Chest_Select from '../json/armor/body_group.json';
+import Gauntlets_Select from '../json/armor/arm_group.json';
+import Legs_Select from '../json/armor/leg_group.json';
 
 const armorTypes = {
     helmet: Helmets_Select,

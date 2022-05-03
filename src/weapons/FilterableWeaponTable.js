@@ -6,10 +6,10 @@ import WeaponTable from './WeaponTable';
 import ExtraFilters from './ExtraFilters';
 import SearchBar from '../component/SearchBar';
 
-import Table_Data from '.././json/merged_json_data.json';
-import Attack_Element_Correct_Param from '.././json/attackelementcorrectparam.json';
+import Table_Data from '../json/weapons/merged_json_data.json';
+import Attack_Element_Correct_Param from '../json/attackelementcorrectparam.json';
 import Physical_Calculations from '../json/physical_calculations.json';
-import Weapon_Groups from '.././json/weapon_groups.json';
+import Weapon_Groups from '../json/weapons/weapon_groups.json';
 
 const scalingValues = {
     // In MenuValueTableParam
@@ -34,7 +34,16 @@ const noTwoHandBuff = new Set([
     "Ornamental Straight Sword",
 ]);
 
-
+const passiveTypes = [
+    "Scarlet Rot",
+    "Madness",
+    "Sleep",
+    "Frost",
+    "Poison",
+    "Blood",
+    "Rune Gain on Hit",
+    "Restore HP on Hit",
+];
 
 function totalAR(val, maxUpgrade, weaponLevel, levels, twoHanded) {
     return getPhyData(val, maxUpgrade, weaponLevel, levels, twoHanded) +
@@ -578,8 +587,27 @@ export default function FilterableWeaponTable() {
             val.fai_scaling_letter = getScalingLetter(val, val.maxUpgrade, weaponLevels, "fai");
             val.arc_scaling_letter = getScalingLetter(val, val.maxUpgrade, weaponLevels, "arc");
 
-            val.final_passive1 = Math.trunc(getPassiveData(val, val.maxUpgrade, weaponLevels, levels));
-            val.final_passive2 = Math.trunc(getPassiveData2(val, val.maxUpgrade, weaponLevels, levels));
+            // init passives
+            for (const passive of passiveTypes) {
+                val[passive.replace(/\s+/g, '_').toLowerCase()] = 0;
+            }
+
+            const final_passive1 = Math.trunc(getPassiveData(val, val.maxUpgrade, weaponLevels, levels));
+            if (val.type1 !== undefined) {
+                val[(val.type1).replace(/\s+/g, '_').toLowerCase()] = final_passive1;
+            }
+            const final_passive2 = Math.trunc(getPassiveData2(val, val.maxUpgrade, weaponLevels, levels));
+            if (val.type2 !== undefined) {
+                val[(val.type2).replace(/\s+/g, '_').toLowerCase()] = final_passive2;
+            }
+
+            if (val.restore_hp_hit_percent === undefined) {
+                val.restore_hp_hit_percent = 0;
+            }
+
+            if (val.rune_gain_hit === undefined) {
+                val.rune_gain_hit = 0;
+            }
 
             val.missedReq = highlightReqRow(val, levels, twoHanded)
         });

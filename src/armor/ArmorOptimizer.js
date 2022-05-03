@@ -1,9 +1,9 @@
-import Armor_Data from '../json/armor_data.json';
+import Armor_Data from '../json/armor/armor_data.json';
 
-import Max_Head from '../json/armor_max/max_head.json';
-import Max_Body from '../json/armor_max/max_body.json';
-import Max_Arm from '../json/armor_max/max_arm.json';
-import Max_Leg from '../json/armor_max/max_leg.json';
+import Max_Head from '../json/armor/armor_max/max_head.json';
+import Max_Body from '../json/armor/armor_max/max_body.json';
+import Max_Arm from '../json/armor/armor_max/max_arm.json';
+import Max_Leg from '../json/armor/armor_max/max_leg.json';
 
 import Heap from 'heap-js';
 
