@@ -30,7 +30,7 @@ const tableHeaders = {
 };
 
 function sortAlgorithm(rowA, rowB, columnId) {
-    if (new Set(['name', 'equipment_type']).has(columnId)) {
+    if (new Set(['helm_name', 'chest_name', 'gauntlet_name', 'leg_name']).has(columnId)) {
 
         const nameA = rowA.original[columnId] ? rowA.original[columnId].toUpperCase() : 'Ω';
         const nameB = rowB.original[columnId] ? rowB.original[columnId].toUpperCase() : 'Ω';
