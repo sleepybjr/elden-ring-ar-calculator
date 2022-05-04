@@ -245,7 +245,7 @@ export default function WeaponTable(props) {
                     row.filter = upgradeFilter;
                     row.Cell = ({ value }) => {
                         return (
-                            <>{value === 25 || value === 10? 'Somber' : 'Smithing'}</>
+                            <>{value !== 25 ? value === 10 ? 'Somber' : 'None' : 'Smithing'}</>
                         );
                     };
                     row.width = 89;

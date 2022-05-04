@@ -147,6 +147,7 @@ max_num_cap =  4         # max number of level caps in correction file
 
 base_weapon = 110000    # Unarmed
 start_weapon = 1000000  # dagger
+start_arrow = 50000000  # arrow
 end_weapon = 44010000   # jar cannon
 max_weapon = 53030000   # Bone Ballista Bolt
 
@@ -256,6 +257,12 @@ with open("Bullet.csv") as fp:
     Bullet = OrderedDict(
         (row[0], OrderedDict(zip(headers, row[1:]))) for row in reader)
 
+with open("AtkParam_Pc.csv") as fp:
+    reader = csv.reader(fp, delimiter=";", quotechar='"')
+    headers = next(reader)[1:]
+    AtkParam_Pc = OrderedDict(
+        (row[0], OrderedDict(zip(headers, row[1:]))) for row in reader)
+
 ##############################################
 # weapon_reqs.json
 ##############################################
@@ -322,6 +329,24 @@ def getWeaponReqs():
     return weapon_reqs_data
 
 
+def findDamageFromBullet(referenceId, attackParamIds):
+    if not(referenceId in Bullet):
+        return attackParamIds
+    if int(Bullet[referenceId]['Hit Bullet ID']) != -1 and int(Bullet[referenceId]['AtkParam ID']) != 0:
+        if not(Bullet[referenceId]['AtkParam ID'] in attackParamIds):
+            attackParamIds.append(Bullet[referenceId]['AtkParam ID'])
+        return findDamageFromBullet(Bullet[referenceId]['Hit Bullet ID'], attackParamIds)
+
+    if (int(Bullet[referenceId]['AtkParam ID']) != 0):
+        if not(Bullet[referenceId]['AtkParam ID'] in attackParamIds):
+            attackParamIds.append(Bullet[referenceId]['AtkParam ID'])
+        return attackParamIds
+    elif int(Bullet[referenceId]['Hit Bullet ID']) != -1:
+        return findDamageFromBullet(Bullet[referenceId]['Hit Bullet ID'], attackParamIds)
+    else:
+        return attackParamIds
+
+
 ##############################################
 # weapon_damage.json
 ##############################################
@@ -329,8 +354,72 @@ def getWeaponReqs():
 def getWeaponDamage():
     weapon_damage_data = []
 
+    for key, row in EquipParamGoods.items():
+        if (int(row['Weapon Reference ID']) != -1 and int(row['Reference Type']) == 1 and row['Row Name'] != ''):
+            row_dict = OrderedDict()
+            row_dict["name"] = row['Row Name']
+
+            attackIds = findDamageFromBullet(row['Reference ID [0]'], list([]))
+
+            dmg_phys = 0.0
+            dmg_mag = 0.0
+            dmg_fire = 0.0
+            dmg_ligh = 0.0
+            dmg_holy = 0.0
+            dmg_stam = 0.0
+            upgrade_level_max = 0
+            for attackId in attackIds:
+                for upgrade_level in range(0, upgrade_level_max+1):
+                    dmg_phys += float(AtkParam_Pc[attackId]['Damage: Physical'])
+                    phys_name = "phys" + str(upgrade_level)
+                    row_dict[phys_name] = dmg_phys
+                    if row_dict[phys_name].is_integer():
+                        row_dict[phys_name] = int(row_dict[phys_name])
+
+                    dmg_mag += float(AtkParam_Pc[attackId]['Damage: Magic'])
+                    mag_name = "mag" + str(upgrade_level)
+                    row_dict[mag_name] = dmg_mag 
+                    if row_dict[mag_name].is_integer():
+                        row_dict[mag_name] = int(row_dict[mag_name])
+
+                    dmg_fire += float(AtkParam_Pc[attackId]['Damage: Fire'])
+                    fire_name = "fire" + str(upgrade_level)
+                    row_dict[fire_name] = dmg_fire
+                    if row_dict[fire_name].is_integer():
+                        row_dict[fire_name] = int(row_dict[fire_name])
+
+                    dmg_ligh += float(AtkParam_Pc[attackId]['Damage: Lightning'])
+                    ligh_name = "ligh" + str(upgrade_level)
+                    row_dict[ligh_name] = dmg_ligh
+                    if row_dict[ligh_name].is_integer():
+                        row_dict[ligh_name] = int(row_dict[ligh_name])
+
+                    dmg_holy += float(AtkParam_Pc[attackId]['Damage: Holy'])
+                    holy_name = "holy" + str(upgrade_level)
+                    row_dict[holy_name] = dmg_holy
+                    if row_dict[holy_name].is_integer():
+                        row_dict[holy_name] = int(row_dict[holy_name])
+
+                    dmg_stam += float(AtkParam_Pc[attackId]['Damage: Stamina'])
+                    stam_name = "stam" + str(upgrade_level)
+                    row_dict[stam_name] = dmg_stam
+                    if row_dict[stam_name].is_integer():
+                        row_dict[stam_name] = int(row_dict[stam_name])
+
+                # probably delete later, unneeded but used to match current data
+                if upgrade_level_max != 25:
+                    for upgrade_level in range(upgrade_level_max+1, 26):
+                        row_dict["phys" + str(upgrade_level)] = 0
+                        row_dict["mag" + str(upgrade_level)] = 0
+                        row_dict["fire" + str(upgrade_level)] = 0
+                        row_dict["ligh" + str(upgrade_level)] = 0
+                        row_dict["holy" + str(upgrade_level)] = 0
+                        row_dict["stam" + str(upgrade_level)] = 0
+
+            weapon_damage_data.append(row_dict)
+
     for key, row in EquipParamWeapon.items():
-        if row['Row Name'] != '' and base_weapon <= int(key) <= max_weapon:
+        if row['Row Name'] != '' and ((start_weapon <= int(key) <= end_weapon) or int(key) == base_weapon or (start_arrow <= int(key) <= max_weapon)):
             if not (row["Prevent Affinity Change"] == "True" and getAffinity(key) != "None"):
                 row_dict = OrderedDict()
                 row_dict["name"] = row['Row Name']
@@ -657,7 +746,7 @@ def getWeaponPassive():
 
     # ReinforceParamWeapon['Behavior SpEffect 1 Offset'] used for something?
     for key, row in EquipParamWeapon.items():
-        if row['Row Name'] != '' and start_weapon <= int(key) <= end_weapon:
+        if row['Row Name'] != '' and ((start_weapon <= int(key) <= end_weapon) or int(key) == base_weapon or (start_arrow <= int(key) <= max_weapon)):
             if not (row["Prevent Affinity Change"] == "True" and getAffinity(key) != "None"):
                 row_dict = OrderedDict()
                 row_dict["name"] = row['Row Name']

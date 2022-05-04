@@ -128,22 +128,6 @@
         "weaponType": "Reusable Items"
     },
     {
-        "fullweaponname": "Explosive Stone",
-        "weaponname": "Explosive Stone",
-        "affinity": "None",
-        "maxUpgrade": 0,
-        "strreq": 0,
-        "dexreq": 0,
-        "intreq": 0,
-        "faireq": 0,
-        "arcreq": 0,
-        "physicalDamageType": 0,
-        "weight": 1,
-        "basePoiseAttack": 0,
-        "critical": 100,
-        "weaponType": "Reusable Items"
-    },
-    {
         "fullweaponname": "Explosive Stone Clump",
         "weaponname": "Explosive Stone Clump",
         "affinity": "None",
@@ -160,8 +144,8 @@
         "weaponType": "Reusable Items"
     },
     {
-        "fullweaponname": "Poisoned Stone",
-        "weaponname": "Poisoned Stone",
+        "fullweaponname": "Explosive Stone",
+        "weaponname": "Explosive Stone",
         "affinity": "None",
         "maxUpgrade": 0,
         "strreq": 0,
@@ -192,8 +176,8 @@
         "weaponType": "Reusable Items"
     },
     {
-        "fullweaponname": "Ancestral Infant's Head",
-        "weaponname": "Ancestral Infant's Head",
+        "fullweaponname": "Poisoned Stone",
+        "weaponname": "Poisoned Stone",
         "affinity": "None",
         "maxUpgrade": 0,
         "strreq": 0,
@@ -208,8 +192,8 @@
         "weaponType": "Reusable Items"
     },
     {
-        "fullweaponname": "Omen Bairn",
-        "weaponname": "Omen Bairn",
+        "fullweaponname": "Ancestral Infant's Head",
+        "weaponname": "Ancestral Infant's Head",
         "affinity": "None",
         "maxUpgrade": 0,
         "strreq": 0,
@@ -240,8 +224,8 @@
         "weaponType": "Reusable Items"
     },
     {
-        "fullweaponname": "Miranda's Prayer",
-        "weaponname": "Miranda's Prayer",
+        "fullweaponname": "Omen Bairn",
+        "weaponname": "Omen Bairn",
         "affinity": "None",
         "maxUpgrade": 0,
         "strreq": 0,
@@ -272,8 +256,8 @@
         "weaponType": "Reusable Items"
     },
     {
-        "fullweaponname": "Glintstone Scrap",
-        "weaponname": "Glintstone Scrap",
+        "fullweaponname": "Large Glintstone Scrap",
+        "weaponname": "Large Glintstone Scrap",
         "affinity": "None",
         "maxUpgrade": 0,
         "strreq": 0,
@@ -288,8 +272,8 @@
         "weaponType": "Reusable Items"
     },
     {
-        "fullweaponname": "Large Glintstone Scrap",
-        "weaponname": "Large Glintstone Scrap",
+        "fullweaponname": "Glintstone Scrap",
+        "weaponname": "Glintstone Scrap",
         "affinity": "None",
         "maxUpgrade": 0,
         "strreq": 0,
@@ -370,22 +354,6 @@
     {
         "fullweaponname": "Poison Spraymist",
         "weaponname": "Poison Spraymist",
-        "affinity": "None",
-        "maxUpgrade": 0,
-        "strreq": 0,
-        "dexreq": 0,
-        "intreq": 0,
-        "faireq": 0,
-        "arcreq": 0,
-        "physicalDamageType": 0,
-        "weight": 1,
-        "basePoiseAttack": 0,
-        "critical": 100,
-        "weaponType": "Reusable Items"
-    },
-    {
-        "fullweaponname": "Acid Spraymist",
-        "weaponname": "Acid Spraymist",
         "affinity": "None",
         "maxUpgrade": 0,
         "strreq": 0,

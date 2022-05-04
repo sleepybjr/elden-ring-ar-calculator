@@ -1448,7 +1448,7 @@ def getPassiveEffect(specialEffect, specialEffectId, passiveFromArmor):
                 if (checkStringState("Poison", row_dict)):
                     descriptionArray.append("If Poison Status Effect is applied, Subtract " + str(abs(float(specialEffect['Change FP %']))) + "% FP")
                 elif (checkStringState("Scarlet Rot", row_dict)):
-                    descriptionArray.append("If Scarlet Rot Status Effect is applied, Subtract " + str(abs(ifloatnt(specialEffect['Change FP %']))) + "% FP")
+                    descriptionArray.append("If Scarlet Rot Status Effect is applied, Subtract " + str(abs(float(specialEffect['Change FP %']))) + "% FP")
                 elif (checkStringState("Hemmorage", row_dict)):
                     descriptionArray.append("If Bleed Status Effect is applied, Subtract " + str(abs(float(specialEffect['Change FP %']))) + "% FP")
                 elif (checkStringState("Sleep", row_dict)):

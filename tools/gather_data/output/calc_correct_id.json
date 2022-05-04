@@ -96,7 +96,7 @@
         "attackelementcorrectId": 201760
     },
     {
-        "name": "Explosive Stone",
+        "name": "Explosive Stone Clump",
         "physical": 0,
         "magic": 0,
         "fire": 4,
@@ -108,7 +108,7 @@
         "attackelementcorrectId": 201830
     },
     {
-        "name": "Explosive Stone Clump",
+        "name": "Explosive Stone",
         "physical": 0,
         "magic": 0,
         "fire": 4,
@@ -120,7 +120,7 @@
         "attackelementcorrectId": 201831
     },
     {
-        "name": "Poisoned Stone",
+        "name": "Poisoned Stone Clump",
         "physical": 3,
         "magic": 0,
         "fire": 0,
@@ -132,7 +132,7 @@
         "attackelementcorrectId": 201840
     },
     {
-        "name": "Poisoned Stone Clump",
+        "name": "Poisoned Stone",
         "physical": 3,
         "magic": 0,
         "fire": 0,
@@ -156,7 +156,7 @@
         "attackelementcorrectId": 203000
     },
     {
-        "name": "Omen Bairn",
+        "name": "Regal Omen Bairn",
         "physical": 0,
         "magic": 0,
         "fire": 0,
@@ -168,7 +168,7 @@
         "attackelementcorrectId": 203010
     },
     {
-        "name": "Regal Omen Bairn",
+        "name": "Omen Bairn",
         "physical": 0,
         "magic": 0,
         "fire": 0,
@@ -178,18 +178,6 @@
         "sleep": 10,
         "madness": 10,
         "attackelementcorrectId": 203011
-    },
-    {
-        "name": "Miranda's Prayer",
-        "physical": 0,
-        "magic": 0,
-        "fire": 0,
-        "lightning": 0,
-        "poison": 10,
-        "bleed": 10,
-        "sleep": 10,
-        "madness": 10,
-        "attackelementcorrectId": 203020
     },
     {
         "name": "Cuckoo Glintstone",
@@ -204,7 +192,7 @@
         "attackelementcorrectId": 203030
     },
     {
-        "name": "Glintstone Scrap",
+        "name": "Large Glintstone Scrap",
         "physical": 0,
         "magic": 7,
         "fire": 0,
@@ -216,7 +204,7 @@
         "attackelementcorrectId": 203050
     },
     {
-        "name": "Large Glintstone Scrap",
+        "name": "Glintstone Scrap",
         "physical": 0,
         "magic": 7,
         "fire": 0,
@@ -286,18 +274,6 @@
         "sleep": 10,
         "madness": 10,
         "attackelementcorrectId": 203580
-    },
-    {
-        "name": "Acid Spraymist",
-        "physical": 3,
-        "magic": 0,
-        "fire": 0,
-        "lightning": 0,
-        "poison": 10,
-        "bleed": 10,
-        "sleep": 10,
-        "madness": 10,
-        "attackelementcorrectId": 203610
     },
     {
         "name": "Fire Pot",

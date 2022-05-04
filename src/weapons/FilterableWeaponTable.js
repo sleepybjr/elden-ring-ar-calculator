@@ -30,8 +30,9 @@ const passiveArcaneScaleId = 6;
 const noTwoHandBuff = new Set([
     "Hookclaws", "Venomous Fang", "Bloodhound Claws", "Raptor Talons",
     "Caestus", "Spiked Caestus", "Grafted Dragon", "Iron Ball", "Star Fist", "Katar", "Clinging Bone", "Veteran's Prosthesis", "Cipher Pata",
-    "Starscourge Greatsword",
-    "Ornamental Straight Sword",
+    "Starscourge Greatsword", 
+    "Ornamental Straight Sword", 
+    "Unarmed"
 ]);
 
 const passiveTypes = [
