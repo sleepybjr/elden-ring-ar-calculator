@@ -609,6 +609,36 @@ def findEffectFromBullet(referenceId):
     else:
         return Bullet[referenceId]['Target SpEffect ID 0'], Bullet[referenceId]['Target SpEffect ID 1'], Bullet[referenceId]['Target SpEffect ID 2'], Bullet[referenceId]['Target SpEffect ID 3']    
 
+def setItemPassive(row_dict, row_dict_passive, idx):
+    if "inflict_poison" in row_dict_passive:
+        row_dict["type" + str(idx)] = BehaviorTypes["Poison"]
+        row_dict["poison0"] = row_dict_passive["inflict_poison"]
+        idx += 1
+    elif "inflict_bleed" in row_dict_passive:
+        row_dict["type" + str(idx)] = BehaviorTypes["Hemorrhage"]
+        row_dict["blood0"] = row_dict_passive["inflict_bleed"]
+        idx += 1
+    elif "inflict_rot" in row_dict_passive:
+        row_dict["type" + str(idx)] = BehaviorTypes["Scarlet Rot"]
+        row_dict["scarletRot0"] = row_dict_passive["inflict_rot"]
+        idx += 1
+    elif "inflict_frost" in row_dict_passive:
+        row_dict["type" + str(idx)] = BehaviorTypes["Frostbite"]
+        row_dict["frost0"] = row_dict_passive["inflict_frost"]
+        idx += 1
+    elif "inflict_madness" in row_dict_passive:
+        row_dict["type" + str(idx)] = BehaviorTypes["Madness"]
+        row_dict["madness0"] = row_dict_passive["inflict_madness"]
+        idx += 1
+    elif "inflict_sleep" in row_dict_passive:
+        row_dict["type" + str(idx)] = BehaviorTypes["Sleep"]
+        row_dict["sleep0"] = row_dict_passive["inflict_sleep"]
+        idx += 1
+    elif "cycle_special_effect" in row_dict_passive:
+        setItemPassive(row_dict, row_dict_passive["cycle_special_effect"], idx)
+    
+    return idx
+
 
 def getWeaponPassive():
     weapon_passive_data = []
@@ -633,114 +663,22 @@ def getWeaponPassive():
             if effect1 != '0':
                 if effect1 in SpEffectParam:  # needed because regulation.bin has a bug with certain weapons
                     row_dict["passive_1"] = getPassiveEffect(SpEffectParam[effect1], effect1, False)
-                    if "inflict_poison" in row_dict["passive_1"]:
-                        row_dict["type" + str(idx)] = BehaviorTypes["Poison"]
-                        row_dict["poison0"] = row_dict["passive_1"]["inflict_poison"]
-                        idx += 1
-                    elif "inflict_bleed" in row_dict["passive_1"]:
-                        row_dict["type" + str(idx)] = BehaviorTypes["Hemorrhage"]
-                        row_dict["bleed0"] = row_dict["passive_1"]["inflict_bleed"]
-                        idx += 1
-                    elif "inflict_rot" in row_dict["passive_1"]:
-                        row_dict["type" + str(idx)] = BehaviorTypes["Scarlet Rot"]
-                        row_dict["scarletRot0"] = row_dict["passive_1"]["inflict_rot"]
-                        idx += 1
-                    elif "inflict_frost" in row_dict["passive_1"]:
-                        row_dict["type" + str(idx)] = BehaviorTypes["Frostbite"]
-                        row_dict["frost0"] = row_dict["passive_1"]["inflict_frost"]
-                        idx += 1
-                    elif "inflict_madness" in row_dict["passive_1"]:
-                        row_dict["type" + str(idx)] = BehaviorTypes["Madness"]
-                        row_dict["madness0"] = row_dict["passive_1"]["inflict_madness"]
-                        idx += 1
-                    elif "inflict_sleep" in row_dict["passive_1"]:
-                        row_dict["type" + str(idx)] = BehaviorTypes["Sleep"]
-                        row_dict["sleep0"] = row_dict["passive_1"]["inflict_sleep"]
-                        idx += 1
+                    idx = setItemPassive(row_dict, row_dict["passive_1"], idx)
                         
             if effect2 != '0':
                 if effect2 in SpEffectParam:
                     row_dict["passive_2"] = getPassiveEffect(SpEffectParam[effect2], effect2, False)
-                    if "inflict_poison" in row_dict["passive_2"]:
-                        row_dict["type" + str(idx)] = BehaviorTypes["Poison"]
-                        row_dict["poison0"] = row_dict["passive_2"]["inflict_poison"]
-                        idx += 1
-                    elif "inflict_bleed" in row_dict["passive_2"]:
-                        row_dict["type" + str(idx)] = BehaviorTypes["Hemorrhage"]
-                        row_dict["bleed0"] = row_dict["passive_2"]["inflict_bleed"]
-                        idx += 1
-                    elif "inflict_rot" in row_dict["passive_2"]:
-                        row_dict["type" + str(idx)] = BehaviorTypes["Scarlet Rot"]
-                        row_dict["scarletRot0"] = row_dict["passive_2"]["inflict_rot"]
-                        idx += 1
-                    elif "inflict_frost" in row_dict["passive_2"]:
-                        row_dict["type" + str(idx)] = BehaviorTypes["Frostbite"]
-                        row_dict["frost0"] = row_dict["passive_2"]["inflict_frost"]
-                        idx += 1
-                    elif "inflict_madness" in row_dict["passive_2"]:
-                        row_dict["type" + str(idx)] = BehaviorTypes["Madness"]
-                        row_dict["madness0"] = row_dict["passive_2"]["inflict_madness"]
-                        idx += 1
-                    elif "inflict_sleep" in row_dict["passive_2"]:
-                        row_dict["type" + str(idx)] = BehaviorTypes["Sleep"]
-                        row_dict["sleep0"] = row_dict["passive_2"]["inflict_sleep"]
-                        idx += 1
+                    idx = setItemPassive(row_dict, row_dict["passive_2"], idx)
 
             if effect3 != '0':
                 if effect3 in SpEffectParam:
                     row_dict["passive_3"] = getPassiveEffect(SpEffectParam[effect3], effect3, False)
-                    if "inflict_poison" in row_dict["passive_3"]:
-                        row_dict["type" + str(idx)] = BehaviorTypes["Poison"]
-                        row_dict["poison0"] = row_dict["passive_3"]["inflict_poison"]
-                        idx += 1
-                    elif "inflict_bleed" in row_dict["passive_3"]:
-                        row_dict["type" + str(idx)] = BehaviorTypes["Hemorrhage"]
-                        row_dict["bleed0"] = row_dict["passive_3"]["inflict_bleed"]
-                        idx += 1
-                    elif "inflict_rot" in row_dict["passive_3"]:
-                        row_dict["type" + str(idx)] = BehaviorTypes["Scarlet Rot"]
-                        row_dict["scarletRot0"] = row_dict["passive_3"]["inflict_rot"]
-                        idx += 1
-                    elif "inflict_frost" in row_dict["passive_3"]:
-                        row_dict["type" + str(idx)] = BehaviorTypes["Frostbite"]
-                        row_dict["frost0"] = row_dict["passive_3"]["inflict_frost"]
-                        idx += 1
-                    elif "inflict_madness" in row_dict["passive_3"]:
-                        row_dict["type" + str(idx)] = BehaviorTypes["Madness"]
-                        row_dict["madness0"] = row_dict["passive_3"]["inflict_madness"]
-                        idx += 1
-                    elif "inflict_sleep" in row_dict["passive_3"]:
-                        row_dict["type" + str(idx)] = BehaviorTypes["Sleep"]
-                        row_dict["sleep0"] = row_dict["passive_3"]["inflict_sleep"]
-                        idx += 1
+                    idx = setItemPassive(row_dict, row_dict["passive_3"], idx)
 
             if effect4 != '0':
                 if effect4 in SpEffectParam:
                     row_dict["passive_4"] = getPassiveEffect(SpEffectParam[effect4], effect4, False)
-                    if "inflict_poison" in row_dict["passive_4"]:
-                        row_dict["type" + str(idx)] = BehaviorTypes["Poison"]
-                        row_dict["poison0"] = row_dict["passive_4"]["inflict_poison"]
-                        idx += 1
-                    elif "inflict_bleed" in row_dict["passive_4"]:
-                        row_dict["type" + str(idx)] = BehaviorTypes["Hemorrhage"]
-                        row_dict["bleed0"] = row_dict["passive_4"]["inflict_bleed"]
-                        idx += 1
-                    elif "inflict_rot" in row_dict["passive_4"]:
-                        row_dict["type" + str(idx)] = BehaviorTypes["Scarlet Rot"]
-                        row_dict["scarletRot0"] = row_dict["passive_4"]["inflict_rot"]
-                        idx += 1
-                    elif "inflict_frost" in row_dict["passive_4"]:
-                        row_dict["type" + str(idx)] = BehaviorTypes["Frostbite"]
-                        row_dict["frost0"] = row_dict["passive_4"]["inflict_frost"]
-                        idx += 1
-                    elif "inflict_madness" in row_dict["passive_4"]:
-                        row_dict["type" + str(idx)] = BehaviorTypes["Madness"]
-                        row_dict["madness0"] = row_dict["passive_4"]["inflict_madness"]
-                        idx += 1
-                    elif "inflict_sleep" in row_dict["passive_4"]:
-                        row_dict["type" + str(idx)] = BehaviorTypes["Sleep"]
-                        row_dict["sleep0"] = row_dict["passive_4"]["inflict_sleep"]
-                        idx += 1
+                    idx = setItemPassive(row_dict, row_dict["passive_4"], idx)
 
             weapon_passive_data.append(row_dict)
 
