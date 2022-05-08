@@ -25,15 +25,7 @@ const autoTwoHandBuff = new Set([
     "Light Bow", "Bow", "Greatbow",
 ]);
 
-const passiveArcaneScaleId = 6;
-
-const noTwoHandBuff = new Set([
-    "Hookclaws", "Venomous Fang", "Bloodhound Claws", "Raptor Talons",
-    "Caestus", "Spiked Caestus", "Grafted Dragon", "Iron Ball", "Star Fist", "Katar", "Clinging Bone", "Veteran's Prosthesis", "Cipher Pata",
-    "Starscourge Greatsword", 
-    "Ornamental Straight Sword", 
-    "Unarmed"
-]);
+const defaultArcaneScaleId = 6;
 
 const passiveTypes = [
     "Scarlet Rot",
@@ -116,7 +108,7 @@ function getSingleARData(val, maxUpgrade, weaponLevel, levels, twoHanded, attack
     }
 
     let strength = levels.strength;
-    if ((twoHanded === true && !noTwoHandBuff.has(val.weaponname)) || autoTwoHandBuff.has(val.weaponType)) {
+    if ((twoHanded === true && val.canTwoHand === "True") || autoTwoHandBuff.has(val.weaponType)) {
         strength = levels.twohand_strength;
     }
 
@@ -205,7 +197,7 @@ function getSorceryScaling(val, maxUpgrade, weaponLevel, levels, twoHanded) {
     }
 
     let strength = levels.strength;
-    if (twoHanded === true && !noTwoHandBuff.has(val.weaponname)) {
+    if (twoHanded === true && val.canTwoHand === "True") {
         strength = levels.twohand_strength;
     }
 
@@ -309,38 +301,60 @@ function getPassiveData(val, maxUpgrade, weaponLevel, levels) {
 
 
     let passiveArcaneCalcCorrect = 0;
-    const passiveArcaneScale = Physical_Calculations[passiveArcaneScaleId];
-    if (levels.arcane > passiveArcaneScale.stat_max_3) {
-        // Don't know what to do if adjustment is 0
-        if (passiveArcaneScale.adj_point_3 > 0.0) {
-            passiveArcaneCalcCorrect = passiveArcaneScale.grow_3 + ((passiveArcaneScale.grow_4 - passiveArcaneScale.grow_3) * (((levels.arcane - passiveArcaneScale.stat_max_3) / (passiveArcaneScale.stat_max_4 - passiveArcaneScale.stat_max_3)) ** passiveArcaneScale.adj_point_3))
-        }
-        else {
-            passiveArcaneCalcCorrect = passiveArcaneScale.grow_3 + ((passiveArcaneScale.grow_4 - passiveArcaneScale.grow_3) * (1 - ((1 - ((levels.arcane - passiveArcaneScale.stat_max_3) / (passiveArcaneScale.stat_max_4 - passiveArcaneScale.stat_max_3))) ** -passiveArcaneScale.adj_point_3)))
-        }
+    let passiveArcaneScaleId = 0;
+    switch (val.type1) {
+        case "Madness":
+            passiveArcaneScaleId = val["madness"]
+            break;
+        case "Sleep":
+            passiveArcaneScaleId = val["sleep"]
+            break;
+        case "Poison":
+            passiveArcaneScaleId = val["poison"]
+            break;
+        case "Blood":
+            passiveArcaneScaleId = val["bleed"]
+            break;
+        default:
+            passiveArcaneScaleId = defaultArcaneScaleId
+            break;
     }
-    else if (levels.arcane > passiveArcaneScale.stat_max_2) {
-        if (passiveArcaneScale.adj_point_2 > 0.0) {
-            passiveArcaneCalcCorrect = passiveArcaneScale.grow_2 + ((passiveArcaneScale.grow_3 - passiveArcaneScale.grow_2) * (((levels.arcane - passiveArcaneScale.stat_max_2) / (passiveArcaneScale.stat_max_3 - passiveArcaneScale.stat_max_2)) ** passiveArcaneScale.adj_point_2))
-        }
-        else {
-            passiveArcaneCalcCorrect = passiveArcaneScale.grow_2 + ((passiveArcaneScale.grow_3 - passiveArcaneScale.grow_2) * (1 - ((1 - ((levels.arcane - passiveArcaneScale.stat_max_2) / (passiveArcaneScale.stat_max_3 - passiveArcaneScale.stat_max_2))) ** -passiveArcaneScale.adj_point_2)))
-        }
-    }
-    else if (levels.arcane > passiveArcaneScale.stat_max_1) {
-        if (passiveArcaneScale.adj_point_1 > 0.0) {
-            passiveArcaneCalcCorrect = passiveArcaneScale.grow_1 + ((passiveArcaneScale.grow_2 - passiveArcaneScale.grow_1) * (((levels.arcane - passiveArcaneScale.stat_max_1) / (passiveArcaneScale.stat_max_2 - passiveArcaneScale.stat_max_1)) ** passiveArcaneScale.adj_point_1))
-        }
-        else {
-            passiveArcaneCalcCorrect = passiveArcaneScale.grow_1 + ((passiveArcaneScale.grow_2 - passiveArcaneScale.grow_1) * (1 - ((1 - ((levels.arcane - passiveArcaneScale.stat_max_1) / (passiveArcaneScale.stat_max_2 - passiveArcaneScale.stat_max_1))) ** -passiveArcaneScale.adj_point_1)))
-        }
-    }
-    else {
-        if (passiveArcaneScale.adj_point_0 > 0.0) {
-            passiveArcaneCalcCorrect = passiveArcaneScale.grow_0 + ((passiveArcaneScale.grow_1 - passiveArcaneScale.grow_0) * (((levels.arcane - passiveArcaneScale.stat_max_0) / (passiveArcaneScale.stat_max_1 - passiveArcaneScale.stat_max_0)) ** passiveArcaneScale.adj_point_0))
-        }
-        else {
-            passiveArcaneCalcCorrect = passiveArcaneScale.grow_0 + ((passiveArcaneScale.grow_1 - passiveArcaneScale.grow_0) * (1 - ((1 - ((levels.arcane - passiveArcaneScale.stat_max_0) / (passiveArcaneScale.stat_max_1 - passiveArcaneScale.stat_max_0))) ** -passiveArcaneScale.adj_point_0)))
+    for (const element of Physical_Calculations) {
+        if (element.row_id === passiveArcaneScaleId) {
+            if (levels.arcane > element.stat_max_3) {
+                // Don't know what to do if adjustment is 0
+                if (element.adj_point_3 > 0.0) {
+                    passiveArcaneCalcCorrect = element.grow_3 + ((element.grow_4 - element.grow_3) * (((levels.arcane - element.stat_max_3) / (element.stat_max_4 - element.stat_max_3)) ** element.adj_point_3))
+                }
+                else {
+                    passiveArcaneCalcCorrect = element.grow_3 + ((element.grow_4 - element.grow_3) * (1 - ((1 - ((levels.arcane - element.stat_max_3) / (element.stat_max_4 - element.stat_max_3))) ** -element.adj_point_3)))
+                }
+            }
+            else if (levels.arcane > element.stat_max_2) {
+                if (element.adj_point_2 > 0.0) {
+                    passiveArcaneCalcCorrect = element.grow_2 + ((element.grow_3 - element.grow_2) * (((levels.arcane - element.stat_max_2) / (element.stat_max_3 - element.stat_max_2)) ** element.adj_point_2))
+                }
+                else {
+                    passiveArcaneCalcCorrect = element.grow_2 + ((element.grow_3 - element.grow_2) * (1 - ((1 - ((levels.arcane - element.stat_max_2) / (element.stat_max_3 - element.stat_max_2))) ** -element.adj_point_2)))
+                }
+            }
+            else if (levels.arcane > element.stat_max_1) {
+                if (element.adj_point_1 > 0.0) {
+                    passiveArcaneCalcCorrect = element.grow_1 + ((element.grow_2 - element.grow_1) * (((levels.arcane - element.stat_max_1) / (element.stat_max_2 - element.stat_max_1)) ** element.adj_point_1))
+                }
+                else {
+                    passiveArcaneCalcCorrect = element.grow_1 + ((element.grow_2 - element.grow_1) * (1 - ((1 - ((levels.arcane - element.stat_max_1) / (element.stat_max_2 - element.stat_max_1))) ** -element.adj_point_1)))
+                }
+            }
+            else {
+                if (element.adj_point_0 > 0.0) {
+                    passiveArcaneCalcCorrect = element.grow_0 + ((element.grow_1 - element.grow_0) * (((levels.arcane - element.stat_max_0) / (element.stat_max_1 - element.stat_max_0)) ** element.adj_point_0))
+                }
+                else {
+                    passiveArcaneCalcCorrect = element.grow_0 + ((element.grow_1 - element.grow_0) * (1 - ((1 - ((levels.arcane - element.stat_max_0) / (element.stat_max_1 - element.stat_max_0))) ** -element.adj_point_0)))
+                }
+            }
+            break;
         }
     }
 
@@ -389,19 +403,17 @@ function getPassiveData(val, maxUpgrade, weaponLevel, levels) {
             default:
                 return 0;
         }
-    } else if (val.fullweaponname === "Poison Fingerprint Stone Shield" || val.fullweaponname === "Blood Fingerprint Stone Shield") {
-        if (arcScaling > 0) {
-            return (arcScaling * passiveArcaneCalcCorrect * physRotMadSleep) + physRotMadSleep;
-        } else {
-            return physRotMadSleep;
-        }
     } else if (val.fullweaponname === "Occult Fingerprint Stone Shield") {
         return 0;
     } else {
         switch (val.type1) {
             case "Scarlet Rot":
+                return physRotMadSleep;
             case "Madness":
             case "Sleep":
+                if (arcScaling > 0) {
+                    return (arcScaling * passiveArcaneCalcCorrect * physRotMadSleep) + physRotMadSleep;
+                }
                 return physRotMadSleep;
             case "Frost":
                 return physFrost;
@@ -430,38 +442,60 @@ function getPassiveData2(val, maxUpgrade, weaponLevel, levels) {
     let arcScaling = 0;
 
     let passiveArcaneCalcCorrect = 0;
-    const passiveArcaneScale = Physical_Calculations[passiveArcaneScaleId];
-    if (levels.arcane > passiveArcaneScale.stat_max_3) {
-        // Don't know what to do if adjustment is 0
-        if (passiveArcaneScale.adj_point_3 > 0.0) {
-            passiveArcaneCalcCorrect = passiveArcaneScale.grow_3 + ((passiveArcaneScale.grow_4 - passiveArcaneScale.grow_3) * (((levels.arcane - passiveArcaneScale.stat_max_3) / (passiveArcaneScale.stat_max_4 - passiveArcaneScale.stat_max_3)) ** passiveArcaneScale.adj_point_3))
-        }
-        else {
-            passiveArcaneCalcCorrect = passiveArcaneScale.grow_3 + ((passiveArcaneScale.grow_4 - passiveArcaneScale.grow_3) * (1 - ((1 - ((levels.arcane - passiveArcaneScale.stat_max_3) / (passiveArcaneScale.stat_max_4 - passiveArcaneScale.stat_max_3))) ** -passiveArcaneScale.adj_point_3)))
-        }
+    let passiveArcaneScaleId = 0;
+    switch (val.type1) {
+        case "Madness":
+            passiveArcaneScaleId = val["madness"]
+            break;
+        case "Sleep":
+            passiveArcaneScaleId = val["sleep"]
+            break;
+        case "Poison":
+            passiveArcaneScaleId = val["poison"]
+            break;
+        case "Blood":
+            passiveArcaneScaleId = val["bleed"]
+            break;
+        default:
+            passiveArcaneScaleId = defaultArcaneScaleId
+            break;
     }
-    else if (levels.arcane > passiveArcaneScale.stat_max_2) {
-        if (passiveArcaneScale.adj_point_2 > 0.0) {
-            passiveArcaneCalcCorrect = passiveArcaneScale.grow_2 + ((passiveArcaneScale.grow_3 - passiveArcaneScale.grow_2) * (((levels.arcane - passiveArcaneScale.stat_max_2) / (passiveArcaneScale.stat_max_3 - passiveArcaneScale.stat_max_2)) ** passiveArcaneScale.adj_point_2))
-        }
-        else {
-            passiveArcaneCalcCorrect = passiveArcaneScale.grow_2 + ((passiveArcaneScale.grow_3 - passiveArcaneScale.grow_2) * (1 - ((1 - ((levels.arcane - passiveArcaneScale.stat_max_2) / (passiveArcaneScale.stat_max_3 - passiveArcaneScale.stat_max_2))) ** -passiveArcaneScale.adj_point_2)))
-        }
-    }
-    else if (levels.arcane > passiveArcaneScale.stat_max_1) {
-        if (passiveArcaneScale.adj_point_1 > 0.0) {
-            passiveArcaneCalcCorrect = passiveArcaneScale.grow_1 + ((passiveArcaneScale.grow_2 - passiveArcaneScale.grow_1) * (((levels.arcane - passiveArcaneScale.stat_max_1) / (passiveArcaneScale.stat_max_2 - passiveArcaneScale.stat_max_1)) ** passiveArcaneScale.adj_point_1))
-        }
-        else {
-            passiveArcaneCalcCorrect = passiveArcaneScale.grow_1 + ((passiveArcaneScale.grow_2 - passiveArcaneScale.grow_1) * (1 - ((1 - ((levels.arcane - passiveArcaneScale.stat_max_1) / (passiveArcaneScale.stat_max_2 - passiveArcaneScale.stat_max_1))) ** -passiveArcaneScale.adj_point_1)))
-        }
-    }
-    else {
-        if (passiveArcaneScale.adj_point_0 > 0.0) {
-            passiveArcaneCalcCorrect = passiveArcaneScale.grow_0 + ((passiveArcaneScale.grow_1 - passiveArcaneScale.grow_0) * (((levels.arcane - passiveArcaneScale.stat_max_0) / (passiveArcaneScale.stat_max_1 - passiveArcaneScale.stat_max_0)) ** passiveArcaneScale.adj_point_0))
-        }
-        else {
-            passiveArcaneCalcCorrect = passiveArcaneScale.grow_0 + ((passiveArcaneScale.grow_1 - passiveArcaneScale.grow_0) * (1 - ((1 - ((levels.arcane - passiveArcaneScale.stat_max_0) / (passiveArcaneScale.stat_max_1 - passiveArcaneScale.stat_max_0))) ** -passiveArcaneScale.adj_point_0)))
+    for (const element of Physical_Calculations) {
+        if (element.row_id === passiveArcaneScaleId) {
+            if (levels.arcane > element.stat_max_3) {
+                // Don't know what to do if adjustment is 0
+                if (element.adj_point_3 > 0.0) {
+                    passiveArcaneCalcCorrect = element.grow_3 + ((element.grow_4 - element.grow_3) * (((levels.arcane - element.stat_max_3) / (element.stat_max_4 - element.stat_max_3)) ** element.adj_point_3))
+                }
+                else {
+                    passiveArcaneCalcCorrect = element.grow_3 + ((element.grow_4 - element.grow_3) * (1 - ((1 - ((levels.arcane - element.stat_max_3) / (element.stat_max_4 - element.stat_max_3))) ** -element.adj_point_3)))
+                }
+            }
+            else if (levels.arcane > element.stat_max_2) {
+                if (element.adj_point_2 > 0.0) {
+                    passiveArcaneCalcCorrect = element.grow_2 + ((element.grow_3 - element.grow_2) * (((levels.arcane - element.stat_max_2) / (element.stat_max_3 - element.stat_max_2)) ** element.adj_point_2))
+                }
+                else {
+                    passiveArcaneCalcCorrect = element.grow_2 + ((element.grow_3 - element.grow_2) * (1 - ((1 - ((levels.arcane - element.stat_max_2) / (element.stat_max_3 - element.stat_max_2))) ** -element.adj_point_2)))
+                }
+            }
+            else if (levels.arcane > element.stat_max_1) {
+                if (element.adj_point_1 > 0.0) {
+                    passiveArcaneCalcCorrect = element.grow_1 + ((element.grow_2 - element.grow_1) * (((levels.arcane - element.stat_max_1) / (element.stat_max_2 - element.stat_max_1)) ** element.adj_point_1))
+                }
+                else {
+                    passiveArcaneCalcCorrect = element.grow_1 + ((element.grow_2 - element.grow_1) * (1 - ((1 - ((levels.arcane - element.stat_max_1) / (element.stat_max_2 - element.stat_max_1))) ** -element.adj_point_1)))
+                }
+            }
+            else {
+                if (element.adj_point_0 > 0.0) {
+                    passiveArcaneCalcCorrect = element.grow_0 + ((element.grow_1 - element.grow_0) * (((levels.arcane - element.stat_max_0) / (element.stat_max_1 - element.stat_max_0)) ** element.adj_point_0))
+                }
+                else {
+                    passiveArcaneCalcCorrect = element.grow_0 + ((element.grow_1 - element.grow_0) * (1 - ((1 - ((levels.arcane - element.stat_max_0) / (element.stat_max_1 - element.stat_max_0))) ** -element.adj_point_0)))
+                }
+            }
+            break;
         }
     }
 
@@ -496,8 +530,12 @@ function getPassiveData2(val, maxUpgrade, weaponLevel, levels) {
 
     switch (val.type2) {
         case "Scarlet Rot":
+            return physRotMadSleep;
         case "Madness":
         case "Sleep":
+            if (arcScaling > 0) {
+                return (arcScaling * passiveArcaneCalcCorrect * physRotMadSleep) + physRotMadSleep;
+            }
             return physRotMadSleep;
         case "Frost":
             return physFrost;
@@ -519,7 +557,7 @@ function getPassiveData2(val, maxUpgrade, weaponLevel, levels) {
 
 function highlightReqRow(val, levels, isTwoHanded) {
     let strength = levels.strength;
-    if ((isTwoHanded && !noTwoHandBuff.has(val.weaponname))) {
+    if ((isTwoHanded && val.canTwoHand === "True")) {
         strength = levels.twohand_strength;
     }
     if (strength < val.strreq ||

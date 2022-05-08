@@ -40,19 +40,19 @@
                 "value": 8
             },
             {
-                "label": "Explosive Stone Clump",
+                "label": "Explosive Stone",
                 "value": 9
             },
             {
-                "label": "Explosive Stone",
+                "label": "Explosive Stone Clump",
                 "value": 10
             },
             {
-                "label": "Poisoned Stone Clump",
+                "label": "Poisoned Stone",
                 "value": 11
             },
             {
-                "label": "Poisoned Stone",
+                "label": "Poisoned Stone Clump",
                 "value": 12
             },
             {
@@ -60,11 +60,11 @@
                 "value": 13
             },
             {
-                "label": "Regal Omen Bairn",
+                "label": "Omen Bairn",
                 "value": 14
             },
             {
-                "label": "Omen Bairn",
+                "label": "Regal Omen Bairn",
                 "value": 15
             },
             {
@@ -72,11 +72,11 @@
                 "value": 16
             },
             {
-                "label": "Large Glintstone Scrap",
+                "label": "Glintstone Scrap",
                 "value": 17
             },
             {
-                "label": "Glintstone Scrap",
+                "label": "Large Glintstone Scrap",
                 "value": 18
             },
             {

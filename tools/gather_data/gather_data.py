@@ -323,29 +323,235 @@ def getWeaponReqs():
                     poise_damage) if poise_damage.is_integer() else poise_damage
                 row_dict["critical"] = 100 + int(row["Critical Multiplier"])
                 row_dict["weaponType"] = getWeaponType(row["Weapon Type"])
+                if (int(row["Weapon Hold Position - 2H"]) == 0):
+                    row_dict["canTwoHand"] = InputBoolean.FALSE.value
+                else:
+                    row_dict["canTwoHand"] = InputBoolean.TRUE.value
 
                 weapon_reqs_data.append(row_dict)
 
     return weapon_reqs_data
 
 
-def findDamageFromBullet(referenceId, attackParamIds):
+def getAllBulletsFromAttack(referenceId, attackParamIds, emitter):
     if not(referenceId in Bullet):
+        row_dict = OrderedDict()
+        row_dict['atkParamId'] = '-1'
+        row_dict['bulletCount'] = 0
+        row_dict['prjctId'] = '-1'
+        row_dict['impactId'] = '-1'
+        row_dict['hitBulletID'] = '-1'
+        row_dict['isEmitter'] = False
+        row_dict['useShareHitList'] = InputBoolean.FALSE.value
+        row_dict['continuousHitbox'] = InputBoolean.FALSE.value
+        row_dict['bulletDuration'] = '0'
+        attackParamIds[referenceId] = row_dict
         return attackParamIds
-    if int(Bullet[referenceId]['Hit Bullet ID']) != -1 and int(Bullet[referenceId]['AtkParam ID']) != 0:
-        if not(Bullet[referenceId]['AtkParam ID'] in attackParamIds):
-            attackParamIds.append(Bullet[referenceId]['AtkParam ID'])
-        return findDamageFromBullet(Bullet[referenceId]['Hit Bullet ID'], attackParamIds)
 
-    if (int(Bullet[referenceId]['AtkParam ID']) != 0):
-        if not(Bullet[referenceId]['AtkParam ID'] in attackParamIds):
-            attackParamIds.append(Bullet[referenceId]['AtkParam ID'])
+    if int(Bullet[referenceId]['Hit Bullet ID']) != -1 and int(Bullet[referenceId]['AtkParam ID']) != 0 and int(Bullet[referenceId]['Bullet Emitter: Bullet ID']) != -1:
+        returnVal1 =  getAllBulletsFromAttack(Bullet[referenceId]['Hit Bullet ID'], attackParamIds, emitter)
+        returnVal2 =  getAllBulletsFromAttack(Bullet[referenceId]['Bullet Emitter: Bullet ID'], attackParamIds, True)
+
+        returnVal1 = {**returnVal2, **returnVal1}
+        row_dict = OrderedDict()
+        row_dict['atkParamId'] = Bullet[referenceId]['AtkParam ID']
+        row_dict['bulletCount'] = int(Bullet[referenceId]['Bullet Count'])
+        row_dict['prjctId'] = Bullet[referenceId]['Projectile SFX ID']
+        row_dict['impactId'] = Bullet[referenceId]['Impact SFX ID']
+        row_dict['hitBulletID'] = Bullet[referenceId]['Hit Bullet ID']
+        row_dict['isEmitter'] = emitter
+        if (Bullet[referenceId]['Use Shared Hit List'] == InputBoolean.TRUE.value):
+            row_dict['useShareHitList'] = InputBoolean.TRUE.value
+        else:
+            row_dict['useShareHitList'] = InputBoolean.FALSE.value
+        if (Bullet[referenceId]['Continuous Hitbox'] == InputBoolean.TRUE.value):
+            row_dict['continuousHitbox'] = InputBoolean.TRUE.value
+        else:
+            row_dict['continuousHitbox'] = InputBoolean.FALSE.value
+        row_dict['bulletDuration'] = Bullet[referenceId]['Duration']
+        attackParamIds[referenceId] = row_dict
+        return returnVal1
+    elif int(Bullet[referenceId]['Hit Bullet ID']) != -1 and int(Bullet[referenceId]['AtkParam ID']) != 0:
+        row_dict = OrderedDict()
+        row_dict['atkParamId'] = Bullet[referenceId]['AtkParam ID']
+        row_dict['bulletCount'] = int(Bullet[referenceId]['Bullet Count'])
+        row_dict['prjctId'] = Bullet[referenceId]['Projectile SFX ID']
+        row_dict['impactId'] = Bullet[referenceId]['Impact SFX ID']
+        row_dict['hitBulletID'] = Bullet[referenceId]['Hit Bullet ID']
+        row_dict['isEmitter'] = emitter
+        if (Bullet[referenceId]['Use Shared Hit List'] == InputBoolean.TRUE.value):
+            row_dict['useShareHitList'] = InputBoolean.TRUE.value
+        else:
+            row_dict['useShareHitList'] = InputBoolean.FALSE.value
+        if (Bullet[referenceId]['Continuous Hitbox'] == InputBoolean.TRUE.value):
+            row_dict['continuousHitbox'] = InputBoolean.TRUE.value
+        else:
+            row_dict['continuousHitbox'] = InputBoolean.FALSE.value
+        row_dict['bulletDuration'] = Bullet[referenceId]['Duration']
+        attackParamIds[referenceId] = row_dict
+        return getAllBulletsFromAttack(Bullet[referenceId]['Hit Bullet ID'], attackParamIds, emitter)
+    elif int(Bullet[referenceId]['Bullet Emitter: Bullet ID']) != -1 and int(Bullet[referenceId]['AtkParam ID']) != 0:
+        row_dict = OrderedDict()
+        row_dict['atkParamId'] = Bullet[referenceId]['AtkParam ID']
+        row_dict['bulletCount'] = int(Bullet[referenceId]['Bullet Count'])
+        row_dict['prjctId'] = Bullet[referenceId]['Projectile SFX ID']
+        row_dict['impactId'] = Bullet[referenceId]['Impact SFX ID']
+        row_dict['hitBulletID'] = '-1'
+        row_dict['isEmitter'] = emitter
+        if (Bullet[referenceId]['Use Shared Hit List'] == InputBoolean.TRUE.value):
+            row_dict['useShareHitList'] = InputBoolean.TRUE.value
+        else:
+            row_dict['useShareHitList'] = InputBoolean.FALSE.value
+        if (Bullet[referenceId]['Continuous Hitbox'] == InputBoolean.TRUE.value):
+            row_dict['continuousHitbox'] = InputBoolean.TRUE.value
+        else:
+            row_dict['continuousHitbox'] = InputBoolean.FALSE.value
+        row_dict['bulletDuration'] = Bullet[referenceId]['Duration']
+        attackParamIds[referenceId] = row_dict
+        return getAllBulletsFromAttack(Bullet[referenceId]['Bullet Emitter: Bullet ID'], attackParamIds, True)
+    elif int(Bullet[referenceId]['Bullet Emitter: Bullet ID']) != -1 and int(Bullet[referenceId]['Hit Bullet ID']) != -1:
+        returnVal1 =  getAllBulletsFromAttack(Bullet[referenceId]['Hit Bullet ID'], attackParamIds, emitter)
+        returnVal2 =  getAllBulletsFromAttack(Bullet[referenceId]['Bullet Emitter: Bullet ID'], attackParamIds, True)
+        returnVal1 = {**returnVal2, **returnVal1}
+        row_dict = OrderedDict()
+        row_dict['atkParamId'] = '-1'
+        row_dict['bulletCount'] = int(Bullet[referenceId]['Bullet Count'])
+        row_dict['prjctId'] = Bullet[referenceId]['Projectile SFX ID']
+        row_dict['impactId'] = Bullet[referenceId]['Impact SFX ID']
+        row_dict['hitBulletID'] = Bullet[referenceId]['Hit Bullet ID']
+        row_dict['isEmitter'] = emitter
+        if (Bullet[referenceId]['Use Shared Hit List'] == InputBoolean.TRUE.value):
+            row_dict['useShareHitList'] = InputBoolean.TRUE.value
+        else:
+            row_dict['useShareHitList'] = InputBoolean.FALSE.value
+        if (Bullet[referenceId]['Continuous Hitbox'] == InputBoolean.TRUE.value):
+            row_dict['continuousHitbox'] = InputBoolean.TRUE.value
+        else:
+            row_dict['continuousHitbox'] = InputBoolean.FALSE.value
+        row_dict['bulletDuration'] = Bullet[referenceId]['Duration']
+        attackParamIds[referenceId] = row_dict
+        return returnVal1
+    elif (int(Bullet[referenceId]['AtkParam ID']) != 0):
+        row_dict = OrderedDict()
+        row_dict['atkParamId'] = Bullet[referenceId]['AtkParam ID']
+        row_dict['bulletCount'] = int(Bullet[referenceId]['Bullet Count'])
+        row_dict['prjctId'] = Bullet[referenceId]['Projectile SFX ID']
+        row_dict['impactId'] = Bullet[referenceId]['Impact SFX ID']
+        row_dict['isEmitter'] = emitter
+        row_dict['hitBulletID'] = '-1'
+        if (Bullet[referenceId]['Use Shared Hit List'] == InputBoolean.TRUE.value):
+            row_dict['useShareHitList'] = InputBoolean.TRUE.value
+        else:
+            row_dict['useShareHitList'] = InputBoolean.FALSE.value
+        if (Bullet[referenceId]['Continuous Hitbox'] == InputBoolean.TRUE.value):
+            row_dict['continuousHitbox'] = InputBoolean.TRUE.value
+        else:
+            row_dict['continuousHitbox'] = InputBoolean.FALSE.value
+        row_dict['bulletDuration'] = Bullet[referenceId]['Duration']
+        attackParamIds[referenceId] = row_dict
         return attackParamIds
     elif int(Bullet[referenceId]['Hit Bullet ID']) != -1:
-        return findDamageFromBullet(Bullet[referenceId]['Hit Bullet ID'], attackParamIds)
+        row_dict = OrderedDict()
+        row_dict['atkParamId'] = '-1'
+        row_dict['bulletCount'] = int(Bullet[referenceId]['Bullet Count'])
+        row_dict['prjctId'] = '-1'
+        row_dict['impactId'] = '-1'
+        row_dict['isEmitter'] = False
+        row_dict['hitBulletID'] = Bullet[referenceId]['Hit Bullet ID']
+        if (Bullet[referenceId]['Use Shared Hit List'] == InputBoolean.TRUE.value):
+            row_dict['useShareHitList'] = InputBoolean.TRUE.value
+        else:
+            row_dict['useShareHitList'] = InputBoolean.FALSE.value
+        if (Bullet[referenceId]['Continuous Hitbox'] == InputBoolean.TRUE.value):
+            row_dict['continuousHitbox'] = InputBoolean.TRUE.value
+        else:
+            row_dict['continuousHitbox'] = InputBoolean.FALSE.value
+        row_dict['bulletDuration'] = Bullet[referenceId]['Duration']
+        attackParamIds[referenceId] = row_dict
+        return getAllBulletsFromAttack(Bullet[referenceId]['Hit Bullet ID'], attackParamIds, emitter)
+    elif int(Bullet[referenceId]['Bullet Emitter: Bullet ID']) != -1:
+        row_dict = OrderedDict()
+        row_dict['atkParamId'] = '-1'
+        row_dict['bulletCount'] = int(Bullet[referenceId]['Bullet Count'])
+        row_dict['prjctId'] = '-1'
+        row_dict['impactId'] = '-1'
+        row_dict['hitBulletID'] = '-1'
+        row_dict['isEmitter'] = False
+        if (Bullet[referenceId]['Use Shared Hit List'] == InputBoolean.TRUE.value):
+            row_dict['useShareHitList'] = InputBoolean.TRUE.value
+        else:
+            row_dict['useShareHitList'] = InputBoolean.FALSE.value
+        if (Bullet[referenceId]['Continuous Hitbox'] == InputBoolean.TRUE.value):
+            row_dict['continuousHitbox'] = InputBoolean.TRUE.value
+        else:
+            row_dict['continuousHitbox'] = InputBoolean.FALSE.value
+        row_dict['bulletDuration'] = Bullet[referenceId]['Duration']
+        attackParamIds[referenceId] = row_dict
+        return getAllBulletsFromAttack(Bullet[referenceId]['Bullet Emitter: Bullet ID'], attackParamIds, True)
     else:
+        row_dict = OrderedDict()
+        row_dict['atkParamId'] = '-1'
+        row_dict['bulletCount'] = int(Bullet[referenceId]['Bullet Count'])
+        row_dict['prjctId'] = '-1'
+        row_dict['impactId'] = '-1'
+        row_dict['hitBulletID'] = '-1'
+        row_dict['isEmitter'] = False
+        if (Bullet[referenceId]['Use Shared Hit List'] == InputBoolean.TRUE.value):
+            row_dict['useShareHitList'] = InputBoolean.TRUE.value
+        else:
+            row_dict['useShareHitList'] = InputBoolean.FALSE.value
+        if (Bullet[referenceId]['Continuous Hitbox'] == InputBoolean.TRUE.value):
+            row_dict['continuousHitbox'] = InputBoolean.TRUE.value
+        else:
+            row_dict['continuousHitbox'] = InputBoolean.FALSE.value
+        row_dict['bulletDuration'] = Bullet[referenceId]['Duration']
+        attackParamIds[referenceId] = row_dict
         return attackParamIds
 
+def getTotalDamage(atkParamId):
+    return float(AtkParam_Pc[atkParamId]['Damage: Physical']) + float(AtkParam_Pc[atkParamId]['Damage: Magic']) + float(AtkParam_Pc[atkParamId]['Damage: Fire']) + \
+                        float(AtkParam_Pc[atkParamId]['Damage: Lightning']) + float(AtkParam_Pc[atkParamId]['Damage: Holy'])
+
+
+def getAttackIdsForBullets(bullets, weaponName):
+    attackId = '0'
+    prjctId = '-1'
+    impactId = '-1'
+    total_dmg = 0.0
+    for key, bullet in bullets.items():
+        if (bullet['atkParamId'] != '-1'):
+            tempTotal = getTotalDamage(bullet['atkParamId'])
+            if "Omen Bairn" in weaponName and bullet['prjctId'] != '-1' and bullet['impactId'] != '-1':
+                attackId = bullet['atkParamId']
+                prjctId = bullet['prjctId']
+                impactId = bullet['impactId']
+                break
+
+            if (tempTotal > total_dmg or (tempTotal == total_dmg == 0.0)):
+                total_dmg = tempTotal
+                attackId = bullet['atkParamId']
+                prjctId = bullet['prjctId']
+                impactId = bullet['impactId']
+
+    return attackId, prjctId, impactId
+
+
+def getAmmountofHitsInBullet(bullets, attackId, prjctId, impactId):
+    amountOfAttack = 1
+    for key, bullet in bullets.items():
+        if int(bullet['bulletCount']) > amountOfAttack and bullet['useShareHitList'] == InputBoolean.FALSE.value:
+            if prjctId == bullet['prjctId'] and bullet['impactId'] == impactId and bullet['atkParamId'] == attackId and not(bullet['isEmitter']):
+                amountOfAttack = int(bullet['bulletCount'])
+            elif ((bullet['atkParamId'] ==  '-1' or getTotalDamage(bullet['atkParamId']) == 0) and bullet['hitBulletID'] != '-1' and bullets[bullet['hitBulletID']]['atkParamId'] == attackId):
+                amountOfAttack = int(bullet['bulletCount'])
+            elif ((bullet['atkParamId'] ==  '-1' or getTotalDamage(bullet['atkParamId']) == 0) and bullet['hitBulletID'] != '-1' and bullets[bullet['hitBulletID']]['hitBulletID'] != '-1' and \
+                (bullets[bullet['hitBulletID']]['atkParamId'] ==  '-1' or getTotalDamage(bullets[bullet['hitBulletID']]['atkParamId']) == 0) and bullets[bullets[bullet['hitBulletID']]['hitBulletID']]['atkParamId'] == attackId):
+                amountOfAttack = int(bullet['bulletCount'])
+    for key, bullet in bullets.items():
+        if (attackId == bullet['atkParamId'] and prjctId == bullet['prjctId'] and bullet['impactId'] == impactId and bullet['isEmitter']):
+            amountOfAttack += int(bullet['bulletCount'])
+
+    return amountOfAttack
 
 ##############################################
 # weapon_damage.json
@@ -359,8 +565,10 @@ def getWeaponDamage():
             row_dict = OrderedDict()
             row_dict["name"] = row['Row Name']
 
-            attackIds = findDamageFromBullet(row['Reference ID [0]'], list([]))
-
+            bullets = getAllBulletsFromAttack(row['Reference ID [0]'], OrderedDict(), False)
+            attackId, prjctId, impactId = getAttackIdsForBullets(bullets, row_dict["name"])
+            amountOfAttack = getAmmountofHitsInBullet(bullets, attackId, prjctId, impactId)
+            
             dmg_phys = 0.0
             dmg_mag = 0.0
             dmg_fire = 0.0
@@ -368,39 +576,39 @@ def getWeaponDamage():
             dmg_holy = 0.0
             dmg_stam = 0.0
             upgrade_level_max = 0
-            for attackId in attackIds:
+            if attackId != '0':
                 for upgrade_level in range(0, upgrade_level_max+1):
-                    dmg_phys += float(AtkParam_Pc[attackId]['Damage: Physical'])
+                    dmg_phys = float(AtkParam_Pc[attackId]['Damage: Physical'])
                     phys_name = "phys" + str(upgrade_level)
                     row_dict[phys_name] = dmg_phys
                     if row_dict[phys_name].is_integer():
                         row_dict[phys_name] = int(row_dict[phys_name])
 
-                    dmg_mag += float(AtkParam_Pc[attackId]['Damage: Magic'])
+                    dmg_mag = float(AtkParam_Pc[attackId]['Damage: Magic'])
                     mag_name = "mag" + str(upgrade_level)
                     row_dict[mag_name] = dmg_mag 
                     if row_dict[mag_name].is_integer():
                         row_dict[mag_name] = int(row_dict[mag_name])
 
-                    dmg_fire += float(AtkParam_Pc[attackId]['Damage: Fire'])
+                    dmg_fire = float(AtkParam_Pc[attackId]['Damage: Fire'])
                     fire_name = "fire" + str(upgrade_level)
                     row_dict[fire_name] = dmg_fire
                     if row_dict[fire_name].is_integer():
                         row_dict[fire_name] = int(row_dict[fire_name])
 
-                    dmg_ligh += float(AtkParam_Pc[attackId]['Damage: Lightning'])
+                    dmg_ligh = float(AtkParam_Pc[attackId]['Damage: Lightning'])
                     ligh_name = "ligh" + str(upgrade_level)
                     row_dict[ligh_name] = dmg_ligh
                     if row_dict[ligh_name].is_integer():
                         row_dict[ligh_name] = int(row_dict[ligh_name])
 
-                    dmg_holy += float(AtkParam_Pc[attackId]['Damage: Holy'])
+                    dmg_holy = float(AtkParam_Pc[attackId]['Damage: Holy'])
                     holy_name = "holy" + str(upgrade_level)
                     row_dict[holy_name] = dmg_holy
                     if row_dict[holy_name].is_integer():
                         row_dict[holy_name] = int(row_dict[holy_name])
 
-                    dmg_stam += float(AtkParam_Pc[attackId]['Damage: Stamina'])
+                    dmg_stam = float(AtkParam_Pc[attackId]['Damage: Stamina'])
                     stam_name = "stam" + str(upgrade_level)
                     row_dict[stam_name] = dmg_stam
                     if row_dict[stam_name].is_integer():
@@ -415,7 +623,8 @@ def getWeaponDamage():
                         row_dict["ligh" + str(upgrade_level)] = 0
                         row_dict["holy" + str(upgrade_level)] = 0
                         row_dict["stam" + str(upgrade_level)] = 0
-
+            if attackId != '0':
+                row_dict["total_attacks"] = amountOfAttack
             weapon_damage_data.append(row_dict)
 
     for key, row in EquipParamWeapon.items():
@@ -640,6 +849,16 @@ def setItemPassive(row_dict, row_dict_passive, idx):
     return idx
 
 
+def checkForLingeringHitbox(bullets, name):
+    hitbox = ""
+    for key, bullet in bullets.items():
+        if (bullet['continuousHitbox'] == InputBoolean.TRUE.value and float(bullet['bulletDuration']) > 0.0):
+            hitbox  = "Has Lingering Hitbox for attack that lasts " + bullet['bulletDuration'] + " seconds"
+        elif ("Ancestral Infant's Head" in name):
+            hitbox  = "Has Lingering Hitbox for attack that lasts " + bullet['bulletDuration'] + " seconds"
+    return hitbox
+
+
 def getWeaponPassive():
     weapon_passive_data = []
 
@@ -649,6 +868,8 @@ def getWeaponPassive():
             row_dict["name"] = row['Row Name']
 
             effect1, effect2, effect3, effect4 = findEffectFromBullet(row['Reference ID [0]'])
+            bullets = getAllBulletsFromAttack(row['Reference ID [0]'], OrderedDict(), False)
+            hitbox = checkForLingeringHitbox(bullets, row_dict["name"])
 
             # INIT VALUES
             row_dict["scarletRot0"] = 0
@@ -679,6 +900,14 @@ def getWeaponPassive():
                 if effect4 in SpEffectParam:
                     row_dict["passive_4"] = getPassiveEffect(SpEffectParam[effect4], effect4, False)
                     idx = setItemPassive(row_dict, row_dict["passive_4"], idx)
+
+            if hitbox != "":
+                if "passive_1" in row_dict:
+                    row_dict["passive_1"]["description"].append(hitbox)
+                else:
+                    row_dict["passive_1"] = OrderedDict()
+                    row_dict["passive_1"]["description"] = list()
+                    row_dict["passive_1"]["description"].append(hitbox)
 
             weapon_passive_data.append(row_dict)
 
