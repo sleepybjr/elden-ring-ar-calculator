@@ -269,8 +269,91 @@ with open("AtkParam_Pc.csv") as fp:
 
 def getWeaponReqs():
     weapon_reqs_data = []
+
+
+    for key, row in EquipParamGoods.items():
+        bullets = getAllBulletsFromAttack(row['Reference ID [0]'], OrderedDict(), False)
+        attackId, prjctId, impactId = getAttackIdForBullets(bullets, row['Row Name'])
+        if ifItemDoesAttack(attackId, row):
+            if row['Weapon Reference ID'] in EquipParamWeapon:
+                row_dict = OrderedDict()
+                row_dict["fullweaponname"] = EquipParamWeapon[row['Weapon Reference ID']]['Row Name']
+                row_dict["weaponname"] = EquipParamWeapon[row['Weapon Reference ID']]['Row Name']
+
+                row_dict["affinity"] = getAffinity('0')
+
+                row_dict["maxUpgrade"] = getMaxUpgrade(EquipParamWeapon[row['Weapon Reference ID']])
+
+                row_dict["strreq"] = int(
+                    EquipParamWeapon[row['Weapon Reference ID']]['Requirement: ' + Input.STR.value])
+                row_dict["dexreq"] = int(
+                    EquipParamWeapon[row['Weapon Reference ID']]['Requirement: ' + Input.DEX.value])
+                row_dict["intreq"] = int(
+                    EquipParamWeapon[row['Weapon Reference ID']]['Requirement: ' + Input.INT.value])
+                row_dict["faireq"] = int(
+                    EquipParamWeapon[row['Weapon Reference ID']]['Requirement: ' + Input.FAI.value])
+                row_dict["arcreq"] = int(
+                    EquipParamWeapon[row['Weapon Reference ID']]['Requirement: ' + Input.ARC.value])
+
+                if EquipParamWeapon[row['Weapon Reference ID']]["Type Display: Normal"] == "True":
+                    if EquipParamWeapon[row['Weapon Reference ID']]["Type Display: Thrust"] == "True":
+                        row_dict["physicalDamageType"] = "Standard/Pierce"
+                    else:
+                        row_dict["physicalDamageType"] = "Standard"
+                elif EquipParamWeapon[row['Weapon Reference ID']]["Type Display: Strike"] == "True":
+                    if EquipParamWeapon[row['Weapon Reference ID']]["Type Display: Thrust"] == "True":
+                        row_dict["physicalDamageType"] = "Strike/Pierce"
+                    else:
+                        row_dict["physicalDamageType"] = "Strike"
+                elif EquipParamWeapon[row['Weapon Reference ID']]["Type Display: Slash"] == "True":
+                    if EquipParamWeapon[row['Weapon Reference ID']]["Type Display: Thrust"] == "True":
+                        row_dict["physicalDamageType"] = "Slash/Pierce"
+                    else:
+                        row_dict["physicalDamageType"] = "Slash"
+                elif EquipParamWeapon[row['Weapon Reference ID']]["Type Display: Thrust"] == "True":
+                    row_dict["physicalDamageType"] = "Pierce"
+                else:
+                    row_dict["physicalDamageType"] = 0
+
+                row_dict["weight"] = 0
+                poise_damage = float(EquipParamWeapon[row['Weapon Reference ID']]["Poise Damage"])
+                row_dict["basePoiseAttack"] = int(
+                    poise_damage) if poise_damage.is_integer() else poise_damage
+                row_dict["critical"] = 100 + int(EquipParamWeapon[row['Weapon Reference ID']]["Critical Multiplier"])
+                row_dict["weaponType"] = getWeaponType(EquipParamWeapon[row['Weapon Reference ID']]["Weapon Type"])
+                if (int(EquipParamWeapon[row['Weapon Reference ID']]["Weapon Hold Position - 2H"]) == 0):
+                    row_dict["canTwoHand"] = InputBoolean.FALSE.value
+                else:
+                    row_dict["canTwoHand"] = InputBoolean.TRUE.value
+
+            else:
+                row_dict = OrderedDict()
+                row_dict["fullweaponname"] = row['Row Name']
+                row_dict["weaponname"] = row['Row Name']
+
+                row_dict["affinity"] = getAffinity('0')
+
+                row_dict["maxUpgrade"] = 0
+
+                row_dict["strreq"] = 0
+                row_dict["dexreq"] = 0
+                row_dict["intreq"] = 0
+                row_dict["faireq"] = 0
+                row_dict["arcreq"] = 0
+                row_dict["physicalDamageType"] = 0
+
+                row_dict["weight"] = 0
+                poise_damage = 0.0
+                row_dict["basePoiseAttack"] = 0
+                row_dict["critical"] = 100
+                row_dict["weaponType"] = getWeaponType('0')
+                row_dict["canTwoHand"] = InputBoolean.FALSE.value
+
+            weapon_reqs_data.append(row_dict)
+
+
     for key, row in EquipParamWeapon.items():
-        if row['Row Name'] != '' and base_weapon <= int(key) <= max_weapon:
+        if row['Row Name'] != '' and ((start_weapon <= int(key) <= end_weapon) or int(key) == base_weapon or (start_arrow <= int(key) <= max_weapon)):
             if not (row["Prevent Affinity Change"] == "True" and getAffinity(key) != "None"):
 
                 row_dict = OrderedDict()
@@ -513,13 +596,13 @@ def getTotalDamage(atkParamId):
                         float(AtkParam_Pc[atkParamId]['Damage: Lightning']) + float(AtkParam_Pc[atkParamId]['Damage: Holy'])
 
 
-def getAttackIdsForBullets(bullets, weaponName):
+def getAttackIdForBullets(bullets, weaponName):
     attackId = '0'
     prjctId = '-1'
     impactId = '-1'
     total_dmg = 0.0
     for key, bullet in bullets.items():
-        if (bullet['atkParamId'] != '-1'):
+        if (bullet['atkParamId'] in AtkParam_Pc):
             tempTotal = getTotalDamage(bullet['atkParamId'])
             if "Omen Bairn" in weaponName and bullet['prjctId'] != '-1' and bullet['impactId'] != '-1':
                 attackId = bullet['atkParamId']
@@ -527,7 +610,7 @@ def getAttackIdsForBullets(bullets, weaponName):
                 impactId = bullet['impactId']
                 break
 
-            if (tempTotal > total_dmg or (tempTotal == total_dmg == 0.0)):
+            if (tempTotal > total_dmg or tempTotal == total_dmg == 0.0):
                 total_dmg = tempTotal
                 attackId = bullet['atkParamId']
                 prjctId = bullet['prjctId']
@@ -553,6 +636,17 @@ def getAmmountofHitsInBullet(bullets, attackId, prjctId, impactId):
 
     return amountOfAttack
 
+
+def ifItemDoesAttack(attackId, row):
+    if ((attackId != '0' and int(AtkParam_Pc[attackId]['Attack Correction: Physical']) > 0) or \
+        (attackId != '0' and int(AtkParam_Pc[attackId]['Attack Correction: Magic']) > 0) or (attackId != '0' and int(AtkParam_Pc[attackId]['Attack Correction: Fire']) > 0) or \
+            (attackId != '0' and int(AtkParam_Pc[attackId]['Attack Correction: Lightning']) > 0)  or (attackId != '0' and int(AtkParam_Pc[attackId]['Damage: Physical']) > 0) or \
+                (attackId != '0' and int(AtkParam_Pc[attackId]['Attack Correction: Holy']) > 0)) and int(row['Reference Type']) == 1 and row['Row Name'] != '':
+                return True
+    else:
+        return False
+
+
 ##############################################
 # weapon_damage.json
 ##############################################
@@ -561,13 +655,11 @@ def getWeaponDamage():
     weapon_damage_data = []
 
     for key, row in EquipParamGoods.items():
-        if (int(row['Weapon Reference ID']) != -1 and int(row['Reference Type']) == 1 and row['Row Name'] != ''):
+        bullets = getAllBulletsFromAttack(row['Reference ID [0]'], OrderedDict(), False)
+        attackId, prjctId, impactId = getAttackIdForBullets(bullets, row['Row Name'])
+        if ifItemDoesAttack(attackId, row):
             row_dict = OrderedDict()
             row_dict["name"] = row['Row Name']
-
-            bullets = getAllBulletsFromAttack(row['Reference ID [0]'], OrderedDict(), False)
-            attackId, prjctId, impactId = getAttackIdsForBullets(bullets, row_dict["name"])
-            amountOfAttack = getAmmountofHitsInBullet(bullets, attackId, prjctId, impactId)
             
             dmg_phys = 0.0
             dmg_mag = 0.0
@@ -623,8 +715,6 @@ def getWeaponDamage():
                         row_dict["ligh" + str(upgrade_level)] = 0
                         row_dict["holy" + str(upgrade_level)] = 0
                         row_dict["stam" + str(upgrade_level)] = 0
-            if attackId != '0':
-                row_dict["total_attacks"] = amountOfAttack
             weapon_damage_data.append(row_dict)
 
     for key, row in EquipParamWeapon.items():
@@ -709,8 +799,83 @@ def getWeaponDamage():
 def getWeaponScaling():
     weapon_scaling_data = []
 
+
+    for key, row in EquipParamGoods.items():
+        bullets = getAllBulletsFromAttack(row['Reference ID [0]'], OrderedDict(), False)
+        attackId, prjctId, impactId = getAttackIdForBullets(bullets, row['Row Name'])
+        if ifItemDoesAttack(attackId, row):
+            if row['Weapon Reference ID'] in EquipParamWeapon:
+                row_dict = OrderedDict()
+                row_dict["name"] = row['Row Name']
+
+                upgrade_level_max = getMaxUpgrade(EquipParamWeapon[row['Weapon Reference ID']])
+                for upgrade_level in range(0, upgrade_level_max+1):
+                    # (EquipParamWeapon) Correction: STR * (ReinforceParamWeapon) Correction % STR / 100 --------- NEED UPGRADE LEVEL
+                    crt_str = float(EquipParamWeapon[row['Weapon Reference ID']]['Correction: ' + Input.STR.value])
+                    crt_str_perc = float(ReinforceParamWeapon[str(int(
+                        EquipParamWeapon[row['Weapon Reference ID']]["Reinforce Type ID"]) + upgrade_level)]['Correction %: ' + Input.STR.value])
+                    str_name = "str" + str(upgrade_level)
+                    row_dict[str_name] = crt_str * crt_str_perc / 100
+                    if row_dict[str_name].is_integer():
+                        row_dict[str_name] = int(row_dict[str_name])
+
+                    crt_dex = float(EquipParamWeapon[row['Weapon Reference ID']]['Correction: ' + Input.DEX.value])
+                    crt_dex_perc = float(ReinforceParamWeapon[str(int(
+                        EquipParamWeapon[row['Weapon Reference ID']]["Reinforce Type ID"]) + upgrade_level)]['Correction %: ' + Input.DEX.value])
+                    dex_name = "dex" + str(upgrade_level)
+                    row_dict[dex_name] = crt_dex * crt_dex_perc / 100
+                    if row_dict[dex_name].is_integer():
+                        row_dict[dex_name] = int(row_dict[dex_name])
+
+                    crt_int = float(EquipParamWeapon[row['Weapon Reference ID']]['Correction: ' + Input.INT.value])
+                    crt_int_perc = float(ReinforceParamWeapon[str(int(
+                        EquipParamWeapon[row['Weapon Reference ID']]["Reinforce Type ID"]) + upgrade_level)]['Correction %: ' + Input.INT.value])
+                    int_name = "int" + str(upgrade_level)
+                    row_dict[int_name] = crt_int * crt_int_perc / 100
+                    if row_dict[int_name].is_integer():
+                        row_dict[int_name] = int(row_dict[int_name])
+
+                    crt_fai = float(EquipParamWeapon[row['Weapon Reference ID']]['Correction: ' + Input.FAI.value])
+                    crt_fai_perc = float(ReinforceParamWeapon[str(int(
+                        EquipParamWeapon[row['Weapon Reference ID']]["Reinforce Type ID"]) + upgrade_level)]['Correction %: ' + Input.FAI.value])
+                    fai_name = "fai" + str(upgrade_level)
+                    row_dict[fai_name] = crt_fai * crt_fai_perc / 100
+                    if row_dict[fai_name].is_integer():
+                        row_dict[fai_name] = int(row_dict[fai_name])
+
+                    crt_arc = float(EquipParamWeapon[row['Weapon Reference ID']]['Correction: ' + Input.ARC.value])
+                    crt_arc_perc = float(ReinforceParamWeapon[str(int(
+                        EquipParamWeapon[row['Weapon Reference ID']]["Reinforce Type ID"]) + upgrade_level)]['Correction %: ' + Input.ARC.value])
+                    arc_name = "arc" + str(upgrade_level)
+                    row_dict[arc_name] = crt_arc * crt_arc_perc / 100
+                    if row_dict[arc_name].is_integer():
+                        row_dict[arc_name] = int(row_dict[arc_name])
+
+                # probably delete later, unneeded but used to match current data
+                if upgrade_level_max != 25:
+                    for upgrade_level in range(upgrade_level_max+1, 26):
+                        row_dict["str" + str(upgrade_level)] = 0
+                        row_dict["dex" + str(upgrade_level)] = 0
+                        row_dict["int" + str(upgrade_level)] = 0
+                        row_dict["fai" + str(upgrade_level)] = 0
+                        row_dict["arc" + str(upgrade_level)] = 0
+
+                weapon_scaling_data.append(row_dict)
+            else:
+                row_dict = OrderedDict()
+                row_dict["name"] = row['Row Name']
+
+                for upgrade_level in range(0, 26):
+                    row_dict["str" + str(upgrade_level)] = 0
+                    row_dict["dex" + str(upgrade_level)] = 0
+                    row_dict["int" + str(upgrade_level)] = 0
+                    row_dict["fai" + str(upgrade_level)] = 0
+                    row_dict["arc" + str(upgrade_level)] = 0
+
+                weapon_scaling_data.append(row_dict)
+
     for key, row in EquipParamWeapon.items():
-        if row['Row Name'] != '' and base_weapon <= int(key) <= max_weapon:
+        if row['Row Name'] != '' and ((start_weapon <= int(key) <= end_weapon) or int(key) == base_weapon or (start_arrow <= int(key) <= max_weapon)):
             if not (row["Prevent Affinity Change"] == "True" and getAffinity(key) != "None"):
                 row_dict = OrderedDict()
                 row_dict["name"] = row['Row Name']
@@ -810,13 +975,54 @@ SortOrder = {
     'Restore FP on Kill' : 11
 }
 
-def findEffectFromBullet(referenceId):
+def findEffectFromBullet(referenceId, specialEffects):
     if not(referenceId in Bullet):
-        return '0', '0', '0', '0'
-    if int(Bullet[referenceId]['Hit Bullet ID']) != -1:
-        return findEffectFromBullet(Bullet[referenceId]['Hit Bullet ID'])
+        return specialEffects
+
+    if int(Bullet[referenceId]['Hit Bullet ID']) != -1 and int(Bullet[referenceId]['Bullet Emitter: Bullet ID']) != -1:
+        returnVal1 = findEffectFromBullet(Bullet[referenceId]['Hit Bullet ID'], specialEffects)
+        returnVal2 = findEffectFromBullet(Bullet[referenceId]['Bullet Emitter: Bullet ID'], specialEffects)
+        returnVal1 += returnVal2
+        if (Bullet[referenceId]['Target SpEffect ID 0'] != '0' and not(Bullet[referenceId]['Target SpEffect ID 0'] in specialEffects)):
+            specialEffects.append(Bullet[referenceId]['Target SpEffect ID 0'])
+        if (Bullet[referenceId]['Target SpEffect ID 1'] != '0' and not(Bullet[referenceId]['Target SpEffect ID 1'] in specialEffects)):
+            specialEffects.append(Bullet[referenceId]['Target SpEffect ID 1'])
+        if (Bullet[referenceId]['Target SpEffect ID 2'] != '0' and not(Bullet[referenceId]['Target SpEffect ID 2'] in specialEffects)):
+            specialEffects.append(Bullet[referenceId]['Target SpEffect ID 2'])
+        if (Bullet[referenceId]['Target SpEffect ID 3'] != '0' and not(Bullet[referenceId]['Target SpEffect ID 3'] in specialEffects)):
+            specialEffects.append(Bullet[referenceId]['Target SpEffect ID 3'])
+        return returnVal1
+    elif (int(Bullet[referenceId]['Hit Bullet ID']) != -1):
+        if (Bullet[referenceId]['Target SpEffect ID 0'] != '0' and not(Bullet[referenceId]['Target SpEffect ID 0'] in specialEffects)):
+            specialEffects.append(Bullet[referenceId]['Target SpEffect ID 0'])
+        if (Bullet[referenceId]['Target SpEffect ID 1'] != '0' and not(Bullet[referenceId]['Target SpEffect ID 1'] in specialEffects)):
+            specialEffects.append(Bullet[referenceId]['Target SpEffect ID 1'])
+        if (Bullet[referenceId]['Target SpEffect ID 2'] != '0' and not(Bullet[referenceId]['Target SpEffect ID 2'] in specialEffects)):
+            specialEffects.append(Bullet[referenceId]['Target SpEffect ID 2'])
+        if (Bullet[referenceId]['Target SpEffect ID 3'] != '0' and not(Bullet[referenceId]['Target SpEffect ID 3'] in specialEffects)):
+            specialEffects.append(Bullet[referenceId]['Target SpEffect ID 3'])
+        return findEffectFromBullet(Bullet[referenceId]['Hit Bullet ID'], specialEffects)
+    elif (int(Bullet[referenceId]['Bullet Emitter: Bullet ID']) != -1):
+        if (Bullet[referenceId]['Target SpEffect ID 0'] != '0' and not(Bullet[referenceId]['Target SpEffect ID 0'] in specialEffects)):
+            specialEffects.append(Bullet[referenceId]['Target SpEffect ID 0'])
+        if (Bullet[referenceId]['Target SpEffect ID 1'] != '0' and not(Bullet[referenceId]['Target SpEffect ID 1'] in specialEffects)):
+            specialEffects.append(Bullet[referenceId]['Target SpEffect ID 1'])
+        if (Bullet[referenceId]['Target SpEffect ID 2'] != '0' and not(Bullet[referenceId]['Target SpEffect ID 2'] in specialEffects)):
+            specialEffects.append(Bullet[referenceId]['Target SpEffect ID 2'])
+        if (Bullet[referenceId]['Target SpEffect ID 3'] != '0' and not(Bullet[referenceId]['Target SpEffect ID 3'] in specialEffects)):
+            specialEffects.append(Bullet[referenceId]['Target SpEffect ID 3'])
+        return findEffectFromBullet(Bullet[referenceId]['Bullet Emitter: Bullet ID'], specialEffects)
     else:
-        return Bullet[referenceId]['Target SpEffect ID 0'], Bullet[referenceId]['Target SpEffect ID 1'], Bullet[referenceId]['Target SpEffect ID 2'], Bullet[referenceId]['Target SpEffect ID 3']    
+        if (Bullet[referenceId]['Target SpEffect ID 0'] != '0' and not(Bullet[referenceId]['Target SpEffect ID 0'] in specialEffects)):
+            specialEffects.append(Bullet[referenceId]['Target SpEffect ID 0'])
+        if (Bullet[referenceId]['Target SpEffect ID 1'] != '0' and not(Bullet[referenceId]['Target SpEffect ID 1'] in specialEffects)):
+            specialEffects.append(Bullet[referenceId]['Target SpEffect ID 1'])
+        if (Bullet[referenceId]['Target SpEffect ID 2'] != '0' and not(Bullet[referenceId]['Target SpEffect ID 2'] in specialEffects)):
+            specialEffects.append(Bullet[referenceId]['Target SpEffect ID 2'])
+        if (Bullet[referenceId]['Target SpEffect ID 3'] != '0' and not(Bullet[referenceId]['Target SpEffect ID 3'] in specialEffects)):
+            specialEffects.append(Bullet[referenceId]['Target SpEffect ID 3'])
+        return specialEffects
+
 
 def setItemPassive(row_dict, row_dict_passive, idx):
     if "inflict_poison" in row_dict_passive:
@@ -863,13 +1069,15 @@ def getWeaponPassive():
     weapon_passive_data = []
 
     for key, row in EquipParamGoods.items():
-        if (int(row['Weapon Reference ID']) != -1 and int(row['Reference Type']) == 1 and row['Row Name'] != ''):
+        bullets = getAllBulletsFromAttack(row['Reference ID [0]'], OrderedDict(), False)
+        attackId, prjctId, impactId = getAttackIdForBullets(bullets, row['Row Name'])
+        if ifItemDoesAttack(attackId, row):
             row_dict = OrderedDict()
             row_dict["name"] = row['Row Name']
 
-            effect1, effect2, effect3, effect4 = findEffectFromBullet(row['Reference ID [0]'])
-            bullets = getAllBulletsFromAttack(row['Reference ID [0]'], OrderedDict(), False)
+            effects = findEffectFromBullet(row['Reference ID [0]'], list())
             hitbox = checkForLingeringHitbox(bullets, row_dict["name"])
+            amountOfAttack = getAmmountofHitsInBullet(bullets, attackId, prjctId, impactId)
 
             # INIT VALUES
             row_dict["scarletRot0"] = 0
@@ -880,26 +1088,15 @@ def getWeaponPassive():
                 row_dict["poison" + str(upgrade_level)] = 0
                 row_dict["blood" + str(upgrade_level)] = 0
 
+
+            amountOfEffects = 1
             idx = 1
-            if effect1 != '0':
-                if effect1 in SpEffectParam:  # needed because regulation.bin has a bug with certain weapons
-                    row_dict["passive_1"] = getPassiveEffect(SpEffectParam[effect1], effect1, False)
-                    idx = setItemPassive(row_dict, row_dict["passive_1"], idx)
-                        
-            if effect2 != '0':
-                if effect2 in SpEffectParam:
-                    row_dict["passive_2"] = getPassiveEffect(SpEffectParam[effect2], effect2, False)
-                    idx = setItemPassive(row_dict, row_dict["passive_2"], idx)
-
-            if effect3 != '0':
-                if effect3 in SpEffectParam:
-                    row_dict["passive_3"] = getPassiveEffect(SpEffectParam[effect3], effect3, False)
-                    idx = setItemPassive(row_dict, row_dict["passive_3"], idx)
-
-            if effect4 != '0':
-                if effect4 in SpEffectParam:
-                    row_dict["passive_4"] = getPassiveEffect(SpEffectParam[effect4], effect4, False)
-                    idx = setItemPassive(row_dict, row_dict["passive_4"], idx)
+            for effect in effects:
+                if effect in SpEffectParam:  # needed because regulation.bin has a bug with certain weapons
+                    row_dict["passive_" + str(amountOfEffects)] = getPassiveEffect(SpEffectParam[effect], effect, False)
+                    idx = setItemPassive(row_dict, row_dict["passive_" + str(amountOfEffects)], idx)
+                    amountOfEffects += 1
+                            
 
             if hitbox != "":
                 if "passive_1" in row_dict:
@@ -908,6 +1105,15 @@ def getWeaponPassive():
                     row_dict["passive_1"] = OrderedDict()
                     row_dict["passive_1"]["description"] = list()
                     row_dict["passive_1"]["description"].append(hitbox)
+
+            if amountOfAttack > 1:
+                amountOfAttackString = "The attack for this item hits an enemy up to " + str(amountOfAttack) + " times per use"
+                if "passive_1" in row_dict:
+                    row_dict["passive_1"]["description"].append(amountOfAttackString)
+                else:
+                    row_dict["passive_1"] = OrderedDict()
+                    row_dict["passive_1"]["description"] = list()
+                    row_dict["passive_1"]["description"].append(amountOfAttackString)
 
             weapon_passive_data.append(row_dict)
 
@@ -1102,8 +1308,45 @@ def getWeaponPassive():
 
 def getCalcCorrectId():
     calc_correct_id = []
+
+    for key, row in EquipParamGoods.items():
+        bullets = getAllBulletsFromAttack(row['Reference ID [0]'], OrderedDict(), False)
+        attackId, prjctId, impactId = getAttackIdForBullets(bullets, row['Row Name'])
+        if ifItemDoesAttack(attackId, row):
+            if row['Weapon Reference ID'] in EquipParamWeapon:
+                row_dict = OrderedDict()
+                row_dict["name"] = row['Row Name']
+
+                row_dict["physical"] = int(EquipParamWeapon[row['Weapon Reference ID']]['Correction Type: Physical'])
+                row_dict["magic"] = int(EquipParamWeapon[row['Weapon Reference ID']]['Correction Type: Magic'])
+                row_dict["fire"] = int(EquipParamWeapon[row['Weapon Reference ID']]['Correction Type: Fire'])
+                row_dict["lightning"] = int(EquipParamWeapon[row['Weapon Reference ID']]['Correction Type: Lightning'])
+                row_dict["poison"] = int(EquipParamWeapon[row['Weapon Reference ID']]['Correction Type: Poison'])
+                row_dict["bleed"] = int(EquipParamWeapon[row['Weapon Reference ID']]['Correction Type: Hemorrhage'])
+                row_dict["sleep"] = int(EquipParamWeapon[row['Weapon Reference ID']]['Correction Type: Sleep'])
+                row_dict["madness"] = int(EquipParamWeapon[row['Weapon Reference ID']]['Correction Type: Mandesss'])
+
+                row_dict["attackelementcorrectId"] = int(
+                    EquipParamWeapon[row['Weapon Reference ID']]['Attack Element Correct ID'])
+            else:
+                row_dict = OrderedDict()
+                row_dict["name"] = row['Row Name']
+
+                row_dict["physical"] = 0
+                row_dict["magic"] = 0
+                row_dict["fire"] = 0
+                row_dict["lightning"] = 0
+                row_dict["poison"] = 0
+                row_dict["bleed"] = 0
+                row_dict["sleep"] = 0
+                row_dict["madness"] = 0
+
+                row_dict["attackelementcorrectId"] = 0
+
+            calc_correct_id.append(row_dict)
+
     for key, row in EquipParamWeapon.items():
-        if row['Row Name'] != '' and base_weapon <= int(key) <= max_weapon:
+        if row['Row Name'] != '' and ((start_weapon <= int(key) <= end_weapon) or int(key) == base_weapon or (start_arrow <= int(key) <= max_weapon)):
             if not (row["Prevent Affinity Change"] == "True" and getAffinity(key) != "None"):
 
                 row_dict = OrderedDict()
@@ -1134,8 +1377,14 @@ def getWeaponGroups():
     weapon_groups = []
     weaponTypes = set()
     weapons = OrderedDict()
+    for key, row in EquipParamGoods.items():
+        bullets = getAllBulletsFromAttack(row['Reference ID [0]'], OrderedDict(), False)
+        attackId, prjctId, impactId = getAttackIdForBullets(bullets, row['Row Name'])
+        if ifItemDoesAttack(attackId, row):
+            weaponTypes.add(getWeaponType('0'))
+            weapons[row['Row Name']] = getWeaponType('0')
     for key, row in EquipParamWeapon.items():
-        if row['Row Name'] != '' and base_weapon <= int(key) <= max_weapon:
+        if row['Row Name'] != '' and ((start_weapon <= int(key) <= end_weapon) or int(key) == base_weapon or (start_arrow <= int(key) <= max_weapon)):
             # REFORMAT DATA SO IT IS
             """
             [

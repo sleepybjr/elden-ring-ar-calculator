@@ -1333,7 +1333,6 @@
                 "duration": 20.0
             },
             "description": [
-                "Trigger in Presence of Blood Loss",
                 "Increase the Damage against non-player enemies for Physical, Magic, Fire, Lightning, Holy types by 20.0%",
                 "Increase the Damage against players for Physical, Magic, Fire, Lightning, Holy types by 20.0%",
                 "Affect Sorceries",
@@ -1366,7 +1365,6 @@
                 "duration": 20.0
             },
             "description": [
-                "Trigger in Presence of Rot",
                 "Increase the Damage against non-player enemies for Physical, Magic, Fire, Lightning, Holy types by 20.0%",
                 "Increase the Damage against players for Physical, Magic, Fire, Lightning, Holy types by 20.0%",
                 "Affect Sorceries",

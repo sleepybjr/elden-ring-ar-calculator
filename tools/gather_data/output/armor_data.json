@@ -1239,7 +1239,6 @@
             "name": "",
             "enemy_listen_adjustment_percent": -1.0,
             "silent_footsteps": "True",
-            "trigger_effect_for_opponent": "True",
             "description": [
                 "Decrease sound emmitted to all enemies by 100.0%",
                 "Silence Footsteps"
@@ -1515,7 +1514,6 @@
             "name": "",
             "state_info": "Trigger on Roll (Head)",
             "damage_physical": 18,
-            "trigger_effect_for_opponent": "True",
             "description": [
                 "Add Attack Power for Physical types by 18",
                 "Trigger Effect on Roll"
@@ -1544,7 +1542,6 @@
             "name": "",
             "state_info": "Trigger on Roll (Body)",
             "damage_physical": 25,
-            "trigger_effect_for_opponent": "True",
             "description": [
                 "Add Attack Power for Physical types by 25",
                 "Trigger Effect on Roll"
@@ -1573,7 +1570,6 @@
             "name": "",
             "state_info": "Trigger on Roll (Arm)",
             "damage_physical": 18,
-            "trigger_effect_for_opponent": "True",
             "description": [
                 "Add Attack Power for Physical types by 18",
                 "Trigger Effect on Roll"
@@ -1602,7 +1598,6 @@
             "name": "",
             "state_info": "Trigger on Roll (Leg)",
             "damage_physical": 18,
-            "trigger_effect_for_opponent": "True",
             "description": [
                 "Add Attack Power for Physical types by 18",
                 "Trigger Effect on Roll"
@@ -1631,7 +1626,6 @@
             "name": "",
             "state_info": "Trigger on Roll (Body)",
             "damage_physical": 25,
-            "trigger_effect_for_opponent": "True",
             "description": [
                 "Add Attack Power for Physical types by 25",
                 "Trigger Effect on Roll"
@@ -5407,7 +5401,6 @@
                 "duration": 20.0
             },
             "description": [
-                "Trigger in Presence of Blood Loss",
                 "Increase the Damage against non-player enemies for Physical, Magic, Fire, Lightning, Holy types by 10.0%",
                 "Increase the Damage against players for Physical, Magic, Fire, Lightning, Holy types by 10.0%",
                 "Affect Sorceries",
@@ -6608,7 +6601,6 @@
         },
         "passive_2": {
             "name": "",
-            "trigger_effect_for_opponent": "True",
             "description": []
         },
         "passive_3": {
@@ -6710,7 +6702,6 @@
         },
         "passive_2": {
             "name": "",
-            "trigger_effect_for_opponent": "True",
             "description": []
         },
         "passive_3": {
@@ -6753,7 +6744,6 @@
         },
         "passive_2": {
             "name": "",
-            "trigger_effect_for_opponent": "True",
             "description": []
         },
         "passive_3": {
@@ -6803,7 +6793,6 @@
         },
         "passive_2": {
             "name": "",
-            "trigger_effect_for_opponent": "True",
             "description": []
         },
         "passive_3": {
@@ -6846,7 +6835,6 @@
         },
         "passive_2": {
             "name": "",
-            "trigger_effect_for_opponent": "True",
             "description": []
         },
         "passive_3": {
@@ -11750,7 +11738,6 @@
                 "duration": 20.0
             },
             "description": [
-                "Trigger in Presence of Rot",
                 "Increase the Damage against non-player enemies for Physical, Magic, Fire, Lightning, Holy types by 10.0%",
                 "Increase the Damage against players for Physical, Magic, Fire, Lightning, Holy types by 10.0%",
                 "Affect Sorceries",
@@ -11798,7 +11785,6 @@
                 "duration": 60.0
             },
             "description": [
-                "Trigger in Presence of Madness",
                 "Increase the Damage against non-player enemies for Physical, Magic, Fire, Lightning, Holy types by 10.0%",
                 "Increase the Damage against players for Physical, Magic, Fire, Lightning, Holy types by 10.0%",
                 "Affect Sorceries",

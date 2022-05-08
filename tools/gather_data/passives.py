@@ -59,14 +59,20 @@ State_Info_Effect = {
     124: "Trigger on Roll (Body)",
     125: "Trigger on Roll (Arm)",
     126: "Trigger on Roll (Leg)",
+    132: "Change Team Type",
     152: "Enable Attack Effect against Enemy",
     153: "Enable Attack Effect against Player",
+    154: "Block Estus Usage",
     158: "Left Hand Buff VFX",
     159: "Destroy Accessory but Save Runes",
     168: "Bow Distance Change",
     193: "Modify Effect Duration",
     197: "Enhance Thrusting Counter Attacks",
     199: "Apply Kill Effect",
+    252: "Oil",
+    260: "Frostbite",
+    267: "AiVisualDistanceChange",
+    270: "Unknown",
     275: "Player Behavior ID Change",
     288: "Trigger on Critical Hit (HP)",
     289: "Trigger on Critical Hit (FP)",
@@ -741,7 +747,10 @@ def getPassiveEffect(specialEffect, specialEffectId, passiveFromArmor):
                 if float(specialEffect['Absorption: Standard']) < 1.0:
                     absorption_percent_all_dict[-(float(specialEffect['Absorption: Standard']) - 1.0) * 100] = "Increase the Absorption from all enemy attacks for Standard"
                 else:
-                    absorption_percent_all_dict[-(float(specialEffect['Absorption: Standard']) - 1.0) * 100] = "Decrease the Absorption from all enemy attacks for Standard"
+                    if (checkStringState("Frostbite", row_dict)):
+                        absorption_percent_all_dict[-(float(specialEffect['Absorption: Standard']) - 1.0) * 100] = "If Frost Status Effect is applied, Decrease the Absorption from all enemy attacks for Standard"
+                    else:
+                        absorption_percent_all_dict[-(float(specialEffect['Absorption: Standard']) - 1.0) * 100] = "Decrease the Absorption from all enemy attacks for Standard"
     if (float(specialEffect['Absorption: Strike']) != 1.0):
         row_dict["absorption_strike"] = -(float(specialEffect['Absorption: Strike']) - 1.0)
         if (not(passiveFromArmor)):
@@ -751,7 +760,10 @@ def getPassiveEffect(specialEffect, specialEffectId, passiveFromArmor):
                 if float(specialEffect['Absorption: Strike']) < 1.0:
                     absorption_percent_all_dict[-(float(specialEffect['Absorption: Strike']) - 1.0) * 100] = "Increase the Absorption from all enemy attacks for Strike"
                 else:
-                    absorption_percent_all_dict[-(float(specialEffect['Absorption: Strike']) - 1.0) * 100] = "Decrease the Absorption from all enemy attacks for Strike"
+                    if (checkStringState("Frostbite", row_dict)):
+                        absorption_percent_all_dict[-(float(specialEffect['Absorption: Strike']) - 1.0) * 100] = "If Frost Status Effect is applied, Decrease the Absorption from all enemy attacks for Strike"
+                    else:
+                        absorption_percent_all_dict[-(float(specialEffect['Absorption: Strike']) - 1.0) * 100] = "Decrease the Absorption from all enemy attacks for Strike"
     if (float(specialEffect['Absorption: Slash']) != 1.0):
         row_dict["absorption_slash"] = -(float(specialEffect['Absorption: Slash']) - 1.0)
         if (not(passiveFromArmor)):
@@ -761,7 +773,10 @@ def getPassiveEffect(specialEffect, specialEffectId, passiveFromArmor):
                 if float(specialEffect['Absorption: Slash']) < 1.0:
                     absorption_percent_all_dict[-(float(specialEffect['Absorption: Slash']) - 1.0) * 100] = "Increase the Absorption from all enemy attacks for Slash"
                 else:
-                    absorption_percent_all_dict[-(float(specialEffect['Absorption: Slash']) - 1.0) * 100] = "Decrease the Absorption from all enemy attacks for Slash"
+                    if (checkStringState("Frostbite", row_dict)):
+                        absorption_percent_all_dict[-(float(specialEffect['Absorption: Slash']) - 1.0) * 100] = "If Frost Status Effect is applied, Decrease the Absorption from all enemy attacks for Slash"
+                    else:
+                        absorption_percent_all_dict[-(float(specialEffect['Absorption: Slash']) - 1.0) * 100] = "Decrease the Absorption from all enemy attacks for Slash"
     if (float(specialEffect['Absorption: Thrust']) != 1.0):
         row_dict["absorption_thrust"] = -(float(specialEffect['Absorption: Thrust']) - 1.0)
         if (not(passiveFromArmor)):
@@ -771,7 +786,10 @@ def getPassiveEffect(specialEffect, specialEffectId, passiveFromArmor):
                 if float(specialEffect['Absorption: Thrust']) < 1.0:
                     absorption_percent_all_dict[-(float(specialEffect['Absorption: Thrust']) - 1.0) * 100] = "Increase the Absorption from all enemy attacks for Thrust"
                 else:
-                    absorption_percent_all_dict[-(float(specialEffect['Absorption: Thrust']) - 1.0) * 100] = "Decrease the Absorption from all enemy attacks for Thrust"
+                    if (checkStringState("Frostbite", row_dict)):
+                        absorption_percent_all_dict[-(float(specialEffect['Absorption: Thrust']) - 1.0) * 100] = "If Frost Status Effect is applied, Decrease the Absorption from all enemy attacks for Thrust"
+                    else:
+                        absorption_percent_all_dict[-(float(specialEffect['Absorption: Thrust']) - 1.0) * 100] = "Decrease the Absorption from all enemy attacks for Thrust"
     if (float(specialEffect['Absorption: Magic']) != 1.0):
         row_dict["absorption_magic"] = -(float(specialEffect['Absorption: Magic']) - 1.0)
         if (not(passiveFromArmor)):
@@ -781,7 +799,10 @@ def getPassiveEffect(specialEffect, specialEffectId, passiveFromArmor):
                 if float(specialEffect['Absorption: Magic']) < 1.0:
                     absorption_percent_all_dict[-(float(specialEffect['Absorption: Magic']) - 1.0) * 100] = "Increase the Absorption from all enemy attacks for Magic"
                 else:
-                    absorption_percent_all_dict[-(float(specialEffect['Absorption: Magic']) - 1.0) * 100] = "Decrease the Absorption from all enemy attacks for Magic"
+                    if (checkStringState("Frostbite", row_dict)):
+                        absorption_percent_all_dict[-(float(specialEffect['Absorption: Magic']) - 1.0) * 100] = "If Frost Status Effect is applied, Decrease the Absorption from all enemy attacks for Magic"
+                    else:
+                        absorption_percent_all_dict[-(float(specialEffect['Absorption: Magic']) - 1.0) * 100] = "Decrease the Absorption from all enemy attacks for Magic"
     if (float(specialEffect['Absorption: Fire']) != 1.0):
         row_dict["absorption_fire"] = -(float(specialEffect['Absorption: Fire']) - 1.0)
         if (not(passiveFromArmor)):
@@ -791,7 +812,10 @@ def getPassiveEffect(specialEffect, specialEffectId, passiveFromArmor):
                 if float(specialEffect['Absorption: Fire']) < 1.0:
                     absorption_percent_all_dict[-(float(specialEffect['Absorption: Fire']) - 1.0) * 100] = "Increase the Absorption from all enemy attacks for Fire"
                 else:
-                    absorption_percent_all_dict[-(float(specialEffect['Absorption: Fire']) - 1.0) * 100] = "Decrease the Absorption from all enemy attacks for Fire"
+                    if (checkStringState("Frostbite", row_dict)):
+                        absorption_percent_all_dict[-(float(specialEffect['Absorption: Fire']) - 1.0) * 100] = "If Frost Status Effect is applied, Decrease the Absorption from all enemy attacks for Fire"
+                    else:
+                        absorption_percent_all_dict[-(float(specialEffect['Absorption: Fire']) - 1.0) * 100] = "Decrease the Absorption from all enemy attacks for Fire"
     if (float(specialEffect['Absorption: Lightning']) != 1.0):
         row_dict["absorption_lightning"] = -(float(specialEffect['Absorption: Lightning']) - 1.0)
         if (not(passiveFromArmor)):
@@ -801,7 +825,10 @@ def getPassiveEffect(specialEffect, specialEffectId, passiveFromArmor):
                 if float(specialEffect['Absorption: Lightning']) < 1.0:
                     absorption_percent_all_dict[-(float(specialEffect['Absorption: Lightning']) - 1.0) * 100] = "Increase the Absorption from all enemy attacks for Lightning"
                 else:
-                    absorption_percent_all_dict[-(float(specialEffect['Absorption: Lightning']) - 1.0) * 100] = "Decrease the Absorption from all enemy attacks for Lightning"
+                    if (checkStringState("Frostbite", row_dict)):
+                        absorption_percent_all_dict[-(float(specialEffect['Absorption: Lightning']) - 1.0) * 100] = "If Frost Status Effect is applied, Decrease the Absorption from all enemy attacks for Lightning"
+                    else:
+                        absorption_percent_all_dict[-(float(specialEffect['Absorption: Lightning']) - 1.0) * 100] = "Decrease the Absorption from all enemy attacks for Lightning"
     if (float(specialEffect['Absorption: Holy']) != 1.0):
         row_dict["absorption_holy"] = -(float(specialEffect['Absorption: Holy']) - 1.0)
         if (not(passiveFromArmor)):
@@ -811,7 +838,10 @@ def getPassiveEffect(specialEffect, specialEffectId, passiveFromArmor):
                 if float(specialEffect['Absorption: Holy']) < 1.0:
                     absorption_percent_all_dict[-(float(specialEffect['Absorption: Holy']) - 1.0) * 100] = "Increase the Absorption from all enemy attacks for Holy"
                 else:
-                    absorption_percent_all_dict[-(float(specialEffect['Absorption: Holy']) - 1.0) * 100] = "Decrease the Absorption from all enemy attacks for Holy"
+                    if (checkStringState("Frostbite", row_dict)):
+                        absorption_percent_all_dict[-(float(specialEffect['Absorption: Holy']) - 1.0) * 100] = "If Frost Status Effect is applied, Decrease the Absorption from all enemy attacks for Holy"
+                    else:
+                        absorption_percent_all_dict[-(float(specialEffect['Absorption: Holy']) - 1.0) * 100] = "Decrease the Absorption from all enemy attacks for Holy"
     for key, value in absorption_percent_all_dict.items():
         descriptionArray.append(value + " types by " + str(abs(round(key, 2))) + "%")
 
@@ -1275,8 +1305,6 @@ def getPassiveEffect(specialEffect, specialEffectId, passiveFromArmor):
         row_dict["listen_search_correction_percent"] = float(specialEffect['Listen Search Correction']) - 1.0
     if (float(specialEffect['Listen Search Addition']) != 0.0):
         row_dict["listen_search_addition_percent"] = float(specialEffect['Listen Search Addition'])
-    if (float(specialEffect['Sight Search Addition']) != 0.0):
-        row_dict["sight_search_addition_percent"] = float(specialEffect['Sight Search Addition'])
     if (float(specialEffect['No Guard Damage %']) != 1.0):
         row_dict["no_guard_damage_percent"] = float(specialEffect['No Guard Damage %']) - 1.0
     if (float(specialEffect['Vital Spot Change %']) != -1.0):
@@ -1362,6 +1390,8 @@ def getPassiveEffect(specialEffect, specialEffectId, passiveFromArmor):
                     descriptionArray.append("If Sleep Status Effect is applied, Subtract " + str(abs(int(specialEffect['Change HP +']))) + " HP points")
                 elif (checkStringState("Madness", row_dict)):
                     descriptionArray.append("If Madness Status Effect is applied, Subtract " + str(abs(int(specialEffect['Change HP +']))) + " HP points")
+                elif (checkStringState("Frostbite", row_dict)):
+                    descriptionArray.append("If Frost Status Effect is applied, Subtract " + str(abs(int(specialEffect['Change HP +']))) + " HP points")
                 else:
                     descriptionArray.append("Subtract " + str(abs(int(specialEffect['Change HP +']))) + " HP points")
 
@@ -1386,6 +1416,8 @@ def getPassiveEffect(specialEffect, specialEffectId, passiveFromArmor):
                     descriptionArray.append("If Sleep Status Effect is applied, Subtract " + str(abs(int(specialEffect['Change FP +']))) + " FP points")
                 elif (checkStringState("Madness", row_dict)):
                     descriptionArray.append("If Madness Status Effect is applied, Subtract " + str(abs(int(specialEffect['Change FP +']))) + " FP points")
+                elif (checkStringState("Frostbite", row_dict)):
+                    descriptionArray.append("If Frost Status Effect is applied, Subtract " + str(abs(int(specialEffect['Change HP +']))) + " FP points")
                 else:
                     descriptionArray.append("Subtract " + str(abs(int(specialEffect['Change FP +']))) + " FP points")
     if (int(specialEffect['Change Stamina +']) != 0):
@@ -1409,6 +1441,8 @@ def getPassiveEffect(specialEffect, specialEffectId, passiveFromArmor):
                     descriptionArray.append("If Sleep Status Effect is applied, Subtract " + str(abs(int(specialEffect['Change Stamina +']))) + " Stamina points")
                 elif (checkStringState("Madness", row_dict)):
                     descriptionArray.append("If Madness Status Effect is applied, Subtract " + str(abs(int(specialEffect['Change Stamina +']))) + " Stamina points")
+                elif (checkStringState("Frostbite", row_dict)):
+                    descriptionArray.append("If Frost Status Effect is applied, Subtract " + str(abs(int(specialEffect['Change HP +']))) + " Stamina points")
                 else:
                     descriptionArray.append("Subtract " + str(abs(int(specialEffect['Change Stamina +']))) + " Stamina points")
     if (float(specialEffect['Change HP %']) != 0):
@@ -1432,6 +1466,8 @@ def getPassiveEffect(specialEffect, specialEffectId, passiveFromArmor):
                     descriptionArray.append("If Sleep Status Effect is applied, Subtract " + str(abs(float(specialEffect['Change HP %']))) + "% HP")
                 elif (checkStringState("Madness", row_dict)):
                     descriptionArray.append("If Madness Status Effect is applied, Subtract " + str(abs(float(specialEffect['Change HP %']))) + "% HP")
+                elif (checkStringState("Frostbite", row_dict)):
+                    descriptionArray.append("If Frost Status Effect is applied, Subtract " + str(abs(float(specialEffect['Change HP %']))) + "% HP")
                 else:
                     descriptionArray.append("Subtract " + str(abs(float(specialEffect['Change HP %']))) + "% HP")
     if (float(specialEffect['Change FP %']) != 0):
@@ -1455,6 +1491,8 @@ def getPassiveEffect(specialEffect, specialEffectId, passiveFromArmor):
                     descriptionArray.append("If Sleep Status Effect is applied, Subtract " + str(abs(float(specialEffect['Change FP %']))) + "% FP")
                 elif (checkStringState("Madness", row_dict)):
                     descriptionArray.append("If Madness Status Effect is applied, Subtract " + str(abs(float(specialEffect['Change FP %']))) + "% FP")
+                elif (checkStringState("Frostbite", row_dict)):
+                    descriptionArray.append("If Frost Status Effect is applied, Subtract " + str(abs(float(specialEffect['Change HP %']))) + "% FP")
                 else:
                     descriptionArray.append("Subtract " + str(abs(float(specialEffect['Change FP %']))) + "% FP")
     if (float(specialEffect['Change Stamina %']) != 0):
@@ -1478,6 +1516,8 @@ def getPassiveEffect(specialEffect, specialEffectId, passiveFromArmor):
                     descriptionArray.append("If Sleep Status Effect is applied, Subtract " + str(abs(float(specialEffect['Change Stamina %']))) + "% Stamina")
                 elif (checkStringState("Madness", row_dict)):
                     descriptionArray.append("If Madness Status Effect is applied, Subtract " + str(abs(float(specialEffect['Change Stamina %']))) + "% Stamina")
+                elif (checkStringState("Frostbite", row_dict)):
+                    descriptionArray.append("If Frost Status Effect is applied, Subtract " + str(abs(float(specialEffect['Change HP %']))) + "% Stamina")
                 else:
                     descriptionArray.append("Subtract " + str(abs(float(specialEffect['Change Stamina %']))) + "% Stamina")
     if (int(specialEffect['FP Recovery']) != 0):
@@ -1500,11 +1540,23 @@ def getPassiveEffect(specialEffect, specialEffectId, passiveFromArmor):
     if (row_dict["name"] == "Sentry's Torch - Effect"):
         descriptionArray.append("Reveal Invisible Enemies")
 
+
+    if (checkStringAllStates("AiVisualDistanceChange", row_dict)):
+        if (float(specialEffect['Sight Search Addition']) != 0.0):
+            row_dict["sight_search_addition_percent"] = float(specialEffect['Sight Search Addition'])
+            if (float(specialEffect['Sight Search Addition']) > 0.0):
+                descriptionArray.append("Increase the ability to search visually for enemies by " + str(round(abs((float(specialEffect['Sight Search Addition']))), 2)) + "%")
+            else:
+                descriptionArray.append("Decrease the ability to search visually for enemies by " + str(round(abs((float(specialEffect['Sight Search Addition']))), 2)) + "%")
+
     if (checkStringAllStates("Destroy Accessory but Save Runes", row_dict)):
         descriptionArray.append("Destroy Talisman but Save Runes")
 
-    if (checkStringAllStates("Trigger on Crouch", row_dict)):
-        descriptionArray.append("Trigger Effect when Crouching")
+    if (checkStringAllStates("Block Estus Usage", row_dict)):
+        descriptionArray.append("Block the Use of Flask of Crimson Tears")
+
+    if (checkStringAllStates("Change Team Type", row_dict)):
+        descriptionArray.append("Change Enemy to Ally")
 
     if (checkStringAllStates("Reduce Headshot Impact", row_dict)):
         descriptionArray.append("Reduce Headshot Impact")
@@ -1513,63 +1565,67 @@ def getPassiveEffect(specialEffect, specialEffectId, passiveFromArmor):
         descriptionArray.append("Pacify Wild Animals")
 
     if (checkStringAllStates("Left Hand Buff VFX", row_dict)):
-        descriptionArray.append("Increase Guard Boost scaling it based on innate Guard Boost. Lower innate Guard Boost increases scaling.")
-    
+        descriptionArray.append("Increase Guard Boost scaling it based on innate Guard Boost. Lower innate Guard Boost increases scaling.")  
+
     if (checkStringAllStates("Extend Roll Invinsibility", row_dict)):
-        descriptionArray.append("Extend Roll Invinsibility Frames")
+        descriptionArray.append("Extend Roll Invinsibility Frames")  
 
     if (checkStringAllStates("Scale Attack Power with Equip Load", row_dict)):
         descriptionArray.append("Scale Attack Power Increase based on innate Equip Load. Lower innate Equip Load increases scaling.")
 
-    if (checkStringAllStates("Trigger during Critical Hit", row_dict)):
-        descriptionArray.append("Trigger only when taking a Critical Hit")
+    if (descriptionArray != []):
+        if (checkStringAllStates("Trigger on Crouch", row_dict)):
+            descriptionArray.append("Trigger Effect when Crouching")
 
-    if (checkStringAllStates("Trigger in Presence of Blood Loss", row_dict)):
-        descriptionArray.append("Trigger in Presence of Blood Loss")
+        if (checkStringAllStates("Trigger during Critical Hit", row_dict)):
+            descriptionArray.append("Trigger only when taking a Critical Hit")
 
-    if (checkStringAllStates("Trigger in Presence of Rot", row_dict)):
-        descriptionArray.append("Trigger in Presence of Rot")
+        if (checkStringAllStates("Trigger in Presence of Blood Loss", row_dict)):
+            descriptionArray.append("Trigger in Presence of Blood Loss")
 
-    if (checkStringAllStates("Madness", row_dict)):
-        descriptionArray.append("Trigger in Presence of Madness")
+        if (checkStringAllStates("Trigger in Presence of Rot", row_dict)):
+            descriptionArray.append("Trigger in Presence of Rot")
 
-    if (checkStringAllStates("Trigger on Roll", row_dict)):
-        descriptionArray.append("Trigger Effect on Roll")
+        if (checkStringAllStates("Madness", row_dict)):
+            descriptionArray.append("Trigger in Presence of Madness")
 
-    if (checkStringAllStates("Enhance Thrusting Counter Attacks", row_dict)):
-        descriptionArray.append("Only Apply to Thrusting Counter Attacks")
+        if (checkStringAllStates("Trigger on Roll", row_dict)):
+            descriptionArray.append("Trigger Effect on Roll")
 
-    if (checkStringAllStates("Enhance Critical Attacks", row_dict)):
-        descriptionArray.append("Only Apply to Critical Attacks")
+        if (checkStringAllStates("Enhance Thrusting Counter Attacks", row_dict)):
+            descriptionArray.append("Only Apply to Thrusting Counter Attacks")
 
-    if (int(specialEffect['Trigger at HP Below %']) != -1):
-        row_dict["trigger_below_hp_percent"] = int(specialEffect['Trigger at HP Below %'])
-        descriptionArray.append("Trigger Effect when HP is below or equal to " + str(int(specialEffect['Trigger at HP Below %'])) + "%")
-    if (int(specialEffect['Trigger on HP Above %']) != -1):
-        row_dict["trigger_above_hp_percent"] = int(specialEffect['Trigger on HP Above %'])
-        descriptionArray.append("Trigger Effect when HP is above or equal to " + str(int(specialEffect['Trigger on HP Above %'])) + "%")
+        if (checkStringAllStates("Enhance Critical Attacks", row_dict)):
+            descriptionArray.append("Only Apply to Critical Attacks")
 
+        if (int(specialEffect['Trigger at HP Below %']) != -1):
+            row_dict["trigger_below_hp_percent"] = int(specialEffect['Trigger at HP Below %'])
+            descriptionArray.append("Trigger Effect when HP is below or equal to " + str(int(specialEffect['Trigger at HP Below %'])) + "%")
+        if (int(specialEffect['Trigger on HP Above %']) != -1):
+            row_dict["trigger_above_hp_percent"] = int(specialEffect['Trigger on HP Above %'])
+            descriptionArray.append("Trigger Effect when HP is above or equal to " + str(int(specialEffect['Trigger on HP Above %'])) + "%")
 
-    if (specialEffect['Trigger for Opponent'] == InputBoolean.TRUE.value):
-        row_dict["trigger_effect_for_opponent"] = InputBoolean.TRUE.value
-    if (specialEffect['Trigger for Self'] == InputBoolean.FALSE.value):
-        row_dict["trigger_effect_for_self"] = InputBoolean.FALSE.value
-        if (specialEffect['Trigger for Friendly'] == InputBoolean.TRUE.value):
-            row_dict["trigger_effect_for_friendly"] = InputBoolean.TRUE.value
-            descriptionArray.append("Effect is not Triggered on Self but on Friendlies")
+        if (specialEffect['Trigger for Self'] == InputBoolean.FALSE.value):
+            row_dict["trigger_effect_for_self"] = InputBoolean.FALSE.value
+            if (specialEffect['Trigger for Friendly'] == InputBoolean.TRUE.value):
+                row_dict["trigger_effect_for_friendly"] = InputBoolean.TRUE.value
+                descriptionArray.append("Effect is not Triggered on Self but on Friendlies")
+            if (specialEffect['Trigger for Opponent'] == InputBoolean.TRUE.value):
+                row_dict["trigger_effect_for_opponent"] = InputBoolean.TRUE.value
+                descriptionArray.append("Effect is not Triggered on Self but on Enemies")
 
-    if (specialEffect['Affects Sorcery'] == InputBoolean.TRUE.value):
-        row_dict["affects_sorcery"] = InputBoolean.TRUE.value
-        if (checkStringAllStates("Spell Power Boost", row_dict)):
-            descriptionArray.append("Effect only gives Boost to Sorceries")
-        else:
-            descriptionArray.append("Affect Sorceries")
-    if (specialEffect['Affects Incantation'] == InputBoolean.TRUE.value):
-        row_dict["affects_incantation"] = InputBoolean.TRUE.value
-        if (checkStringAllStates("Spell Power Boost", row_dict)):
-            descriptionArray.append("Effect only gives Boost to Incantations")
-        else:
-            descriptionArray.append("Affect Incantations")
+        if (specialEffect['Affects Sorcery'] == InputBoolean.TRUE.value):
+            row_dict["affects_sorcery"] = InputBoolean.TRUE.value
+            if (checkStringAllStates("Spell Power Boost", row_dict)):
+                descriptionArray.append("Effect only gives Boost to Sorceries")
+            else:
+                descriptionArray.append("Affect Sorceries")
+        if (specialEffect['Affects Incantation'] == InputBoolean.TRUE.value):
+            row_dict["affects_incantation"] = InputBoolean.TRUE.value
+            if (checkStringAllStates("Spell Power Boost", row_dict)):
+                descriptionArray.append("Effect only gives Boost to Incantations")
+            else:
+                descriptionArray.append("Affect Incantations")
     
     if (float(specialEffect['Trigger Interval']) != 0.0):
         row_dict["trigger_interval"] = float(specialEffect['Trigger Interval'])
@@ -1665,6 +1721,9 @@ def getPassiveEffect(specialEffect, specialEffectId, passiveFromArmor):
                             descriptionArray.append("Effect lasts for " + str(round(abs((float(specialEffect['Duration']))), 2)) + " seconds")
                 else:
                     descriptionArray.append("Effect is applied for a brief moment")
+
+            if (checkStringState("Frostbite", row_dict)):
+                descriptionArray.append("Frost Status Effect debuff, if applied, lasts for " + str(round(abs((float(specialEffect['Duration']))), 2)) + " seconds")
 
     row_dict["description"] = descriptionArray
 

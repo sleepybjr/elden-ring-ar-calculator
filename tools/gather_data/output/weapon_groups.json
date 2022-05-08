@@ -1,195 +1,239 @@
 [
     {
-        "label": "Unarmed",
+        "label": "Reusable Items",
         "options": [
             {
-                "label": "Unarmed",
+                "label": "Fire Pot",
                 "value": "1"
+            },
+            {
+                "label": "Redmane Fire Pot",
+                "value": 2
+            },
+            {
+                "label": "Giantsflame Fire Pot",
+                "value": 3
+            },
+            {
+                "label": "Lightning Pot",
+                "value": 4
+            },
+            {
+                "label": "Ancient Dragonbolt Pot",
+                "value": 5
+            },
+            {
+                "label": "Fetid Pot",
+                "value": 6
+            },
+            {
+                "label": "Swarm Pot",
+                "value": 7
+            },
+            {
+                "label": "Holy Water Pot",
+                "value": 8
+            },
+            {
+                "label": "Sacred Order Pot",
+                "value": 9
+            },
+            {
+                "label": "Freezing Pot",
+                "value": 10
+            },
+            {
+                "label": "Poison Pot",
+                "value": 11
+            },
+            {
+                "label": "Oil Pot",
+                "value": 12
+            },
+            {
+                "label": "Alluring Pot",
+                "value": 13
+            },
+            {
+                "label": "Beastlure Pot",
+                "value": 14
+            },
+            {
+                "label": "Roped Fire Pot",
+                "value": 15
+            },
+            {
+                "label": "Roped Lightning Pot",
+                "value": 16
+            },
+            {
+                "label": "Roped Fetid Pot",
+                "value": 17
+            },
+            {
+                "label": "Roped Poison Pot",
+                "value": 18
+            },
+            {
+                "label": "Roped Oil Pot",
+                "value": 19
+            },
+            {
+                "label": "Roped Magic Pot",
+                "value": 20
+            },
+            {
+                "label": "Roped Fly Pot",
+                "value": 21
+            },
+            {
+                "label": "Roped Freezing Pot",
+                "value": 22
+            },
+            {
+                "label": "Roped Volcano Pot",
+                "value": 23
+            },
+            {
+                "label": "Roped Holy Water Pot",
+                "value": 24
+            },
+            {
+                "label": "Volcano Pot",
+                "value": 25
+            },
+            {
+                "label": "Albinauric Pot",
+                "value": 26
+            },
+            {
+                "label": "Cursed-Blood Pot",
+                "value": 27
+            },
+            {
+                "label": "Sleep Pot",
+                "value": 28
+            },
+            {
+                "label": "Rancor Pot",
+                "value": 29
+            },
+            {
+                "label": "Magic Pot",
+                "value": 30
+            },
+            {
+                "label": "Academy Magic Pot",
+                "value": 31
+            },
+            {
+                "label": "Rot Pot",
+                "value": 32
+            },
+            {
+                "label": "Throwing Dagger",
+                "value": 33
+            },
+            {
+                "label": "Bone Dart",
+                "value": 34
+            },
+            {
+                "label": "Poisonbone Dart",
+                "value": 35
+            },
+            {
+                "label": "Kukri",
+                "value": 36
+            },
+            {
+                "label": "Crystal Dart",
+                "value": 37
+            },
+            {
+                "label": "Fan Daggers",
+                "value": 38
+            },
+            {
+                "label": "Ruin Fragment",
+                "value": 39
+            },
+            {
+                "label": "Explosive Stone",
+                "value": 40
+            },
+            {
+                "label": "Explosive Stone Clump",
+                "value": 41
+            },
+            {
+                "label": "Poisoned Stone",
+                "value": 42
+            },
+            {
+                "label": "Poisoned Stone Clump",
+                "value": 43
+            },
+            {
+                "label": "Ancestral Infant's Head",
+                "value": 44
+            },
+            {
+                "label": "Omen Bairn",
+                "value": 45
+            },
+            {
+                "label": "Regal Omen Bairn",
+                "value": 46
+            },
+            {
+                "label": "Cuckoo Glintstone",
+                "value": 47
+            },
+            {
+                "label": "Glintstone Scrap",
+                "value": 48
+            },
+            {
+                "label": "Large Glintstone Scrap",
+                "value": 49
+            },
+            {
+                "label": "Gravity Stone Fan",
+                "value": 50
+            },
+            {
+                "label": "Gravity Stone Chunk",
+                "value": 51
+            },
+            {
+                "label": "Wraith Calling Bell",
+                "value": 52
+            },
+            {
+                "label": "Bewitching Branch",
+                "value": 53
+            },
+            {
+                "label": "Spark Aromatic",
+                "value": 54
+            },
+            {
+                "label": "Poison Spraymist",
+                "value": 55
+            },
+            {
+                "label": "Acid Spraymist",
+                "value": 56
             }
         ]
     },
     {
-        "label": "Reusable Items",
+        "label": "Unarmed",
         "options": [
             {
-                "label": "Throwing Dagger",
-                "value": "2"
-            },
-            {
-                "label": "Bone Dart",
-                "value": 3
-            },
-            {
-                "label": "Poisonbone Dart",
-                "value": 4
-            },
-            {
-                "label": "Kukri",
-                "value": 5
-            },
-            {
-                "label": "Crystal Dart",
-                "value": 6
-            },
-            {
-                "label": "Fan Daggers",
-                "value": 7
-            },
-            {
-                "label": "Ruin Fragment",
-                "value": 8
-            },
-            {
-                "label": "Explosive Stone",
-                "value": 9
-            },
-            {
-                "label": "Explosive Stone Clump",
-                "value": 10
-            },
-            {
-                "label": "Poisoned Stone",
-                "value": 11
-            },
-            {
-                "label": "Poisoned Stone Clump",
-                "value": 12
-            },
-            {
-                "label": "Ancestral Infant's Head",
-                "value": 13
-            },
-            {
-                "label": "Omen Bairn",
-                "value": 14
-            },
-            {
-                "label": "Regal Omen Bairn",
-                "value": 15
-            },
-            {
-                "label": "Cuckoo Glintstone",
-                "value": 16
-            },
-            {
-                "label": "Glintstone Scrap",
-                "value": 17
-            },
-            {
-                "label": "Large Glintstone Scrap",
-                "value": 18
-            },
-            {
-                "label": "Gravity Stone Fan",
-                "value": 19
-            },
-            {
-                "label": "Gravity Stone Chunk",
-                "value": 20
-            },
-            {
-                "label": "Wraith Calling Bell",
-                "value": 21
-            },
-            {
-                "label": "Spark Aromatic",
-                "value": 22
-            },
-            {
-                "label": "Poison Spraymist",
-                "value": 23
-            },
-            {
-                "label": "Fire Pot",
-                "value": 24
-            },
-            {
-                "label": "Redmane Fire Pot",
-                "value": 25
-            },
-            {
-                "label": "Giantsflame Fire Pot",
-                "value": 26
-            },
-            {
-                "label": "Lightning Pot",
-                "value": 27
-            },
-            {
-                "label": "Ancient Dragonbolt Pot",
-                "value": 28
-            },
-            {
-                "label": "Fetid Pot",
-                "value": 29
-            },
-            {
-                "label": "Swarm Pot",
-                "value": 30
-            },
-            {
-                "label": "Holy Water Pot",
-                "value": 31
-            },
-            {
-                "label": "Sacred Order Pot",
-                "value": 32
-            },
-            {
-                "label": "Poison Pot",
-                "value": 33
-            },
-            {
-                "label": "Roped Fire Pot",
-                "value": 34
-            },
-            {
-                "label": "Roped Lightning Pot",
-                "value": 35
-            },
-            {
-                "label": "Roped Fetid Pot",
-                "value": 36
-            },
-            {
-                "label": "Roped Poison Pot",
-                "value": 37
-            },
-            {
-                "label": "Roped Magic Pot",
-                "value": 38
-            },
-            {
-                "label": "Roped Fly Pot",
-                "value": 39
-            },
-            {
-                "label": "Roped Volcano Pot",
-                "value": 40
-            },
-            {
-                "label": "Roped Holy Water Pot",
-                "value": 41
-            },
-            {
-                "label": "Volcano Pot",
-                "value": 42
-            },
-            {
-                "label": "Sleep Pot",
-                "value": 43
-            },
-            {
-                "label": "Rancor Pot",
-                "value": 44
-            },
-            {
-                "label": "Magic Pot",
-                "value": 45
-            },
-            {
-                "label": "Academy Magic Pot",
-                "value": 46
+                "label": "Unarmed",
+                "value": "57"
             }
         ]
     },
@@ -198,67 +242,67 @@
         "options": [
             {
                 "label": "Dagger",
-                "value": "47"
+                "value": "58"
             },
             {
                 "label": "Black Knife",
-                "value": 48
-            },
-            {
-                "label": "Parrying Dagger",
-                "value": 49
-            },
-            {
-                "label": "Misericorde",
-                "value": 50
-            },
-            {
-                "label": "Reduvia",
-                "value": 51
-            },
-            {
-                "label": "Crystal Knife",
-                "value": 52
-            },
-            {
-                "label": "Celebrant's Sickle",
-                "value": 53
-            },
-            {
-                "label": "Glintstone Kris",
-                "value": 54
-            },
-            {
-                "label": "Scorpion's Stinger",
-                "value": 55
-            },
-            {
-                "label": "Great Knife",
-                "value": 56
-            },
-            {
-                "label": "Wakizashi",
-                "value": 57
-            },
-            {
-                "label": "Cinquedea",
-                "value": 58
-            },
-            {
-                "label": "Ivory Sickle",
                 "value": 59
             },
             {
-                "label": "Bloodstained Dagger",
+                "label": "Parrying Dagger",
                 "value": 60
             },
             {
-                "label": "Erdsteel Dagger",
+                "label": "Misericorde",
                 "value": 61
             },
             {
-                "label": "Blade of Calling",
+                "label": "Reduvia",
                 "value": 62
+            },
+            {
+                "label": "Crystal Knife",
+                "value": 63
+            },
+            {
+                "label": "Celebrant's Sickle",
+                "value": 64
+            },
+            {
+                "label": "Glintstone Kris",
+                "value": 65
+            },
+            {
+                "label": "Scorpion's Stinger",
+                "value": 66
+            },
+            {
+                "label": "Great Knife",
+                "value": 67
+            },
+            {
+                "label": "Wakizashi",
+                "value": 68
+            },
+            {
+                "label": "Cinquedea",
+                "value": 69
+            },
+            {
+                "label": "Ivory Sickle",
+                "value": 70
+            },
+            {
+                "label": "Bloodstained Dagger",
+                "value": 71
+            },
+            {
+                "label": "Erdsteel Dagger",
+                "value": 72
+            },
+            {
+                "label": "Blade of Calling",
+                "value": 73
             }
         ]
     },
@@ -267,79 +311,79 @@
         "options": [
             {
                 "label": "Longsword",
-                "value": "63"
+                "value": "74"
             },
             {
                 "label": "Short Sword",
-                "value": 64
-            },
-            {
-                "label": "Broadsword",
-                "value": 65
-            },
-            {
-                "label": "Lordsworn's Straight Sword",
-                "value": 66
-            },
-            {
-                "label": "Weathered Straight Sword",
-                "value": 67
-            },
-            {
-                "label": "Ornamental Straight Sword",
-                "value": 68
-            },
-            {
-                "label": "Golden Epitaph",
-                "value": 69
-            },
-            {
-                "label": "Coded Sword",
-                "value": 72
-            },
-            {
-                "label": "Sword of Night and Flame",
-                "value": 73
-            },
-            {
-                "label": "Crystal Sword",
-                "value": 74
-            },
-            {
-                "label": "Carian Knight's Sword",
                 "value": 75
             },
             {
-                "label": "Sword of St. Trina",
+                "label": "Broadsword",
                 "value": 76
             },
             {
-                "label": "Miquellan Knight's Sword",
+                "label": "Lordsworn's Straight Sword",
                 "value": 77
             },
             {
-                "label": "Cane Sword",
+                "label": "Weathered Straight Sword",
                 "value": 78
             },
             {
-                "label": "Regalia of Eochaid",
+                "label": "Ornamental Straight Sword",
                 "value": 79
             },
             {
-                "label": "Noble's Slender Sword",
+                "label": "Golden Epitaph",
                 "value": 80
             },
             {
+                "label": "Coded Sword",
+                "value": 83
+            },
+            {
+                "label": "Sword of Night and Flame",
+                "value": 84
+            },
+            {
+                "label": "Crystal Sword",
+                "value": 85
+            },
+            {
+                "label": "Carian Knight's Sword",
+                "value": 86
+            },
+            {
+                "label": "Sword of St. Trina",
+                "value": 87
+            },
+            {
+                "label": "Miquellan Knight's Sword",
+                "value": 88
+            },
+            {
+                "label": "Cane Sword",
+                "value": 89
+            },
+            {
+                "label": "Regalia of Eochaid",
+                "value": 90
+            },
+            {
+                "label": "Noble's Slender Sword",
+                "value": 91
+            },
+            {
                 "label": "Warhawk's Talon",
-                "value": 81
+                "value": 92
             },
             {
                 "label": "Lazuli Glintstone Sword",
-                "value": 82
+                "value": 93
             },
             {
                 "label": "Rotten Crystal Sword",
-                "value": 83
+                "value": 94
             }
         ]
     },
@@ -348,63 +392,63 @@
         "options": [
             {
                 "label": "Nox Flowing Sword",
-                "value": "70"
+                "value": "81"
             },
             {
                 "label": "Falchion",
-                "value": 126
-            },
-            {
-                "label": "Beastman's Curved Sword",
-                "value": 127
-            },
-            {
-                "label": "Shotel",
-                "value": 128
-            },
-            {
-                "label": "Shamshir",
-                "value": 129
-            },
-            {
-                "label": "Bandit's Curved Sword",
-                "value": 130
-            },
-            {
-                "label": "Magma Blade",
-                "value": 131
-            },
-            {
-                "label": "Flowing Curved Sword",
-                "value": 132
-            },
-            {
-                "label": "Wing of Astel",
-                "value": 133
-            },
-            {
-                "label": "Scavenger's Curved Sword",
-                "value": 134
-            },
-            {
-                "label": "Eclipse Shotel",
-                "value": 135
-            },
-            {
-                "label": "Serpent-God's Curved Sword",
-                "value": 136
-            },
-            {
-                "label": "Mantis Blade",
                 "value": 137
             },
             {
-                "label": "Scimitar",
+                "label": "Beastman's Curved Sword",
                 "value": 138
             },
             {
-                "label": "Grossmesser",
+                "label": "Shotel",
                 "value": 139
+            },
+            {
+                "label": "Shamshir",
+                "value": 140
+            },
+            {
+                "label": "Bandit's Curved Sword",
+                "value": 141
+            },
+            {
+                "label": "Magma Blade",
+                "value": 142
+            },
+            {
+                "label": "Flowing Curved Sword",
+                "value": 143
+            },
+            {
+                "label": "Wing of Astel",
+                "value": 144
+            },
+            {
+                "label": "Scavenger's Curved Sword",
+                "value": 145
+            },
+            {
+                "label": "Eclipse Shotel",
+                "value": 146
+            },
+            {
+                "label": "Serpent-God's Curved Sword",
+                "value": 147
+            },
+            {
+                "label": "Mantis Blade",
+                "value": 148
+            },
+            {
+                "label": "Scimitar",
+                "value": 149
+            },
+            {
+                "label": "Grossmesser",
+                "value": 150
             }
         ]
     },
@@ -413,87 +457,87 @@
         "options": [
             {
                 "label": "Inseparable Sword",
-                "value": "71"
+                "value": "82"
             },
             {
                 "label": "Bastard Sword",
-                "value": 84
-            },
-            {
-                "label": "Forked Greatsword",
-                "value": 85
-            },
-            {
-                "label": "Iron Greatsword",
-                "value": 86
-            },
-            {
-                "label": "Lordsworn's Greatsword",
-                "value": 87
-            },
-            {
-                "label": "Knight's Greatsword",
-                "value": 88
-            },
-            {
-                "label": "Flamberge",
-                "value": 89
-            },
-            {
-                "label": "Ordovis's Greatsword",
-                "value": 90
-            },
-            {
-                "label": "Alabaster Lord's Sword",
-                "value": 91
-            },
-            {
-                "label": "Banished Knight's Greatsword",
-                "value": 92
-            },
-            {
-                "label": "Dark Moon Greatsword",
-                "value": 93
-            },
-            {
-                "label": "Sacred Relic Sword",
-                "value": 94
-            },
-            {
-                "label": "Helphen's Steeple",
                 "value": 95
             },
             {
-                "label": "Blasphemous Blade",
+                "label": "Forked Greatsword",
                 "value": 96
             },
             {
-                "label": "Marais Executioner's Sword",
+                "label": "Iron Greatsword",
                 "value": 97
             },
             {
-                "label": "Sword of Milos",
+                "label": "Lordsworn's Greatsword",
                 "value": 98
             },
             {
-                "label": "Golden Order Greatsword",
+                "label": "Knight's Greatsword",
                 "value": 99
             },
             {
-                "label": "Claymore",
+                "label": "Flamberge",
                 "value": 100
             },
             {
-                "label": "Gargoyle's Greatsword",
+                "label": "Ordovis's Greatsword",
                 "value": 101
             },
             {
-                "label": "Death's Poker",
+                "label": "Alabaster Lord's Sword",
                 "value": 102
             },
             {
-                "label": "Gargoyle's Blackblade",
+                "label": "Banished Knight's Greatsword",
                 "value": 103
+            },
+            {
+                "label": "Dark Moon Greatsword",
+                "value": 104
+            },
+            {
+                "label": "Sacred Relic Sword",
+                "value": 105
+            },
+            {
+                "label": "Helphen's Steeple",
+                "value": 106
+            },
+            {
+                "label": "Blasphemous Blade",
+                "value": 107
+            },
+            {
+                "label": "Marais Executioner's Sword",
+                "value": 108
+            },
+            {
+                "label": "Sword of Milos",
+                "value": 109
+            },
+            {
+                "label": "Golden Order Greatsword",
+                "value": 110
+            },
+            {
+                "label": "Claymore",
+                "value": 111
+            },
+            {
+                "label": "Gargoyle's Greatsword",
+                "value": 112
+            },
+            {
+                "label": "Death's Poker",
+                "value": 113
+            },
+            {
+                "label": "Gargoyle's Blackblade",
+                "value": 114
             }
         ]
     },
@@ -502,47 +546,47 @@
         "options": [
             {
                 "label": "Greatsword",
-                "value": "104"
+                "value": "115"
             },
             {
                 "label": "Watchdog's Greatsword",
-                "value": 105
+                "value": 116
             },
             {
                 "label": "Maliketh's Black Blade",
-                "value": 106
+                "value": 117
             },
             {
                 "label": "Troll's Golden Sword",
-                "value": 107
+                "value": 118
             },
             {
                 "label": "Zweihander",
-                "value": 108
+                "value": 119
             },
             {
                 "label": "Starscourge Greatsword",
-                "value": 109
+                "value": 120
             },
             {
                 "label": "Royal Greatsword",
-                "value": 110
+                "value": 121
             },
             {
                 "label": "Godslayer's Greatsword",
-                "value": 111
+                "value": 122
             },
             {
                 "label": "Ruins Greatsword",
-                "value": 112
+                "value": 123
             },
             {
                 "label": "Grafted Blade Greatsword",
-                "value": 113
+                "value": 124
             },
             {
                 "label": "Troll Knight's Sword",
-                "value": 114
+                "value": 125
             }
         ]
     },
@@ -551,31 +595,31 @@
         "options": [
             {
                 "label": "Estoc",
-                "value": "115"
+                "value": "126"
             },
             {
                 "label": "Cleanrot Knight's Sword",
-                "value": 116
+                "value": 127
             },
             {
                 "label": "Rapier",
-                "value": 117
+                "value": 128
             },
             {
                 "label": "Rogier's Rapier",
-                "value": 118
+                "value": 129
             },
             {
                 "label": "Antspur Rapier",
-                "value": 119
+                "value": 130
             },
             {
                 "label": "Frozen Needle",
-                "value": 120
+                "value": 131
             },
             {
                 "label": "Noble's Estoc",
-                "value": 121
+                "value": 132
             }
         ]
     },
@@ -584,19 +628,19 @@
         "options": [
             {
                 "label": "Bloody Helice",
-                "value": "122"
+                "value": "133"
             },
             {
                 "label": "Godskin Stitcher",
-                "value": 123
+                "value": 134
             },
             {
                 "label": "Great epee",
-                "value": 124
+                "value": 135
             },
             {
                 "label": "Dragon King's Cragblade",
-                "value": 125
+                "value": 136
             }
         ]
     },
@@ -605,39 +649,39 @@
         "options": [
             {
                 "label": "Onyx Lord's Greatsword",
-                "value": "140"
+                "value": "151"
             },
             {
                 "label": "Dismounter",
-                "value": 141
+                "value": 152
             },
             {
                 "label": "Bloodhound's Fang",
-                "value": 142
+                "value": 153
             },
             {
                 "label": "Magma Wyrm's Scalesword",
-                "value": 143
+                "value": 154
             },
             {
                 "label": "Zamor Curved Sword",
-                "value": 144
+                "value": 155
             },
             {
                 "label": "Omen Cleaver",
-                "value": 145
+                "value": 156
             },
             {
                 "label": "Monk's Flameblade",
-                "value": 146
+                "value": 157
             },
             {
                 "label": "Beastman's Cleaver",
-                "value": 147
+                "value": 158
             },
             {
                 "label": "Morgott's Cursed Sword",
-                "value": 148
+                "value": 159
             }
         ]
     },
@@ -646,35 +690,35 @@
         "options": [
             {
                 "label": "Uchigatana",
-                "value": "149"
+                "value": "160"
             },
             {
                 "label": "Nagakiba",
-                "value": 150
+                "value": 161
             },
             {
                 "label": "Hand of Malenia",
-                "value": 151
+                "value": 162
             },
             {
                 "label": "Meteoric Ore Blade",
-                "value": 152
+                "value": 163
             },
             {
                 "label": "Rivers of Blood",
-                "value": 153
+                "value": 164
             },
             {
                 "label": "Moonveil",
-                "value": 154
+                "value": 165
             },
             {
                 "label": "Dragonscale Blade",
-                "value": 155
+                "value": 166
             },
             {
                 "label": "Serpentbone Blade",
-                "value": 156
+                "value": 167
             }
         ]
     },
@@ -683,27 +727,27 @@
         "options": [
             {
                 "label": "Twinblade",
-                "value": "157"
+                "value": "168"
             },
             {
                 "label": "Godskin Peeler",
-                "value": 158
+                "value": 169
             },
             {
                 "label": "Twinned Knight Swords",
-                "value": 159
+                "value": 170
             },
             {
                 "label": "Eleonora's Poleblade",
-                "value": 160
+                "value": 171
             },
             {
                 "label": "Gargoyle's Twinblade",
-                "value": 161
+                "value": 172
             },
             {
                 "label": "Gargoyle's Black Blades",
-                "value": 162
+                "value": 173
             }
         ]
     },
@@ -712,63 +756,63 @@
         "options": [
             {
                 "label": "Mace",
-                "value": "163"
+                "value": "174"
             },
             {
                 "label": "Club",
-                "value": 164
-            },
-            {
-                "label": "Curved Club",
-                "value": 165
-            },
-            {
-                "label": "Warpick",
-                "value": 166
-            },
-            {
-                "label": "Morning Star",
-                "value": 167
-            },
-            {
-                "label": "Varre's Bouquet",
-                "value": 168
-            },
-            {
-                "label": "Spiked Club",
-                "value": 169
-            },
-            {
-                "label": "Hammer",
-                "value": 170
-            },
-            {
-                "label": "Monk's Flamemace",
-                "value": 171
-            },
-            {
-                "label": "Envoy's Horn",
-                "value": 172
-            },
-            {
-                "label": "Scepter of the All-Knowing",
-                "value": 173
-            },
-            {
-                "label": "Nox Flowing Hammer",
-                "value": 174
-            },
-            {
-                "label": "Ringed Finger",
                 "value": 175
             },
             {
-                "label": "Stone Club",
+                "label": "Curved Club",
                 "value": 176
             },
             {
-                "label": "Marika's Hammer",
+                "label": "Warpick",
                 "value": 177
+            },
+            {
+                "label": "Morning Star",
+                "value": 178
+            },
+            {
+                "label": "Varre's Bouquet",
+                "value": 179
+            },
+            {
+                "label": "Spiked Club",
+                "value": 180
+            },
+            {
+                "label": "Hammer",
+                "value": 181
+            },
+            {
+                "label": "Monk's Flamemace",
+                "value": 182
+            },
+            {
+                "label": "Envoy's Horn",
+                "value": 183
+            },
+            {
+                "label": "Scepter of the All-Knowing",
+                "value": 184
+            },
+            {
+                "label": "Nox Flowing Hammer",
+                "value": 185
+            },
+            {
+                "label": "Ringed Finger",
+                "value": 186
+            },
+            {
+                "label": "Stone Club",
+                "value": 187
+            },
+            {
+                "label": "Marika's Hammer",
+                "value": 188
             }
         ]
     },
@@ -777,59 +821,59 @@
         "options": [
             {
                 "label": "Large Club",
-                "value": "178"
+                "value": "189"
             },
             {
                 "label": "Greathorn Hammer",
-                "value": 179
-            },
-            {
-                "label": "Battle Hammer",
-                "value": 180
-            },
-            {
-                "label": "Great Mace",
-                "value": 181
-            },
-            {
-                "label": "Curved Great Club",
-                "value": 182
-            },
-            {
-                "label": "Celebrant's Skull",
-                "value": 183
-            },
-            {
-                "label": "Pickaxe",
-                "value": 184
-            },
-            {
-                "label": "Beastclaw Greathammer",
-                "value": 185
-            },
-            {
-                "label": "Envoy's Long Horn",
-                "value": 186
-            },
-            {
-                "label": "Cranial Vessel Candlestand",
-                "value": 187
-            },
-            {
-                "label": "Great Stars",
-                "value": 188
-            },
-            {
-                "label": "Brick Hammer",
-                "value": 189
-            },
-            {
-                "label": "Devourer's Scepter",
                 "value": 190
             },
             {
-                "label": "Rotten Battle Hammer",
+                "label": "Battle Hammer",
                 "value": 191
+            },
+            {
+                "label": "Great Mace",
+                "value": 192
+            },
+            {
+                "label": "Curved Great Club",
+                "value": 193
+            },
+            {
+                "label": "Celebrant's Skull",
+                "value": 194
+            },
+            {
+                "label": "Pickaxe",
+                "value": 195
+            },
+            {
+                "label": "Beastclaw Greathammer",
+                "value": 196
+            },
+            {
+                "label": "Envoy's Long Horn",
+                "value": 197
+            },
+            {
+                "label": "Cranial Vessel Candlestand",
+                "value": 198
+            },
+            {
+                "label": "Great Stars",
+                "value": 199
+            },
+            {
+                "label": "Brick Hammer",
+                "value": 200
+            },
+            {
+                "label": "Devourer's Scepter",
+                "value": 201
+            },
+            {
+                "label": "Rotten Battle Hammer",
+                "value": 202
             }
         ]
     },
@@ -838,23 +882,23 @@
         "options": [
             {
                 "label": "Nightrider Flail",
-                "value": "192"
+                "value": "203"
             },
             {
                 "label": "Flail",
-                "value": 193
+                "value": 204
             },
             {
                 "label": "Family Heads",
-                "value": 194
+                "value": 205
             },
             {
                 "label": "Bastard's Stars",
-                "value": 195
+                "value": 206
             },
             {
                 "label": "Chainlink Flail",
-                "value": 196
+                "value": 207
             }
         ]
     },
@@ -863,55 +907,55 @@
         "options": [
             {
                 "label": "Battle Axe",
-                "value": "197"
+                "value": "208"
             },
             {
                 "label": "Forked Hatchet",
-                "value": 198
+                "value": 209
             },
             {
                 "label": "Hand Axe",
-                "value": 199
+                "value": 210
             },
             {
                 "label": "Jawbone Axe",
-                "value": 200
+                "value": 211
             },
             {
                 "label": "Iron Cleaver",
-                "value": 201
+                "value": 212
             },
             {
                 "label": "Ripple Blade",
-                "value": 202
+                "value": 213
             },
             {
                 "label": "Celebrant's Cleaver",
-                "value": 203
+                "value": 214
             },
             {
                 "label": "Icerind Hatchet",
-                "value": 204
+                "value": 215
             },
             {
                 "label": "Highland Axe",
-                "value": 205
+                "value": 216
             },
             {
                 "label": "Sacrificial Axe",
-                "value": 206
+                "value": 217
             },
             {
                 "label": "Rosus' Axe",
-                "value": 207
+                "value": 218
             },
             {
                 "label": "Stormhawk Axe",
-                "value": 208
+                "value": 219
             },
             {
                 "label": "Warped Axe",
-                "value": 210
+                "value": 221
             }
         ]
     },
@@ -920,47 +964,47 @@
         "options": [
             {
                 "label": "Greataxe",
-                "value": "209"
+                "value": "220"
             },
             {
                 "label": "Great Omenkiller Cleaver",
-                "value": 211
+                "value": 222
             },
             {
                 "label": "Crescent Moon Axe",
-                "value": 212
+                "value": 223
             },
             {
                 "label": "Axe of Godrick",
-                "value": 213
+                "value": 224
             },
             {
                 "label": "Longhaft Axe",
-                "value": 214
+                "value": 225
             },
             {
                 "label": "Rusted Anchor",
-                "value": 215
+                "value": 226
             },
             {
                 "label": "Executioner's Greataxe",
-                "value": 216
+                "value": 227
             },
             {
                 "label": "Winged Greathorn",
-                "value": 217
+                "value": 228
             },
             {
                 "label": "Butchering Knife",
-                "value": 218
+                "value": 229
             },
             {
                 "label": "Gargoyle's Great Axe",
-                "value": 219
+                "value": 230
             },
             {
                 "label": "Gargoyle's Black Axe",
-                "value": 220
+                "value": 231
             }
         ]
     },
@@ -969,67 +1013,67 @@
         "options": [
             {
                 "label": "Short Spear",
-                "value": "221"
+                "value": "232"
             },
             {
                 "label": "Spear",
-                "value": 222
-            },
-            {
-                "label": "Crystal Spear",
-                "value": 223
-            },
-            {
-                "label": "Clayman's Harpoon",
-                "value": 224
-            },
-            {
-                "label": "Cleanrot Spear",
-                "value": 225
-            },
-            {
-                "label": "Partisan",
-                "value": 226
-            },
-            {
-                "label": "Celebrant's Rib-Rake",
-                "value": 227
-            },
-            {
-                "label": "Pike",
-                "value": 228
-            },
-            {
-                "label": "Torchpole",
-                "value": 229
-            },
-            {
-                "label": "Bolt of Gransax",
-                "value": 230
-            },
-            {
-                "label": "Cross-Naginata",
-                "value": 231
-            },
-            {
-                "label": "Death Ritual Spear",
-                "value": 232
-            },
-            {
-                "label": "Inquisitor's Girandole",
                 "value": 233
             },
             {
-                "label": "Spiked Spear",
+                "label": "Crystal Spear",
                 "value": 234
             },
             {
-                "label": "Iron Spear",
+                "label": "Clayman's Harpoon",
                 "value": 235
             },
             {
-                "label": "Rotten Crystal Spear",
+                "label": "Cleanrot Spear",
                 "value": 236
+            },
+            {
+                "label": "Partisan",
+                "value": 237
+            },
+            {
+                "label": "Celebrant's Rib-Rake",
+                "value": 238
+            },
+            {
+                "label": "Pike",
+                "value": 239
+            },
+            {
+                "label": "Torchpole",
+                "value": 240
+            },
+            {
+                "label": "Bolt of Gransax",
+                "value": 241
+            },
+            {
+                "label": "Cross-Naginata",
+                "value": 242
+            },
+            {
+                "label": "Death Ritual Spear",
+                "value": 243
+            },
+            {
+                "label": "Inquisitor's Girandole",
+                "value": 244
+            },
+            {
+                "label": "Spiked Spear",
+                "value": 245
+            },
+            {
+                "label": "Iron Spear",
+                "value": 246
+            },
+            {
+                "label": "Rotten Crystal Spear",
+                "value": 247
             }
         ]
     },
@@ -1038,27 +1082,27 @@
         "options": [
             {
                 "label": "Mohgwyn's Sacred Spear",
-                "value": "237"
+                "value": "248"
             },
             {
                 "label": "Siluria's Tree",
-                "value": 238
+                "value": 249
             },
             {
                 "label": "Serpent-Hunter",
-                "value": 239
+                "value": 250
             },
             {
                 "label": "Vyke's War Spear",
-                "value": 240
+                "value": 251
             },
             {
                 "label": "Lance",
-                "value": 241
+                "value": 252
             },
             {
                 "label": "Treespear",
-                "value": 242
+                "value": 253
             }
         ]
     },
@@ -1067,67 +1111,67 @@
         "options": [
             {
                 "label": "Halberd",
-                "value": "243"
+                "value": "254"
             },
             {
                 "label": "Pest's Glaive",
-                "value": 244
-            },
-            {
-                "label": "Lucerne",
-                "value": 245
-            },
-            {
-                "label": "Banished Knight's Halberd",
-                "value": 246
-            },
-            {
-                "label": "Commander's Standard",
-                "value": 247
-            },
-            {
-                "label": "Nightrider Glaive",
-                "value": 248
-            },
-            {
-                "label": "Ripple Crescent Halberd",
-                "value": 249
-            },
-            {
-                "label": "Vulgar Militia Saw",
-                "value": 250
-            },
-            {
-                "label": "Golden Halberd",
-                "value": 251
-            },
-            {
-                "label": "Glaive",
-                "value": 252
-            },
-            {
-                "label": "Loretta's War Sickle",
-                "value": 253
-            },
-            {
-                "label": "Guardian's Swordspear",
-                "value": 254
-            },
-            {
-                "label": "Vulgar Militia Shotel",
                 "value": 255
             },
             {
-                "label": "Dragon Halberd",
+                "label": "Lucerne",
                 "value": 256
             },
             {
-                "label": "Gargoyle's Halberd",
+                "label": "Banished Knight's Halberd",
                 "value": 257
             },
             {
-                "label": "Gargoyle's Black Halberd",
+                "label": "Commander's Standard",
                 "value": 258
+            },
+            {
+                "label": "Nightrider Glaive",
+                "value": 259
+            },
+            {
+                "label": "Ripple Crescent Halberd",
+                "value": 260
+            },
+            {
+                "label": "Vulgar Militia Saw",
+                "value": 261
+            },
+            {
+                "label": "Golden Halberd",
+                "value": 262
+            },
+            {
+                "label": "Glaive",
+                "value": 263
+            },
+            {
+                "label": "Loretta's War Sickle",
+                "value": 264
+            },
+            {
+                "label": "Guardian's Swordspear",
+                "value": 265
+            },
+            {
+                "label": "Vulgar Militia Shotel",
+                "value": 266
+            },
+            {
+                "label": "Dragon Halberd",
+                "value": 267
+            },
+            {
+                "label": "Gargoyle's Halberd",
+                "value": 268
+            },
+            {
+                "label": "Gargoyle's Black Halberd",
+                "value": 269
             }
         ]
     },
@@ -1136,19 +1180,19 @@
         "options": [
             {
                 "label": "Scythe",
-                "value": "259"
+                "value": "270"
             },
             {
                 "label": "Grave Scythe",
-                "value": 260
+                "value": 271
             },
             {
                 "label": "Halo Scythe",
-                "value": 261
+                "value": 272
             },
             {
                 "label": "Winged Scythe",
-                "value": 262
+                "value": 273
             }
         ]
     },
@@ -1157,27 +1201,27 @@
         "options": [
             {
                 "label": "Whip",
-                "value": "263"
+                "value": "274"
             },
             {
                 "label": "Thorned Whip",
-                "value": 264
+                "value": 275
             },
             {
                 "label": "Magma Whip Candlestick",
-                "value": 265
+                "value": 276
             },
             {
                 "label": "Hoslow's Petal Whip",
-                "value": 266
+                "value": 277
             },
             {
                 "label": "Giant's Red Braid",
-                "value": 267
+                "value": 278
             },
             {
                 "label": "Urumi",
-                "value": 268
+                "value": 279
             }
         ]
     },
@@ -1186,39 +1230,39 @@
         "options": [
             {
                 "label": "Caestus",
-                "value": "269"
+                "value": "280"
             },
             {
                 "label": "Spiked Caestus",
-                "value": 270
+                "value": 281
             },
             {
                 "label": "Grafted Dragon",
-                "value": 271
+                "value": 282
             },
             {
                 "label": "Iron Ball",
-                "value": 272
+                "value": 283
             },
             {
                 "label": "Star Fist",
-                "value": 273
+                "value": 284
             },
             {
                 "label": "Katar",
-                "value": 274
+                "value": 285
             },
             {
                 "label": "Clinging Bone",
-                "value": 275
+                "value": 286
             },
             {
                 "label": "Veteran's Prosthesis",
-                "value": 276
+                "value": 287
             },
             {
                 "label": "Cipher Pata",
-                "value": 277
+                "value": 288
             }
         ]
     },
@@ -1227,19 +1271,19 @@
         "options": [
             {
                 "label": "Hookclaws",
-                "value": "278"
+                "value": "289"
             },
             {
                 "label": "Venomous Fang",
-                "value": 279
+                "value": 290
             },
             {
                 "label": "Bloodhound Claws",
-                "value": 280
+                "value": 291
             },
             {
                 "label": "Raptor Talons",
-                "value": 281
+                "value": 292
             }
         ]
     },
@@ -1248,63 +1292,63 @@
         "options": [
             {
                 "label": "Prelate's Inferno Crozier",
-                "value": "282"
+                "value": "293"
             },
             {
                 "label": "Watchdog's Staff",
-                "value": 283
-            },
-            {
-                "label": "Great Club",
-                "value": 284
-            },
-            {
-                "label": "Envoy's Greathorn",
-                "value": 285
-            },
-            {
-                "label": "Duelist Greataxe",
-                "value": 286
-            },
-            {
-                "label": "Axe of Godfrey",
-                "value": 287
-            },
-            {
-                "label": "Dragon Greatclaw",
-                "value": 288
-            },
-            {
-                "label": "Staff of the Avatar",
-                "value": 289
-            },
-            {
-                "label": "Fallingstar Beast Jaw",
-                "value": 290
-            },
-            {
-                "label": "Ghiza's Wheel",
-                "value": 291
-            },
-            {
-                "label": "Giant-Crusher",
-                "value": 292
-            },
-            {
-                "label": "Golem's Halberd",
-                "value": 293
-            },
-            {
-                "label": "Troll's Hammer",
                 "value": 294
             },
             {
-                "label": "Rotten Staff",
+                "label": "Great Club",
                 "value": 295
             },
             {
-                "label": "Rotten Greataxe",
+                "label": "Envoy's Greathorn",
                 "value": 296
+            },
+            {
+                "label": "Duelist Greataxe",
+                "value": 297
+            },
+            {
+                "label": "Axe of Godfrey",
+                "value": 298
+            },
+            {
+                "label": "Dragon Greatclaw",
+                "value": 299
+            },
+            {
+                "label": "Staff of the Avatar",
+                "value": 300
+            },
+            {
+                "label": "Fallingstar Beast Jaw",
+                "value": 301
+            },
+            {
+                "label": "Ghiza's Wheel",
+                "value": 302
+            },
+            {
+                "label": "Giant-Crusher",
+                "value": 303
+            },
+            {
+                "label": "Golem's Halberd",
+                "value": 304
+            },
+            {
+                "label": "Troll's Hammer",
+                "value": 305
+            },
+            {
+                "label": "Rotten Staff",
+                "value": 306
+            },
+            {
+                "label": "Rotten Greataxe",
+                "value": 307
             }
         ]
     },
@@ -1313,27 +1357,27 @@
         "options": [
             {
                 "label": "Torch",
-                "value": "297"
+                "value": "308"
             },
             {
                 "label": "Steel-Wire Torch",
-                "value": 298
+                "value": 309
             },
             {
                 "label": "St. Trina's Torch",
-                "value": 299
+                "value": 310
             },
             {
                 "label": "Ghostflame Torch",
-                "value": 300
+                "value": 311
             },
             {
                 "label": "Beast-Repellent Torch",
-                "value": 301
+                "value": 312
             },
             {
                 "label": "Sentry's Torch",
-                "value": 302
+                "value": 313
             }
         ]
     },
@@ -1342,71 +1386,71 @@
         "options": [
             {
                 "label": "Buckler",
-                "value": "303"
+                "value": "314"
             },
             {
                 "label": "Perfumer's Shield",
-                "value": 304
-            },
-            {
-                "label": "Man-Serpent's Shield",
-                "value": 305
-            },
-            {
-                "label": "Rickety Shield",
-                "value": 306
-            },
-            {
-                "label": "Pillory Shield",
-                "value": 307
-            },
-            {
-                "label": "Red Thorn Roundshield",
-                "value": 309
-            },
-            {
-                "label": "Scripture Wooden Shield",
-                "value": 310
-            },
-            {
-                "label": "Riveted Wooden Shield",
-                "value": 311
-            },
-            {
-                "label": "Blue-White Wooden Shield",
-                "value": 312
-            },
-            {
-                "label": "Rift Shield",
-                "value": 313
-            },
-            {
-                "label": "Iron Roundshield",
-                "value": 314
-            },
-            {
-                "label": "Gilded Iron Shield",
                 "value": 315
             },
             {
-                "label": "Ice Crest Shield",
+                "label": "Man-Serpent's Shield",
                 "value": 316
             },
             {
-                "label": "Smoldering Shield",
+                "label": "Rickety Shield",
                 "value": 317
             },
             {
-                "label": "Spiralhorn Shield",
+                "label": "Pillory Shield",
                 "value": 318
             },
             {
+                "label": "Red Thorn Roundshield",
+                "value": 320
+            },
+            {
+                "label": "Scripture Wooden Shield",
+                "value": 321
+            },
+            {
+                "label": "Riveted Wooden Shield",
+                "value": 322
+            },
+            {
+                "label": "Blue-White Wooden Shield",
+                "value": 323
+            },
+            {
+                "label": "Rift Shield",
+                "value": 324
+            },
+            {
+                "label": "Iron Roundshield",
+                "value": 325
+            },
+            {
+                "label": "Gilded Iron Shield",
+                "value": 326
+            },
+            {
+                "label": "Ice Crest Shield",
+                "value": 327
+            },
+            {
+                "label": "Smoldering Shield",
+                "value": 328
+            },
+            {
+                "label": "Spiralhorn Shield",
+                "value": 329
+            },
+            {
                 "label": "Coil Shield",
-                "value": 319
+                "value": 330
             },
             {
                 "label": "Shield of the Guilty",
-                "value": 333
+                "value": 344
             }
         ]
     },
@@ -1415,111 +1459,111 @@
         "options": [
             {
                 "label": "Beastman's Jar-Shield",
-                "value": "308"
+                "value": "319"
             },
             {
                 "label": "Kite Shield",
-                "value": 320
-            },
-            {
-                "label": "Marred Leather Shield",
-                "value": 321
-            },
-            {
-                "label": "Marred Wooden Shield",
-                "value": 322
-            },
-            {
-                "label": "Banished Knight's Shield",
-                "value": 323
-            },
-            {
-                "label": "Albinauric Shield",
-                "value": 324
-            },
-            {
-                "label": "Sun Realm Shield",
-                "value": 325
-            },
-            {
-                "label": "Silver Mirrorshield",
-                "value": 326
-            },
-            {
-                "label": "Round Shield",
-                "value": 327
-            },
-            {
-                "label": "Scorpion Kite Shield",
-                "value": 328
-            },
-            {
-                "label": "Twinbird Kite Shield",
-                "value": 329
-            },
-            {
-                "label": "Blue-Gold Kite Shield",
-                "value": 330
-            },
-            {
-                "label": "Brass Shield",
                 "value": 331
             },
             {
-                "label": "Great Turtle Shell",
+                "label": "Marred Leather Shield",
                 "value": 332
             },
             {
-                "label": "Carian Knight's Shield",
+                "label": "Marred Wooden Shield",
+                "value": 333
+            },
+            {
+                "label": "Banished Knight's Shield",
                 "value": 334
             },
             {
-                "label": "Large Leather Shield",
+                "label": "Albinauric Shield",
                 "value": 335
             },
             {
-                "label": "Horse Crest Wooden Shield",
+                "label": "Sun Realm Shield",
                 "value": 336
             },
             {
-                "label": "Candletree Wooden Shield",
+                "label": "Silver Mirrorshield",
                 "value": 337
             },
             {
-                "label": "Flame Crest Wooden Shield",
+                "label": "Round Shield",
                 "value": 338
             },
             {
-                "label": "Hawk Crest Wooden Shield",
+                "label": "Scorpion Kite Shield",
                 "value": 339
             },
             {
-                "label": "Beast Crest Heater Shield",
+                "label": "Twinbird Kite Shield",
                 "value": 340
             },
             {
-                "label": "Red Crest Heater Shield",
+                "label": "Blue-Gold Kite Shield",
                 "value": 341
             },
             {
-                "label": "Blue Crest Heater Shield",
+                "label": "Brass Shield",
                 "value": 342
             },
             {
-                "label": "Eclipse Crest Heater Shield",
+                "label": "Great Turtle Shell",
                 "value": 343
             },
             {
-                "label": "Inverted Hawk Heater Shield",
-                "value": 344
-            },
-            {
-                "label": "Heater Shield",
+                "label": "Carian Knight's Shield",
                 "value": 345
             },
             {
-                "label": "Black Leather Shield",
+                "label": "Large Leather Shield",
                 "value": 346
+            },
+            {
+                "label": "Horse Crest Wooden Shield",
+                "value": 347
+            },
+            {
+                "label": "Candletree Wooden Shield",
+                "value": 348
+            },
+            {
+                "label": "Flame Crest Wooden Shield",
+                "value": 349
+            },
+            {
+                "label": "Hawk Crest Wooden Shield",
+                "value": 350
+            },
+            {
+                "label": "Beast Crest Heater Shield",
+                "value": 351
+            },
+            {
+                "label": "Red Crest Heater Shield",
+                "value": 352
+            },
+            {
+                "label": "Blue Crest Heater Shield",
+                "value": 353
+            },
+            {
+                "label": "Eclipse Crest Heater Shield",
+                "value": 354
+            },
+            {
+                "label": "Inverted Hawk Heater Shield",
+                "value": 355
+            },
+            {
+                "label": "Heater Shield",
+                "value": 356
+            },
+            {
+                "label": "Black Leather Shield",
+                "value": 357
             }
         ]
     },
@@ -1528,103 +1572,103 @@
         "options": [
             {
                 "label": "Dragon Towershield",
-                "value": "347"
+                "value": "358"
             },
             {
                 "label": "Distinguished Greatshield",
-                "value": 348
-            },
-            {
-                "label": "Crucible Hornshield",
-                "value": 349
-            },
-            {
-                "label": "Dragonclaw Shield",
-                "value": 350
-            },
-            {
-                "label": "Briar Greatshield",
-                "value": 351
-            },
-            {
-                "label": "Erdtree Greatshield",
-                "value": 352
-            },
-            {
-                "label": "Golden Beast Crest Shield",
-                "value": 353
-            },
-            {
-                "label": "Jellyfish Shield",
-                "value": 354
-            },
-            {
-                "label": "Fingerprint Stone Shield",
-                "value": 355
-            },
-            {
-                "label": "Icon Shield",
-                "value": 356
-            },
-            {
-                "label": "One-Eyed Shield",
-                "value": 357
-            },
-            {
-                "label": "Visage Shield",
-                "value": 358
-            },
-            {
-                "label": "Spiked Palisade Shield",
                 "value": 359
             },
             {
-                "label": "Manor Towershield",
+                "label": "Crucible Hornshield",
                 "value": 360
             },
             {
-                "label": "Crossed-Tree Towershield",
+                "label": "Dragonclaw Shield",
                 "value": 361
             },
             {
-                "label": "Inverted Hawk Towershield",
+                "label": "Briar Greatshield",
                 "value": 362
             },
             {
-                "label": "Ant's Skull Plate",
+                "label": "Erdtree Greatshield",
                 "value": 363
             },
             {
-                "label": "Redmane Greatshield",
+                "label": "Golden Beast Crest Shield",
                 "value": 364
             },
             {
-                "label": "Eclipse Crest Greatshield",
+                "label": "Jellyfish Shield",
                 "value": 365
             },
             {
-                "label": "Cuckoo Greatshield",
+                "label": "Fingerprint Stone Shield",
                 "value": 366
             },
             {
-                "label": "Golden Greatshield",
+                "label": "Icon Shield",
                 "value": 367
             },
             {
-                "label": "Gilded Greatshield",
+                "label": "One-Eyed Shield",
                 "value": 368
             },
             {
-                "label": "Haligtree Crest Greatshield",
+                "label": "Visage Shield",
                 "value": 369
             },
             {
-                "label": "Wooden Greatshield",
+                "label": "Spiked Palisade Shield",
                 "value": 370
             },
             {
-                "label": "Lordsworn's Shield",
+                "label": "Manor Towershield",
                 "value": 371
+            },
+            {
+                "label": "Crossed-Tree Towershield",
+                "value": 372
+            },
+            {
+                "label": "Inverted Hawk Towershield",
+                "value": 373
+            },
+            {
+                "label": "Ant's Skull Plate",
+                "value": 374
+            },
+            {
+                "label": "Redmane Greatshield",
+                "value": 375
+            },
+            {
+                "label": "Eclipse Crest Greatshield",
+                "value": 376
+            },
+            {
+                "label": "Cuckoo Greatshield",
+                "value": 377
+            },
+            {
+                "label": "Golden Greatshield",
+                "value": 378
+            },
+            {
+                "label": "Gilded Greatshield",
+                "value": 379
+            },
+            {
+                "label": "Haligtree Crest Greatshield",
+                "value": 380
+            },
+            {
+                "label": "Wooden Greatshield",
+                "value": 381
+            },
+            {
+                "label": "Lordsworn's Shield",
+                "value": 382
             }
         ]
     },
@@ -1633,75 +1677,75 @@
         "options": [
             {
                 "label": "Glintstone Staff",
-                "value": "372"
+                "value": "383"
             },
             {
                 "label": "Crystal Staff",
-                "value": 373
-            },
-            {
-                "label": "Gelmir Glintstone Staff",
-                "value": 374
-            },
-            {
-                "label": "Demi-Human Queen's Staff",
-                "value": 375
-            },
-            {
-                "label": "Carian Regal Scepter",
-                "value": 376
-            },
-            {
-                "label": "Digger's Staff",
-                "value": 377
-            },
-            {
-                "label": "Astrologer's Staff",
-                "value": 378
-            },
-            {
-                "label": "Carian Glintblade Staff",
-                "value": 379
-            },
-            {
-                "label": "Prince of Death's Staff",
-                "value": 380
-            },
-            {
-                "label": "Albinauric Staff",
-                "value": 381
-            },
-            {
-                "label": "Academy Glintstone Staff",
-                "value": 382
-            },
-            {
-                "label": "Carian Glintstone Staff",
-                "value": 383
-            },
-            {
-                "label": "Azur's Glintstone Staff",
                 "value": 384
             },
             {
-                "label": "Lusat's Glintstone Staff",
+                "label": "Gelmir Glintstone Staff",
                 "value": 385
             },
             {
-                "label": "Meteorite Staff",
+                "label": "Demi-Human Queen's Staff",
                 "value": 386
             },
             {
-                "label": "Staff of the Guilty",
+                "label": "Carian Regal Scepter",
                 "value": 387
             },
             {
-                "label": "Rotten Crystal Staff",
+                "label": "Digger's Staff",
                 "value": 388
             },
             {
-                "label": "Staff of Loss",
+                "label": "Astrologer's Staff",
                 "value": 389
+            },
+            {
+                "label": "Carian Glintblade Staff",
+                "value": 390
+            },
+            {
+                "label": "Prince of Death's Staff",
+                "value": 391
+            },
+            {
+                "label": "Albinauric Staff",
+                "value": 392
+            },
+            {
+                "label": "Academy Glintstone Staff",
+                "value": 393
+            },
+            {
+                "label": "Carian Glintstone Staff",
+                "value": 394
+            },
+            {
+                "label": "Azur's Glintstone Staff",
+                "value": 395
+            },
+            {
+                "label": "Lusat's Glintstone Staff",
+                "value": 396
+            },
+            {
+                "label": "Meteorite Staff",
+                "value": 397
+            },
+            {
+                "label": "Staff of the Guilty",
+                "value": 398
+            },
+            {
+                "label": "Rotten Crystal Staff",
+                "value": 399
+            },
+            {
+                "label": "Staff of Loss",
+                "value": 400
             }
         ]
     },
@@ -1710,39 +1754,39 @@
         "options": [
             {
                 "label": "Finger Seal",
-                "value": "390"
+                "value": "401"
             },
             {
                 "label": "Godslayer's Seal",
-                "value": 391
+                "value": 402
             },
             {
                 "label": "Giant's Seal",
-                "value": 392
+                "value": 403
             },
             {
                 "label": "Gravel Stone Seal",
-                "value": 393
+                "value": 404
             },
             {
                 "label": "Clawmark Seal",
-                "value": 394
+                "value": 405
             },
             {
                 "label": "Golden Order Seal",
-                "value": 395
+                "value": 406
             },
             {
                 "label": "Erdtree Seal",
-                "value": 396
+                "value": 407
             },
             {
                 "label": "Dragon Communion Seal",
-                "value": 397
+                "value": 408
             },
             {
                 "label": "Frenzied Flame Seal",
-                "value": 398
+                "value": 409
             }
         ]
     },
@@ -1751,23 +1795,23 @@
         "options": [
             {
                 "label": "Shortbow",
-                "value": "399"
+                "value": "410"
             },
             {
                 "label": "Misbegotten Shortbow",
-                "value": 400
+                "value": 411
             },
             {
                 "label": "Red Branch Shortbow",
-                "value": 401
+                "value": 412
             },
             {
                 "label": "Harp Bow",
-                "value": 402
+                "value": 413
             },
             {
                 "label": "Composite Bow",
-                "value": 403
+                "value": 414
             }
         ]
     },
@@ -1776,31 +1820,31 @@
         "options": [
             {
                 "label": "Longbow",
-                "value": "404"
+                "value": "415"
             },
             {
                 "label": "Albinauric Bow",
-                "value": 405
+                "value": 416
             },
             {
                 "label": "Horn Bow",
-                "value": 406
+                "value": 417
             },
             {
                 "label": "Erdtree Bow",
-                "value": 407
+                "value": 418
             },
             {
                 "label": "Serpent Bow",
-                "value": 408
+                "value": 419
             },
             {
                 "label": "Pulley Bow",
-                "value": 409
+                "value": 420
             },
             {
                 "label": "Black Bow",
-                "value": 410
+                "value": 421
             }
         ]
     },
@@ -1809,19 +1853,19 @@
         "options": [
             {
                 "label": "Lion Greatbow",
-                "value": "411"
+                "value": "422"
             },
             {
                 "label": "Golem Greatbow",
-                "value": 412
+                "value": 423
             },
             {
                 "label": "Erdtree Greatbow",
-                "value": 413
+                "value": 424
             },
             {
                 "label": "Greatbow",
-                "value": 414
+                "value": 425
             }
         ]
     },
@@ -1830,31 +1874,31 @@
         "options": [
             {
                 "label": "Soldier's Crossbow",
-                "value": "415"
+                "value": "426"
             },
             {
                 "label": "Light Crossbow",
-                "value": 416
+                "value": 427
             },
             {
                 "label": "Heavy Crossbow",
-                "value": 417
+                "value": 428
             },
             {
                 "label": "Pulley Crossbow",
-                "value": 418
+                "value": 429
             },
             {
                 "label": "Full Moon Crossbow",
-                "value": 419
+                "value": 430
             },
             {
                 "label": "Arbalest",
-                "value": 420
+                "value": 431
             },
             {
                 "label": "Crepus's Black-Key Crossbow",
-                "value": 421
+                "value": 432
             }
         ]
     },
@@ -1863,11 +1907,11 @@
         "options": [
             {
                 "label": "Hand Ballista",
-                "value": "422"
+                "value": "433"
             },
             {
                 "label": "Jar Cannon",
-                "value": 423
+                "value": 434
             }
         ]
     },
@@ -1876,131 +1920,131 @@
         "options": [
             {
                 "label": "Arrow",
-                "value": "424"
+                "value": "435"
             },
             {
                 "label": "Fire Arrow",
-                "value": 425
-            },
-            {
-                "label": "Serpent Arrow",
-                "value": 426
-            },
-            {
-                "label": "Bone Arrow (Fletched)",
-                "value": 427
-            },
-            {
-                "label": "St. Trina's Arrow",
-                "value": 428
-            },
-            {
-                "label": "Shattershard Arrow (Fletched)",
-                "value": 429
-            },
-            {
-                "label": "Rainbow Stone Arrow (Fletched)",
-                "value": 430
-            },
-            {
-                "label": "Golden Arrow",
-                "value": 431
-            },
-            {
-                "label": "Dwelling Arrow",
-                "value": 432
-            },
-            {
-                "label": "Bone Arrow",
-                "value": 433
-            },
-            {
-                "label": "Firebone Arrow (Fletched)",
-                "value": 434
-            },
-            {
-                "label": "Firebone Arrow",
-                "value": 435
-            },
-            {
-                "label": "Poisonbone Arrow (Fletched)",
                 "value": 436
             },
             {
-                "label": "Poisonbone Arrow",
+                "label": "Serpent Arrow",
                 "value": 437
             },
             {
-                "label": "Sleepbone Arrow (Fletched)",
+                "label": "Bone Arrow (Fletched)",
                 "value": 438
             },
             {
-                "label": "Sleepbone Arrow",
+                "label": "St. Trina's Arrow",
                 "value": 439
             },
             {
-                "label": "Stormwing Bone Arrow",
+                "label": "Shattershard Arrow (Fletched)",
                 "value": 440
             },
             {
-                "label": "Lightningbone Arrow (Fletched)",
+                "label": "Rainbow Stone Arrow (Fletched)",
                 "value": 441
             },
             {
-                "label": "Lightningbone Arrow",
+                "label": "Golden Arrow",
                 "value": 442
             },
             {
-                "label": "Rainbow Stone Arrow",
+                "label": "Dwelling Arrow",
                 "value": 443
             },
             {
-                "label": "Shattershard Arrow",
+                "label": "Bone Arrow",
                 "value": 444
             },
             {
-                "label": "Spiritflame Arrow",
+                "label": "Firebone Arrow (Fletched)",
                 "value": 445
             },
             {
-                "label": "Magicbone Arrow (Fletched)",
+                "label": "Firebone Arrow",
                 "value": 446
             },
             {
-                "label": "Magicbone Arrow",
+                "label": "Poisonbone Arrow (Fletched)",
                 "value": 447
             },
             {
-                "label": "Haligbone Arrow (Fletched)",
+                "label": "Poisonbone Arrow",
                 "value": 448
             },
             {
-                "label": "Haligbone Arrow",
+                "label": "Sleepbone Arrow (Fletched)",
                 "value": 449
             },
             {
-                "label": "Bloodbone Arrow (Fletched)",
+                "label": "Sleepbone Arrow",
                 "value": 450
             },
             {
-                "label": "Bloodbone Arrow",
+                "label": "Stormwing Bone Arrow",
                 "value": 451
             },
             {
-                "label": "Coldbone Arrow (Fletched)",
+                "label": "Lightningbone Arrow (Fletched)",
                 "value": 452
             },
             {
-                "label": "Coldbone Arrow",
+                "label": "Lightningbone Arrow",
                 "value": 453
             },
             {
-                "label": "Rotbone Arrow (Fletched)",
+                "label": "Rainbow Stone Arrow",
                 "value": 454
             },
             {
-                "label": "Rotbone Arrow",
+                "label": "Shattershard Arrow",
                 "value": 455
+            },
+            {
+                "label": "Spiritflame Arrow",
+                "value": 456
+            },
+            {
+                "label": "Magicbone Arrow (Fletched)",
+                "value": 457
+            },
+            {
+                "label": "Magicbone Arrow",
+                "value": 458
+            },
+            {
+                "label": "Haligbone Arrow (Fletched)",
+                "value": 459
+            },
+            {
+                "label": "Haligbone Arrow",
+                "value": 460
+            },
+            {
+                "label": "Bloodbone Arrow (Fletched)",
+                "value": 461
+            },
+            {
+                "label": "Bloodbone Arrow",
+                "value": 462
+            },
+            {
+                "label": "Coldbone Arrow (Fletched)",
+                "value": 463
+            },
+            {
+                "label": "Coldbone Arrow",
+                "value": 464
+            },
+            {
+                "label": "Rotbone Arrow (Fletched)",
+                "value": 465
+            },
+            {
+                "label": "Rotbone Arrow",
+                "value": 466
             }
         ]
     },
@@ -2009,31 +2053,31 @@
         "options": [
             {
                 "label": "Great Arrow",
-                "value": "456"
+                "value": "467"
             },
             {
                 "label": "Golem's Great Arrow",
-                "value": 457
+                "value": 468
             },
             {
                 "label": "Golden Great Arrow",
-                "value": 458
+                "value": 469
             },
             {
                 "label": "Golem's Magic Arrow",
-                "value": 459
+                "value": 470
             },
             {
                 "label": "Radahn's Spear",
-                "value": 460
+                "value": 471
             },
             {
                 "label": "Bone Great Arrow (Fletched)",
-                "value": 461
+                "value": 472
             },
             {
                 "label": "Bone Great Arrow",
-                "value": 462
+                "value": 473
             }
         ]
     },
@@ -2042,83 +2086,83 @@
         "options": [
             {
                 "label": "Bolt",
-                "value": "463"
+                "value": "474"
             },
             {
                 "label": "Lightning Bolt",
-                "value": 464
-            },
-            {
-                "label": "Perfumer's Bolt",
-                "value": 465
-            },
-            {
-                "label": "Black-Key Bolt",
-                "value": 466
-            },
-            {
-                "label": "Burred Bolt",
-                "value": 467
-            },
-            {
-                "label": "Meteor Bolt",
-                "value": 468
-            },
-            {
-                "label": "Explosive Bolt",
-                "value": 469
-            },
-            {
-                "label": "Golden Bolt",
-                "value": 470
-            },
-            {
-                "label": "Lordsworn's Bolt",
-                "value": 471
-            },
-            {
-                "label": "Bone Bolt",
-                "value": 472
-            },
-            {
-                "label": "Firebone Bolt",
-                "value": 473
-            },
-            {
-                "label": "Lightningbone Bolt",
-                "value": 474
-            },
-            {
-                "label": "Magicbone Bolt",
                 "value": 475
             },
             {
-                "label": "Haligbone Bolt",
+                "label": "Perfumer's Bolt",
                 "value": 476
             },
             {
-                "label": "Poisonbone Bolt",
+                "label": "Black-Key Bolt",
                 "value": 477
             },
             {
-                "label": "Bloodbone Bolt",
+                "label": "Burred Bolt",
                 "value": 478
             },
             {
-                "label": "Coldbone Bolt",
+                "label": "Meteor Bolt",
                 "value": 479
             },
             {
-                "label": "Rotbone Bolt",
+                "label": "Explosive Bolt",
                 "value": 480
             },
             {
-                "label": "Sleepbone Bolt",
+                "label": "Golden Bolt",
                 "value": 481
             },
             {
-                "label": "Flaming Bolt",
+                "label": "Lordsworn's Bolt",
                 "value": 482
+            },
+            {
+                "label": "Bone Bolt",
+                "value": 483
+            },
+            {
+                "label": "Firebone Bolt",
+                "value": 484
+            },
+            {
+                "label": "Lightningbone Bolt",
+                "value": 485
+            },
+            {
+                "label": "Magicbone Bolt",
+                "value": 486
+            },
+            {
+                "label": "Haligbone Bolt",
+                "value": 487
+            },
+            {
+                "label": "Poisonbone Bolt",
+                "value": 488
+            },
+            {
+                "label": "Bloodbone Bolt",
+                "value": 489
+            },
+            {
+                "label": "Coldbone Bolt",
+                "value": 490
+            },
+            {
+                "label": "Rotbone Bolt",
+                "value": 491
+            },
+            {
+                "label": "Sleepbone Bolt",
+                "value": 492
+            },
+            {
+                "label": "Flaming Bolt",
+                "value": 493
             }
         ]
     },
@@ -2127,19 +2171,19 @@
         "options": [
             {
                 "label": "Ballista Bolt",
-                "value": "483"
+                "value": "494"
             },
             {
                 "label": "Lightning Greatbolt",
-                "value": 484
+                "value": 495
             },
             {
                 "label": "Explosive Greatbolt",
-                "value": 485
+                "value": 496
             },
             {
                 "label": "Bone Ballista Bolt",
-                "value": 486
+                "value": 497
             }
         ]
     }
