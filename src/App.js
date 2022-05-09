@@ -13,6 +13,9 @@ function App() {
             <Link to="/">Home</Link> |{" "}
             <Link to="/elden-ring-ar-calculator">Weapons</Link> |{" "}
             <Link to="/armor-optimizer">Armor Optimizer</Link>
+            <h1>NEW WEBSITE: <a href="https://www.tarnished.dev/">https://www.tarnished.dev/</a></h1>
+            <h2>Includes updated UI, items / arrows added to weapon AR calc, and exclusion list for armor optimizer.</h2>
+            <h3>This site will eventually be taken down and redirected to the new site. Thanks!</h3>
             <InputStats />
             <Outlet />
             <div className='extra-spacing'>
